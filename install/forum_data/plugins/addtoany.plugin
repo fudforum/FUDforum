@@ -1,0 +1,99 @@
+<?php
+/**
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('COMPILER_INJECT', 'plugin_addtoany');
+
+function plugin_addtoany($array) {
+	list($tmpl, $name) = $array;
+
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'addtoany.ini') === false) {
+		die('ERROR: Please configure the AddToAny plugin from the Plugin Manager Control panel.');
+	}
+
+	$addtoany_code = '
+<div class="a2a_kit a2a_kit_size_'. $ini['ADDTOANY_BUTTON_SIZE'] .' a2a_default_style" style="'. $ini['ADDTOANY_ALIGN'] .'; clear:right;">
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_whatsapp"></a>
+    <a class="a2a_dd"></a>
+</div>
+<script async="async" src="https://static.addtoany.com/menu/page.js"></script>
+';
+
+	if ($name == $ini['ADDTOANY_POS']) {
+		$tmpl .= $addtoany_code;
+	}
+
+	return array($tmpl, $name);
+}
+
+function addtoany_enable() {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'addtoany.ini') === false) {
+		return array(null, 'Please configure the AddToAny plugin before enabling it.');	// OK, Err.
+	}
+	@define('REBUILD_THEMES', 1);
+}
+
+function addtoany_disable() {
+	@define('REBUILD_THEMES', 1);
+}
+
+function addtoany_info() {
+	return array('name' => 'AddToAny',
+				'desc' => 'Show Social Bookmarking Widgets from AddToAny.com next to forum posts. This will allow visitors to bookmark and share your site easily with several popular services.',
+				'cat'  => 'Third-party Integration',
+				'version' => '1.0');
+}
+
+function addtoany_config() {
+	$vars = array('ADDTOANY_POS', 'ADDTOANY_ALIGN', 'ADDTOANY_BUTTON_SIZE');
+	
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'addtoany.ini') === false) {
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'addtoany.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+		compile_themes();
+	}
+	?>
+<p>Display position:<br />
+<select name="ADDTOANY_POS">
+<option value="after_topic"  <?php if($ini['ADDTOANY_POS']=='after_topic' ) echo 'selected="selected"'; ?>>After topic</option>
+<option value="before_topic" <?php if($ini['ADDTOANY_POS']=='before_topic') echo 'selected="selected"'; ?>>Before topic</option>
+</select></p>
+
+<p>Horizontal alignment:<br />
+<select name="ADDTOANY_ALIGN">
+<option value="float:left"                 <?php if($ini['ADDTOANY_ALIGN']=='float:left')                 echo 'selected="selected"'; ?>>Float left</option>
+<option value="float:right"                <?php if($ini['ADDTOANY_ALIGN']=='float:right')                echo 'selected="selected"'; ?>>Float right</option>
+<option value="width:354px; margin:0 auto" <?php if($ini['ADDTOANY_ALIGN']=='width:354px; margin:0 auto') echo 'selected="selected"'; ?>>Center</option>
+</select></p>
+
+<p>Button sizes:<br />
+<select name="ADDTOANY_BUTTON_SIZE">
+<option value="16" <?php if($ini['ADDTOANY_BUTTON_SIZE']=='16') echo 'selected="selected"'; ?>>Small (16x16)</option>
+<option value="32" <?php if($ini['ADDTOANY_BUTTON_SIZE']=='32') echo 'selected="selected"'; ?>>Medium (32x32)</option>
+<option value="64" <?php if($ini['ADDTOANY_BUTTON_SIZE']=='64') echo 'selected="selected"'; ?>>Large (64x64)</option>
+</select></p>
+
+	<?php
+}
+

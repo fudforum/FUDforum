@@ -1002,7 +1002,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 	}
 
-	/* Drop old tables that is not used anymore. */
+	/* Drop old tables that is not used any more. */
 	if (isset($db_tables[$DBHOST_TBL_PREFIX .'mod_que'])) {	// Table removed from 3.0.2.
 		pf('Drop unused database table '. $DBHOST_TBL_PREFIX .'mod_que.');
 		drop_table($DBHOST_TBL_PREFIX .'mod_que');
@@ -1125,7 +1125,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			    'google_cdn.plugin',       // Moved to subdir 'google/' in 3.0.5
 			    'youtube_tag.plugin', // Moved to video_tags.plugin in 3.0.5
 			    'recaptcha/recaptchalib.php', // Not needed for reCAPTCHA v2 in 3.0.9
-			    'ie6_update.plugin'); // Removed in 3.1.0
+			    'ie6_update.plugin', // Removed in 3.1.0
+			    'addthis.plugin'); // Removed in 3.1.4, service terminated as of 21 May '23
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
@@ -1142,7 +1143,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 		}
 	}
 
-	/* Updata DB with new plugin locations. */
+	/* Update DB with new plugin locations. */
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'apccache.plugin\' WHERE name = \'apc_cache.plugin\'');
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'ircbot/ircbot.plugin\' WHERE name = \'irc.plugin\'');
 	q('UPDATE '. $DBHOST_TBL_PREFIX .'plugins SET name = \'google/google_analytics.plugin\' WHERE name = \'google_analytics.plugin\'');
