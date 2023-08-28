@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -55,19 +55,21 @@ function ircbot_info() {
 	             'desc' => 'This plugin is used to announce new topics and replies on an IRC channel.<br /><br />
 				NOTE: This plugin does not work on Windows! Also, it does not work in isolation, but requires you to also schedule "ircbot.php" to run from the <a href="admjobs.php?'. __adm_rsid .'">Job Manager</a> (say once a day, just to restart it when terminated).',
 		     'cat'  => 'Third-party Integration',
-	             'version' => '1.1');
+	             'version' => '1.2');
 }
 
 function ircbot_config() {
+	$vars = array('IRCBOT_HOST', 'IRCBOT_USESSL', 'IRCBOT_PORT', 'IRCBOT_NICK', 'IRCBOT_GECOS', 'IRCBOT_CHANNEL', 'IRCBOT_NICKSERVPASS');
+
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'/ircbot/ircbot.ini') === false) {
-		$ini = NULL;
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
 	}
 
 	if (isset($_POST['Set'])) {
-		foreach (array_keys($_POST) as $key) {
-			if (substr($key, 0, 7) == 'IRCBOT_') {
-				$ini[$key] = $_POST[$key];
-			}
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
 		}
 		if ($ini['IRCBOT_CHANNEL'][0] != '#') {
 			pf(errorify('Please enter a valid channel name, like #fudforum'));

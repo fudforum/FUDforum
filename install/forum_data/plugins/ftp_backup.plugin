@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -53,19 +53,21 @@ function ftp_backup_info() {
 	return array('name' => 'FTP Backup',
 		     'desc' => 'FTP forum dumps to a backup server. Handy for storing backups off-site.',
 		     'cat'  => 'Third-party Integration',
-		     'version' => '1.0');
+		     'version' => '1.1');
 }
 
 function ftp_backup_config() {
+	$vars = array('FTP_SERVER', 'FTP_USER', 'FTP_PASS', 'FTP_DIR');
+
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini') === false) {
-		$ini = NULL;
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
 	}
 
 	if (isset($_POST['Set'])) {
-		foreach (array_keys($_POST) as $key) {
-			if (substr($key,0,4) == 'FTP_') {
-				$ini[$key] = $_POST[$key];
-			}
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
 		}
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'ftp_backup.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1).'; ?>');

@@ -63,20 +63,21 @@ function telegram_info() {
 	return array('name' => 'Telegram',
 	             'desc' => 'This plugin is used to post new forum posts on a Telegram channel.',
 		     'cat'  => 'Third-party Integration',
-	             'version' => '0.1');
+	             'version' => '1.1');
 }
 
 function telegram_config() {
+	$vars = array('TELEGRAM_TOKEN', 'TELEGRAM_CHATID');
+
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'telegram.ini') === false) {
-		$ini['TELEGRAM_TOKEN'] = null;
-		$ini['TELEGRAM_CHATID'] = null;
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
 	}
 
 	if (isset($_POST['Set'])) {
-		foreach (array_keys($_POST) as $key) {
-			if (substr($key, 0, 9) == 'TELEGRAM_') {
-				$ini[$key] = $_POST[$key];
-			}
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
 		}
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'telegram.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -78,7 +78,7 @@ function openid_info() {
 	return array('name' => 'OpenID Authentication',
 	             'desc' => 'Authenticate forum users by OpenID provider. NOTE: This plugin is provided for demonstration purposes only and will probably only work aginst Google.',
 		     'cat'  => 'Authentication',
-	             'version' => '1.0');
+	             'version' => '1.1');
 }
 
 function openid_enable() {
@@ -91,15 +91,17 @@ function openid_enable() {
 }
 
 function openid_config() {
+	$vars = array('OPENID_PROVIDER');
+
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini') === false) {
-		$ini = NULL;
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
 	}
 
 	if (isset($_POST['Set'])) {
-		foreach (array_keys($_POST) as $key) {
-			if (substr($key,0,7) == 'OPENID_') {
-				$ini[$key] = $_POST[$key];
-			}
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
 		}
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/openid/openid.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');

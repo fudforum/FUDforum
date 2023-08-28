@@ -37,7 +37,7 @@ function plugin_welcome_pm($usr) {
 function welcome_pm_info() {
 	return array('name' => 'Welcome Private Message',
 	             'desc' => 'This plugin, if enabled, will send a welcome PM (private message) to users when they confirm their E-mail addresses.',
-		     'version' => '1.2');
+		     'version' => '1.3');
 }
 
 function welcome_pm_enable() {
@@ -47,15 +47,17 @@ function welcome_pm_enable() {
 }
 
 function welcome_pm_config() {
+	$vars = array('WELCOME_SUBJECT', 'WELCOME_BODY');
+
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'welcome_pm.ini') === false) {
-	  $ini = NULL;
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
 	}
 
 	if (isset($_POST['Set'])) {
-		foreach (array_keys($_POST) as $key) {
-			if (substr($key,0,8) == 'WELCOME_') {
-				$ini[$key] = $_POST[$key];
-			}
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
 		}
 		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'/welcome_pm.ini', 'w');
 		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');

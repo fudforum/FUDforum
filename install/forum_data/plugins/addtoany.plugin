@@ -56,7 +56,7 @@ function addtoany_info() {
 
 function addtoany_config() {
 	$vars = array('ADDTOANY_POS', 'ADDTOANY_ALIGN', 'ADDTOANY_BUTTON_SIZE');
-	
+
 	if ((@include $GLOBALS['PLUGIN_PATH'] .'addtoany.ini') === false) {
 		foreach ($vars as $v) {
 			$ini[$v] = '';
