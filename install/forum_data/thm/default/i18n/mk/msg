@@ -6,6 +6,7 @@
 # Author: Naudefj
 # Author: Violetova
 # Author: Vlad5250
+# Author: З. ӘЙЛЕ
 
 action:Дејство
 add_to_buddy_list:додај во списокот на пријатели
@@ -258,7 +259,7 @@ month_4:Април
 month_5:Мај
 month_6:Јуни
 month_7:Јули
-month_8:Август
+month_8:август
 month_9:Септември
 month_10:Октомври
 month_11:Ноември
