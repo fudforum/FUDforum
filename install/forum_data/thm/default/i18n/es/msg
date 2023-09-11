@@ -1,6 +1,7 @@
 # Messages for Spanish (español)
 # Exported from translatewiki.net
 # Author: Armando-Martin
+# Author: Atzerritik
 # Author: Avengium
 # Author: Crazymadlover
 # Author: Dalton2
@@ -401,8 +402,7 @@ post_color:Color
 post_font:Tipo de letra
 create_thread:Crear hilo de discusión
 submit_reply:Enviar respuesta
-# Fuzzy
-edit_message:Editar mensaje
+edit_message:Aplicar cambios
 apply_spell_changes:Aplicar los cambios del corrector ortográfico
 post_preview:Vista previa del mensaje
 post_logedin_user:Usuario introducido:
@@ -647,8 +647,7 @@ post_err_lockedthread_msg:Este hilo de discusión esta bloqueado, no se permiten
 err_coppa_title:ERROR: Su cuenta aún no ha sido confirmada
 err_coppa_msg:No hemos recibido una confirmación de su padre y/o tutor legal, la cual te permitiría publicar mensajes. Si perdiste tu formulario COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">míralo de nuevo</a>.
 err_banned_acct_title:ERROR: Ha sido expulsado.
-# Fuzzy
-err_banned_acct_msg:Su cuenta tenía el acceso restringido {IF: $ban_expiry}temporalmente hasta {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanentemente{ENDI} al sitio, debido a una violación de las reglas del foro.
+err_banned_acct_msg:Su cuenta tenía el acceso restringido {IF: $ban_expiry}temporalmente hasta {TEMPLATE: ban_expiry_date}{ELSE}permanentemente{ENDI} al sitio, debido a una violación de las reglas del foro.
 post_err_edttimelimit_title:ERROR
 post_err_edttimelimit_msg:Ya no puede editar este mensaje
 post_err_noannontopics_msg2:<legend>ERROR: Privilegios insuficientes</legend>Los usuarios anónimos no tienen permiso para crear hilos.
@@ -737,7 +736,6 @@ error_title:Formulario de error
 index_title:Bienvenido al foro
 search_title:Buscar {VAR-HTML: srch}
 remail_emailsent:Se ha enviado el mensaje de correo
-# Fuzzy
 remail_email:Hola,\n\nHay un tema interesante sobre "{VAR: data->subject}" en el foro {GVAR: FORUM_TITLE} que puedes desear leer. Puedes ver el tema en:\n  {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Agregar opción:
 post_opt_html_on:El código <b>HTML</b> está <b>ACTIVADO</b>
@@ -981,8 +979,7 @@ group_resources:Este grupo controla los permisos de los foros siguientes
 register_admin_newuser_title:Se ha registrado un usuario nuevo y su cuenta está pendiente de confirmación
 register_admin_newuser_msg:Un usuario nuevo, ({VAR: uent->login}), acaba de registrarse en los foros, y como está activada la confirmación de la cuenta, su cuenta no estará activa hasta que tú u otro administrador de los foros la confirme. Para revisar la cuenta, visita: {FULL_ROOT}adm/admuserapr.php\n\nEste es un proceso automatizado. No respondas a este mensaje.\nPara desactivar futuras notificaciones de registro de usuarios nuevos, puedes hacerlo a través del Panel de control de administración, al cambiar el valor de la opción «Notificación de cuentas nuevas».
 post_mod_msg_notify_title:Un nuevo mensaje en los foros con el asunto "{VAR: frm->name}" está pendiente de aprobación
-# Fuzzy
-post_mod_msg_notify_msg:Un nuevo mensaje titulado "{VAR: msg_post->subject}" acaba de ser enviado a un foro que usted modera. Para revisar este mensaje, vaya a: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nEste es un proceso automático, así que no responda a este mensaje.
+post_mod_msg_notify_msg:Un nuevo mensaje titulado "{VAR: msg_post->subject}" acaba de ser publicado en un foro que usted modera. Para revisar este mensaje vaya a: {FULL_ROOT}?t=modque#{VAR: msg_post->id} \n\nEste es un proceso automatizado. No responda a este mensaje.
 thread_printable_pdf:Generar PDF imprimible
 thread_syndicate:Leer este foro con lector un RSS (XML)
 reg_conf_title:Confirmación del registro
@@ -1008,8 +1005,7 @@ mnav_month:Mes(es)
 mnav_title:Navegador de mensajes
 mnav_update:Examinar mensajes usando el <a href="{TEMPLATE: mnav_update_lnk}">Navegador de mensajes</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notificación de nuevo mensaje privado
-# Fuzzy
-pm_notify_body_email:Tiene un nuevo mensaje privado titulado "{VAR: subject}" de "{VAR: from}" en el foro "{GVAR: FORUM_TITLE}".\nPara ver el mensaje, pulse el enlace siguiente: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nPara evitar notificaciones futuras desactive "Notificar mensajes privados" en su perfil.
+pm_notify_body_email:Tiene un nuevo mensaje privado titulado "{VAR: subject}", de "{VAR: from}", en el foro "{GVAR: FORUM_TITLE}". \nPara ver el mensaje, haga clic aquí: {FULL_ROOT}?t=pmsg_view&id={VAR: pid} \n\nPara detener futuras notificaciones, deshable "Notificación de mensaje privado" en su perfil.
 register_pm_notification:Notificación de mensajes privados:
 register_pm_notification_desc:Si está activado, se le notificará por el método de notificación elegido cuando se le envíe un mensaje privado.
 findu_admin_opts_header:Opciones de administración
@@ -1095,8 +1091,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERROR: Su cuenta ha sido filtrada.
 err_blockedaccnt_msg:Su cuenta ha sido bloqueada por uno de los filtros de usuario instalados.
 merge_th_page_list:Seleccionar la página del hilo
-# Fuzzy
-most_users_online:La mayor cantidad de usuarios en línea fue <b>{VAR: st_obj->most_online}</b>, el <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:La mayoría de los usuarios que han estado en línea se encontraban en {VAR: st_obj->most_online} en {TEMPLATE: most_online_time}
 sub_unsub_all_forums:Desuscribir de todos los foros
 sub_unsub_all_topics:Desuscribir de todos los hilos
 unbookmark_all_topics:Eliminar todos los marcadores

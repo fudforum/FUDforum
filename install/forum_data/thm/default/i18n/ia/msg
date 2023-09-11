@@ -138,11 +138,11 @@ reveal_all_posts:revelar tote le messages de {VAR: user_login}
 reveal_post:revelar message
 search:Cercar
 sel_todays_posts:Le messages de hodie
-sel_todays_posts_desc:Alternar le filtro del messages de hodie (monstra solmente messages scribite hodie)
+sel_todays_posts_desc:Commutar le filtro del messages de hodie (monstra solmente messages scribite hodie)
 sel_unanswered_posts:Messages sin responsa
-sel_unanswered_posts_desc:Alternar le filtro de messages sin responsa (monstra solmente messages al quales nemo ha respondite)
+sel_unanswered_posts_desc:Commutar le filtro de messages sin responsa (monstra solmente messages al quales nemo ha respondite)
 sel_unread_messages:Messages non legite
-sel_unread_messages_desc:Alternar le filtro de messages non legite (monstra solmente messages que tu non ha ancora legite)
+sel_unread_messages_desc:Commutar le filtro de messages non legite (monstra solmente messages que tu non ha ancora legite)
 send:Inviar
 send_pm_desc:Inviar un message private a iste usator
 sender_email:E-mail del expeditor:
@@ -161,9 +161,9 @@ subject:Subjecto
 subscribe:Subscriber
 subscribe_desc:Reciper notification quando alcuno crea un nove topico in iste foro
 subscribed_forums:Foros subscribite
-subscribed_forums_desc:Alternar le filtro de foros subscribite (monstra solmente messages del foros al quales tu es subscribite)
+subscribed_forums_desc:Commutar le filtro de foros subscribite (monstra solmente messages del foros al quales tu es subscribite)
 subscribed_threads:Topicos subscribite
-subscribed_threads_desc:Alternar le filtro de topicos subscribite (monstra solmente messages del topicos al quales tu es subscribite)
+subscribed_threads_desc:Commutar le filtro de topicos subscribite (monstra solmente messages del topicos al quales tu es subscribite)
 bookmarked_threads:Topicos favorite
 switch_to_thread_view:Cambiar al vista arborescente de iste topico
 thread:Topico:
@@ -853,7 +853,7 @@ report_already_reported_msg:Iste message esseva ja reportate e le reporto es act
 register_err_toomanyimages:Tu tenta usar plus del {GVAR: FORUM_IMG_CNT_SIG} imagines permittite in tu signatura.
 pmsg_next_msg:Message sequente
 pmsg_prev_msg:Message precedente
-post_proc_reveal_spoiler:Alternar spoiler
+post_proc_reveal_spoiler:Commutar spoiler
 register_jabber:Pseudonymo de Jabber:
 register_skype:Pseudonymo de Skype:
 register_twitter:Pseudonymo de Twitter:
