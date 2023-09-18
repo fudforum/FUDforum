@@ -386,8 +386,7 @@ post_color:Liv
 post_font:Font
 create_thread:Krouiñ ur gaoz
 submit_reply:Respont
-# Fuzzy
-edit_message:Arloañ kemmoù ar gemennadenn
+edit_message:Lakaat ar c'hemmoù da dalvezout
 apply_spell_changes:Arloañ ar c'hemmoù reizhskrivadur
 post_preview:Rakwelet ar gemennadenn
 post_logedin_user:Implijer kevreet :
@@ -1055,6 +1054,7 @@ search_options:Dibarzhioù klask
 search_user_filter:Silañ dre implijer :
 register_none:Chom hep kemenn din
 findu_no_conf:implijer n'eo ket kadarnaet
+findu_banned:implijer stanket
 register_max_sig_len:Hirded vrasañ :
 register_turing:Gwiriañ :
 register_err_turing:Gwiriekadur c'hwitet. Klaskit en-dro mar plij.
