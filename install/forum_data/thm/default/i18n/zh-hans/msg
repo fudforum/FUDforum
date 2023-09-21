@@ -12,6 +12,7 @@
 # Author: Hzy980512
 # Author: LNDDYL
 # Author: Liangent
+# Author: LittlePaw365
 # Author: Liuxinyu970226
 # Author: Naudefj
 # Author: NeverBehave
@@ -49,7 +50,7 @@ email_user:向用户发送一封电子邮件消息
 faq:帮助
 first_unread_msg:转入未读的帖子
 first_unread_msg_desc:转入本主题第一个未读帖子
-flat_view:返回至默认浏览方式
+flat_view:返回默认平面视图
 forum:论坛：
 forum_icon:论坛图标
 forum_new_messages:新消息
@@ -230,7 +231,7 @@ reported_on:在：
 reported_reported_by:报告者：
 reported_reported_msg:报告相关内容
 modque_pending_approval:等待批复的信息
-modque_approve:通过
+modque_approve:批准
 modque_delete:删除
 modque_deleteall:删除来自用户的一切
 modque_no_message:没有需要批复的信息

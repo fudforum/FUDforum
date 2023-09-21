@@ -398,8 +398,7 @@ post_color:Cor
 post_font:Fonte
 create_thread:Criar Tópico
 submit_reply:Submeter resposta
-# Fuzzy
-edit_message:Aplicar Alterações nas Mensagens
+edit_message:Aplicar Alterações
 apply_spell_changes:Aplicar Alterações de ortografia
 post_preview:Visualizar o Post
 post_logedin_user:Membro Logado:
@@ -436,6 +435,7 @@ post_title:Título:
 post_body:Corpo:
 post_options:Opções:
 post_preview_btn:Visualizar mensagem
+post_diff_btn:Mostrar diferenças
 post_cancel_btn:Cancelar
 ignore_users:Usuários ignorados
 add_ignore:Adicionar ignorados
@@ -1067,6 +1067,7 @@ search_options:Opções de procura
 search_user_filter:Filtrar por usuário:
 register_none:Não me notificar
 findu_no_conf:usuário não confirmado
+findu_banned:usuário banido
 register_max_sig_len:Comprimento máximo:
 register_turing:Verificação:
 register_err_turing:A verificação falhou. Tente novamente, por favor.
@@ -1130,8 +1131,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você precisará reconhecer o texto nesta imagem.
 captcha_img_help:Não há zero ou um na imagem.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Direitos autorais &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Direitos autorais &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar/esconder
