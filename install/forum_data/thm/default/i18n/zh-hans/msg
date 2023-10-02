@@ -231,7 +231,7 @@ reported_on:在：
 reported_reported_by:报告者：
 reported_reported_msg:报告相关内容
 modque_pending_approval:等待批复的信息
-modque_approve:批准
+modque_approve:核准
 modque_delete:删除
 modque_deleteall:删除来自用户的一切
 modque_no_message:没有需要批复的信息
@@ -753,7 +753,7 @@ post_opt_smilies_off:<b>表情符号</b>：<b>关闭</b>
 post_opt:论坛选项：
 register_change_passwd:更改密码
 register_change_login:更改登录信息
-approved_avatar_title:您定制的头像已被管理员批准。
+approved_avatar_title:您的自定义头像已获核准。
 approved_avatar_msg:你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
 unapproved_avatar_title:您自定义的头像被拒绝。
 unapproved_avatar_msg:系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
