@@ -14,6 +14,7 @@
 # Author: Kghbln
 # Author: Killarnee
 # Author: Luke081515
+# Author: Magiczocker
 # Author: McDutchie
 # Author: Metalhead64
 # Author: Mirzali
@@ -402,7 +403,6 @@ post_color:Farbe
 post_font:Schriftart
 create_thread:Thema erstellen
 submit_reply:Antwort abschicken
-# Fuzzy
 edit_message:Änderungen übernehmen
 apply_spell_changes:Rechtschreibkorrektur anwenden
 post_preview:Beitragsvorschau
@@ -440,6 +440,7 @@ post_title:Titel:
 post_body:Inhalt:
 post_options:Optionen:
 post_preview_btn:Beitragsvorschau
+post_diff_btn:Änderungen anzeigen
 post_cancel_btn:Abbrechen
 ignore_users:Ignorierte Benutzer
 add_ignore:Benutzer zur Ignorierliste hinzufügen
@@ -1071,6 +1072,7 @@ search_options:Suchoptionen
 search_user_filter:Nach Benutzer filtern:
 register_none:Nicht benachrichtigen
 findu_no_conf:unbestätigter Benutzer
+findu_banned:gesperrter Benutzer
 register_max_sig_len:Maximale Länge:
 register_turing:Verifizierung:
 register_err_turing:Verifizierung fehlgeschlagen. Bitte erneut versuchen.
