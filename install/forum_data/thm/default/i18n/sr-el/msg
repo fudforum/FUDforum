@@ -51,6 +51,7 @@ homepage:Početna stranica:
 icq_control_panel:Tabla prisutnih korisnika ICQ-a
 icq_message_form:Obrazac za poruke sa ICQ-a:
 ignore_user:ignoriši sve poruke ovog korisnika
+im_facebook:Fejsbuk:
 im_yahoo:Yahoo Messenger:
 image:Slika:
 index_forum:Forum
@@ -241,8 +242,7 @@ pmsg_forwarded:prosleđeno
 pmsg_subject:Tema
 pmsg_author:Autor
 pmsg_time:Vreme
-# Fuzzy
-pmsg_selected:Izabrano
+pmsg_selected:Izaberi
 pmsg_delete:Izbriši
 cur_ppage_pm:Privatne poruke
 writing_pm:Pisanje privatne poruke
@@ -339,6 +339,7 @@ register_occupation:Zanimanje:
 register_interests:Hobi:
 register_image:Slika:
 register_icq:ICQ:
+register_facebook:Fejsbuk ID:
 register_yahoo:Jahu mesendžer:
 register_homepage:Početna stranica:
 register_bday:Datum rođenja:
@@ -386,8 +387,7 @@ post_color:boja
 post_font:font
 create_thread:Napravi temu
 submit_reply:Pošalji odgovor
-# Fuzzy
-edit_message:Sačuvaj
+edit_message:Primeni izmene
 apply_spell_changes:Primeni pravopisne izmene
 post_preview:Pregled poruke
 post_logedin_user:Prijavljeni korisnik:
@@ -424,6 +424,7 @@ post_title:Naslov:
 post_body:Tekst:
 post_options:Postavke:
 post_preview_btn:Pregledaj
+post_diff_btn:Razlike izmena
 post_cancel_btn:Otkaži
 ignore_users:Zanemareni korisnici
 add_ignore:Zanemareni korisnici
@@ -443,7 +444,7 @@ coppa_fax_instructions:Uputstva za roditelja ili staratelja
 coppa_fax_instructions2:Odštampajte ovu stranicu, potpišite je i pošaljite nam je nazad faksom ili poštom.
 coppa_fax_reg_form:Otvaranje naloga
 coppa_fax_sign:Potpišite obrazac ispod i pošaljite nam ga
-coppa_fax_conf:Pogledah podatke koje mi je moje dete dalo i pročitah politiku privatnosti. Razumem da se podaci na profilu mogu promeniti putem lozinke i da se profil može obrisati na zahtev.
+coppa_fax_conf:Pogledao/la sam podatke koje mi je moje dete dalo i pročitao/la sam politiku privatnosti. Razumem da se podaci na profilu mogu promeniti putem lozinke i da se profil može izbrisati na zahtev.
 coppa_fax_permission:Potpišite ovde ako dajete dozvolu
 coppa_fax_no_permission:Potpišite ovde ako želite da zatvorite nalog
 coppa_fax_parent_name:Ime i prezime roditelja ili staratelja:
@@ -501,6 +502,7 @@ search_subject_only:samo naslov
 search_forum:Forum
 search_posted_on:Postavljeno
 search_no_results:Nema rezultata
+search_spell_suggestions:Da li ste mislili:
 search_all_forums:Pretraži sve forume
 search_in_forum:Pretraži u forumu:
 search_forum_search:Pretraga foruma
@@ -525,8 +527,7 @@ mklist_apply:Primeni
 mklist_delete:Izbriši
 qbud_nick_name:Nadimak
 qbud_add_selected:Dodaj izabrano
-# Fuzzy
-qbud_selected:Izabrano
+qbud_selected:Izaberi
 qbud_no_buddies:Nema prijatelja
 mklist_numerical:numerički
 mklist_aplha:alfa
@@ -632,8 +633,7 @@ post_err_lockedthread_msg:Ova tema je zaključana. Postavljanje poruka nije dozv
 err_coppa_title:Greška: vaš nalog još uvek nije potvrđen
 err_coppa_msg:Nismo primili potvrdu od vašeg roditelja ili staratelja koja vam daje pravo da postavljate poruke na forum. Ako ste izgubili COPPA obrazac, <a href="{TEMPLATE: err_coppa_msg_lnk}">pogledajte ga ponovo</a>.
 err_banned_acct_title:Greška: zabranjen vam je pristup.
-# Fuzzy
-err_banned_acct_msg:Vama je {IF: $ban_expiry}privremeno zabranjen pristup do {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}trajno zabranjen pristup{ENDI} zbog kršenja pravilnika.
+err_banned_acct_msg:Vama je {IF: $ban_expiry}privremeno zabranjen pristup do {TEMPLATE: ban_expiry_date}{ELSE}trajno zabranjen pristup sajtu{ENDI} zbog kršenja pravilnika.
 post_err_edttimelimit_title:Greška
 post_err_edttimelimit_msg:Ne možete da izmenite ovu poruku
 post_err_noannontopics_msg2:<legend>Greška: nedovoljno privilegija</legend>Anonimnim korisnicima nije dozvoljeno otvaranje tema.
@@ -899,17 +899,14 @@ polllist_votes:Ukupno glasova
 polllist_action:Radnja
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Pregledanje dostupnih anketa</a>
 userinfo_polls:Ankete:
-# Fuzzy
 show_pollist:Ankete
 search_and:I
 search_or:ILI
-# Fuzzy
-search_desc_order:opadajućem nizu
-# Fuzzy
-search_asc_order:rastućem nizu
+search_desc_order:prvo najnovije
+search_asc_order:prvo najstarije
+search_relevance_order:Relevantnost
 search_logic:Logika:
-# Fuzzy
-search_sorting:Poređaj rezultate u:
+search_sorting:Poređaj po:
 search_attach:Prilozi:
 search_attach_all:sa i bez priloga
 search_attach_with:sa prilozima
@@ -966,8 +963,7 @@ iemail_forum_unsub:Prekini nadgledanje ovog foruma
 primary_group_prefix:Glavna grupa foruma:
 group_resources:Ova grupa upravlja dozvolama sledećih foruma
 register_admin_newuser_title:Novi korisnik je otvorio nalog koji čeka na potvrdu
-# Fuzzy
-register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo otvorio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok ga ne potvrdi administrator. Za pregled naloga posetite: {FULL_ROOT}adm/admuserapr.php\n\nOvo je automatizovani proces. Ne odgovarajte na ovu poruku.\nAko želite da onemogućite obaveštenja o novim korisnicima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
+register_admin_newuser_msg:Novi korisnik ({VAR: uent->login}) je upravo otvorio nalog. S obzirom na to da je potvrda naloga omogućena, nalog neće biti aktivan dok ga ne potvrdi administrator. Za pregled naloga posetite: {BASE}adm/admuserapr.php\n\nOvo je automatizovani proces. Ne odgovarajte na ovu poruku.\nAko želite da onemogućite obaveštenja o novim korisnicima, promenite postavku „Obaveštenje o novim nalozima“ u administrativnom upravljačkom panelu.
 post_mod_msg_notify_title:Nova poruka u forumu „{VAR: frm->name}“ čeka na odobrenje
 post_mod_msg_notify_msg:Nova poruka pod nazivom „{VAR: msg_post->subject}“ je upravo postavljena na forum koji uređujete. Za pregled ove poruke posetite: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nOvo je automatizovana poruka. Ne odgovarajte na nju.
 thread_printable_pdf:Napravi PDF dokument
@@ -1060,6 +1056,7 @@ search_options:Postavke pretrage
 search_user_filter:Filtriraj po korisniku:
 register_none:ne obaveštavaj me
 findu_no_conf:nepotvrđen korisnik
+findu_banned:blokiran korisnik
 register_max_sig_len:Najveća dužina:
 register_turing:Verifikacija:
 register_err_turing:Verifikacija neuspešna. Pokušajte ponovo.
@@ -1081,8 +1078,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:Greška: vaš nalog je izbačen.
 err_blockedaccnt_msg:Vama je zabranjen pristup forumu zbog nekog od instaliranih korisničkih filtera.
 merge_th_page_list:Izbor stranice teme
-# Fuzzy
-most_users_online:Najviše korisnika na mreži bilo je <b>{VAR: st_obj->most_online}</b> u <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Najviše korisnika na mreži bilo je <b>{VAR: st_obj->most_online}</b> u <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Ukloni sve nadgledane forume
 sub_unsub_all_topics:Ukloni sve nadgledane teme
 unbookmark_all_topics:Ukloni sve zabeleške
@@ -1124,8 +1120,7 @@ move_msg_th_expl:Navedite IB odredišne teme (može biti i u drugim forumima)
 captcha_img_alt:Potvrdna slika: moraćete da prepoznate tekst na ovoj slici.
 captcha_img_help:Ne postoji nula ili jedinica na slici.
 powered-by:Pokreće FUDforum {GVAR: FORUM_VERSION}. Prevod: Rancher
-# Fuzzy
-copyright:Autorska prava &copy;2001–2021 <a href="http://fudforum.org/">FUDforum Bulletin Board</a>
+copyright:Autorska prava &copy;2001–2023 <a href="http://fudforum.org/">FUDforum Bulletin Board</a>
 code_title:Kod:
 code_select_all:Izaberi sve
 code_show_hide:Prikaži/sakrij
@@ -1163,10 +1158,10 @@ karma:Karma
 karma_track:Upravljanje ugledom korisnika:
 karma_delete:Izbriši
 rate_author:Ocena autora:
-blog_update:Čitanje forumskog portala
+blog_update:Čitanje bloga foruma
 blog:Blog
 blog_new_members:Novi članovi
-blog_new_posts:Skorašnje objave
+blog_new_posts:Nedavne objave
 blog_rated_posts:Najbolje ocenjeno
-blog_viewed_posts:Najviše pregledano
+blog_viewed_posts:Najviše prikazivano
 blog_comments:{PLURAL: topic->replies|$1 komentar|$1 komentara}

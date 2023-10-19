@@ -429,6 +429,7 @@ post_title:Наслов:
 post_body:Текст:
 post_options:Поставке:
 post_preview_btn:Прегледај
+post_diff_btn:Разлике измена
 post_cancel_btn:Откажи
 ignore_users:Занемарени корисници
 add_ignore:Занемарени корисници
@@ -1060,6 +1061,7 @@ search_options:Поставке претраге
 search_user_filter:Филтрирај по кориснику:
 register_none:не обавештавај ме
 findu_no_conf:непотврђен корисник
+findu_banned:блокиран корисник
 register_max_sig_len:Највећа дужина:
 register_turing:Верификација:
 register_err_turing:Верификација неуспешна. Покушајте поново.
