@@ -6,6 +6,7 @@
 # Author: Tifinaghes
 # Author: Tokvo
 # Author: Xuacu
+# Author: YoaR
 
 action:Aición
 add_to_buddy_list:amestar a la llista de collacios
@@ -180,7 +181,7 @@ un_ignore_user:dexar de saltar los mensaxes d'esti usuariu
 unanswered_posts:Mensaxes ensin responder
 unanswered_posts_desc:Amosar tolos mensaxes ensin denguna respuesta
 unlock_thread:Desbloquiar el filu
-unread_msg:Esti filu contien mensaxes qu'inda nun lleísti
+unread_msg:Esti filu contién mensaxes qu'inda nun lleísti
 unread_msg_locked:Filu candáu con mensaxes ensin lleer
 unread_posts:Mensaxes ensin lleer
 unread_posts_desc:Amosar tolos mensaxes ensin lleer
@@ -420,12 +421,12 @@ post_title:Títulu:
 post_body:Cuerpu:
 post_options:Opciones:
 post_preview_btn:Vista previa del mensaxe
-post_cancel_btn:Encaboxar
+post_cancel_btn:Zarrar
 ignore_users:Usuarios anubríos
 add_ignore:Anubrir al usuariu
 forum_terms:Términos del foru
 forum_rules:<p>¡El rexistru nesti foru ye de baldre! Insistimos en que cumplas les regles y polítiques que se detallen darréu. Si tas d'acuerdu colos términos, por favor, calca nel botón "<b>Aceuto</b>" al final de la páxina.</p><p>Por más que los alministradores y moderadores d'esti foru procurarán dexar tolos mensaxes inaceptables fuera del foru, ye imposible para nós revisalos toos. Tolos mensaxes espresen les opiniones del autor, y nin los propietarios del foru nin los desendolcadores son responsables del conteníu de cualquiera d'ellos.</p><p>Al calcar nel botón "Aceuto", garantices que nun publicarás dengún mensaxe con conteníu vulgar, sexual, que fomente l'odiu, amenazante o que vaya escontra cualquier llei.</p><p>Los propietarios d'esti foru tienen drechu a desaniciar, editar, treslladar o candar cualquier filu por cualquier motivu.</p>
-forum_rules_13:<p>Tolos usuarios menores de 13 años tienen de pidir permisu a los sos pas o tutores enantes de facese miembros de los foros. Mentanto qu'afalamos la participación de miembros menores de 13 años, necesitamos qu'un pa o tutor llegal devuelva per fax o corréu ordinariu un formulariu d'autorización robláu enantes d'aceutar al nuevu miembru.</p><p>Si quies principiar el procesu de rexistru enantes de que recibamos el formulariu d'autorización, calca nel botón "<b>Aceuto</b>" de más abaxo. Si quies encaboxar el rexistru, calca "<b>Nun aceuto</b>" pa volver al índiz de foros.</p><p>Dempués del procesu de rexistru apaecerá una copia del formulariu d'autorización. Pa más información tocante al procesu de rexistru, unvia un corréu electrónicu a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Tolos usuarios menores de 13 años tienen de pidir permisu a los sos pas o tutores enantes de facese miembros de los foros. Mentanto qu'afalamos la participación de miembros menores de 13 años, necesitamos qu'un pa o tutor llegal devuelva per fax o corréu ordinariu un formulariu d'autorización robláu enantes d'aceutar al nuevu miembru.</p><p>Si quies principiar el procesu de rexistru enantes de que recibamos el formulariu d'autorización, calca nel botón "<b>Aceuto</b>" de más abaxo. Si quies zarrar el rexistru, calca "<b>Nun aceuto</b>" pa volver al índiz de foros.</p><p>Dempués del procesu de rexistru apaecerá una copia del formulariu d'autorización. Pa más información tocante al procesu de rexistru, unvia un corréu electrónicu a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Confirmación COPPA
 coppa_before:Enantes de {TEMPLATE: coppa_date}
 coppa_after:Después de {TEMPLATE: coppa_date}
@@ -756,7 +757,7 @@ groupmgr_yes:Sí
 groupmgr_no:Non
 groupmgr_action:Aición
 groupmgr_member:Miembru
-groupmgr_cancel:Encaboxar
+groupmgr_cancel:Zarrar
 groupmgr_add_member:Amestar miembru
 groupmgr_update_member:Anovar miembru
 groupmgr_edit:Editar
@@ -1060,7 +1061,7 @@ idx_compact_forum_row:Foros disponibles:
 mmd_del_title:Desaniciar filos
 mmd_mov_title:Treslladar filos
 mmd_move_threads_to:Foru de destín:
-mmd_abort_move:Encaboxar
+mmd_abort_move:Zarrar
 mmd_move:Treslladar filos
 pmsg_pdf_btn:Crear archivu PDF
 search_results_hdr:S'alcontraron {VAR: total} resultaos pa la gueta
