@@ -878,7 +878,7 @@ help_return_to_index:Volver al índiz d'ayuda
 imsg_err_message_title:Mensaxe inválidu
 imsg_err_message_msg:El mensaxe qu'intentes ver nun esiste.
 poll_edit:Editar
-register_err_not_valid_img:La URL especificada nun contien una imaxe válida.
+register_err_not_valid_img:La URL especificada nun contién una imaxe válida.
 pmsg_recepient:Destinatariu
 register_err_taken_alias:L'alcuñu que quies utilizar yá lu ta usando otru miembru del foru. Por favor, escueyi otru.
 register_alias:Alcuñu:
