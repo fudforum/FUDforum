@@ -705,7 +705,7 @@ ERR_login_msg2:<legend>Fout: u bent niet aangemeld</legend>Alleen leden van dit 
 ERR_disabled_ttl:Uitgeschakelde optie
 ERR_disabled_msg:Deze optie is uitgeschakeld door de beheerder.
 ERR_access_ttl:FOUT: onvoldoende rechten
-ERR_access_msg:U hebt niet de vereiste rechten om deze handeling uit te voeren.
+ERR_access_msg:U hebt niet de vereiste rechten om deze handeling te verrichten.
 ERR_registration_disabled_ttl:Registratie is uitgeschakeld
 ERR_registration_disabled_msg:De beheerder heeft registratie uitgeschakeld. Probeer het later opnieuw.
 ERR_emailconf_ttl:Fout: uw account is nog niet bevestigd
@@ -778,7 +778,7 @@ group_mgr_edit_btn:Groep bewerken
 group_mgr_heading:Groep bewerken
 group_mgr_group:Groep:
 permission_denied_title:U hebt geen toegang!
-permission_denied_msg:Uw gebruikersrechten staan u niet toe deze handeling uit te voeren.
+permission_denied_msg:Uw gebruikersrechten staan u niet toe deze handeling te verrichten
 p_READ:Lezen
 p_POST:Opslaan
 p_REPLY:Antwoorden
