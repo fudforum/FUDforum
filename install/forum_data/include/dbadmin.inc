@@ -53,7 +53,7 @@ function get_stbl_from_file($file)
 			continue;
 		}
 		if (preg_match("!([a-z_]+)\s([^\n,]+)!", $v, $r)) {
-			$r[2] = str_replace(' BINARY', '', $r[2]);	// MySQL BINARY is no longer used (removed in FUDforum 3.1.3. Get rid of it!
+			$r[2] = str_replace(' BINARY', '', $r[2]);	// MySQL BINARY is no longer used (removed in FUDforum 3.1.3). Get rid of it!
 
 			if (strpos($r[2], ' NOT NULL') !== false) {
 				$r[2] = str_replace(' NOT NULL', '', $r[2]);
@@ -369,7 +369,7 @@ function get_fud_col_list($table)
 
 			if (!isset($r[3])) $r[3] = '';  // Fix: strncmp(): Passing null is deprecated
 			$auto        = !strncmp($r[3], 'nextval', 7) ? 1 : 0;
-			$default_val = preg_replace('/::.*/', '', $r[3]);	// Remove anything after ::. I.e. '0'::character varying.
+			$default_val = preg_replace('/::character varying|::regclass/', '', $r[3]);	// Remove anything after ::. I.e. '0'::character varying.
 
 			$default     = (!$auto) ? trim(str_replace("'", '', $default_val)) : null;
 
@@ -826,6 +826,7 @@ function add_column($tbl, $col, $prop)
 function alter_column($tbl, $col, $prop)
 {
 	if (__dbtype__ == 'pgsql') {
+		$prop['type'] = map_mysql_types_to_native($prop['type']);
 		q('ALTER TABLE '. $tbl .' ALTER COLUMN '. $col .' TYPE '. $prop['type']);
 		if (!is_null($prop['default'])) {
 			if (strpos($prop['type'], 'INT') !== false || $prop['default'] == 'NULL') {

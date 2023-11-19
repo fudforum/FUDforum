@@ -61,7 +61,7 @@ function users_birthday($flds)
 }
 
 /** Change reg_ip (encoded IPv4 address) to registration_ip (IPv6 address) (3.0.4RC2 -> 3.0.4RC3). */
-function users_registration_ip($flds)
+function users_reg_ip($flds)
 {
 	pf('Convert reg_ip to registration_ip for IPv6 compatibility');
 	try {
@@ -75,7 +75,7 @@ function users_registration_ip($flds)
 }
 
 /** Change last_known_ip (encoded IPv4 address) to last_used_ip (IPv6 address) (3.0.4RC2 -> 3.0.4RC3). */
-function users_last_used_ip($flds)
+function users_last_known_ip($flds)
 {
 	pf('Convert last_known_ip to last_used_ip IPv6 compatibility');
 	try {
@@ -602,7 +602,7 @@ function syncronize_theme($theme)
 
 	// Here's a good hack for ya!
 	// Function get_fud_table_list() was moved from 'db.inc' to 'dbadmin.inc' in 3.0.2.
-	// We need to remove it from the db.inc to prevent previously declared errors.
+	// We need to remove it from old db.inc files to prevent previously declared errors.
 	file_put_contents($dbinc, preg_replace('/function get_fud_table_list\(.*?function/s', 'function', file_get_contents($dbinc)));
 	include_once $dbinc;
 
@@ -907,7 +907,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			/* Handle DB columns. */
 			$db_col = get_fud_col_list($tbl['name']);
 			foreach ($tbl['flds'] as $k => $v2) {
-				if (defined('fud_debug')) pf(' - check column: '. $k);
+				if (defined('fud_debug')) pf(' - check column: '. $k .' = '. json_encode($v2));
 
 				// Queue "out of line PK's" for later processing.
 				if ($v2['primary'] && !$v2['auto'] ) {	// Primary, but not auto number.
@@ -928,6 +928,9 @@ pf('<h2>Step 1: Admin login</h2>', true);
 				} else if (array_diff_assoc($db_col[$k], $v2)) {
 					/* Column definition has changed. */
 					pf('Alter database column '. $k .' in table '. $tbl['name'] .'.');
+					if (defined('fud_debug')) pf(' - FROM: '. json_encode($db_col[$k]));
+					if (defined('fud_debug')) pf(' - TO  : '. json_encode($v2));
+
 					$f = substr("{$tbl['name']}_{$k}", strlen($DBHOST_TBL_PREFIX));
 					alter_column($tbl['name'], $k, $v2);
 					if (function_exists($f)) {	// Run SQL conversion after alter.
