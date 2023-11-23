@@ -696,7 +696,7 @@ ERR_login_msg2:<legend>FOUT: U is nie aangeteken nie</legend>U moet 'n lid van d
 ERR_disabled_ttl:Afgeskakelde opsie
 ERR_disabled_msg:Hierdie opsie is deur die administrateur afgeskakel.
 ERR_access_ttl:FOUT: onvoldoende toegang
-ERR_access_msg:U het nie die vereiste regte om hierdie handeling uit te voer nie.
+ERR_access_msg:U het nie die nodige regte om die handeling te verrig nie.
 ERR_registration_disabled_ttl:Registrasie is gedeaktiveer
 ERR_registration_disabled_msg:Die administrateur het registrasie gedeaktiveer. Probeer asseblief later weer.
 ERR_emailconf_ttl:FOUT: U lidmaatskap is nog nie bevestig nie
@@ -769,7 +769,7 @@ group_mgr_edit_btn:Wysig Groep
 group_mgr_heading:Groep om te wysig
 group_mgr_group:Groep:
 permission_denied_title:U het nie toegang nie!
-permission_denied_msg:U gebruikersregte laat u nie toe om die aksie uit te voer nie.
+permission_denied_msg:U gebruikersregte laat u nie toe om die handeling te verrig nie.
 p_READ:Lees
 p_POST:Pos
 p_REPLY:Antwoord
