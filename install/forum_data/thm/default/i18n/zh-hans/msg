@@ -3,6 +3,7 @@
 # Author: 500000000006城
 # Author: A Chinese Wikipedian
 # Author: Anakmalaysia
+# Author: Anterdc99
 # Author: Blackteahamburger
 # Author: Chenxiaoqino
 # Author: Cwlin0416
@@ -402,8 +403,7 @@ post_color:颜色
 post_font:字体
 create_thread:生成主题
 submit_reply:回复
-# Fuzzy
-edit_message:应用消息更改
+edit_message:应用更改
 apply_spell_changes:应用拼写更改
 post_preview:预览
 post_logedin_user:登录用户：
@@ -1137,8 +1137,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:版权所有&copy;2001年-2021年<a href="http://fudforum.org/">FUDforum软件</a>
+copyright:版权所有&copy;2001年-2023年<a href="http://fudforum.org/">FUDforum软件</a>
 code_title:代码：
 code_select_all:全选
 code_show_hide:显示/隐藏

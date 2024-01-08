@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Aefgh39622
 # Author: Ans
+# Author: Ekminarin
 # Author: Geonuch
 # Author: Horus
 # Author: Octahedron80
@@ -588,7 +589,7 @@ group_mgr_group:กลุ่ม:
 permission_denied_title:ไม่ได้รับอนุญาต!
 permission_denied_msg:คุณไม่ได้รับอนุญาตให้ดำเนินการที่คุณกำลังพยายาม
 p_READ:อ่าน
-p_POST:โพสต์
+p_POST:เผยแพร่
 p_REPLY:ตอบกลับ
 p_EDIT:แก้ไข
 p_DEL:ลบ
@@ -777,3 +778,4 @@ merge_merge:ผสานหัวข้อที่เลือก
 merge_next:หัวข้อถัดไป
 merge_prev:หัวข้อก่อนหน้า
 split_cp:แผงควบคุมการแยกหัวข้อ
+register_err_turing:การตรวจสอบยืนยันล้มเหลว กรุณาลองอีกครั้ง
