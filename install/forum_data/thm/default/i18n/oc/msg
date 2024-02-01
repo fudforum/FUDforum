@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Cedric31
 # Author: Jfblanc
+# Author: Lhanars
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
@@ -191,7 +192,7 @@ unbookmark_thread_desc:Levatz aqueste subjècte de vòstra lista de favorits
 unsubscribe:Arrestar la susvelhança
 unsubscribe_desc:Arrestar de recebre de notificacions quand de fials novèls son creats sus aqueste forum
 updated_on:Mes a jorn lo :
-user:Utilizaire
+user:Utilizator
 user_counter:Avèm <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utilizaire inscrit|utilizaires inscrits}.
 user_info:Qual es aqueste utilizaire ?
 user_info_l:Qual es {VAR: u->alias} ?
@@ -289,7 +290,7 @@ finduser_user_info:Informacions sus un l'utilizaire
 finduser_by_login:Per utilizaire :
 finduser_submit:Cercar
 finduser_no_such_user:Cap d'utilizaire correspond pas a aquesta requèsta
-finduser_user:Utilizaire
+finduser_user:Utilizator
 finduser_postcount:Comptador de messatges
 finduser_joindate:s'es inscrit lo
 finduser_action:Accion
@@ -298,7 +299,7 @@ no:Non
 register_email:Corrièl
 edit_time_limit:<b>Temps maximum atribuit per l'edicion</b> : {GVAR: EDIT_TIME_LIMIT} minutas
 no_edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : Illimitat
-pmuserloc_login:Utilizaire :
+pmuserloc_login:Utilizator:
 pmuserloc_submit:Sometre
 pmuserloc_user:Utilizaire
 pmuserloc_no_result:Pas cap de resultat
@@ -603,7 +604,7 @@ emailconf_err_invkey_title:Error
 emailconf_err_invkey_msg:Clau de confirmacion invalida. Verificatz vòstre e-mail per vos assegurar qu'avètz entrat l'URL corrèctament.
 err_inc_criticaltitle:Error critica
 err_inc_criticalmsg:Sètz en preséncia d'una error, mas malurosament i a un problèma amb nòstre sistèma de rapòrt d'errors
-finduser_update:Cercar un utilizaire
+finduser_update:Cercar un utilizator
 help_index_update:Legissètz la <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> (Feira de las questions, questions pausadas frequentament)
 iemail_thr_subject:Responsa novèla al subjècte {VAR: thr_subject} per {VAR: poster_login}
 iemail_thr_bodyemail:Per legir las responsas pas legidas, clicatz aicí : {VAR: goto_url['email']}\n\nSe volètz recebre pas pus de notificacions relativas a las responsas recebudas sus aqueste fial a l'avenidor, clicatz aicí : {VAR: unsub_url['email']}
@@ -707,7 +708,7 @@ ERR_user_msg:Aqueste utilizaire existís pas
 ERR_systemerr_ttl:ERROR : Error del sistèma
 ERR_systemerr_msg:Una error del sistèma s’es produita. Raportatz aqueste incident a l’<a href="mailto:{GVAR: ADMIN_EMAIL}">administrator del site</a>.
 email_title:Corrièr electronic
-finduser_title:Cercar un utilizaire
+finduser_title:Cercar un utilizator
 help_title:F.A.Q. (Fièra De las Questions, questions pausadas frequentament)
 login_title:Nom d'utilizaire
 msg_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
