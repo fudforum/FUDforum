@@ -440,6 +440,7 @@ post_title:标题：
 post_body:正文：
 post_options:选项：
 post_preview_btn:预览
+post_diff_btn:差异
 post_cancel_btn:取消
 ignore_users:被拒绝的用户
 add_ignore:添加忽略的用户
@@ -1074,6 +1075,7 @@ search_options:搜索选项
 search_user_filter:仅限作者：
 register_none:不要通知我
 findu_no_conf:未验证Email
+findu_banned:被禁止的用户
 register_max_sig_len:最大长度:
 register_turing:认证：
 register_err_turing:认证失败。请重试。

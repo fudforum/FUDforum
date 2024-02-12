@@ -301,12 +301,12 @@ edit_time_limit:<b>Temps maximum atribuit per l'edicion</b> : {GVAR: EDIT_TIME_L
 no_edit_time_limit:<b>Temps maximum alogat per l'edicion</b> : Illimitat
 pmuserloc_login:Utilizator:
 pmuserloc_submit:Sometre
-pmuserloc_user:Utilizaire
+pmuserloc_user:Utilizator
 pmuserloc_no_result:Pas cap de resultat
 register_builtin:Per defaut sul site
 register_specify_url:Especificar una URL
 register_uploaded:Mandar un Avatar
-register_login:Utilizaire :
+register_login:Utilizator:
 register_login_desc:Lo nom amb lo quel vos volètz connectar e èsser conegut sus aqueste site.
 register_login_available:Disponible
 register_login_taken:Ja pres
@@ -459,7 +459,7 @@ login_perm_denied:Avètz pas la permission d'accedir a la ressorsa que volètz e
 login_want_to_register:Vos volètz inscriure ?
 login_forgot_passwd:Ai doblidat mon senhal
 login_use_cookie:Utilizar de cookies<br /><font class="SmallText">S'utilizatz un ordinator dins un luòc public, coma una bibliotèca, una escòla o un cybercafè, es recomandat de desactivar aquesta opcion per de rasons de seguretat.<br />Se daissatz aquesta opcion activada, seretz connectat automaticament al forum quand tornaretz.</span>
-login_login:Utilizaire :
+login_login:Utilizator:
 login_login_btn:Connexion
 login_name_required:Picatz vòstre nom d'utilizaire
 login_passwd_required:Picatz vòstre senhal
