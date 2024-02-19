@@ -13,6 +13,7 @@
 # Author: Rancher
 # Author: Shirayuki
 # Author: Siebrand
+# Author: Urhixidur
 
 action:{{Identical|Action}}
 admin:{{Identical|Admin}}
@@ -431,7 +432,7 @@ thread_on:Message posted '''on''' a specific date.\nFor example: {{msg-fud|by}} 
 userinfo_buddy:{{Identical|Buddy}}
 register_email_addr:{{Identical|E-mail address}}
 mnav_newer:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].\n{{Identical|Newer}}
-mnav_older:This message is used in the Forum's Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc].\n{{Identical|Older than}}
+mnav_older:This message is used in the Forum’s Message Navigator. The user needs to enter values to determine the date range: newer than ___, older than ___ [days/hours/minutes/etc.].\n{{Identical|Older than}}
 ip_search:{{Identical|Search}}
 ip_title:This is a browser of visitor's IP addresses, not the IP address of a browser!
 userinfo_real_name:{{Identical|Real name}}
