@@ -308,7 +308,7 @@ Double post protection. Prevent users from posting duplicate topics.}}}
 Whether or not every new registration will need to be approved by the administrator before the new account is activated.}}}
 
 {{{REG_TIME_LIMIT
-This limit allows you to define how often can a registration can occur (in seconds). Set the value of this field to -1 if you do not wish to limit registrations.}}}
+This limit allows you to define how often a registration can occur (in seconds). Set the value of this field to -1 if you do not wish to limit registrations.}}}
 
 {{{ENABLE_AFFERO	FUD_OPT_2	2048
 Previously used to enable affero, this resulted in an Affero button being shown beside each message, allowing users to give feedback via the Affero system. Removed in FUDforum 3.0.7.}}}
@@ -426,7 +426,7 @@ Always check to make sure that the referring URL is on the same domain as the fo
 Whether or not to obfuscate user e-mails when sending e-mails from FUDforum to newsgroups.}}}
 
 {{{SESSION_IP_CHECK	FUD_OPT_3	16
-Whether or not to validate session's against user IP While this may increase security it will cause annoyances for users who's IP address frequently changes as they will need to re-login each time their IP changes.}}}
+Whether or not to validate session's against the user's IP. While this may increase security it will cause annoyances for users who's IP address frequently changes as they will need to re-login each time their IP changes.}}}
 
 {{{HIDE_PROFILES_FROM_ANON	FUD_OPT_3	32
 If enabled, anonymous and unconfirmed forum members will not be able to view profiles of registered users.}}}
@@ -466,6 +466,9 @@ Hostname or IP address of the WHOIS server to use for IP address analysis.}}}
 
 {{{MIN_TIME_BETWEEN_LOGIN
 Minimum time between login attempts in seconds. This option is intended as a throttle mechanism against dictionary attacks on forum passwords.}}}
+
+{{{MAX_CALLS_FROM_IP
+The maximum number of times a user with a particular IP address can use the forum before access is denied. Set to 0 to disable or a large value to prevent forum scraping and brute force attacks.}}}
 
 {{{NO_ANON_ACTION_LIST	FUD_OPT_3	131072
 Disable displaying of the action list to anonymous users.}}}

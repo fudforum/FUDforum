@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -111,6 +111,7 @@
 
 	$GLOBALS['FUD_WHOIS_SERVER']	= 'ws.arin.net';
 	$GLOBALS['MIN_TIME_BETWEEN_LOGIN']	= 10;		/* seconds */
+	$GLOBALS['MAX_CALLS_FROM_IP']	= 10000;	/* int */
 
 /* DO NOT EDIT FILE BEYOND THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING */
 

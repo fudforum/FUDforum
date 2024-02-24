@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -888,6 +888,17 @@ function regen_sq($uid=__fud_real_user__)
 	return $sq;
 }
 
+// Prevent forum scraping and brute force attacks.
+if ($GLOBALS['MAX_CALLS_FROM_IP'] > 0) {
+	$ip_count = q_singleval('SELECT count(ip_addr) FROM {SQL_TABLE_PREFIX}ses WHERE ip_addr = '. _esc($_SERVER['REMOTE_ADDR']));
+	if ($ip_count > $GLOBALS['MAX_CALLS_FROM_IP']) {
+		header('HTTP/1.1 429 Too Many Requests', true, 429);
+		echo 'Too Many Requests';
+		die();
+	}
+}
+
+// Initialize user session.
 if (isset($_SERVER['REMOTE_ADDR']) && !defined('no_session')) {
 	$GLOBALS['usr'] = init_user();
 }

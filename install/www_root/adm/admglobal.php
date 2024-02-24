@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -394,8 +394,9 @@ jQuery(document).ready(function() {
 	print_bit_field('Use Session Cookies', 'SESSION_COOKIES');
 	print_bit_field('Session Referrer Check', 'ENABLE_REFERRER_CHECK');
 	print_bit_field('Session IP Validation', 'SESSION_IP_CHECK');
-	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);
 	print_bit_field('Multiple Host Login', 'MULTI_HOST_LOGIN');
+	print_reg_field('Time between login attempts', 'MIN_TIME_BETWEEN_LOGIN', 1);
+	print_reg_field('Maximum Requests from IP', 'MAX_CALLS_FROM_IP', 1);
 ?>
 <tr class="fieldaction"><td align="left"><input type="submit" name="btn_submit" value="Set" /></td><td align="right">[ <a href="#top">top</a> ]</td></tr>
 </table>
