@@ -19,7 +19,7 @@ jobs:
           MYSQL_PASSWORD: fudpass
           MYSQL_DATABASE: fuddb
           MYSQL_ROOT_PASSWORD: root
-        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=3s --health-retries=5
         
     strategy:
       fail-fast: true
