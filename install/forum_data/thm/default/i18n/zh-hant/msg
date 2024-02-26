@@ -110,7 +110,7 @@ moved_thread_message:這個主題已被轉移至別的論壇。
 na:暫無
 new_posts:新訊息
 new_private_messages:您有<span class="GenTextRed">（{VAR: c}）</span>條未讀悄悄話。
-new_thread:建立一個新的主題
+new_thread:新增話題
 newest_user:最新註冊的使用者為
 next_page:下一頁
 next_thread:上一主題

@@ -1,6 +1,7 @@
 # Messages for Korean (한국어)
 # Exported from translatewiki.net
 # Author: Changwoo
+# Author: Dr1t jg
 # Author: Hwangjy9
 # Author: Hym411
 # Author: Klutzy
@@ -507,6 +508,7 @@ search_subject_only:제목만
 search_forum:포럼
 search_posted_on:게시한 날짜
 search_no_results:결과 없음
+search_spell_suggestions:이것을 의미했니:
 search_all_forums:모든 포럼 검색
 search_in_forum:포럼에서 검색:
 search_forum_search:포럼 검색
