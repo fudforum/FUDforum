@@ -393,8 +393,7 @@ post_color:Väri
 post_font:Kirjasin
 create_thread:Luo aihe
 submit_reply:Lähetä vastaus
-# Fuzzy
-edit_message:Tallenna muutokset
+edit_message:Hyväksy muutokset
 apply_spell_changes:Tallenna oikeinkirjoituksen muutokset
 post_preview:Viestin esikatselu
 post_logedin_user:Sisäänkirjautunut käyttäjä:
@@ -1062,6 +1061,7 @@ search_options:Hakuasetukset
 search_user_filter:Suodata käyttäjän mukaan:
 register_none:Älä ilmoita minulle
 findu_no_conf:vahvistamaton käyttäjä
+findu_banned:estetty käyttäjä
 register_max_sig_len:Maksimipituus:
 register_turing:Varmistus:
 register_err_turing:Varmistus epäonnistui. Yritä uudelleen.
