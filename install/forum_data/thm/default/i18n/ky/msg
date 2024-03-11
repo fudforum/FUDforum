@@ -581,7 +581,7 @@ post_err_lockedthread_title:КАТАЧЫЛЫК: Тема жабык
 post_err_lockedthread_msg:Бул тема жабылган, билдирүүлөрдү жөнөтүүгө болбойт.
 err_coppa_title:КАТАЧЫЛЫК: Сиздин катталууңуз тастыктала элек
 err_banned_acct_title:КАТАЧЫЛЫК: Сиз бан-бөгөттөлгөнсүз
-post_err_edttimelimit_title:КАТАЧЫЛЫК
+post_err_edttimelimit_title:КАТА
 post_err_edttimelimit_msg:Сиз мындан ары бул билдирүүнү оңдоп-түздөй албайсыз
 post_err_noannontopics_msg2:<legend>КАТАЧЫЛЫК: Укугуңуз жетишсиз</legend>Аноним колдонуучулар жаңы тема түзө алышпайт.
 post_err_noannonposts_msg2:<legend>КАТАЧЫЛЫК: Укугуңуз жетишсиз</legend>Аноним колдонуучулар билдирүүлөргө жооп кайтара алышпайт.
@@ -603,6 +603,8 @@ register_err_short_login:Эсеп жазууда өтө кыска ысым та
 register_err_login_notallowed:Колдонуучунун ысымы жарабайт.
 register_err_shortpasswd:Сырсөз минимум 6 символдон турушу абзел
 register_err_passwdnomatch:Көрсөтулгөн сырсөздөр дал келбейт, сураныч, кайталаңыз.
+report_err_nosuchmsg_title:КАТА
+reset_err_invalidkey_title:КАТА
 reset_err_rstconf_title:Маалымат
 reset_newpass_title:Сыр сөздү алмаштыруу
 email_title:Э-кат билдирүүсү
@@ -740,6 +742,7 @@ saved:Сакталды
 iemail_msg_reply:Жооп берүү
 mnav_more:Көбүрөөк &raquo;&raquo;
 ip_search:Издөө
+post_err_mod_forum_edit_ttl:КАТА
 uc_new_topic:Жаңы тема
 mmd_abort_move:Жокко чыгаруу
 post_common_link:Шилтеме кошуу

@@ -449,7 +449,7 @@ coppa_fax_telephone:Numèro de telefòn (amb prefix internacional) :
 coppa_fax_email:Adreça de corrièr electronic :
 coppa_fax_date:Data :
 coppa_fax_questions:Contactatz <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> s'avètz de questions
-coppa_fax_login:Utilizaire
+coppa_fax_login:Utilizator
 coppa_fax_passwd:Senhal
 coppa_fax_remail:Adreça de corrièr electronic
 coppa_fax_name:Nom
