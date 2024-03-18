@@ -327,7 +327,7 @@ register_year:Жыл
 register_gender:Жынысы:
 register_bio:Биографиясы:
 register_bio_desc:Майда тактоолор, мисалы, жумушуңуз, кызыгууңуз ж.б.
-register_prefs:Ырастоолор
+register_prefs:Параметрлер
 register_sig:Кол тамга
 register_sig_desc:Сиздин билдирүүлөрүңүзгө кошулуучу сөзсүз эмес кол тамга.
 register_reset:Тазала
