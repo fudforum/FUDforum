@@ -654,7 +654,7 @@ postcheck_max_images_err:Maksimalt {GVAR: MAX_IMAGE_COUNT} bilder er tillatt per
 postcheck_no_links_allowed:Du kan ikke bruke lenker før du har postet mer enn {PLURAL: posts_before_links|$1 melding|$1 meldinger}.
 postcheck_subj_needed:Emne obligatorisk
 postcheck_no_such_user:Medlemmet "{FUNC: char_fix(htmlspecialchars($v))}" finnes ikke i dette forumet
-postcheck_ignored:Du kan ikke sende en privat melding til "{FUNC: char_fix(htmlspecialchars($v))}", ettersom han/hun har valgt å ignorere deg.
+postcheck_ignored:Du kan ikke sende en privat melding til "{FUNC: char_fix(htmlspecialchars($v))}", ettersom hen har valgt å ignorere deg.
 postcheck_no_recepient:Kan ikke sende meldingen, mangler mottaker
 postcheck_invalid_email:Gi en korrekt e-postadresse til din kontakt.
 postcheck_email_subject:Kan ikke sende e-post uten emne.
@@ -892,7 +892,7 @@ register_alias:Navn
 register_alias_desc:Om du vil at navnet ditt skal vises i stedet for  brukernavnet, kan du skrive det inn her.
 register_allow_pm_msg:Tillat private meldinger
 register_allow_pm_msg_desc:Tillat at andre brukere sender deg private meldinger via forumet
-postcheck_pm_disabled:Du kan ikke sende en privat melding til  "{VAR-HTML: v}" ettersom han/hun ikke tar imot private meldinger.
+postcheck_pm_disabled:Du kan ikke sende en privat melding til  "{VAR-HTML: v}" ettersom hen ikke tar imot private meldinger.
 polllist_vote:Stem
 polllist_view_results:Vis resultat
 polllist_name:Avstemningens navn
