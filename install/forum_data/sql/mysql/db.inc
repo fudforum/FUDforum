@@ -18,9 +18,9 @@ if (!defined('fud_sql_lnk')) {
 	define('fud_sql_lnk', $conn);
 	@mysql_select_db($GLOBALS['DBHOST_DBNAME'], fud_sql_lnk) or fud_sql_error_handler('Opening MasterDB '. $GLOBALS['DBHOST_DBNAME'], mysql_error(fud_sql_lnk), mysql_errno(fud_sql_lnk), 'Unknown');
 	if (function_exists('mysql_set_charset')) {	// Requires PHP 5.2.3 and MySQL 5.0.7 or later.
-		mysql_set_charset('utf8mb4');
+		mysql_set_charset('utf8');
 	} else {
-		mysql_query('SET NAMES \'utf8mb4\' COLLATE \'utf8mb4_unicode_ci\'');
+		mysql_query('SET NAMES \'utf8\' COLLATE \'utf8_unicode_ci\'');
 	}
 
 	/* Connect to slave, if specified. */

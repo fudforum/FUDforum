@@ -317,8 +317,8 @@ function get_fud_col_list($table)
 		unset($c);
 
 		$tmp = db_rowarr(q('show create table '. $table));
-		if (strpos($tmp[1], 'utf8mb4') === false) {
-			q('ALTER IGNORE TABLE '. $table .' CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+		if (strpos($tmp[1], 'utf8') === false) {
+			q('ALTER IGNORE TABLE '. $table .' CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci');
 		}
 	} else if (__dbtype__ == 'oracle') {
 		$c = q('SELECT tc.column_name,  data_type||NVL2(char_col_decl_length, \'(\'||char_col_decl_length||\')\', NULL), nullable, c.constraint_type, data_default, identity_column
@@ -490,7 +490,7 @@ function create_table($script)
 
 		/* We need to specify a default charset for MySQL 4.1.2+. */
 		if (__dbtype__ == 'mysql' && preg_match('/^\s*CREATE\s*TABLE\s*/i', $q)) {
-			$q .= ' DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci';
+			$q .= ' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci';
 		}
 
 		// Queue extra statements to create sequences and triggers later.
