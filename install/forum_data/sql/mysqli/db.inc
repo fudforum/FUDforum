@@ -33,7 +33,7 @@ if (empty(db::$db)) {
 	if (mysqli_connect_errno()) {
 		fud_sql_error_handler('Failed to establish database connection', 'MySQLi says: '. mysqli_connect_error(), mysqli_connect_errno(), '');
 	}
-	db::$db->set_charset('utf8');
+	db::$db->set_charset('utf8mb4');
 
 	/* Connect to slave, if specified. */
 	if (!empty($GLOBALS['DBHOST_SLAVE_HOST']) && !$GLOBALS['is_post']) {
@@ -41,7 +41,7 @@ if (empty(db::$db)) {
 		if (mysqli_connect_errno()) {
 			fud_logerror('Unable to init SlaveDB, fallback to MasterDB: '. mysqli_connect_error(), 'sql_errors');
 		} else {
-			db::$db->set_charset('utf8');
+			db::$db->set_charset('utf8mb4');
 		}
 	}
 
