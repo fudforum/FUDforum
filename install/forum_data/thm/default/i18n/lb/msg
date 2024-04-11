@@ -492,6 +492,7 @@ register_allow_pm_msg:Privat Messagen erlaben:
 polllist_vote:Ofstëmmen
 polllist_view_results:Resultater kucken
 polllist_name:Numm vun der Ëmfro
+polllist_date:Ugeluecht den
 polllist_action:Aktioun
 userinfo_polls:Ëmfroen:
 show_pollist:Ëmfroen
