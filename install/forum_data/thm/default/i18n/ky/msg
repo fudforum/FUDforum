@@ -629,6 +629,7 @@ thr_exch_submit:Улантуу
 split_thread:Теманы бөлүү
 groupmgr_yes:Ооба
 groupmgr_no:Жок
+groupmgr_action:Аракет
 groupmgr_cancel:Жокко чыгаруу
 groupmgr_add_member:Катышуучуну кошуу
 groupmgr_update_member:Катышуучу тууралуу маалыматты жаңыртуу
@@ -738,12 +739,14 @@ pmsg_recepient:Алуучу
 register_err_taken_alias:Сиз тандаган каймана ат, башка бирөө тарабынан колдонот. Сураныч, алмаштырыңыз.
 register_alias:Каймана ат
 register_allow_pm_msg:Жеке билдирүүлөргө уруксат берүү
+polllist_action:Аракет
 saved:Сакталды
 iemail_msg_reply:Жооп берүү
 mnav_more:Көбүрөөк &raquo;&raquo;
 ip_search:Издөө
 post_err_mod_forum_edit_ttl:КАТА
 uc_new_topic:Жаңы тема
+modque_forum:Форум
 mmd_abort_move:Жокко чыгаруу
 post_common_link:Шилтеме кошуу
 tabs_notifications:Кабарламалар
