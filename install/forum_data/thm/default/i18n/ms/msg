@@ -1,6 +1,7 @@
 # Messages for Malay (Bahasa Melayu)
 # Exported from translatewiki.net
 # Author: Anakmalaysia
+# Author: Hakimi97
 # Author: Jeluang Terluang
 # Author: Macofe
 # Author: Naudefj
@@ -320,7 +321,7 @@ register_avatar:Avatar:
 register_sel_avatar:Pilih Avatar
 register_custom_avatar_rules:Avatar anda tidak akan muncul sehingga ia diluluskan oleh pihak pentadbiran.<br /><span class="SmallText">Avatar itu seharusnya tidak lebih besar daripada <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel</b> dan mestilah berformat <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
 register_custom_avatar_url:URL Avatar Ubah Suai:
-register_preview:Pralihat
+register_preview:Pratayang
 register_custom_avatar_upload:Fail Avatar Ubah Suai:
 register_register:Daftar
 register_required:Maklumat yang Diperlukan

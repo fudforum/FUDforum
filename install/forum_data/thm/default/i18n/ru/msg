@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Agilight
 # Author: Diralik
+# Author: Dirruw'o
 # Author: Dmitriy
 # Author: Eleferen
 # Author: Facenapalm
@@ -739,6 +740,8 @@ rpasswd_title:Изменение пароля
 error_title:Ошибка
 index_title:Добро пожаловать в наш форум
 search_title:Поиск {VAR-HTML: srch}
+thread_title:{VAR: frm->name}
+tree_title:{VAR: frm->name} » {VAR: frm->subject}
 remail_emailsent:Электронное письмо отправлено
 remail_email:Привет!\n\nНа форуме «{GVAR: FORUM_TITLE}» имеются сообщения на тему «{VAR: data->subject}», которые вас, возможно, заинтересуют. Вы можете просмотреть тему по указанному адресу:\n{FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nВаш друг,\n\n{VAR: usr->alias}
 poll_add_option:Добавить вариант:
