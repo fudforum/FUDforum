@@ -383,8 +383,7 @@ post_color:رەڭ
 post_font:خەت نۇسخا
 create_thread:تېما قۇر
 submit_reply:جاۋاب تاپشۇر
-# Fuzzy
-edit_message:ئۇچۇر ئۆزگىرىشىنى قوللان
+edit_message:ئۆزگەرتىشنى قوللاش
 apply_spell_changes:ئىملا تەكشۈرۈشتىكى ئۆزگىرىشنى قوللان
 post_preview:ئۇچۇرنى ئالدىن كۆزەت
 post_logedin_user:تىزىمغا كىرگەن ئىشلەتكۈچى:
@@ -421,6 +420,7 @@ post_title:ماۋزۇ:
 post_body:مەزمۇن:
 post_options:تاللانمىلار:
 post_preview_btn:ئۇچۇرنى ئالدىن كۆزەت
+post_diff_btn:پەرق
 post_cancel_btn:ۋاز كەچ
 ignore_users:پەرۋا قىلمىغان ئىشلەتكۈچىلەر
 add_ignore:پەرۋا قىلمىغان ئىشلەتكۈچى قوش
@@ -498,6 +498,7 @@ search_subject_only:تېمىدىنلا
 search_forum:مۇنبەر
 search_posted_on:يوللىغان ۋاقىت
 search_no_results:نەتىجە يوق
+search_spell_suggestions:مەقسىتىڭىز:
 search_all_forums:ھەممە مۇنبەرنى ئىزدە
 search_in_forum:ئىزدەيدىغان مۇنبەر:
 search_forum_search:مۇنبەردىن ئىزدەش
@@ -628,8 +629,7 @@ post_err_lockedthread_msg:بۇ يازما قۇلۇپلانغان. ئىنكاس �
 err_coppa_title:خاتالىق: ھېساباتىڭىز جەزملەنمىگەن.
 err_coppa_msg:بىز ئاتا-ئانىڭىز ياكى ھامىيىڭىزنىڭ يازما يوللىشىڭىزغا قوشۇلغانلىق خېتىنى تېخى تاپشۇرۇۋالمىدۇق. ئەگەر ئىلتىماس جەدۋىلىنى يوقىتىپ قويغان بولسىڭىز، <a href="{TEMPLATE: err_coppa_msg_lnk}">بۇ جاينى چېكىڭ</a>.
 err_banned_acct_title:خاتالىق: سىز چەكلەندىڭىز.
-# Fuzzy
-err_banned_acct_msg:مۇنبەرنىڭ قائىدىسىگە خىلاپلىق قىلغانلىقىڭىز ئۈچۈن، ھېساباتىڭىزنى بۇ تورتۇرا {IF: $ban_expiry} سىزنى {DATE: ban_expiry %a, %d %B %Y %H:%M} غىچە زىيارەت قىلىشىڭىزنى ۋاقىتلىق چەكلىدى، {ELSE}زىيارىتىڭىزنى مەڭگۈلۈك چەكلەيدۇ{ENDI}.
+err_banned_acct_msg:مۇنبەرنىڭ قائىدىسىگە خىلاپلىق قىلغانلىقىڭىز ئۈچۈن، ھېساباتىڭىزنى بۇ تورتۇرا {IF: $ban_expiry} سىزنى {TEMPLATE: ban_expiry_date} غىچە زىيارەت قىلىشىڭىزنى ۋاقىتلىق چەكلىدى، {ELSE}زىيارىتىڭىزنى مەڭگۈلۈك چەكلەيدۇ{ENDI}.
 post_err_edttimelimit_title:خاتالىق
 post_err_edttimelimit_msg:بۇ يازمىنى تەھرىرلىيەلمەيسىز
 post_err_noannontopics_msg2:<legend>خاتالىق: ھوقۇقىڭىز يەتمىدى</legend> ئاتسىز ئىشلەتكۈچى يازما يوللىيالمايدۇ.
@@ -1052,6 +1052,7 @@ search_options:ئىزدەش تاللانمىسى
 search_user_filter:ئىشلەتكۈچى سۈزگەن:
 register_none:ماڭا ئۇقتۇرما
 findu_no_conf:جەزملەنمىگەن ئىشلەتكۈچى
+findu_banned:چەكلەنگەن ئەزا
 register_max_sig_len:ئەڭ چوڭ ئۇزۇنلۇق:
 register_turing:دەلىللەش:
 register_err_turing:دەلىللىيەلمىدى. قايتا سىناڭ.
@@ -1073,8 +1074,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:خەتالىق: ھېساباتىڭىز سۈزۈۋېتىلدى.
 err_blockedaccnt_msg:ھېساباتىڭىز مۇنبەرگە ئورنىتىلغان بىر سۈزگۈچ تەرىپىدىن توسۇلغان.
 merge_th_page_list:يازما بەت تاللاش
-# Fuzzy
-most_users_online:توردىكى ئادەم سانى: <b>{VAR: st_obj->most_online}</b> ئەڭ كۆپ بولغان ۋاقىت <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:توردىكى ئادەم سانى: <b>{VAR: st_obj->most_online}</b> ئەڭ كۆپ بولغان ۋاقىت <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:ھەممە سەھىپىلەردىكى زاكازنى بىكار قىل
 sub_unsub_all_topics:ھەممە يازمىلارنىڭ زاكازلىرىنى بىكار قىل
 unbookmark_all_topics:ھەممە خەتكۈچلەرنى چىقىرىۋەت
@@ -1116,8 +1116,7 @@ move_msg_th_expl:يۆتكەيدىغان تېمىنىڭ ID سىنى بەلگىل�
 captcha_img_alt:دەلىللەشنى جەزملەش: سىز بۇ رەسىمدىكى تېكىستنى تونۇشىڭىز كېرەك.
 captcha_img_help:سۈرەتتە نۆل ياكى بىر يوق.
 powered-by:تەمىنلىگۈچى: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2021 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
+copyright:نەشر ھوقۇقىغا ئىگە &copy;2001-2023 <a href="http://fudforum.org/">FUDforum مۇنبەر ئۇقتۇرۇش تاختا يۇمشاق دېتالى</a>
 code_title:كود:
 code_select_all:ھەممىنى تاللا
 code_show_hide:كۆرسەت/يوشۇر
