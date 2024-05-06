@@ -430,6 +430,7 @@ post_title:Otsikko:
 post_body:Teksti:
 post_options:Valinnat:
 post_preview_btn:Viestin esikatselu
+post_diff_btn:Näytä muutokset
 post_cancel_btn:Peruuta
 ignore_users:Torjutut käyttäjät
 add_ignore:Lisää torjuttu
