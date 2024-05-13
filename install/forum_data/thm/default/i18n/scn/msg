@@ -102,9 +102,9 @@ newest_user:L'urteme utende reggistrate ète
 next_page:Pàgena successive
 next_thread:Argomende successive:
 no_messages:Non ge stonne messàgge jndr'à stu forum.<br />Fà ca sì 'u prime ca face 'n'argomende jndr'à stu forum.
-no_msg_body:Nuddu corpu dû missaggiu
+no_msg_body:Nuḍḍu corpu dû missaggiu
 no_new_posts:Nisciune messàgge nuève
-no_posts:Nuddu missaggiu
+no_posts:Nuḍḍu missaggiu
 no_subscribed_forums:Nisciune forum sottoscritte
 no_subscribed_threads:Nisciune argomende sottoscritte
 no_bookmarked_threads:Nisciune argomende signate
@@ -232,7 +232,7 @@ referals_post_count:Condegge de le messàgge
 referals_registered_on:Reggistrate 'u
 referals_action:Azzioni
 pmsg_all:tutti
-pmsg_none:nuddu
+pmsg_none:nuḍḍu
 folder:Cartelle:
 pmsg_replied:resposte
 pmsg_forwarded:inoltrate
@@ -302,7 +302,7 @@ no_edit_time_limit:<b>Cange 'u limite orarie</b>: Illimitate
 pmuserloc_login:Trasi:
 pmuserloc_submit:Manna
 pmuserloc_user:Utenti
-pmuserloc_no_result:Nuddu risurtatu
+pmuserloc_no_result:Nuḍḍu risurtatu
 register_builtin:Costruite jndre
 register_specify_url:Specifiche l'URL
 register_uploaded:Careche l'immaggine
@@ -573,7 +573,7 @@ tabs_subscriptions:Iscriziune
 tabs_bookmarkes:Segnalibbre
 tabs_referrals:Refèreminde
 tabs_buddy_list:Elenghe de Amice
-tabs_ignore_list:Elenghe de chidde ca caca
+tabs_ignore_list:Elencu di l’utenti di gnurari
 tabs_private_messaging:Messàgge private
 single_msg_delete:Tu ste <span class="ErrorText">scangille</span> 'u messàgge cu 'u titole: <b>{VAR: data[3]}</b>
 thread_delete:Tu ste <span class="ErrorText">scangille</span> 'u <span class="ErrorText">'ndere argomende</span> cu 'u titole: <b>{VAR: data[3]}</b>
