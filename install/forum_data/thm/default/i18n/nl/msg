@@ -148,11 +148,11 @@ reveal_all_posts:alle berichten weergeven van {VAR: user_login}
 reveal_post:bericht weergeven
 search:Zoeken
 sel_todays_posts:Berichten van vandaag
-sel_todays_posts_desc:Berichtenfilter 'vandaag' wisselen (geeft alleen berichten van vandaag weer)
+sel_todays_posts_desc:Berichtenfilter ‘vandaag’ omschakelen (geeft alleen berichten van vandaag weer)
 sel_unanswered_posts:Onbeantwoorde berichten
-sel_unanswered_posts_desc:Onbeantwoorde berichtenfilter wisselen (geeft alleen onbeantwoorde berichten weer)
+sel_unanswered_posts_desc:Het filter onbeantwoorde berichten omschakelen (geeft alleen onbeantwoorde berichten weer)
 sel_unread_messages:Ongelezen berichten
-sel_unread_messages_desc:Filter ongelezen berichten in/uitschakelen (alleen ongelezen berichten weergeven)
+sel_unread_messages_desc:Filter ongelezen berichten omschakelen (alleen ongelezen berichten worden weergegeven)
 send:Verzenden
 send_pm_desc:Privébericht naar deze gebruiker verzenden
 sender_email:E-mailadres afzender:
@@ -171,9 +171,9 @@ subject:Onderwerp
 subscribe:Abonneren
 subscribe_desc:Een bericht ontvangen als iemand een nieuw onderwerp aanmaakt in dit forum
 subscribed_forums:Geabonneerde forums
-subscribed_forums_desc:Geabonneerde forumsfilter wisselen (geeft alleen berichten in forums waarop u geabonneerd bent)
+subscribed_forums_desc:Het filter geabonneerde forums omschakelen (toont alleen berichten in forums waarop u geabonneerd bent)
 subscribed_threads:Geabonneerde onderwerpen
-subscribed_threads_desc:Geabonneerde onderwerpenfilter wisselen (geeft alleen berichten weer van onderwerpen waarop u geabonneerd bent)
+subscribed_threads_desc:Het filter geabonneerde onderwerpen omschakelen (toont alleen berichten van onderwerpen waarop u geabonneerd bent)
 bookmarked_threads:Onderwerpen met bladwijzer
 switch_to_thread_view:Onderwerp in boomstructuur weergeven
 thread:Onderwerp:
@@ -863,7 +863,7 @@ report_already_reported_msg:Dit bericht is al gerapporteerd en het rapport staat
 register_err_toomanyimages:U probeert meer dan de maximale toegelaten {GVAR: FORUM_IMG_CNT_SIG} afbeeldingen in uw ondertekening te gebruiken.
 pmsg_next_msg:Volgende bericht
 pmsg_prev_msg:Vorige bericht
-post_proc_reveal_spoiler:Spoiler wisselen
+post_proc_reveal_spoiler:Spoiler omschakelen
 register_jabber:Jabber-gebruiker:
 register_skype:Skype-gebruiker:
 register_twitter:Twitter-gebruiker:
