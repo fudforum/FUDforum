@@ -923,7 +923,7 @@ search_and:和
 search_or:或
 search_desc_order:从最新开始
 search_asc_order:从最旧开始
-search_relevance_order:相关度
+search_relevance_order:相关性
 search_logic:搜索方式：
 search_sorting:排序方式：
 search_attach:附件：
