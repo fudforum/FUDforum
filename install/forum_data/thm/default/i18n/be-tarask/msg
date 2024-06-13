@@ -677,7 +677,7 @@ register_conf_msg:Дзякуй за рэгістрацыю,\nКаб актыві
 register_welcome_subject:Пацьверджаньне рэгістрацыі ў форуме
 register_welcome_msg:Дзякуем за рэгістрацыю.\n\nТут знаходзяцца падрабязнасьці вашай рэгістрацыі на форуме:\n\nURL-спасылка форуму: {TEMPLATE: index_update_lnk}\nІмя: {VAR: uent->login}\nПароль: {VAR: _POST['reg_plaintext_passwd']}\n\nКалі ласка, памятайце, што пароль чуйны да велічыні сымбаляў!\nКаб зьмяніць вашыя ўстаноўкі ці профіль, перайдзіце на гэтую старонку:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ПАМЫЛКА: рэгістрацыя немагчымая
-regsiter_err_cantreg_msg:Немагчыма стварыць рахунак карыстальніка, калі ласка, зьвяжыцеся з адміністратарам па адрасе <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:Немагчыма стварыць уліковы запіс карыстальніка. Калі ласка, зьвяжыцеся з адміністратарам па адрасе <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Прагляд уласнага профілю
 register_register_update:Старонка рэгістрацыі
 report_err_nosuchmsg_title:ПАМЫЛКА
