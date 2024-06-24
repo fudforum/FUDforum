@@ -8,6 +8,7 @@
 # Author: Naudefj
 # Author: Steeve815
 # Author: YaronSh
+# Author: יוסף בן מלמד
 # Author: נדב ס
 
 action:פעולה
@@ -312,8 +313,7 @@ post_color:צבע
 post_font:גופן
 create_thread:יצירת נושא
 submit_reply:הגשת תגובה
-# Fuzzy
-edit_message:החלת שינויים על ההודעה
+edit_message:החלת שינויים
 apply_spell_changes:החלת שינויי איות
 post_preview:תצוגה מקדימה של הודעה
 post_logedin_user:משתמש במערכת:
@@ -467,10 +467,8 @@ report_err_nosuchmsg_msg:אין הודעה כזאת
 reset_err_invalidkey_title:שגיאה
 reset_err_invalidkey_msg:מפתח איפוס ססמה בלתי־תקין. ייתכן שתכנת הדואר האלקטרוני שלך כבר פתחה אוטומטית את הדף הזה וביטלה את מפתח האיפוס. אם זה המקרה, בקרוב יגיע מכתב עם ססמה חדשה. אם מכתב כזה אינו מגיע, יש לנסות לאפס את הססמה.
 reset_newpass_title:איפוס סיסמה
-# Fuzzy
-reset_newpass_msg:שלום,\n\nלבקשתף, מידע על ההרשה שלך מופיע להלן:\n\nמשתמש: {VAR: ui[1]}\nססמה: {VAR: passwd}\n\nנא לשים לב לכך שססמתך אופסה לערך לעיל.\nאם ברצונך לשנות את הססמה, אפשר לעשות זאת דרך לוח הבקרה בכתובת הבאה:\n{FULL_ROOT}{ROOT}?t=register
-# Fuzzy
-reset_login_notify:הססמה נשלחה אליך בדואר אלקטרוני. היא תתקבל בדקות הקרובות.<br />
+reset_newpass_msg:שלום,\n\nלבקשתך, מידע על ההרשאה שלך מופיע להלן:\n\nמשתמש: {VAR: ui[1]}\nסיסמה: {VAR: passwd}\n\nנא לשים לב לכך שסיסמתך אופסה לערך לעיל.\nאם ברצונך לשנות את הסיסמה, אפשר לעשות זאת דרך לוח הבקרה בכתובת הבאה:\n{FULL_ROOT}{ROOT}?t=register
+reset_login_notify:הסיסמה נשלחה אליך בדואר אלקטרוני. היא תתקבל בדקות הקרובות.
 finduser_title:חיפוש משתמש
 help_title:עזרה
 login_title:טופס כניסה
@@ -590,7 +588,6 @@ pmsg_pdf_btn:יצירת ארכיון PDF
 dmsg_ip:IP:
 rating_delete:מחיקה
 finduser_flag:דגל
-# Fuzzy
 copyright:כל הזכויות שמורות &copy;2001‏-2021 ל־<a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:קוד:
 code_select_all:בחר הכול
