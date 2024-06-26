@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -46,9 +46,10 @@ function plugin_telegram_post($msg_post) {
 		// 'disable_web_page_preview' => false
 	));
 	$response = file_get_contents("$apiurl/sendMessage?$query");
+	$error = print_r(error_get_last(), true);
 	$result = json_decode($response, true);
 	if (!isset($response) || $result["ok"] != 1) {
-	   fud_logerror("Telegram post failed:<br>\n". var_export($query, true) ."\n\n". var_export($response, true), 'fud_errors');
+	   fud_logerror("Telegram post failed:<br>\n". $error, 'fud_errors');
 	}
 	return($msg_post);
 }
