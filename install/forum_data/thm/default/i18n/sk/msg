@@ -7,6 +7,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
+# Author: Oujon
 # Author: Rudko
 # Author: Yardom78
 
@@ -387,8 +388,7 @@ post_color:Farba
 post_font:Písmo
 create_thread:Vytvoriť tému
 submit_reply:Odoslať odpoveď
-# Fuzzy
-edit_message:Upraviť príspevok
+edit_message:Aplikovať zmeny
 apply_spell_changes:Upraviť pravopis
 post_preview:Náhľad správy
 post_logedin_user:Prihlásený používateľ:
@@ -425,6 +425,7 @@ post_title:Predmet:
 post_body:Obsah:
 post_options:Možnosti:
 post_preview_btn:Náhľad príspevku
+post_diff_btn:Zmeny v rozpore
 post_cancel_btn:Zrušiť
 ignore_users:Ignorovaní používatelia
 add_ignore:Pridať ignorovaného používateľa
@@ -633,8 +634,7 @@ post_err_lockedthread_msg:Táto téma je uzamknutá. Ďalšie príspevky nie sú
 err_coppa_title:CHYBA: Váš používateľský účet ešte nebol potvrdený
 err_coppa_msg:Nedostali sme ešte potvrdenie rodiča a/alebo zákonného zástupcu, ktoré by vám umožňovalo uverejňovanie správ na fóre. Ak ste váš COOPA formulár stratili <a href="{TEMPLATE: err_coppa_msg_lnk}">zobraziť znova</a> .
 err_banned_acct_title:CHYBA: Boli ste vyhostený.
-# Fuzzy
-err_banned_acct_msg:Váš používateľský účet bol  {IF: $ban_expiry}  dočasne zablokovaný do {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE} trvalo zablokovaný {ENDI} z dôvodu porušenia pravidiel fóra.
+err_banned_acct_msg:Váš účet bol {IF: $ban_expiry} dočasne zakázaný do {TEMPLATE: ban_expiry_date}{ELSE}natrvalo zakázaný{ENDI} prístup na stránku z dôvodu porušenia pravidiel fóra.
 post_err_edttimelimit_title:CHYBA
 post_err_edttimelimit_msg:Túto správu už nie je možné upraviť
 post_err_noannontopics_msg2:<legend>CHYBA: Nedostatočné práva</legend> Anonymní používatelia nemôžu vytvárať témy.
@@ -1057,6 +1057,7 @@ search_options:Možnosti vyhľadávania
 search_user_filter:Filtrovať podľa používateľa:
 register_none:Neupozorňovať
 findu_no_conf:nepotvrdený používateľ
+findu_banned:zakázaný používateľ
 register_max_sig_len:Maximálna dĺžka:
 register_turing:Overenie:
 register_err_turing:Neplatný overovací kód. Prosím skúste znovu.
@@ -1078,8 +1079,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:CHYBA: Váš účet bol vyfiltrovaný.
 err_blockedaccnt_msg:Váš účet bol zablokovaný pre prístup na fórum, kvôli jednému z nainštalovaných používateľských filtrov.
 merge_th_page_list:Stránka výberu tém
-# Fuzzy
-most_users_online:Najviac používateľov <b>{VAR: st_obj->most_online}</b> bolo online dňa <b>{DATE: st_obj-> most_online_time%, %d % B% Y %H:% M}</b>
+most_users_online:Najviac používateľov, ktorí kedy boli online, bolo <b>{VAR: st_obj->most_online}</b> v <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Odhlásiť z všetkých fór
 sub_unsub_all_topics:Odhlásiť z všetkých tém
 unbookmark_all_topics:Odstrániť všetky záložky
@@ -1121,8 +1121,7 @@ move_msg_th_expl:Zadajte číslo cieľovej témy (môže byť na iných fórach)
 captcha_img_alt:Overenie kódu (captcha): Rozpoznajte text v obrázku.
 captcha_img_help:V obrázku sa nula alebo jeden nenachádza.
 powered-by:Poháňané cez: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright ©2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Vybrať všetko
 code_show_hide:Zobraziť/ skryť
