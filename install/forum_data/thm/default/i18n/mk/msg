@@ -302,7 +302,7 @@ no_edit_time_limit:<b>Дозволено време за уредување</b>:
 pmuserloc_login:Корисничко име:
 pmuserloc_submit:Најди
 pmuserloc_user:Корисник
-pmuserloc_no_result:Нема исход
+pmuserloc_no_result:Не најдов ништо
 register_builtin:Вградена
 register_specify_url:Назначи URL
 register_uploaded:Подигни аватар
@@ -499,7 +499,7 @@ search_entire_msg:Цела порака
 search_subject_only:Само наслов
 search_forum:Форум
 search_posted_on:Објавено на
-search_no_results:Нема исход
+search_no_results:Не најдов ништо
 search_spell_suggestions:Дали мислевте на:
 search_all_forums:Пребарај по сите форуми
 search_in_forum:Пребарај во форумот:
