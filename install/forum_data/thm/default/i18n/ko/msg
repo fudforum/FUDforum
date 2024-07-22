@@ -10,6 +10,7 @@
 # Author: Priviet
 # Author: Revi
 # Author: SeoJeongHo
+# Author: Suleiman the Magnificent Television
 # Author: ToePeu
 # Author: Yearning
 # Author: Ykhwong
@@ -639,8 +640,7 @@ post_err_lockedthread_msg:이 주제는 잠겨 있습니다. 더 이상 글을 �
 err_coppa_title:오류: 당신의 계정은 인증 절차를 마치지 않았습니다
 err_coppa_msg:메시지를 게시할 수 있는 당신의 부모나 법적 보호자에서 확인을 받지 못했습니다. 청소년 온라인 개인정보 보호법(COPPA) 양식을 잃었다면, <a href="{TEMPLATE: err_coppa_msg_lnk}">이를 다시 보세요</a>.
 err_banned_acct_title:오류: 당신은 차단되어 있습니다.
-# Fuzzy
-err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_banned_acct_msg:귀하의 계정은 {IF: $ban_expiry}임시로 {TEMPLATE: ban_expiry_date}까지{ELSE}영구적으로{ENDI} 사이트 접근이 차단되었습니다. 포럼 규칙을 위반했기 때문입니다.
 post_err_edttimelimit_title:오류
 post_err_edttimelimit_msg:이 게시글은 더 이상 편집할 수 없습니다
 post_err_noannontopics_msg2:<legend>오류: 권한 불충분</legend>익명 사용자는 새 주제를 만들 수 없습니다.
@@ -694,6 +694,7 @@ reset_err_invalidkey_msg:비밀번호 재설정 키가 유효하지 않습니다
 reset_err_rstconf_title:정보
 reset_err_rstconf_msg:몇분 내로 당신의 이메일로 발송될 예정입니다.
 reset_newpass_title:비밀번호 재설정
+reset_newpass_msg:안녕하세요,\n\n요청하신 대로, 로그인 정보는 아래와 같습니다:\n\n사용자 이름: {VAR: ui[1]}\n비밀번호: {VAR: passwd}\n\n비밀번호는 위의 값으로 재설정되었습니다. 비밀번호를 변경하려면 사용자 정보 제어판에서 변경하실 수 있습니다:\n{FULL_ROOT}?t=register
 reset_login_notify:비밀번호가 이메일로 보내졌습니다. 몇 분 이내에 받아야 합니다.
 search_update:메시지 검색 중
 selmsg_update:<a href="{TEMPLATE: selmsg_update_lnk}">오늘의' 게시글</a> 탐색
@@ -728,6 +729,7 @@ error_title:오류 형식
 index_title:포럼에 오신것을 환영합니다
 search_title:{VAR-HTML: srch}에 대한 검색
 remail_emailsent:이메일 발송 완료
+remail_email:안녕하세요,\n\n{GVAR: FORUM_TITLE} 포럼에 "{VAR: data->subject}"에 관한 흥미로운 주제가 있습니다. 읽어보실 수 있습니다: {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n친애하는,\n\n{VAR: usr->alias}
 poll_add_option:옵션 추가:
 post_opt_html_on:<b>HTML</b>이 <b>켜져</b> 있습니다
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BB코드</b>가 <b>켜져</b> 있습니다</a>
@@ -755,7 +757,9 @@ thr_exch_decline:거부
 thr_exch_orig_forum:원래 위치:
 thr_exch_dest_forum:이동 위치:
 thr_exch_no_threads:승인 대기 중인 토픽이 없습니다.
+thr_exch_decl_reason:주제 <b>{VAR: data->subject}</b>를 포럼 <b>{VAR: data->f2_name}</b>으로 이동하지 않은 이유
 thr_exch_submit:제출
+exch_decline_ttl:주제 {VAR: data->subject}의 {VAR: data->f2_name}로의 이동이 거부되었습니다.
 ppost_original_msg:전달하거나 답장을 보내는 메시지
 split_thread:주제 분할
 groupmgr_no_user:"{FUNC: char_fix(htmlspecialchars($gr_member))}"님으로 로그인한 사용자는 없습니다
@@ -919,6 +923,7 @@ post_moderated_forum_ttl:중재 포럼 공지
 buddy_list_bday:오늘 {VAR: r[2]}님은 {VAR: age}살이 됩니다
 email_warning_msg:만일 이메일 주소를 변경하면 당신의 계정은 이메일 확인 절차를 마치기 전까지 확인되지 않은 계정으로 표시됩니다.
 register_show_im:Show IM indicators
+register_show_im_desc:메시지 옆에 작성자의 인스턴트 메시지 상태 표시 여부.
 unread_message:읽지않은 게시글
 read_message:읽은 게시글
 threadt_more:&lt;더&gt;
@@ -928,6 +933,7 @@ threadt_update:포럼 탐색 (계단식) <a href="{TEMPLATE: threadt_update_lnk}
 mmod_delete_cofirm_ttl:토픽/게시글 삭제 확인
 spell_alts:대안 없음
 insert_uploaded_image:메시지 본문에 그림 넣기
+finduser_help:검색 엔진은 자동으로 쿼리에 * 마스크를 추가합니다. 검색은 <b>대소문자를 구분합니다</b>. 예를 들어, 로그인 이름이 'a'로 시작하는 모든 사용자를 검색하려면 검색 상자에 'a'를 입력하세요.
 back_to_top:맨 위로 돌아가기
 pm_err_disabled_title:쪽지 사용 불가
 pm_err_disabled_msg:개인 프로파일에서 쪽지 기능을 활성화시켜야 쪽지를 이용할 수 있습니다.
