@@ -941,6 +941,7 @@ err_mod_acc_ttl:검증되지 않은 계정
 err_mod_acc_msg:관리가 수동으로 사용자 계정을 인증 및 활성화하고 있습니다. 관리자가 계정을 인증하여 활성화 시키기전까지 일부 기능이 제한됩니다.
 accounts_pending_approval:계정 승인 제출중
 saved:저장됨
+register_err_time_limit:{GVAR: REG_TIME_LIMIT}초당 1회의 등록 제한을 초과했습니다. {PLURAL: reg_limit_reached|$1초} 기다린 후 다시 등록을 시도해 주세요.
 register_err_avatardimtobig:아바타 사이즈는 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>를 초과할 수 없습니다. <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]}님은 현재 오프라인입니다
 buddy_online:{VAR: r[2]}님은 현재 온라인입니다
@@ -963,6 +964,7 @@ thread_mark_all_read:읽지 않은 모든 게시글을 읽음으로 표시
 thread_mark_all_read_desc:현재 포럼 내에 있는 읽지 않은 모든 게시글이 읽음으로 표시될 것입니다
 private_no_messages:이 폴더에는 메시지가 없습니다.
 register_email_change_subject:이메일 변경 확인
+register_email_change_msg:새 이메일 계정 "{VAR: uent->email}"을 확인해 주세요. 이 이메일 계정은 기존 이메일 계정 "{VAR: old_email}"을 대체합니다. 아래 URL을 방문하여 확인을 완료해 주세요:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n새 이메일 주소를 확인하면 포럼 계정이 다시 활성화됩니다.
 iemail_thread_unsub:이 주제에서 구독 취소
 iemail_forum_unsub:이 포럼에서 구독 취소
 primary_group_prefix:포럼에 대한 기본 그룹:
@@ -974,6 +976,8 @@ post_mod_msg_notify_msg:"{VAR: msg_post->subject}" 제목의 새 메시지가 �
 thread_printable_pdf:인쇄용 PDF 생성
 thread_syndicate:이 포럼을 전달 (XML)
 reg_conf_title:등록 확인
+reg_conf_email:<b>이메일 확인</b><br />특별한 URL이 포함된 이메일이 발송되었습니다. 이 URL을 클릭해야만 계정이 활성화됩니다. 몇 분 이내에 이메일을 받지 못하신 경우, 계정에 로그인하여 제공하신 이메일 주소가 정확한지 확인해 주시기 바랍니다. 계정을 확인하시면 확인된 등록 사용자만 이용할 수 있는 포럼 기능에 접근할 수 있습니다.
+reg_conf_account:<b>계정 확인</b><br />귀하의 계정이 활성화되기 전에 관리자의 승인을 받아야 합니다. 승인이 완료되면 계정이 확인되었다는 이메일을 받게 됩니다. 그동안 계정에 로그인할 수는 있지만, 일부 기능에는 접근할 수 없습니다.
 forum_banned_user:사용자의 과거 행위들로 인하여 이 포럼으로부터 영원히 추방되었습니다. 안녕히 가십시오.
 mnav_description:메시지 둘러보기
 mnav_date_limit:날짜 범위:
@@ -994,6 +998,7 @@ mnav_month:월
 mnav_title:메시지 둘러보기
 mnav_update:<a href="{TEMPLATE: mnav_update_lnk}">메시지 둘러보기</a>를 사용해 메시지를 찾아보는 중
 pm_notify_subject:[{GVAR: FORUM_TITLE}] 새 개인 메시지 알림
+pm_notify_body_email:포럼「{GVAR: FORUM_TITLE}」에서 「{VAR: from}」님이 보낸 제목이 「{VAR: subject}」인 새로운 개인 메시지가 도착했습니다.\n메시지를 보려면 아래 링크를 클릭하세요:\n{FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\n앞으로 이 알림을 받지 않으려면, 프로필에서 「개인 메시지 알림」을 비활성화하세요.
 register_pm_notification:쪽지 알림:
 register_pm_notification_desc:활성화하면 개인 메시지를 받을 때 알림을 받습니다.
 findu_admin_opts_header:관리자 옵션
@@ -1014,11 +1019,14 @@ split_cp:글타래 분리 제어판
 groups_perms_header:권한 <span class="small">(종류를 보려면 마우스를 권한 위로 이동시키십시오)</span>
 register_err_sig_too_long:사용자 서명의 길이가 최대로 허용된 {GVAR: FORUM_SIG_ML}자를 초과하였습니다.
 register_sig_limit:{GVAR: FORUM_SIG_ML}자 <a href="javascript: alert('서명이 '+document.forms['fud_register'].reg_sig.value.length+'자입니다. 최대 허용된 서명 길이는 {GVAR: FORUM_SIG_ML}자입니다.');" class="SmallText">서명 길이 확인</a>
+adm_account_accepted:귀하의 계정 '{VAR: login}'이 관리자에 의해 승인되었으며, 현재 활성화되었습니다. 이제 {GVAR: FORUM_TITLE} 포럼에 등록된 사용자로서 접근하실 수 있습니다.
 adm_account_accepted_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 받아졌습니다.
+adm_account_rejected:귀하의 계정 '{VAR: login}'이 관리자에 의해 거부되었습니다. 이 결정의 이유를 알고 싶으시면 '{GVAR: ADMIN_EMAIL}'으로 관리자에게 연락해 주시기 바랍니다.
 adm_account_rejected_s:'{GVAR: FORUM_TITLE}'에 대한 계정 요청은 거부되었습니다.
 thread_on:날짜
 userinfo_buddy:친구:
 register_email_addr:이메일 주소:
+reset_suffix:이 메시지를 잘못 받으셨다면 무시해 주시기 바랍니다. 요청하지 않은 이메일을 여러 번 받으셨다면, 포럼 관리자에게 {GVAR: ADMIN_EMAIL}로 연락해 주십시오.\n\n이 요청은 {VAR: _SERVER['REMOTE_ADDR']}에서 시작되었습니다.
 usrinfo_last_visit:최근 방문:
 mnav_newer:다음보다 최신:
 mnav_older:다음보다 오래됨:
@@ -1055,6 +1063,7 @@ search_options:검색 옵션
 search_user_filter:사용자별 필터:
 register_none:알리지 마세요
 findu_no_conf:확인되지 않은 사용자
+findu_banned:차단된 사용자
 register_max_sig_len:최대 길이:
 register_turing:인증:
 register_err_turing:인증을 실패했습니다. 다시 시도해 주십시오.
@@ -1076,6 +1085,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:오류: 당신의 계정이 차단 당하였습니다
 err_blockedaccnt_msg:사용자의 계정은 설치된 사용자 필터들 가운데 하나로 인해 포럼에 접근하지 못하도록 차단되어 있습니다.
 merge_th_page_list:토픽 페이지 선택
+most_users_online:가장 많은 온라인 사용자 수는 <b>{VAR: st_obj->most_online}</b>명이며, 이는 <b>{TEMPLATE: most_online_time}</b>에 기록되었습니다
 sub_unsub_all_forums:모든 포럼에서 구독 취소
 sub_unsub_all_topics:모든 주제에서 구독 취소
 unbookmark_all_topics:모든 북마크 제거
@@ -1084,6 +1094,7 @@ sml_emoticon:이모티콘
 sml_code:코드
 mnav_sub_only:구독된 포럼에서만 검색
 register_topics_per_page:문서마다 주제 수:
+login_min_time:이 포럼에서는 {VAR: MIN_TIME_BETWEEN_LOGIN} 초마다 한 번만 로그인 시도를 허용합니다. 다음 시도를 하시려면 {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} 초를 기다려 주세요.
 post_not_logged_in:현재 로그인하고 있지 않아, 메시지가 익명으로 게시됩니다.
 post_common_bold:굵게
 post_common_italics:기울인 글씨
@@ -1116,8 +1127,7 @@ move_msg_th_expl:(다른 포럼에 있을 수 있는) 대상 주제의 ID를 지
 captcha_img_alt:Captcha(캡차) 검증: 이 그림에 텍스트를 인식할 필요가 있습니다.
 captcha_img_help:그림에 0이나 1도 없습니다.
 powered-by:제공: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:저작권 &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:코드:
 code_select_all:모두 선택
 code_show_hide:보이기/ 숨기기
@@ -1159,3 +1169,5 @@ blog_update:포럼 블로그 읽기
 blog:블로그
 blog_new_members:새 회원
 blog_new_posts:최근
+blog_rated_posts:최고 평가
+blog_viewed_posts:가장 많이 본

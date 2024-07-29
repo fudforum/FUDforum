@@ -6,6 +6,7 @@
 # Author: Crazymadlover
 # Author: Dalton2
 # Author: Destinid10 2
+# Author: EmicraftNoob
 # Author: Fitoschido
 # Author: Harvest
 # Author: Indiralena
@@ -38,7 +39,7 @@ birth_date:Fecha de nacimiento:
 by:De:
 by_mod:por el moderador
 current_time:Fecha y hora actual
-custom_avatar_queue:Cola avatares personalizados
+custom_avatar_queue:Cola de avatares personalizados
 date_posted:Fecha de publicación
 date_registered:Fecha de registro:
 download_counter:Descargado {PLURAL: v[3]|$1 vez|$1 veces}
@@ -985,7 +986,7 @@ thread_syndicate:Leer este foro con lector un RSS (XML)
 reg_conf_title:Confirmación del registro
 reg_conf_email:<b>Confirmation de correo electrónico</b><br />Se le ha enviado un correo electrónico conteniendo una URL especial a la que necesitará acceder antes de que su cuenta sea activada. Si no recibe este correo electrónico en los próximos minutos inicie la sesión con su cuenta y asegúrese de que la dirección de correo electrónico que especificó es correcta. Cuando confirme la cuenta, pordrá acceder a los características disponibles en los foros para los usuarios registrados y confirmados.
 reg_conf_account:<b>Confirmación de la cuenta</b><br />Antes de que su cuenta quede activada, necesita ser aprobada por los administradores. Cuando esto ocurra, recibirá un correo electrónico indicando que su cuenta ha sido confirmada. Mientras tanto, podrá usar su cuenta, pero no tendrá acceso a las opciones de los usuarios aprobados.
-forum_banned_user:Sus acciones anteriores tienen como consecuencia que ha sido expulsado de forma permanente de estos foros. Adiós.
+forum_banned_user:Sus acciones anteriores tienen como consecuencia que ha sido expulsado de forma permanente de este foro. Adiós.
 mnav_description:Navegador de mensajes
 mnav_date_limit:Intervalo de fechas:
 mnav_forum_limit:Buscar solo en:
@@ -1070,6 +1071,7 @@ search_options:Opciones de búsqueda
 search_user_filter:Filtrar por usuario:
 register_none:No me notifiquen
 findu_no_conf:usuario sin confirmar
+findu_banned:usuario expulsado
 register_max_sig_len:Longitud máxima:
 register_turing:Verificación:
 register_err_turing:La verificación falló. Por favor intente nuevamente.
