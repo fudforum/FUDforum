@@ -321,7 +321,7 @@ register_avatar:Avatar:
 register_sel_avatar:Pilih Avatar
 register_custom_avatar_rules:Avatar anda tidak akan muncul sehingga ia diluluskan oleh pihak pentadbiran.<br /><span class="SmallText">Avatar itu seharusnya tidak lebih besar daripada <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} piksel</b> dan mestilah berformat <b>jpg</b>, <b>gif</b> atau <b>png</b>.</span>
 register_custom_avatar_url:URL Avatar Ubah Suai:
-register_preview:Pratayang
+register_preview:Pralihat
 register_custom_avatar_upload:Fail Avatar Ubah Suai:
 register_register:Daftar
 register_required:Maklumat yang Diperlukan
@@ -386,7 +386,7 @@ submit_reply:Balas
 # Fuzzy
 edit_message:Tetapkan Perubahan Pesanan
 apply_spell_changes:Tetapkan Perubahan Ejaan
-post_preview:Pratayang Pesanan
+post_preview:Pralihat Pesanan
 post_logedin_user:Pengguna log masuk:
 post_logout:log keluar
 post_passwd:Kata Laluan Mengirim:
@@ -915,7 +915,7 @@ search_attach_all:Dengan atau tanpa
 search_attach_with:Dengan lampiran
 post_proceed:Teruskan
 post_moderated_forum:Anda telah mengirim sesuatu dalam forum yang ketat dikawal selia. Pesanan anda tidak akan dipaparkan kepada orang lain sehingga ia diluluskan oleh pengawal selia/pentadbir forum.
-post_moderated_forum_ttl:Makluman Forum Dikawal Selia
+post_moderated_forum_ttl:Notis Forum Kawal Selia
 buddy_list_bday:Hari ini, {VAR: r[2]} menyambut hari jadi ke-{VAR: age}
 email_warning_msg:Jika anda menukar alamat e-mel anda sekarang, akaun anda akan ditandai sebagai belum disahkan sehingga anda mengesahkannya melalui e-mel.
 register_show_im:Paparkan penunjuk IM:

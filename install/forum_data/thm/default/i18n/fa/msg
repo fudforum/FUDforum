@@ -1055,7 +1055,7 @@ delete_msg_pm_subject:موضوع: {VAR: data[15]}
 ip_no_whois:اطلاعات هویز برای <b>{VAR: ip}</b> موجود نیست.
 ip_whois_title:مشخصات ISP
 register_theme:پوسته:
-pmsg_trash:خالی‌کردن زباله‌دان
+pmsg_trash:خالی کردن زباله‌دان
 uc_new_pm:پیام‌های خصوصی تازه
 uc_new_topic:مبحث تازه
 uc_new_cat_forum:انجمن‌های مشترک شده با پست‌های تازه

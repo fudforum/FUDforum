@@ -28,7 +28,7 @@ email_to_friend_desc:Schéckt d'URL vun dëser Säit per Mail un Är Frënn
 email_user:Dem Benotzer en E-Mail-Message schécken
 faq:Hëllef
 first_unread_msg:Op déi net geliese Messagen
-first_unread_msg_desc:Gitt op den éischten net gelieste Message vun dësem Thema
+first_unread_msg_desc:Gitt op den éischten ongeliesene Message vun dësem Theema
 forum:Forum:
 forum_new_messages:Nei Messagen
 forum_old_messages:Keng nei Messagen
@@ -49,7 +49,7 @@ interests:Interessen:
 last_post:Leschte Message
 legend:Erklärung
 location:Plaz:
-lock_thread:Thema spären
+lock_thread:Theema spären
 locked:Gespaart
 logged_in_list:Lëscht vun den ageloggte Benotzer
 login:Aloggen
@@ -75,11 +75,12 @@ moderator_of:Moderateur vun:
 moderators:{PLURAL: modcount|Moderateur|Moderateuren}
 more_unread_messages:méi net gelieste Messagen
 move_thread:Réckelen
-moved_thread_message:Dëst Thema gouf an een anere Forum geréckelt
+moved_thread_message:Dëst Theema gouf an een anere Forum geréckelt
 new_posts:Nei Messagen
+new_thread:En neit Theema uleeën
 newest_user:De neiste registréierte Benotzer ass
 next_page:Nächst Säit
-next_thread:Nächst Thema:
+next_thread:Nächst Theema:
 no_messages:Et gëtt keng Messagen an dësem Forum.<br /> Sidd deen éischten deen e Sujet an dëse Forum setzt.
 no_new_posts:Keng nei Messagen
 no_posts:Keng Messagen
@@ -95,9 +96,9 @@ post_count:Zuel vun de Messagen {VAR: u_pcount}
 post_count_l:Zuel vun de Messagen:
 posts:Messagen
 posts_c:Messagen:
-prev_thread:Viregt Thema:
+prev_thread:Viregt Theema:
 usrinfo_private_message:Private Message:
-rate_thread:Thema bewäerten
+rate_thread:Theema bewäerten
 rating:Bewäertung
 refresh_list:Lëscht aktualiséieren
 register:Registréieren
@@ -116,10 +117,10 @@ status:Status:
 sub_to_thread:D'Thema abonéieren
 subject:Sujet
 subscribe:Abonéieren
-thread:Thema:
+thread:Theema:
 thread_announcement:Ukënnegung:
-thread_thread:Thema
-threads:Themen
+thread_thread:Theema
+threads:Theemen
 time:Zäit
 todays_posts:Message vun haut:
 todays_posts_desc:All Message weisen déi haut geschriwwe goufen
@@ -421,9 +422,9 @@ post_opt_html_off:<b>HTML</b> ass <b>desaktivéiert</b>
 post_opt_images_off:<b>Biller</b> sinn <b>DESAKTIVÉIERT</b>
 register_change_passwd:Passwuert änneren
 move_reason:Grond fir d'Thema ze réckelen:
-thr_exch_accept:Thema akzeptéieren
+thr_exch_accept:Theema akzeptéieren
 thr_exch_submit:Schécken
-split_thread:thema opdeelen
+split_thread:Theema opsplécken
 groupmgr_yes:Jo
 groupmgr_no:Neen
 groupmgr_action:Aktioun
@@ -530,7 +531,7 @@ register_err_alias_notallowed:Dësen Alias ass net erlaabt
 post_err_mod_forum_edit_ttl:FEELER
 dmsg_num:Message #{VAR: obj->id}
 delete_msg_pm_subject:Sujet: {VAR: data[15]}
-register_theme:Thema:
+register_theme:Theema:
 uc_new_pm:Neie Private Message
 uc_new_topic:Neit Theema
 search_options:Sichoptiounen
@@ -561,7 +562,7 @@ post_common_code:Code derbäisetzen
 rating_delete:Läschen
 tabs_notifications:Notifikatiounen
 finduser_flag:Fändel
-post_descr:Beschreiwung vum Thema:
+post_descr:Beschreiwung vum Theema:
 move_messages:Messagë réckelen
 move_msg_btn:Ausgewielte Messagë réckelen
 # Fuzzy
