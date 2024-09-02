@@ -4,6 +4,7 @@
 # Author: Albe Albe 460
 # Author: Beta16
 # Author: Danmaz74
+# Author: Dream Indigo
 # Author: Giallu
 # Author: Isiond
 # Author: Macofe
@@ -56,7 +57,7 @@ home:Home
 homepage:Homepage:
 icq_control_panel:Pannello Messaggi on-line ICQ
 icq_message_form:ICQ Form Messaggi:
-ignore_user:ignora tutti i messaggi<br />di questo utente
+ignore_user:ignora tutti i messaggi<br />di quest'utente
 im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Immagine:
@@ -156,7 +157,7 @@ sel_unanswered_posts_desc:Abilita il filtro per i messaggi senza risposta (mostr
 sel_unread_messages:Messaggi non letti
 sel_unread_messages_desc:Abilita il filtro per i messaggi non letti (mostra soli i messaggi non letti)
 send:Invia
-send_pm_desc:Invia un messaggio privato a questo utente
+send_pm_desc:Invia un messaggio privato a quest'utente
 sender_email:Mittente:
 sender_name:Nome del mittente:
 show_posts_by:Mostra i messaggi di: {VAR: u_alias}
@@ -164,7 +165,7 @@ size:Dimensione:
 status:Stato:
 status_line:{PLURAL: st_obj->online_users_reg|C'è|Ci sono} <b>{PLURAL: st_obj->online_users_reg|$1 utente registrato|$1 utenti registrati}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 utente invisibile|$1 utenti invisibili}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 utente anonimo|$1 utenti anonimi}</b> che stanno visitando questo forum.
 sticky:In evidenza:
-stop_ignoring:Cessa di ignorare questo utente
+stop_ignoring:Cessa di ignorare quest'utente
 sub_to_thread:Iscriviti all'argomento
 sub_to_thread_desc:Ricevi una notifica di nuovi messaggi all'interno di questo argomento
 bookmark_thread:Aggiungi argomento ai Preferiti
@@ -186,7 +187,7 @@ threads:Argomenti
 time:Ora
 todays_posts:Messaggi odierni
 todays_posts_desc:Mostra tutti i messaggi scritti oggi
-un_ignore_user:Cessa di ignorare i messaggi di questo utente
+un_ignore_user:Cessa di ignorare i messaggi di quest'utente
 unanswered_posts:Messaggi senza risposta
 unanswered_posts_desc:Mostra tutti i messaggi che non hanno risposta
 unlock_thread:Riapri l'argomento
@@ -593,7 +594,7 @@ usrinfo_show_all_posts:Mostra tutti i post di {VAR: u->alias}
 actions_update:Quelli che si fanno gli affari degli altri, proprio come te
 err_info:Informazioni
 buddy_list_err_cantadd:Non puoi aggiungere te stesso alla lista amici
-buddy_list_err_dup:Hai già inserito questo utente nella tua lista amici
+buddy_list_err_dup:Hai già inserito quest'utente nella tua lista amici
 buddy_list_err_nouser:L'utente che hai cercato di inserire nella lista amici non risulta iscritto al forum. Attenzione: il motore di inserimento degli utenti distingue tra MAIUSCOLE e minuscole: controlla con attenzione!
 buddy_list_err_nouser_title:Impossibile aggiungere l'utente
 buddy_list_err_ignore:Non è possibile aggiungere all lista degli amici un utente che ti sta bloccando.
@@ -620,10 +621,10 @@ iemail_frm_subject:Nuovo argomento nel forum {VAR: frm_name} intitolata {VAR: th
 iemail_frm_bodyemail:Per visualizzare l'argomento vai a:\n{VAR: goto_url['email']}\n\nPer non ricevere più notifiche circa nuovi post in questo forum, clicca qui: {VAR: unsub_url['email']}
 iemail_participate:Per partecipare alla discussione, vai qui:
 ignore_list_err_info_title:Informazioni
-ignore_list_err_dup_msg:Hai già inserito questo utente nella tua lista di utenti da ignorare
+ignore_list_err_dup_msg:Hai già inserito quest'utente nella tua lista di utenti da ignorare
 ignore_list_err_nu_title:Utente non trovato
 ignore_list_err_nu_msg:L'utente che hai cercato di inserire nella ignore list non risulta iscritto al forum. Attenzione: il motore di inserimento degli utenti distingue tra MAIUSCOLE e minuscole: controlla con attenzione!
-ignore_list_cantign_msg:Non puoi ignorare questo utente
+ignore_list_cantign_msg:Non puoi ignorare quest'utente
 ignore_list_update:Sfoglia la propria ignore list
 index_update:Sfoglia l'<a href="{TEMPLATE: index_update_lnk}">elenco dei forum</a>
 list_referers_update:Sfoglia le segnalazioni
@@ -655,7 +656,7 @@ postcheck_max_images_err:Sono consentite un massimo di {GVAR: MAX_IMAGE_COUNT} i
 postcheck_no_links_allowed:Non puoi usare i link finché non avrai postato almeno {PLURAL: posts_before_links|$1 messaggio|$1 messaggi}.
 postcheck_subj_needed:Oggetto necessario
 postcheck_no_such_user:Non c'è alcun utente "{FUNC: char_fix(htmlspecialchars($v))}" in questo forum
-postcheck_ignored:Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perché questo utente ha deciso di ignorarti.
+postcheck_ignored:Non puoi spedire un messaggio personale a "{FUNC: char_fix(htmlspecialchars($v))}", perché quest'utente ha deciso di ignorarti.
 postcheck_no_recepient:Non è possibile inviare il messaggio, manca il destinatario
 postcheck_invalid_email:Inserisci un indirizzo email valido.
 postcheck_email_subject:Non puoi spedire una email lasciando vuoto il campo Oggetto.
@@ -711,7 +712,7 @@ ERR_registration_disabled_msg:L'amministratore ha disabilitato la registrazione,
 ERR_emailconf_ttl:ERRORE: Il tuo account non è stato confermato
 ERR_emailconf_msg:Non hai ancora confermato il tuo account via email<br /><table border="0"><tr><td><ol><li>Se non hai ricevuto una email di conferma <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">clicca qui<li>Se {VAR: usr_d->email} non è il tuo indirizzo di posta elettronica <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">clicca qui</a></ol></td></tr></table>
 ERR_user_ttl:ERRORE: Nessun utente
-ERR_user_msg:Non esiste questo utente
+ERR_user_msg:Quest'utente non esiste
 ERR_systemerr_ttl:ERRORE: Errore di sistema
 ERR_systemerr_msg:Se è verificato un errore di sistema, per cortesia segnalalo all'<a href="mailto:{GVAR: ADMIN_EMAIL}">amministratore</a>.
 email_title:Email
