@@ -565,8 +565,7 @@ finduser_flag:Fändel
 post_descr:Beschreiwung vum Theema:
 move_messages:Messagë réckelen
 move_msg_btn:Ausgewielte Messagë réckelen
-# Fuzzy
-copyright:Copyright &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles uwielen
 code_show_hide:Weisen / Verstoppen
