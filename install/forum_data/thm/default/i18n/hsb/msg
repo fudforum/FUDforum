@@ -464,7 +464,7 @@ login_login_btn:Přizjewjenje
 login_name_required:Přizjewjenske mjeno trěbne
 login_passwd_required:Hesło trěbne
 login_invalid_radius:Njepłaćiwa kombinacija wužiwarske mjeno/hesło
-reset_confirmation:Dźakujemy so za registrowanje.\n\nZo by swoje konto aktiwizował, dźi k slědowacemu URL:\n\n{VAR: url}\n\nTak ruče kaž twoje konto je zaktiwizowane, budźeš so do foruma přizjewjeć a na hłownu stronu dale posrědkować.
+reset_confirmation:Dźakujemy so za registrowanje.\n\nZo by swoje konto aktiwizował, dźi na slědowacu URL:\n\n{VAR: url}\n\nRučež je twoje konto zaktiwizowane, přizjewiš so do foruma a posrědkuješ so dale na hłownu stronu.
 reset_reset:Witaj,\n\nsy požadał, zo by so swoje hesło wróćo stajiło. Zo by proceso dokónčił,\ndźi prošu k tutomu URL:\n\n{VAR: url}\n\nKEDŹBU: Tutón forum składuje hesło z jednosměrnym zaklučowanjom, štož woznamjenja, zo so hesło, tak ruče kaž sy jo składował, zaklučuje, zo by njeje ŽANA MÓŽNOSĆ, jo wróćo dóstać. To funguje přez přirunanje zaklučowaneje wersije, kotrež mamy składowane, ze zaklučowanej wersiju, kotruž zapodawaš.\n(Jeli sy na funkciskim wašnju tutoho mechanizma zajimowany, studuj algoritmus MD5 HASH)
 rpasswd_invalid_passwd:Njepłaćiwe hesło
 rpasswd_passwd_nomatch:Hesle so njekryjetej
@@ -669,7 +669,7 @@ register_err_notyouremail:Něchtó druhi je hižo z tutej e-mejlowej adresu zreg
 register_err_avatartobig:Dataja, kotruž pospytuješ nahrać, je přewulka, wjetša hač {GVAR: CUSTOM_AVATAR_MAX_SIZE} bajtow.
 register_err_avatarnotallowed:Awatar, kotryž pospytuješ nahrać, njeje dowoleny. Přepruwuj dowolene datajowe typy.
 register_conf_subject:Wobkrućenje registrowanja
-register_conf_msg:Dźakujemy so za registrowanje.\nZo by swoje konto aktiwizował, dźi prošu k slědowacemu URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nTak ruče kaž twoje konto je aktiwizowane, móžeš so do foruma přizjewić a budźeš so na startowu stronu dale posrědkować.
+register_conf_msg:Dźakujemy so za registrowanje.\nZo by swoje konto aktiwizował, dźi prošu na slědowacu URL:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nRučež je twoje konto aktiwizowane, móžeš so do foruma přizjewić a budźeš so na startowu stronu dale posrědkować.
 register_welcome_subject:Wobkrućenje registrowanja za forum
 register_welcome_msg:Dźakujemy so za registrowanje.\n\nTu su twoje přizjewjenske podrobnosće za forum:\n\nURL foruma: {TEMPLATE: index_update_lnk}\nPřizjewjenske mjeno: {VAR: uent->login}\nHesło: {VAR: _POST['reg_plaintext_passwd']}\n\nProšu dźiwaj na to, zo hesła wulkopisanje wobkedźbuja!\nZo by swoje nastajenja abo profil změnił, dźi k tutej stronje:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:ZMYLK: registrowanje njemóžno
