@@ -1171,3 +1171,4 @@ blog_new_members:새 회원
 blog_new_posts:최근
 blog_rated_posts:최고 평가
 blog_viewed_posts:가장 많이 본
+blog_comments:{PLURAL: topic->replies|$1 댓글}
