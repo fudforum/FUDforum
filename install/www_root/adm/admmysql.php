@@ -26,6 +26,7 @@
 	if (!empty($_POST['charset']) && in_array($_POST['charset'], $charsets)) {
 	
 		pf('<h3>Charset Converter Output</h3>');
+
 	
 		foreach (get_fud_table_list() as $v) {
 			$res = db_saq('SHOW CREATE TABLE '. $v);
@@ -37,10 +38,10 @@
 				$collate = $m[1];
 			}
 			
-			if ($_POST['charset'] == 'utf8' && $charset != 'utf8') {
-				q('ALTER IGNORE TABLE '. $v .' CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci');
-			} else if ($_POST['charset'] == 'utf8' && $charset == 'utf8' && $collate != 'utf8_unicode_ci' ) {
-				q('ALTER IGNORE TABLE '. $v .' DEFAULT COLLATE utf8_unicode_ci');
+			if ($_POST['charset'] == 'utf8mb4' && $charset != 'utf8mb4') {
+				q('ALTER IGNORE TABLE '. $v .' CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+			} else if ($_POST['charset'] == 'utf8mb4' && $charset == 'utf8mb4' && $collate != 'utf8mb4_unicode_ci' ) {
+				q('ALTER IGNORE TABLE '. $v .' DEFAULT COLLATE utf8mb4_unicode_ci');
 			} else if (!strcasecmp($charset, $_POST['charset'])) {
 				echo 'Table '. $v ." was already converted<br />\n";
 				continue;
@@ -55,7 +56,7 @@
 <h2>MySQL Character Set Adjuster</h2>
 
 <div class="tutor">
-All forums should convert their tables to the <b>UTF-8</b> character set. 
+All forums should convert their tables to the <b>UTF8MB4</b> character set.
 If unsure, it is safe to just re-run it.
 Note that the conversion will take a long time to run, especially on large databases. 
 After converting your database, remember to also convert your forum's messages by running the <b><a href="compact.php?<?php echo __adm_rsid; ?>">compactor</a></b>.
@@ -67,7 +68,7 @@ After converting your database, remember to also convert your forum's messages b
 <table class="datatable solidtable">
 <tr class="field">
 	<td>Available Character Sets</td>
-	<td><?php draw_select('charset', implode("\n", $charsets), implode("\n", $charsets), 'utf8'); ?></td>
+	<td><?php draw_select('charset', implode("\n", $charsets), implode("\n", $charsets), 'utf8mb4'); ?></td>
 </tr>
 <tr class="fieldaction">
 	<td colspan="2" align="right"><input tabindex="3" type="submit" value="Change Charset" name="btn_submit" /></td>
