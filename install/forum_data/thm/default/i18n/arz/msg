@@ -382,8 +382,7 @@ post_color:اللون
 post_font:الخط
 create_thread:أنشئ موضوعًا
 submit_reply:أرسل ردا
-# Fuzzy
-edit_message:طبّق تغييرات الرسالة
+edit_message:تطبق التغييرات
 apply_spell_changes:طبّق تغييرات الإملاء
 post_preview:معاينه الرسالة
 post_logedin_user:مستخدم والج:
@@ -1071,8 +1070,7 @@ dmsg_ip:الآيبي:
 err_blockedaccnt_title:خطأ: رُشّح حسابك.
 err_blockedaccnt_msg:منعك حسابك من الوصول إلى المنتدى بسبب إحدى مُرشِّحات المستخدمين المثبته.
 merge_th_page_list:اختيار صفحه الموضوع
-# Fuzzy
-most_users_online:أكثر عدد للمستخدمين المسجلين كان <b>{VAR: st_obj->most_online}</b> فى <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:كان معظم المستخدمين المتصلين على الإنترنت <b>{VAR: st_obj->most_online}</b> في <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:ألغِ اشتراك جميع المنتديات
 sub_unsub_all_topics:ألغِ اشتراك جميع المواضيع
 unbookmark_all_topics:أزل كل العلامات
@@ -1114,8 +1112,7 @@ move_msg_th_expl:حدد هويه الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصوره.
 captcha_img_help:لا يوجد صفر ولا واحد فى الصوره.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:حقوق النشر  و النسخ;2021-2020 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:حقوق الطبع والنشر ©2001-2023 FUDforum بليتن بورد البرمجيات<a href="http://fudforum.org/">FUDforum برنامج لوحة البوليتين</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ
