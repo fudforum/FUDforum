@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Author: Ajeje Brazorf
 # Author: Beta16
+# Author: GianAntonucci
 # Author: Gmelfi
 # Author: Macofe
 # Author: McDutchie
@@ -43,8 +44,8 @@ gender:Sessu:
 go:Véje
 goto_next_msg:Vèje a 'u prossime messàgge
 goto_prev_msg:Vèje a 'u messàgge precedende
-home:Pàggina principali
-homepage:Pàggina principali:
+home:Pàggina mastra
+homepage:Pàggina mastra:
 icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
 ignore_user:no scè penzanne a tutte le messàgge da stu utende
@@ -338,7 +339,7 @@ register_image:Mmàggini:
 register_icq:ICQ:
 register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
-register_homepage:Pàggina principali:
+register_homepage:Pàggina mastra:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
 register_day:Jornu
@@ -870,7 +871,7 @@ im_google:Google Talk:
 im_skype:Skype:
 im_twitter:Twitter
 forum_contact:Condatte
-forum_home:Pàggina principali
+forum_home:Pàggina mastra
 post_cur_attached:allegate pe mò: {VAR: i} {PLURAL: i|file}
 ignored_anon_post:{GVAR: ANON_NICK} ha state cacate
 ignored_user_post:Messàgge da <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> ha state cacate
