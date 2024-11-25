@@ -328,7 +328,7 @@ login_title:Obrazec za prijavo
 register_title:Obrazec za registracijo
 reset_title:Ponastavi geslo
 error_title:Obrazec za napako
-remail_emailsent:E-pismo je bilo poslano
+remail_emailsent:E-poštno sporočilo je poslano
 register_change_passwd:sprememba gesla
 register_change_login:spreminjanje uporabniških imen
 unapproved_avatar_msg:Administrator ni odobril vašega avatarja. Najpogostejši razlogi so, da je bil vaš avatar prevelik (velikost in/ali mere) ali pa vsebuje neprimerno temo. Če želite več informacij o tem, zakaj je bil vaš avatar zavrnjen, kontaktirajte administratorja.
