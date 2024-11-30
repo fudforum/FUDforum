@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -95,7 +95,7 @@ $RSS = '{TEMPLATE: blog_RSS}';
 	}
 
 	// New posts for sidebar, without duplicates.
-	$c = uq(q_limit('SELECT thread_id, subject
+	$c = uq(q_limit('SELECT thread_id, subject, post_stamp
 		FROM {SQL_TABLE_PREFIX}msg m
 		INNER JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id=t.id
                 INNER JOIN {SQL_TABLE_PREFIX}group_cache g1 ON g1.user_id=2147483647 AND g1.resource_id=t.forum_id
@@ -104,7 +104,7 @@ $RSS = '{TEMPLATE: blog_RSS}';
 		WHERE apr=1
 		  AND m.id > (select MAX(id) from {SQL_TABLE_PREFIX}msg) - 50
 		'. ($is_a ? '' : ' AND (mo.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)', 1) .'> 0)') .'
-		GROUP BY thread_id
+		GROUP BY thread_id, subject, post_stamp
 		ORDER BY m.post_stamp DESC', 10));
         $new_topic_list = '<div class="item-list">';
         while ($topic = db_rowobj($c)) {
