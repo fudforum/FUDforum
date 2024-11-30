@@ -14,13 +14,13 @@ jobs:
     steps:
 
     - name: Check out code under $GITHUB_WORKSPACE
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Generate archive file
       run: php create_fudforum_archive install 1 > fudforum_archive
           
     - name: Upload files required for install as artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
           name: fudforum-latest
           path: |
