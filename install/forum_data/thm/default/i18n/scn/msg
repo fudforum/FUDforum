@@ -44,8 +44,8 @@ gender:Sessu:
 go:Véje
 goto_next_msg:Vèje a 'u prossime messàgge
 goto_prev_msg:Vèje a 'u messàgge precedende
-home:Pàggina mastra
-homepage:Pàggina mastra:
+home:Pàggina principali
+homepage:Pàggina principali:
 icq_control_panel:Panelle ICQ Online-Message
 icq_message_form:Module d'u Messàgge de ICQ:
 ignore_user:no scè penzanne a tutte le messàgge da stu utende
@@ -339,7 +339,7 @@ register_image:Mmàggini:
 register_icq:ICQ:
 register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
-register_homepage:Pàggina mastra:
+register_homepage:Pàggina principali:
 register_bday:Date de nascite:
 register_bday_desc:Ce mitte 'a date de nascita toje, allore l'otre membre d'u forum a ponne 'ndrucà jndr'à 'u profile tune.
 register_day:Jornu
@@ -428,8 +428,7 @@ ignore_users:Utinde cacate
 add_ignore:Aggiunge le cacaminde
 forum_terms:Termine d'u forum
 forum_rules:<p>'A reggistrazione a stu forum jè libbere! Nuje insisitime ca tu respitte le regole ca stonne aqquà sotte. Ce tu sì d'accorde cu le termine, pe paicere cazze 'u buttone <b>Accette</b> a 'a fine d'a pàgene.</p><p>Pure ca le amministrature e le moderature de stu forum provane a tenè sotte condrolle tutte le messàgge, non g'è possibbile sta rrete a tutte. Tutte le messàgge esprimone le punde de vistre de l'autore, e nisciune de le titolare d'u forum o sveluppature ponne essere responsabbile pe le condenute de le messàgge.</p><p>Cazzanne 'u buttone Accette, tu garandisce ca non g'à mannà messàgge oscene, volgare, oriendate a 'u sesse, chine d'odie,  hateful, de minacce, o otre cose ca violane 'a legge.</p><p>Le titolare de stu forum onne 'u diritte de luà, cangià, spustà o achiudere ogne argomende pe ogne mutive.</p>
-# Fuzzy
-forum_rules_13:<p>Tutte le utinde sotte a 13 anne onna cercà 'u permesse a le genitore lore o a 'nu tutore pe devendà membre d'u forum. Mendre nuje diceme bovègne a ce tène mene de 13 anne, nuje vulime ca 'nu genitore o 'nu tutore manne 'nu fax o 'na poste cu 'u permesse firmate apprime de dà 'u titole de membre.</p><p>Ce vuè ccu accuminze 'u processe de reggistrazione apprime amma ricevere 'u module de permesse, cazze 'u buttone <b>Accette</b> aqquà sotte. Ce vuè ccu scangille 'a reggistrazione, cazze <b>Non accette</b> pe turnà a l'indice d'u forum.</p><p>'Na copie d'u module de permesse pò essere scarecate aqquà. Pe cchiù 'mbormaziune sus a 'u processe de reggistrazione, pe piacere manne 'n'email a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Tutti li utenti cchiù nichi di 13 anni hannu a dumannari lu pirmissu dû sò ginitura o tuturi pi èssiri membru dî forum. Puru si accìttamu a participazzioni dî membri sutta li 13 anni, abbisogna ca nu ginituri o nu tuturi manna nu fax o nu modulu di pirmissu firmatu prima di siri accittati pi l'abbunamentu.</p><p>Siddu vuoi accuminciari lu prucessu di arriggistrazzioni prima ca ricivimu nu modulu di pirmissu, spinci lu buttuni <b>D'accordu</b> cassutta. Siddu vuoi cancillari la riggistrazzioni, spinci <b>Nun sugnu d'accordu</b> pi arriturnari a l'ìnnici dî forum.</p><p>Na copia dû modulu di pirmissu veni prisintata doppu la riggistrazzioni. Pi  nfurmazzioni superchiu supra lu prucessu di iscrizzioni, pi favuri mannari n'e-mail a<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Cunferma dû COPPA
 coppa_before:Apprime de {TEMPLATE: coppa_date}
 coppa_after:Apprisse {TEMPLATE: coppa_date}
