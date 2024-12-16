@@ -589,7 +589,7 @@ thread_delete:다음 제목의 <span class="ErrorText">주제 전체</span>를 <
 delete_proceed:<span class="fb">진행하시겠습니까?</span>
 delete_yes:예
 delete_no:아니오
-error_invalidurl:URL 오류
+error_invalidurl:유효하지 않은 URL
 error_error:오류
 usrinfo_profile:{VAR: u->alias}'의 프로파일
 usrinfo_show_all_posts:모든 게시글 보기{VAR: u->alias}
