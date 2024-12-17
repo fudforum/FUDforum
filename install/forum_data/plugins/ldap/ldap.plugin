@@ -93,7 +93,7 @@ function plugin_ldap_auth() {
 	}
 
 	if ($login == $ldap_login) {
-		// Let user through, but first regsister in FUDforum's DB.
+		// Let user through, but first register in FUDforum's DB.
 
 		if (!($usr_d = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($login)))) {
 			// Register new FUDforum user.

@@ -732,7 +732,7 @@ While it is running, your forum will be disabled!
                                 $r->avatar_loc = $new_avatar;
                                 q('UPDATE '. $tbl .'users SET avatar_loc='. _esc($new_avatar) .' WHERE id = '. $r->id);
                         }
-                }cd 
+                }
                 // Remove protocol from external avatar URL's - for example for gravatar images.
                 $new_avatar = preg_replace('#https?://#i', '//', $r->avatar_loc);
                 if ($new_avatar !== $r->avatar_loc) {
