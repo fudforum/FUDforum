@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,15 +31,7 @@ function delete_zero($tbl, $q)
 }
 
 /* main */
-	@set_time_limit(0);
-	@ini_set('memory_limit', '512M');
 	require('./GLOBALS.php');
-
-	// Try to force unbufered incremental output.
-	header('X-Accel-Buffering: no');
-	@ini_set('zlib.output_compression', 0);
-	@ini_set('implicit_flush', 1);
-	@ob_implicit_flush(1);
 
 	// Run from command line.
 	if (php_sapi_name() == 'cli') {
@@ -726,16 +718,28 @@ While it is running, your forum will be disabled!
 	q('UPDATE '. $tbl .'users SET theme=(SELECT id FROM '. $tbl .'themes thm WHERE '. q_bitand('theme_opt', 3) .' = 3) WHERE theme NOT IN( (SELECT id FROM '. $tbl .'themes WHERE '. q_bitand('theme_opt', 1) .' > 0))');
 	draw_stat('Done: Validating User/Theme Relations');
 
-	draw_stat('Correcting Avatar Paths...');
-	$c = q('SELECT id, avatar_loc FROM '. $tbl .'users WHERE avatar_loc IS NOT NULL AND users_opt>=8388608 AND '. q_bitand('users_opt', (8388608|16777216)) .'>0 AND avatar_loc NOT LIKE '. _esc('%'. $WWW_ROOT .'%'));
-	while ($r = db_rowobj($c)) {
-		preg_match('!http://(.*)/images/!', $r->avatar_loc, $m);
-		preg_match('!//(.*)/!', $WWW_ROOT, $m2);
-		if (isset($m[1], $m2[1])) {
-			pf(' - changing '. htmlentities($m[1]) .' to '. htmlentities($m2[1]));
-			q('UPDATE '. $tbl .'users SET avatar_loc=REPLACE(avatar_loc, '. _esc($m[1]) .', '. _esc($m2[1]) .') WHERE id = '. $r->id);
-		}
-	}
+        draw_stat('Correcting Avatar Paths...');
+        $urlparts = parse_url($GLOBALS['WWW_ROOT']);    // Extract relative path from forum URL and remove trailing slash.
+        $urlpath = empty($urlparts['path']) ? '' : rtrim( $urlparts['path'], '/');
+        $c = q('SELECT id, avatar_loc FROM '. $tbl .'users WHERE avatar_loc IS NOT NULL AND users_opt>=8388608 AND '. q_bitand('users_opt', (8388608|16777216)) .'>0');
+        while ($r = db_rowobj($c)) {
+                preg_match('!img src="(.*)/images/!', $r->avatar_loc, $m);
+                if (isset($m[1])) {
+                        $new_avatar = str_replace($m[1], $urlpath, $r->avatar_loc);
+                        // Check if the avatar URL needs to be updated (for example, when the URL or path changed).
+                        if ($new_avatar !== $r->avatar_loc) {
+                                pf(' - change '. htmlentities($r->avatar_loc) .' to '. htmlentities($new_avatar));
+                                $r->avatar_loc = $new_avatar;
+                                q('UPDATE '. $tbl .'users SET avatar_loc='. _esc($new_avatar) .' WHERE id = '. $r->id);
+                        }
+                }cd 
+                // Remove protocol from external avatar URL's - for example for gravatar images.
+                $new_avatar = preg_replace('#https?://#i', '//', $r->avatar_loc);
+                if ($new_avatar !== $r->avatar_loc) {
+                        pf(' - change '. htmlentities($r->avatar_loc) .' to '. htmlentities($new_avatar));
+                        q('UPDATE '. $tbl .'users SET avatar_loc='. _esc($new_avatar) .' WHERE id = '. $r->id);
+                }
+        }
 
 	draw_stat('Rebuilding Forum/Category order cache');
 	rebuild_forum_cat_order();

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@ function plugin_gravatar($uent) {
 	// d=mm: Default avatar picture is mm (mystery-man).
 	// s=??: Image size (use forum's default, change in Global Settings Manager).
 	list($s, ) = explode('x', $GLOBALS['CUSTOM_AVATAR_MAX_DIM']);
-	$gravatar = 'http://www.gravatar.com/avatar/'. md5(strtolower(trim($uent->email))) .'?s='. $s .'&d=mm&r=g';
+	$gravatar = '//www.gravatar.com/avatar/'. md5(strtolower(trim($uent->email))) .'?s='. $s .'&d=mm&r=g';
 
 	// Asign the avatar.
 	$uent->avatar = 0;
