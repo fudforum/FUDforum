@@ -706,7 +706,7 @@ ERR_login_msg2:<legend>ERRORE: Non risulti loggato</legend>Per accedere a questa
 ERR_disabled_ttl:Opzione non attiva
 ERR_disabled_msg:Questa funzione è stata disabilitata dall'amministratore
 ERR_access_ttl:ERRORE: permessi non sufficienti
-ERR_access_msg:Non disponi dei permessi necessari per eseguire questa azione.
+ERR_access_msg:Non si dispone dei permessi necessari per eseguire questa azione.
 ERR_registration_disabled_ttl:Registrazione non attiva
 ERR_registration_disabled_msg:L'amministratore ha disabilitato la registrazione, riprova più tardi
 ERR_emailconf_ttl:ERRORE: Il tuo account non è stato confermato
