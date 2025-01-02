@@ -9,6 +9,7 @@
 # Author: Cwlin0416
 # Author: Gerongfenh
 # Author: Hehua
+# Author: HellojoeAoPS
 # Author: Hydra
 # Author: Hzy980512
 # Author: LNDDYL
@@ -29,11 +30,11 @@
 action:操作
 add_to_buddy_list:加入好友列表
 admin:管理
-admin_control_panel:行政管理
+admin_control_panel:管理
 administrator:系统管理员
 attachment:附件：
 avatar:头像：
-average_post_count:{PLURAL: u->posted_msg_count|$1条消息}（平均明天{PLURAL: avg|$1条消息}）
+average_post_count:{PLURAL: u->posted_msg_count| $1消息| $1消息}（每天{PLURAL: avg|平均$1条消息| 平均$1条消息}）
 biography:个人简介：
 birth_date:生日：
 by:发帖：
@@ -43,30 +44,30 @@ custom_avatar_queue:定制头像列表
 date_posted:发布时间
 date_registered:注册日期：
 download_counter:下载 {PLURAL: v[3] | $1 次|$1 次}
-pmsg_download_counter:下载$1次
+pmsg_download_counter:下载次数{PLURAL: r->dlcount| $1次| $1次}
 email:电子邮件：
 email_to_friend:发送邮件给朋友
-email_to_friend_desc:通过电子邮件向您的朋友发送至此页面的URL
+email_to_friend_desc:通过电子邮件将此页的 URL 发送给您的朋友
 email_user:向用户发送一封电子邮件消息
 faq:帮助
-first_unread_msg:转入未读的帖子
+first_unread_msg:转至未读消息
 first_unread_msg_desc:转入本主题第一个未读帖子
 flat_view:返回默认平面视图
 forum:论坛：
 forum_icon:论坛图标
 forum_new_messages:新消息
-forum_none_messages:只有本论坛的注册用户能够把帖子标为“已读”或“未读”
+forum_none_messages:只有注册的论坛成员才能跟踪已读和未读消息
 forum_old_messages:没有新消息
 from:来自：
 gender:性别：
 go:提交
-goto_next_msg:下一楼
-goto_prev_msg:楼上
+goto_next_msg:转至下一条消息
+goto_prev_msg:转至上一条消息
 home:主页
 homepage:主页：
-icq_control_panel:ICQ 在线信息
+icq_control_panel:ICQ在线消息面板
 icq_message_form:ICQ 信息列表：
-ignore_user:加入黑名单
+ignore_user:忽略此用户的所有消息
 im_facebook:脸书：
 im_yahoo:Yahoo信息：
 image:照片：
@@ -79,115 +80,115 @@ last_post:最新帖子
 last_thread_msg:转入本主题最后一个帖子。
 legend:图例
 location:地区：
-lock_thread:锁定本主题
-locked:被锁定
-locked_with_new_posts:锁定（且未读）
+lock_thread:锁定主题
+locked:已锁定
+locked_with_new_posts:已锁定（有未读消息）
 logged_in_list:登录用户列表
 login:登录
 login_header:登录：
-logout:注销
-mark_all_read:将读取的所有邮件都标记
-mark_all_read_desc:所有未读的信息都将被标为已读
+logout:登出
+mark_all_read:将所有消息标记为已读
+mark_all_read_desc:所有未读消息将标记为已读
 members:成员
 calendar:日历
 cal_goto_date:跳至：
-cal_day_heading:一天的事件
-cal_no_events:本日没有事件。
+cal_day_heading:当天活动
+cal_no_events:当日无活动。
 cal_update:浏览论坛日历
 cal_birthday:生日：{VAR: user}
-cal_birthdays:$1个生日
+cal_birthdays:{PLURAL: birthdays| $1生日| $1生日}
 cal_birthday_age:（{PLURAL: age|$1岁|$1岁}）。
 message:信息
-message_counter:我们的用户已张贴共 <b>{PLURAL: post_count|$1 消息|$1 消息}</b> 内 <b>{PLURAL: thread_count|$1 主题|$1 主题}</b>。
-message_index:信息索引
+message_counter:我们的用户在<b>{PLURAL: thread_count| $1 topic| $1 Topics}</b>内共计发了<b>{PLURAL: post_count| $1 message| $1 messages}</b>条消息。
+message_index:消息索引
 message_index_desc:查看信息列表
-minimize_category:减少目录层次
+minimize_category:最小化类别
 minimize_message:最小化消息
-moderation_queue:版主列表
+moderation_queue:审核队列
 moderator:版主
 moderator_of:版主：
-moderator_options:版主功能
+moderator_options:版主选项
 moderators:{PLURAL: modcount|版主|版主}
 more_unread_messages:更多未读信息
-more_unread_messages_desc:显示更多未读信息，并且把现在的信息标为已读。
-move_thread:转移
-moved:转移至别的论坛
+more_unread_messages_desc:显示更多未读消息并将当前可查看的消息标记为已读
+move_thread:移动
+moved:移至另一个论坛
 moved_thread_message:这个主题已被转移至别的论坛。
 na:暂无
 new_posts:新消息
-new_private_messages:您有<span class="GenTextRed">({VAR: c})</span>条未读悄悄话。
+new_private_messages:您有<span class="GenTextRed">( {VAR: c} )</span>条未读{PLURAL: c|私人消息|私人消息}
 new_thread:生成新的主题
 newest_user:最新注册的用户是
 next_page:下一页
-next_thread:上一个主题：
-no_messages:本论坛没有任何发言。成为第一个发言的人！
-no_msg_body:没有内容！
+next_thread:下一主题：
+no_messages:该论坛中没有消息。<br />成为该论坛中第一个发布主题的人。
+no_msg_body:无消息正文
 no_new_posts:没有新的信息
 no_posts:没有信息
 no_subscribed_forums:没有订阅的论坛
-no_subscribed_threads:没有预定的主题
+no_subscribed_threads:没有订阅主题
 no_bookmarked_threads:没有用书签标记的主题
-no_unread_locked:本主题已被锁定（不可回复）。
+no_unread_locked:此主题已被锁定
 no_unread_msg:这个主题没有未读信息。
-no_unread_msg_unreg:只有注册用户能够把信息标为已读和未读。
+no_unread_msg_unreg:仅对注册用户进行跟踪已读和未读消息。
 num_pages:页（{VAR: ttl_pg}）：
-num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|选票}
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|票|票}
 occupation:职业：
 off:关闭
 on:打开
-page_timings:生成本页面共花费时间: {PLURAL: page_gen_time|$1 秒}。
+page_timings:生成页面所需的总时间： {PLURAL: page_gen_time| $1秒}
 pm:私信
 poll:调查：
-post_count:发帖数： {VAR: u_pcount}
-post_count_l:帖子数：
-posts:帖子
-posts_c:发帖数：
-prev_thread:下一个主题：
+post_count:消息计数 {VAR: u_pcount}
+post_count_l:消息数：
+posts:消息
+posts_c:消息数
+prev_thread:上一主题：
 usrinfo_private_message:私信：
-profile:个人信息
+profile:控制面板
 profile_desc:访问用户控制面板
-rate_thread:主题评价
-rating:评级
-rating_track:为帖子<b>{VAR: thr->subject}</b>管理评级：
+rate_thread:评价主题
+rating:评分
+rating_track:为帖子<b>{VAR: thr->subject}</b>管理评分：
 refresh_list:刷新列表
 register:注册
 registered:注册时间：
 registered_on:注册日期：{TEMPLATE: registered_on_date}
 replies:回复
-report_to_mod:违规帖举报
-reported_messages:已向版主举报的违规帖
-reveal_all_posts:透露所有发自{VAR: user_login}的消息
-reveal_post:显示结果
+report_to_mod:报告消息给管理员
+reported_messages:已报告的消息
+reveal_all_posts:显示{VAR: user_login}的所有消息
+reveal_post:显示消息
 search:搜索
 sel_todays_posts:今天的消息
-sel_todays_posts_desc:开启/关闭今日消息过滤器（将只显示今天发出的消息）
-sel_unanswered_posts:未回复主题
-sel_unanswered_posts_desc:只显示未回复主题
+sel_todays_posts_desc:切换今天的消息过滤器（仅显示今天的消息）
+sel_unanswered_posts:未回复消息
+sel_unanswered_posts_desc:切换未回复消息过滤器（将仅显示没有回复的消息）
 sel_unread_messages:未读信息
-sel_unread_messages_desc:只显示未读信息
+sel_unread_messages_desc:切换未读消息过滤器（仅显示未读消息）
 send:发送
 send_pm_desc:向此用户发送一条私信
-sender_email:发送者邮件：
-sender_name:发送者姓名：
-show_posts_by:显示发自{VAR: u_alias}的消息
+sender_email:发件人电子邮件：
+sender_name:发件人姓名：
+show_posts_by:显示消息依据：{VAR: u_alias}
 size:大小：
 status:状态：
 status_line:<b>{PLURAL: st_obj->online_users_reg|$1位成员}</b>、<b>{PLURAL: st_obj->online_users_hidden|$1位隐身成员}</b>和<b>{PLURAL: st_obj->online_users_anon|$1位访客}</b>正在访问此版块。
 sticky:置顶：
 stop_ignoring:停止忽略此用户
 sub_to_thread:订阅主题
-sub_to_thread_desc:接收有关此主题中新消息的通知
-bookmark_thread:将本主题加入书签
-bookmark_thread_desc:将本主题添加到书签列表中
+sub_to_thread_desc:接收本主题中新消息的通知
+bookmark_thread:收藏主题
+bookmark_thread_desc:将此主题添加到您的书签列表
 subject:主题
 subscribe:订阅
-subscribe_desc:当本论坛有人发布新的主题时，请通知我。
+subscribe_desc:当有人在此论坛创建新主题时接收通知
 subscribed_forums:订阅论坛
-subscribed_forums_desc:切换已订阅论坛过滤器（将只显示来自您订阅的论坛的消息）
-subscribed_threads:预定论坛主题
-subscribed_threads_desc:切换已订阅话题过滤器（将只显示来自您订阅的话题的消息）
-bookmarked_threads:用书签标记的主题
-switch_to_thread_view:转换成以树状方式浏览
+subscribed_forums_desc:切换已订阅论坛过滤器（将仅显示您订阅的论坛中的消息）
+subscribed_threads:已订阅的主题
+subscribed_threads_desc:切换已订阅主题过滤器（将仅显示您订阅的主题中的消息）
+bookmarked_threads:已收藏的主题
+switch_to_thread_view:切换到此主题的线程视图
 thread:主题：
 thread_announcement:公告：
 thread_first_unread_msg:转到本主题中的第一个未读消息
@@ -195,31 +196,31 @@ thread_thread:主题
 threads:主题
 time:时间
 todays_posts:今天的消息
-todays_posts_desc:显示所有今天发布的主题
+todays_posts_desc:显示今天发布的所有消息
 un_ignore_user:停止忽略此用户的消息
 unanswered_posts:未回复消息
 unanswered_posts_desc:显示所有未回复信息
-unlock_thread:解锁本主题
+unlock_thread:解锁主题
 unread_msg:本主题包含尚未阅读的消息
-unread_msg_locked:锁定的话题包含未读消息
+unread_msg_locked:含有未读消息的已锁定主题
 unread_posts:未读消息
 unread_posts_desc:显示所有未读消息
-unsub_from_thread:从话题取消订阅
-unsub_from_thread_desc:停止接收有关本主题中最新消息通知
+unsub_from_thread:取消订阅主题
+unsub_from_thread_desc:停止接收本主题中新消息的通知
 unbookmark_thread:从书签中移除
 unbookmark_thread_desc:从您的书签列表中删除此主题
 unsubscribe:取消订阅
-unsubscribe_desc:停止接收有关本论坛中最新主题通知
-updated_on:更新：
+unsubscribe_desc:停止接收论坛中新主题的通知
+updated_on:更新日期：
 user:用户
 user_counter:我们有<b>{VAR: st_obj->user_count}</b>个注册{PLURAL: st_obj->user_count|用户|用户}。
 user_info:用户信息
 user_info_l:用户信息 {VAR: u->alias}
-user_offline:{VAR: obj->login}目前处于脱机状态
-user_online:{VAR: obj->login}目前处于联机状态
+user_offline:{VAR: obj->login}当前处于离线状态
+user_online:{VAR: obj->login}当前在线
 usrinfo_last_post:最后一条消息：
 view_results:查看结果
-views:阅览数
+views:浏览次数
 vote:{PLURAL: frm->n_rating|$1票|$1票}
 vote_button:投票
 vote_for_thread:投票
@@ -230,17 +231,17 @@ reported_del_report:删除报告
 reported_reason:原因：
 reported_on:在：
 reported_reported_by:报告者：
-reported_reported_msg:报告相关内容
-modque_pending_approval:等待批复的信息
+reported_reported_msg:已报告的消息
+modque_pending_approval:待批准的消息
 modque_approve:核准
 modque_delete:删除
-modque_deleteall:删除来自用户的一切
-modque_no_message:没有需要批复的信息
-pmsg_new_messages:未读悄悄话
-pmsg_old_messages:已读悄悄话
-deny_recipt:拒绝接受
-deny_recipt_desc:阅读这条消息后不发送确认信息
-restore_to:存入：
+modque_deleteall:删除用户的所有内容
+modque_no_message:没有待批准的消息
+pmsg_new_messages:未读私信
+pmsg_old_messages:已读私信
+deny_recipt:拒绝接收
+deny_recipt_desc:不发送您已阅读此消息的确认信息
+restore_to:还原至：
 move_to:移至：
 list_referes_referrals:推荐
 list_referes_members:推荐的成员
@@ -260,8 +261,8 @@ pmsg_author:作者
 pmsg_time:时间
 pmsg_selected:选择
 pmsg_delete:删除
-cur_ppage_pm:悄悄话通知
-writing_pm:写悄悄话
+cur_ppage_pm:私信
+writing_pm:写私信
 browsing_folder:正在浏览 <b>{VAR: folders[$folder_id]}</b> 文件夹
 inbox:收件箱
 draft:草稿
@@ -298,18 +299,18 @@ saturday:星期六
 saturday_short:六
 male:男
 female:女
-unspecified:保密
-register_tree_view:树状浏览
-register_msg_tree_view:展开浏览/树状浏览
-register_tree_msg_view:树状浏览/展开浏览
-register_flat_view:展开浏览
-use_forum_default:使用论坛默认值
+unspecified:未指定
+register_tree_view:树状视图消息和主题列表
+register_msg_tree_view:平铺主题列表/树状消息列表
+register_tree_msg_view:树状主题列表/平铺消息列表
+register_flat_view:平铺视图消息和主题列表
+use_forum_default:使用论坛默认设置
 finduser_user_info:用户信息
-finduser_by_login:账号：
+finduser_by_login:按登录:
 finduser_submit:查找
 finduser_no_such_user:没有这个用户
 finduser_user:用户
-finduser_postcount:发帖数
+finduser_postcount:消息数
 finduser_joindate:注册日期
 finduser_action:操作
 yes:是
@@ -322,17 +323,17 @@ pmuserloc_submit:提交
 pmuserloc_user:用户
 pmuserloc_no_result:没有结果
 register_builtin:内置
-register_specify_url:指定地址
+register_specify_url:指定 URL
 register_uploaded:上传头像
 register_login:登录：
-register_login_desc:您想用于登录，并在此网站出名的名字。
+register_login_desc:您希望用来登录并被本网站所知的名字。
 register_login_available:可用
 register_login_taken:已被使用
 register_password:密码：
-register_password_desc:用于您账户的密码。密码区分大小写，并且长度必须至少为6个字符。
-register_conf_pass:密码确认：
-register_conf_pass_desc:请出现输入您的密码。
-register_email_desc:您的电子邮件地址。您可以在下面的参数设置一节中选择隐藏它。
+register_password_desc:您的账户密码。密码区分大小写，且长度至少为 6 个字符。
+register_conf_pass:确认密码：
+register_conf_pass_desc:请重新输入您的密码。
+register_email_desc:您的电子邮件地址。您可以在下面的“偏好设置”部分选择隐藏它。
 register_name:名称：
 register_name_desc:您的真实姓名。
 register_your_pass:您的密码：
@@ -341,19 +342,19 @@ register_avatar_type:头像类型：
 register_del_avatar:删除头像
 register_avatar:头像：
 register_sel_avatar:选择头像
-register_custom_avatar_rules:只有经过系统管理员允许后，才能出现定制的头像。<br /><font class="SmallText">头像不能大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b> 具体大小是<b>jpg</b>, <b>gif</b> or <b>png</b> </font>
-register_custom_avatar_url:定制头像地址：
+register_custom_avatar_rules:自定义头像需经过管理员批准后才会显示。<br /><span class="SmallText">头像不应大于<b>{GVAR: CUSTOM_AVATAR_MAX_DIM} 像素</b>，且必须为<b>jpg</b> 、 <b>gif</b>或<b>png</b>格式。</span>
+register_custom_avatar_url:自定义头像URL：
 register_preview:预览
-register_custom_avatar_upload:定制头像文件：
+register_custom_avatar_upload:自定义头像文件：
 register_register:注册
 register_required:必填信息
-register_required_desc:所有字段都必须填写。
+register_required_desc:所有字段均为必填项。
 register_optional:可选信息
-register_optional_desc:由于您的信息将会被别的论坛成员看到，因此我们建议您填写信息时不要暴露自己的个人身份。
+register_optional_desc:其他论坛成员将可以看到所有信息。建议您不要在个人资料中透露任何个人或身份信息。
 register_location:位置：
 register_occupation:职业：
 register_interests:兴趣：
-register_image:头像：
+register_image:图像：
 register_icq:ICQ：
 register_facebook:脸书 ID:
 register_yahoo:Yahoo信息：
@@ -366,33 +367,33 @@ register_year:年
 register_gender:性别：
 register_bio:个人简介：
 register_bio_desc:其它的一些个人信息，比如兴趣、职业等等。
-register_prefs:参数选择
+register_prefs:偏好设置
 register_sig:签名：
-register_sig_desc:跟在你的发言后的个性化签名。
+register_sig_desc:可选签名，将显示在您的消息底部。
 register_reset:重置
-register_def_thread_view:默认主题浏览方式：
-register_msg_per_page:每页帖子数：
+register_def_thread_view:默认主题视图：
+register_msg_per_page:每页消息数：
 register_show_sig:显示签名：
-register_show_sig_desc:选择是否在发帖后显示你的签名档。
-register_use_sig_default:显示其他成员签名：
-register_use_sig_default_desc:是否显示其他论坛成员的签名档。
+register_show_sig_desc:允许您隐藏或显示其他论坛成员的签名。
+register_use_sig_default:默认使用签名：
+register_use_sig_default_desc:自动将您的签名附加到您发布的每条消息。
 register_timezone:时区：
 register_ignore_admin:忽略管理信息：
 register_invisible_mode:隐身模式：
-register_invisible_mode_desc:登录后是否显示在在线用户列表中。
+register_invisible_mode_desc:隐藏您的在线状态。
 register_show_email:显示电子邮件地址：
-register_show_email_desc:如果您想公开自己的电子邮件地址，请选择这个选项。
-register_notification:是否默认打开提醒功能：
-register_notification_desc:如果选择"是"，在发帖时依然可以选择是否提醒。
+register_show_email_desc:如果您希望公开显示您的电子邮件地址，请选择此选项。
+register_notification:默认选择通知：
+register_notification_desc:如果默认启用通知，发帖时仍可以禁用通知。
 register_notify_method:请选择提醒方式：
-register_notify_method_desc:设置首选的通知方式或关闭通知（例如您正在度假时）。
+register_notify_method_desc:设置您喜欢的通知方式或禁用通知（例如当您去度假时）。
 register_allow_email_msg:允许向你的电子邮箱发送信息：
 register_allow_email_msg_desc:允许其他用户通过本论坛向您发送邮件。
 buddy_status:状态
 my_buddies:我的好友
 add_buddy:添加好友
 add:添加
-buddy_search:输入要添加的用户名。
+buddy_search:输入您想添加的用户登录名。
 member_search:或使用<a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">查找用户</a>功能来找到一个人。
 buddy_remove:移除
 post_normal:正常
@@ -402,56 +403,56 @@ post_size:大小
 post_color:颜色
 post_font:字体
 create_thread:生成主题
-submit_reply:回复
+submit_reply:提交回复
 edit_message:应用更改
 apply_spell_changes:应用拼写更改
-post_preview:预览
-post_logedin_user:登录用户：
-post_logout:注销
-post_passwd:输入密码
+post_preview:消息预览
+post_logedin_user:已登录用户：
+post_logout:登出
+post_passwd:发帖密码：
 post_poll:调查：
 post_create_poll:发起调查
 post_poll_delete:删除
 post_poll_edit:编辑
-post_mod_opt:版主选项
+post_mod_opt:版主选项:
 post_thread_type:主题类型：
-post_thread_expiry:主题到期期限：
-post_locked:本主题已锁定
+post_thread_expiry:主题到期日期：
+post_locked:主题已锁定
 post_icons:消息图标：
 post_no_icon:不用图标
-post_smiley:表情符号：
-post_format_tools:编辑工具：
+post_smiley:表情符号快捷键：
+post_format_tools:格式设置工具：
 post_upload_file:上传文件
 post_file_del:删除
 post_file_name:名称
 post_file_size:大小
-file_attachments:添加附件：
+file_attachments:文件附件：
 allowed_files:允许的文件扩展名：
-max_file_size:文件的最大限制：
-max_files_per_msg:每条信息允许添加的最多文件：
+max_file_size:最大文件大小：
+max_files_per_msg:每条消息的最大文件数：
 post_notification:发布通告
 include_sig:使用签名
-include_sig_desc:包括我的个人签名。
-disable_smilies:这条信息中不使用表情符号
+include_sig_desc:包括您的个人签名。
+disable_smilies:禁用此消息中的表情符号
 spell_check_msg:拼写检查信息
 post_form:发布表格
 post_forum:论坛：
 post_title:标题：
 post_body:正文：
 post_options:选项：
-post_preview_btn:预览
-post_diff_btn:差异
+post_preview_btn:预览消息
+post_diff_btn:差异变化
 post_cancel_btn:取消
-ignore_users:被拒绝的用户
-add_ignore:添加忽略的用户
+ignore_users:忽略的用户
+add_ignore:添加到忽略列表
 forum_terms:论坛协议
-forum_rules:<p>本论坛免费注册！我们希望您务必遵守下列政策和规定。如同意请点击本页最下面的<b>我同意</b>按钮。</p><p>论坛管理员和版主将尽力清除非法言论，但疏漏在所难免。因此我们在此郑重声明，所有发言都仅代表作者观点，作者言责自负。论坛所有者和开发者对此不负任何责任。</p><p>点击“我同意”按钮即表明您保证不在论坛上发布任何淫秽、色情、反动、暴力等非法言论。</p><p>论坛管理者有权因为任何理由删除、编辑、移动或者关闭任何发言。</p>
+forum_rules:<p>注册这个论坛是免费的！我们希望您务必遵守以下详细的规则和政策。如果您同意这些条款，请点击页面底部的<b>同意</b>按钮。</p> <p>尽管本论坛的管理员和版主会尽力将所有令人反感的信息排除在外，但我们不可能审查所有消息。所有消息仅代表作者的观点，论坛的所有者或开发人员对任何消息的内容不承担责任。</p> <p>点击同意按钮，您保证不会发布任何淫秽、粗俗、性暗示、仇恨、威胁或其他违法的消息。</p> <p>本论坛的所有者有权出于任何原因删除、编辑、移动或关闭任何主题。</p>
 forum_rules_13:<p>13岁以下用户必须经过父母或者监护人允许才能成为论坛成员。我们欢迎13岁以下用户加入，但只有在收到父母或者监护人通过传真或电子邮件给我们的签名授权文件以后，我们才能通过您的申请。</p><p>如果您想在我们收到授权文件之前开始注册程序，请点击下面的“我同意”按钮，如果您不想继续注册，请点击“不同意”按钮回到论坛主页。</p><p>您可以在注册后获取授权表格。若想了解更多相关信息，请发邮件至<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>。</p>
 coppa_conf:COPPA确认
 coppa_before:{TEMPLATE: coppa_date}之前
 coppa_after:{TEMPLATE: coppa_date}之后
-coppa_link:根据您的出生日期，请选择
-coppa:<p>对于13岁以下的用户，只有当论坛管理员通过电子邮件或者传真收到了您的父母或者监护人的授权表格以后才能完成注册。</p><p>要了解更多的信息，请联系<a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+coppa_link:点击与您的出生日期对应的链接
+coppa:<p>在13岁以下用户完成注册之前，家长或监护人必须将签字的许可表邮寄或传真至本论坛的管理员。</p> <p>如需更多信息，请联系 <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
 prereg_info:论坛规则
 prereg_agree:同意
 prereg_disagree:不同意
@@ -459,11 +460,11 @@ prereg_update:阅读论坛规则
 coppa_fax_instructions:对于父母或监护人的指示
 coppa_fax_instructions2:请打印这页、签名，然后邮寄或传真给我们。
 coppa_fax_reg_form:注册表单
-coppa_fax_sign:请在下面的表格签字并且寄给我们
-coppa_fax_conf:我已经知道了我的孩子在贵网站提交的相关注册信息并且仔细阅读了贵网站的相关隐私条款。 我知道通过密码可以修改相关信息并且我可以要求更改所有信息。
-coppa_fax_permission:如果同意请签字
-coppa_fax_no_permission:如果不同意请签字
-coppa_fax_parent_name:家长／监护人的真实姓名：
+coppa_fax_sign:请签署以下表格并将其发送给我们
+coppa_fax_conf:我已审阅我孩子提供的信息，并且我已阅读了网站的隐私政策。我明白可以使用密码更改个人信息。我了解可以要求完全删除此注册资料。
+coppa_fax_permission:如果您同意，请在此处签名
+coppa_fax_no_permission:如果您想删除帐户，请在此处签名
+coppa_fax_parent_name:父母/监护人全名：
 coppa_fax_relation:和孩子的关系：
 coppa_fax_telephone:电话：
 coppa_fax_email:电邮地址：
@@ -474,15 +475,15 @@ coppa_fax_passwd:密码
 coppa_fax_remail:电子邮箱
 coppa_fax_name:名称
 login_not_logedin:您尚未登录。这可能是因为以下原因导致的：
-login_cookie_expired:您的Cookie已到期，您需要登录以便重新续订您的Cookie。
-login_perm_denied:作为匿名用户，只有登录以后才有权限访问相关资源。
-login_want_to_register:先注册？
-login_forgot_passwd:密码忘了
+login_cookie_expired:您的cookie已过期，您需要登录来更新您的cookie。
+login_perm_denied:您无权以匿名用户身份访问所请求的资源。您必须登录才能获得权限。
+login_want_to_register:想要注册吗？
+login_forgot_passwd:忘记密码
 login_use_cookie:使用cookies功能<br /><font class="SmallText">如果你是在学校、图书馆、网吧等公共场合使用计算机，为安全起见，不建议你使用此功能。选择此项则下次访问时会自动登入。</span>
 login_login:登录：
 login_login_btn:登录
-login_name_required:登录时必须输入账号
-login_passwd_required:输入密码
+login_name_required:需要登录名
+login_passwd_required:需要密码
 login_invalid_radius:错误的账号或密码
 reset_confirmation:谢谢注册！\n\n进入当前账号，请点击下面的地址：\n\n{VAR: url}\n\n一旦进入当前账户，您将直接进入论坛主页。
 reset_reset:您好,\n\n您提交了重新设置密码的请求，需要重新设置密码，请点击：\n\n{VAR: url}\n\n注意：本论坛以单向加密的方式储存密码，即密码一经输入即被重新编码、无法找回。\n您每次登录输入密码时，该系统将自动对密码进行校验。\n（如果您对此加密方式感兴趣，请查阅关于MD5加密算法的相关资料。）

@@ -292,7 +292,7 @@ prereg_agree:Akzeptéieren
 prereg_disagree:Refuséieren
 prereg_update:Liest d'Reegele vum Forum
 coppa_fax_reg_form:Umeldungsformulaire
-coppa_fax_permission:Ënnerschreift hei wann Dir Ären Accord gitt
+coppa_fax_permission:Ënnerschreift hei, wann Dir Ären Accord gitt
 coppa_fax_telephone:Telefon:
 coppa_fax_email:Mailadress:
 coppa_fax_date:Datum:
@@ -579,6 +579,9 @@ btn_forward:viruleeden
 btn_quote:zitéieren
 btn_email:E-Mail
 btn_homepage:www
+feed_rdf:RDF-Feed
+feed_rss:RSS2-Feed
+feed_atom:ATOM-Feed
 custom_filed_required:Dëst Feld ass obligatoresch.
 pages:Säiten
 page_list_heading:Disponibel Säiten
