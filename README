@@ -46,7 +46,7 @@ Uninstall steps:
 Quick Start Commands:
 ---------------------
 
-Be up and running in less than 5 minutes:
+Get your forum up and running in less than 5 minutes:
 
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/install.php
    wget https://raw.githubusercontent.com/fudforum/FUDforum/master/upgrade.php

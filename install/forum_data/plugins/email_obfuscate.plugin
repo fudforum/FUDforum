@@ -53,7 +53,7 @@ function extract_email($data, $at_replaceby, $dot_replaceby, $random_length) {
 	return $data;
 }
 
-// Generate the random aplha numeric character.
+// Generate the random alphanumeric string.
 function generate_random_alphanumeric( $string_length ) {
 	$characters = '123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   
@@ -102,9 +102,9 @@ function email_obfuscate_config() {
 	?>
 
 <p>E-mail Obfuscation Syntax</p>
-<p>There are a variety of scenarios where forum users' e-mail addresses could be put into a forum post.  They tend to object to that because of spammers that like to scrape websites for e-mail addresses they can spam.  The point of this plugin is to make it much more difficult for someone to do that from your forum by obfuscating in a random way any e-mail addresses, but to allow a human to get the e-mail address if they really need to.</p>
+<p>There are a variety of scenarios where forum users' e-mail addresses could be put into a forum post.  They tend to object to this because of spammers that like to scrape websites for e-mail addresses they can spam.  The point of this plugin is to make it much more difficult for someone to do this from your forum by obfuscating (in a random way) any e-mail addresses, but to allow a human to get the e-mail address if they really need to.</p>
 
-<p>Toward that end, this plugin will find e-mail addresses, replace the '@' sign and any ".' values with what you specify below, and surround both with a random string of the length you specify below. The length of the string can be a random number from 1-3, and this is the default behavior.  You can also choose no random string, or an integer from 1-3. For example, instead of displaying the e-mail address curtis@info.com, it will display curtis456-AT-456-info456-DOT-456com, where 456 is a random string that changes every time.</p>
+<p>Toward that end, this plugin will find e-mail addresses, replace the '@' sign and any '.' values with what you specify below, and surround both with a random string of the length you specify below. The length of the string can be a random number from 1 to 3, which is the default behavior.  You can also choose no random string, or an integer from 1-3. For example, instead of displaying the e-mail address curtis@info.com, it will display curtis456-AT-456-info456-DOT-456com, where 456 is a random string that changes every time.</p>
 
 
 <p><input name="EMAIL_OBFUSCATE_AT_SYNTAX" default="at" value="<?php echo $ini['EMAIL_OBFUSCATE_AT_SYNTAX']; ?>" size="60" /><br />
