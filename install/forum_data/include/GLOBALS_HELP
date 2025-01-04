@@ -51,7 +51,7 @@ The cookie timeout in seconds. When the user's cookie expires, the user will hav
 The session timeout in seconds. When the user's session expires, the user will have to login again.}}}
 
 {{{COOKIE_DOMAIN
-The domain of the cookie that will be used by the forum. For example, if your site is at http://www.mysite.com/forum/, this would be .mysite.com.}}}
+The domain of the cookie that will be used by the forum. For example, if your site is at http://www.mysite.com/forum/, this would be mysite.com.}}}
 
 {{{COOKIE_NAME
 The name of the cookie that will be used by the forum. Use different cookies if you have multiple forums on one site.}}}
