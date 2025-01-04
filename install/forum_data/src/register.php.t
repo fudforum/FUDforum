@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -123,7 +123,7 @@ function register_form_check($user_id)
 		$_POST['reg_email'] = trim($_POST['reg_email']);
 
 		/* E-mail validity check. */
-		if (validate_email($_POST['reg_email'])) {
+		if (!is_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
 		} else if (get_id_by_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_emailexists}');
@@ -147,7 +147,7 @@ function register_form_check($user_id)
 		}
 
 		/* E-mail validity check. */
-		if (validate_email($_POST['reg_email'])) {
+		if (!is_email($_POST['reg_email'])) {
 			set_err('reg_email', '{TEMPLATE: register_err_invalidemail}');
 		} else if (($email_id = get_id_by_email($_POST['reg_email'])) && $email_id != $user_id) {
 			set_err('reg_email', '{TEMPLATE: register_err_notyouremail}');

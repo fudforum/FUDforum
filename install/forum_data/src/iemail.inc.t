@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,30 +9,12 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-function validate_email($email)
+function is_email($email)
 {
-	$bits = explode('@', $email);
-	if (count($bits) != 2) {
-		return 1;
-	}
-	$doms = explode('.', $bits[1]);
-	$last = array_pop($doms);
-
-	// Validate domain extension 2-4 characters A-Z
-	if (!preg_match('!^[A-Za-z]{2,4}$!', $last)) {
-		return 1;
-	}
-
-	// (Sub)domain name 63 chars long max A-Za-z0-9_
-	foreach ($doms as $v) {
-		if (!$v || strlen($v) > 63 || !preg_match('!^[A-Za-z0-9_-]+$!', $v)) {
-			return 1;
-		}
-	}
-
-	// Now the hard part, validate the e-mail address itself.
-	if (!$bits[0] || strlen($bits[0]) > 255 || !preg_match('!^[-A-Za-z0-9_.+{}~\']+$!', $bits[0])) {
-		return 1;
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		return true;	// Valid
+	} else {
+		return false;	// Invalid
 	}
 }
 

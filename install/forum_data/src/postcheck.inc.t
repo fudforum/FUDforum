@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -148,7 +148,7 @@ function check_ppost_form($msg_subject)
 
 function check_femail_form()
 {
-	if (empty($_POST['femail']) || validate_email($_POST['femail'])) {
+	if (empty($_POST['femail']) || !is_email($_POST['femail'])) {
 		set_err('femail', '{TEMPLATE: postcheck_invalid_email}');
 	}
 	if (empty($_POST['subj'])) {
