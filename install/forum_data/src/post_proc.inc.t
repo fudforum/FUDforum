@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -156,6 +156,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				$ostr .= substr($str, $old_pos, $pos-$old_pos);
 			}
 			switch ($tag) {
+				case 'nobbc':
 				case 'notag':
 					$ostr .= '<span name="notag">'. substr($str, $epos+1, $cpos-1-$epos) .'</span>';
 					$epos = $cepos;
@@ -198,6 +199,7 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 				case 'big':
 				case 'small':
 				case 'center':
+				case 'marquee':
 					$end_tag[$cpos] = '</'. $tag .'>';
 					$ostr .= '<'. $tag .'>';
 					break;
@@ -357,9 +359,13 @@ function tags_to_html($str, $allow_img=1, $no_char=0)
 					$ostr .= '<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis(\'s'. $rnd .'\', 1);">'
 						.($parms ? $parms : '{TEMPLATE: post_proc_reveal_spoiler}') .'</a><div align="left" id="s'. $rnd .'" style="display: none;">';
 					break;
-				case 'acronym':
+				case 'acronym':		// Deprecated in HTML5, use abbr instead.
 					$end_tag[$cpos] = '</acronym>';
 					$ostr .= '<acronym title="'. ($parms ? $parms : ' ') .'">';
+					break;
+				case 'abbr':
+					$end_tag[$cpos] = '</abbr>';
+					$ostr .= '<abbr title="'. ($parms ? $parms : ' ') .'">';
 					break;
 				case 'wikipedia':
 					$end_tag[$cpos] = '</a>';
@@ -637,9 +643,12 @@ function html_to_tags($fudml)
 		}
 	}
 
-	// Acronym tags.
+	// Acronym and abbrreviation tags.
 	while (preg_match('!<acronym title=".+?">.*?</acronym>!is', $fudml)) {
 		$fudml = preg_replace('!<acronym title="(.+?)">(.*?)</acronym>!is', '[acronym=\1]\2[/acronym]', $fudml);
+	}
+	while (preg_match('!<abbr title=".+?">.*?</abbr>!is', $fudml)) {
+		$fudml = preg_replace('!<abbr title="(.+?)">(.*?)</abbr>!is', '[abbr=\1]\2[/acronym]', $fudml);
 	}
 
 	// List tags.
@@ -653,7 +662,7 @@ function html_to_tags($fudml)
 	array(
 		'&nbsp;', '<br />',
 		'<b>', '</b>', '<i>', '</i>', '<u>', '</u>', '<s>', '</s>', '<sub>', '</sub>', '<sup>', '</sup>', 
-		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>', '<center>', '</center>',
+		'<del>', '</del>', '<big>', '</big>', '<small>', '</small>', '<center>', '</center>', '<marquee>', '</marquee>',
 		'<div class="pre"><pre>', '</pre></div>', 
 		'<div align="left">', '<div align="right">', '<div align="center">', '</div><!--align-->',
 		'<span style="float:left">', '<span style="float:right">', '</span><!--float-->',
@@ -664,7 +673,7 @@ function html_to_tags($fudml)
 	array(
 		' ', '',
 		'[b]', '[/b]', '[i]', '[/i]', '[u]', '[/u]', '[s]', '[/s]', '[sub]', '[/sub]', '[sup]', '[/sup]', 
-		'[del]', '[/del]', '[big]', '[/big]', '[small]', '[/small]', '[center]', '[/center]',
+		'[del]', '[/del]', '[big]', '[/big]', '[small]', '[/small]', '[center]', '[/center]', '[marquee]', '[/marquee]',
 		'[code]', '[/code]', 
 		'[align=left]', '[align=right]', '[align=center]', '[/align]',
 		'[float=left]', '[float=right]', '[/float]',
