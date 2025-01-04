@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -213,7 +213,7 @@ function db_li($q, &$ef, $li=0)
 {
 	// PgSQL will fail the entire tran if dup val error is encountered.
 	if (pg_transaction_status(fud_sql_lnk) === PGSQL_TRANSACTION_INTRANS) {
-	      pg_exec('SAVEPOINT pre_db_li');
+	      pg_exec(fud_sql_lnk, 'SAVEPOINT pre_db_li');
 	}
 
 	$r = @pg_query(fud_sql_lnk, $q);
@@ -226,12 +226,12 @@ function db_li($q, &$ef, $li=0)
 	/* Ignore duplicate key errors. */
 	if ($err = pg_last_error(fud_sql_lnk)) {
 		if (pg_transaction_status(fud_sql_lnk) === PGSQL_TRANSACTION_INTRANS) {
-			pg_exec('ROLLBACK TO pre_db_li');
+			pg_exec(fud_sql_lnk, 'ROLLBACK TO pre_db_li');
 		}
 		$ef = ltrim(strrchr($err, ' '));
 	} else {
 		if (pg_transaction_status(fud_sql_lnk) === PGSQL_TRANSACTION_INTRANS) {
-			pg_exec('RELEASE pre_db_li');
+			pg_exec(fud_sql_lnk, 'RELEASE pre_db_li');
 		}
 	}
 
@@ -250,9 +250,9 @@ function ins_m($tbl, $flds, $types, $vals)
 		pg_exec(fud_sql_lnk, 'EXECUTE '. $pid .' ('. $v .')');
 		// pg_execute(fud_sql_lnk, $pid,  explode(',', $v));	// $v must be unquoted before we can use this method.
 		if (pg_last_error(fud_sql_lnk)) {
-			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('ROLLBACK TO pre_ins_m');
+			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec(fud_sql_lnk, 'ROLLBACK TO pre_ins_m');
 		} else {
-			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec('RELEASE pre_ins_m');
+			if (!empty($GLOBALS['__DB_INC_INTERNALS__']['db_locked'])) pg_exec(fud_sql_lnk, 'RELEASE pre_ins_m');
 		}
 	}
 	error_reporting($err);
