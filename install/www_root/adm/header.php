@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -148,7 +148,7 @@ jQuery(document).ready(function() {
 	<li><a title="Manage avatars" href="admavatar.php?<?php echo __adm_rsid; ?>">Avatar Manager</a></li>
 	<li><a title="Approve avatars" href="admavatarapr.php?<?php echo __adm_rsid; ?>">Avatar Approval</a></li>
 	<li><a title="Define MIME types andicons" href="admmime.php?<?php echo __adm_rsid; ?>">MIME Manager</a></li>
-	<li><a title="Manage smilys" href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a></li>
+	<li><a title="Manage smiley/emoji images" href="admsmiley.php?<?php echo __adm_rsid; ?>">Smiley Manager</a></li>
 	<li><a title="Manage forum icons" href="admforumicons.php?<?php echo __adm_rsid; ?>">Forum Icon Manager</a></li>
 	<li><a title="Manage messages icons" href="admforumicons.php?<?php echo __adm_rsid; ?>&amp;which_dir=1">Message Icon Manager</a></li>
 	</ul>
