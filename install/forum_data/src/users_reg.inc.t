@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -174,18 +174,18 @@ class fud_user_reg extends fud_user
 				'. (int)$this->avatar .',
 				'. ssn($this->avatar_loc) .',
 				'. $this->icq .',
-				'. ssn(urlencode($this->facebook)) .',
-				'. ssn(urlencode($this->yahoo)) .',
-				'. ssn(htmlspecialchars($this->jabber)) .',
+				'. ssn(urlencode($this->facebook ?? '')) .',
+				'. ssn(urlencode($this->yahoo ?? '')) .',
+				'. ssn(htmlspecialchars($this->jabber ?? '')) .',
 				'. ssn($this->google) .',
-				'. ssn(urlencode($this->skype)) .',
-				'. ssn(urlencode($this->twitter)) .',
+				'. ssn(urlencode($this->skype ?? '')) .',
+				'. ssn(urlencode($this->twitter ?? '')) .',
 				'. (int)$this->posts_ppg .',
 				'. _esc($this->time_zone) .',
 				'. ssn($this->birthday) .',
 				'. __request_timestamp__ .',
 				\''. $this->conf_key .'\',
-				'. ssn(htmlspecialchars($this->user_image)) .',
+				'. ssn(htmlspecialchars($this->user_image ?? '')) .',
 				'. $this->join_date .',
 				'. ssn($this->location) .',
 				'. (int)$this->theme .',
@@ -194,7 +194,7 @@ class fud_user_reg extends fud_user
 				'. (int)$ref_id .',
 				'. __request_timestamp__ .',
 				'. ssn($this->sig) .',
-				'. ssn(htmlspecialchars($this->home_page)) .',
+				'. ssn(htmlspecialchars($this->home_page ?? '')) .',
 				'. ssn($this->bio) .',
 				'. $this->users_opt .',
 				'. _esc($registration_ip) .',

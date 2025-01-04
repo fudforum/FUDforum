@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -251,6 +251,6 @@ function db_all($q)
 
 function _esc($s)
 {
-	return '\''. cubrid_real_escape_string($s, fud_sql_lnk) .'\'';
+	return '\''. cubrid_real_escape_string($s, fud_sql_lnk ?? '') .'\'';
 }
 ?>
