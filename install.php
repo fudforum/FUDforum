@@ -1096,7 +1096,8 @@ if ($section == 'admin' || php_sapi_name() == 'cli') {
 		/* Add admin user. */
 		$salt   = substr(md5(uniqid(mt_rand(), true)), 0, 9);
 		$passwd = sha1($salt . sha1($_POST['ROOT_PASS']));
-		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, passwd, salt, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status, time_zone) VALUES(\''. addslashes($_POST['ROOT_LOGIN']) .'\', \''. addslashes(htmlspecialchars($_POST['ROOT_LOGIN'])) .'\', \''. $passwd .'\', \''. $salt .'\', \'Administrator\', \''. addslashes($_POST['ADMIN_EMAIL']) .'\', 3, \'<img src="images/avatars/smiley03.jpg" alt="" width="64" height="64" />\', 13777910, '. time() .', 1, 1, 1, 3, \'Administrator\', \''. $SERVER_TZ .'\')');
+		$url_path = parse_url($_POST['WWW_ROOT'], PHP_URL_PATH);
+		q('INSERT INTO '. $DBHOST_TBL_PREFIX .'users (login, alias, passwd, salt, name, email, avatar, avatar_loc, users_opt, join_date, theme, posted_msg_count, u_last_post_id, level_id, custom_status, time_zone) VALUES(\''. addslashes($_POST['ROOT_LOGIN']) .'\', \''. addslashes(htmlspecialchars($_POST['ROOT_LOGIN'])) .'\', \''. $passwd .'\', \''. $salt .'\', \'Administrator\', \''. addslashes($_POST['ADMIN_EMAIL']) .'\', 3, \'<img src="'. $url_path .'images/avatars/smiley03.jpg" alt="" width="64" height="64" />\', 13777910, '. time() .', 1, 1, 1, 3, \'Administrator\', \''. $SERVER_TZ .'\')');
 
 		/* Add web crawler users. */
 		$bot_opts = 1|4|16|128|256|512|4096|8192|16384|131072|262144|4194304|33554432|67108864|536870912|1073741824;
