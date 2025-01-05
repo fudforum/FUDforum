@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2017 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,8 +28,12 @@
 {ROOT}/u/{VAR: r[1]}/{DEF: _rsid}
 {SECTION: END}
 
-{SECTION: ACTION_PAGE_lnk}
+{SECTION: action_page_lnk}
 {ROOT}/a/{FUNC: get_random_value()}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_page_lnk1}
+{ROOT}/ot/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: action_sort_alias_lnk}
@@ -38,10 +42,6 @@
 
 {SECTION: action_sort_time_lnk}
 {ROOT}/a/time/{IF: $o=='s.time_sec' && $s=='ASC'}d{ELSE}a{END}/{DEF: _rsid}
-{SECTION: END}
-
-{SECTION: i_spy_lnk1}
-{ROOT}/ot/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: action_ip_entry_url}

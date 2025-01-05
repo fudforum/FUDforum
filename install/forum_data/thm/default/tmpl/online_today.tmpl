@@ -10,7 +10,6 @@
 
 {PHP_FILE: input: online_today.php.t; output: online_today.php;}
 {REF: security.tmpl}
-{REF: logedin.tmpl}
 {REF: admincp.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
@@ -47,7 +46,7 @@
 <br />{TEMPLATE-DATA: admin_cp}
 <div class="GenText ac">
 	[ <a href="{TEMPLATE: online_today_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]
-	[ <a href="{TEMPLATE: i_spy_lnk}" rel="nofollow">{MSG: what_ppl_doing}</a> ]
+	[ <a href="{TEMPLATE: online_today_lnk1}" rel="nofollow">{MSG: what_ppl_doing}</a> ]
 </div>
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
@@ -70,6 +69,10 @@
 
 {SECTION: online_today_lnk}
 {ROOT}?t=online_today&rand={FUNC: get_random_value()}&{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: online_today_lnk1}
+{ROOT}?t=actions&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: no_view_perm}

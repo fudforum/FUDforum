@@ -10,7 +10,6 @@
 
 {PHP_FILE: input: online_today.php.t; output: online_today.php;}
 {REF: security.tmpl}
-{REF: logedin.tmpl}
 {REF: admincp.tmpl}
 {REF: header.tmpl}
 {REF: footer.tmpl}
@@ -22,6 +21,10 @@
 
 {SECTION: online_today_lnk}
 {ROOT}/ot/{FUNC: get_random_value()}/{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: online_today_lnk1}
+{ROOT}/a/{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: online_today_last_post_lnk}

@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -54,8 +54,8 @@
 <br />
 {TEMPLATE-DATA: admin_cp}
 <div class="GenText ac">
-	[ <a href="{TEMPLATE: ACTION_PAGE_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]
-	[ <a href="{TEMPLATE: i_spy_lnk1}" rel="nofollow">{MSG: logedin_todays_visitors}</a> ]
+	[ <a href="{TEMPLATE: action_page_lnk}" rel="nofollow">{MSG: refresh_list}</a> ]
+	[ <a href="{TEMPLATE: action_page_lnk1}" rel="nofollow">{MSG: logedin_todays_visitors}</a> ]
 </div>
 <br />
 <table cellspacing="1" cellpadding="2" class="ContentTable">
@@ -90,8 +90,12 @@
 {ROOT}?t={DEF: d_thread_view}&goto={VAR: r[8]}&{DEF: _rsid}#msg_{VAR: r[8]}
 {SECTION: END}
 
-{SECTION: ACTION_PAGE_lnk}
+{SECTION: action_page_lnk}
 {ROOT}?t=actions&rand={FUNC: get_random_value()}&{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: action_page_lnk1}
+{ROOT}?t=online_today&amp;{DEF: _rsid}
 {SECTION: END}
 
 {SECTION: action_sort_alias_lnk}
@@ -112,8 +116,4 @@
 
 {SECTION: logedin_todays_visitors}
 {MSG: logedin_todays_visitors}
-{SECTION: END}
-
-{SECTION: i_spy_lnk1}
-{ROOT}?t=online_today&amp;{DEF: _rsid}
 {SECTION: END}
