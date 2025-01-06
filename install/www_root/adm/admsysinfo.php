@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -32,7 +32,7 @@ function get_server_software()
 	require($WWW_ROOT_DISK .'adm/header.php');
 ?>
 <h2>System Configuration</h2>
-<p>Overview of your system's configuration. Please include this when reporting bugs on the <a href="http://fudforum.org/">support forum</a>:</p>
+<p>Overview of your system's configuration. Please include this when reporting bugs on the <a href="https://github.com/fudforum/FUDforum/discussions">support forum</a>:</p>
 <table class="datatable">
 <tr class="field">
 	<td><b>FUDforum version:</b></td>

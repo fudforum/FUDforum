@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -95,11 +95,12 @@ function print_log($logfile, $search)
 	fud_use('logaction.inc');
 	require($WWW_ROOT_DISK .'adm/header.php');
 
-	// Check for errors in the following error logs. 
+	// Check for errors in the following error logs.
 	$logs = array(
 		'fud_errors'   => 'Forum',
-		'sql_errors'   => 'SQL', 
-		'nntp_errors'  => 'Newsgroup', 
+		'sql_errors'   => 'SQL',
+		'php_errors'   => 'PHP',
+		'nntp_errors'  => 'Newsgroup',
 		'mlist_errors' => 'Mailing List'
 	);
 

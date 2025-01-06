@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -16,6 +16,8 @@ header('Pragma: no-cache');
 header('X-Robots-Tag: noindex, nofollow');
 
 /* Try to force unbuffered incremental output to see step by step progress. */
+@set_time_limit(0);
+ignore_user_abort(TRUE);
 header('X-Accel-Buffering: no');
 @ini_set('zlib.output_compression', 0);
 @ini_set('output_buffering', 'Off');

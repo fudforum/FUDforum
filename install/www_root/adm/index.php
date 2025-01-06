@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,6 +26,19 @@
 		q('DELETE FROM '. $tbl .'ses');
 		echo successify('All forum sessions were cleared.');
 		echo errorify('You (and all your users) will have to log in again!');
+	}
+
+	// Check Forum Version
+	if (isset($_POST['btn_ver_check'])) {
+		fud_use('url.inc', true);	// For get_remote_file().
+		$verinfo = get_remote_file('https://raw.githubusercontent.com/wiki/fudforum/FUDforum/Current-version.md');
+
+		if ($verinfo && strpos($verinfo, '::')) {
+			// Write version to the forum's cache directory.
+			file_put_contents($FORUM_SETTINGS_PATH .'latest_version', $verinfo);
+		} else {
+			echo errorify('Lookup failed. Data returned ['. $verinfo .'].');
+		}
 	}
 
 ?>
@@ -64,10 +77,13 @@
 
 	/* Check forum version. */
 	if (@file_exists($FORUM_SETTINGS_PATH .'latest_version')) {
+		$lastcheck = filemtime($FORUM_SETTINGS_PATH .'latest_version');
 		$verinfo = trim(file_get_contents($FORUM_SETTINGS_PATH .'latest_version'));
 		$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
 		if (version_compare($display_ver, $FORUM_VERSION, '>')) {
-			echo '<div class="alert dismiss">You are running an old forum version. Please upgrade to FUDforum '. $display_ver .' ASAP!<br /></div>';
+			echo '<div class="alert dismiss">You are running an old forum version. Please upgrade to FUDforum '. $display_ver .'<br /></div>';
+		} elseif ($lastcheck > time() - 86400) {	// recently checked - 1 day.
+			echo successify('You are on the latest version.');
 		}
 	}
 ?>
@@ -79,7 +95,7 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 <table border="0"><tr><td width="50%" valign="top">
 
 	<h4>Getting help:</h4>
-	FUDforum's documentation is available on our <b><a href="https://github.com/fudforum/FUDforum/wiki">development and documentation wiki</a></b>. Please report any problems on the support forum at <b><a href="http://fudforum.org">fudforum.org</a></b>.
+	FUDforum's documentation is available on our <b><a href="https://github.com/fudforum/FUDforum/wiki">development and documentation wiki</a></b>. Please report any problems on the <b><a href="https://github.com/fudforum/FUDforum/discussions">support forum</a></b>.
 
 </td><td width="50%" valign="top">
 
@@ -87,9 +103,9 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 	<?php if (!isset($display_ver)) { ?>
 		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?><br />
 	<?php } elseif (version_compare($display_ver, $FORUM_VERSION, '>')) { ?>
-		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> <span style="color:red">please upgrade ASAP!</span><br />
+		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> <span style="color:red"> - please upgrade!</span><br />
 	<?php } else { ?>
-		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> (<span style="color:green">latest version</span>)<br />
+		<b>FUDforum</b>: <?php echo $FORUM_VERSION; ?> <span style="color:green"> - latest version</span><br />
 	<?php } ?>
 	<b>PHP</b>: <?php echo PHP_VERSION; ?><br />
 	<b>Database</b>: <?php echo __dbtype__ .' '. db_version() .' ('. $GLOBALS['DBHOST_DBTYPE'] .')'; ?><br />
@@ -278,6 +294,7 @@ $registrations_per_day = array_values($registrations_per_day);
 <form method="post" action="index.php"><?php echo _hs; ?>
 <button name="btn_clear_online">Reset the 'most online users' counter</button>
 <button name="btn_clear_sessions">Clear ALL Forum Sessions</button>
+<button name="btn_ver_check">Check Forum Version</button>
 </form>
 <br />
 

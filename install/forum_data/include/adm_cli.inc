@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,7 +28,11 @@
 	/* Something to test against. */
 	define('shell_script', 1);
 	
-	// Show ALL errors.
+	/* Show ALL errors. */
 	error_reporting(-1);
 	@ini_set('display_errors', 1);
+
+	/* Set limits. */
+	@ini_set('memory_limit', '-1');
+	@set_time_limit(0);
 ?>
