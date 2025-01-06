@@ -281,6 +281,10 @@ function resolve_sections($file, $secname, $str)
 
 				break;
 
+			case 'PLUGIN':
+				$ret .= '\'. (defined("plugins") ? plugin_call_hook("'. strtoupper($name) .'") : null) .\'';
+				break;
+
 			case 'INJECTION_POINT':
 				// Give all COMPILER_INJECT plugins the opportunity to add code to the template.
 				if (defined('plugins')) {
@@ -438,7 +442,7 @@ function compile_file($source, $from_tmpl)
 			}
 
 			$end = $pos = 0;
-			// Special handling for php init tags that end up being embeded.
+			// Special handling for php init tags that end up being embedded.
 			while (($pos = strpos($ref, '<?php ', $pos)) !== false) {
 				$new_loc = $pos + 5;
 				$cnt = 0;
@@ -574,6 +578,7 @@ function generate_file($php_file)
 		list($file_data) = plugin_call_hook('COMPILER_FINALIZE_PAGE', array($file_data, $dst));
 	}
 
+	// Write processed template to disk.
 	fwrite($fp, $file_data);
 	fclose($fp);
 }
