@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -687,6 +687,12 @@ function &init_user()
 	if (!$u) {
 		/* New anon user. */
 		$u = ses_anon_make();
+
+		// Log POST reuests for Anon users.
+		if (defined('fud_logging') || $GLOBALS['is_post'] ) {
+			fud_logerror($_SERVER['REQUEST_URI'] .': '. print_r($_POST, true), 'post.log');
+		}
+
 	} else if ($u->id != 1 && (!$GLOBALS['is_post'] || sq_check(1, $u->sq, $u->id, $u->ses_id))) {
 		/* Store the last visit date for registered user. */
 		q('UPDATE {SQL_TABLE_PREFIX}users SET last_visit='. __request_timestamp__ .' WHERE id='. $u->id);
@@ -886,16 +892,6 @@ function regen_sq($uid=__fud_real_user__)
 	$sq = md5(get_random_value(128));
 	q('UPDATE {SQL_TABLE_PREFIX}users SET sq=\''. $sq .'\' WHERE id='. $uid);
 	return $sq;
-}
-
-// Prevent forum scraping and brute force attacks.
-if ($GLOBALS['MAX_CALLS_FROM_IP'] > 0) {
-	$ip_count = q_singleval('SELECT count(ip_addr) FROM {SQL_TABLE_PREFIX}ses WHERE ip_addr = '. _esc($_SERVER['REMOTE_ADDR']));
-	if ($ip_count > $GLOBALS['MAX_CALLS_FROM_IP']) {
-		header('HTTP/1.1 429 Too Many Requests', true, 429);
-		echo 'Too Many Requests';
-		die();
-	}
 }
 
 // Initialize user session.

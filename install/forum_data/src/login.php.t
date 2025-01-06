@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -156,7 +156,7 @@ function error_check()
 	}
 
 	// Call PRE authentication plugins.
-	// If successfully autheticated, the plugin should return a full user object.
+	// If successfully authenticated, the plugin should return a full user object.
 	// Return null to continue with FUDforum's default authentication.
 	$usr_d = null;
 	if (defined('plugins')) {
@@ -170,7 +170,7 @@ function error_check()
 			ses_putvar((int)$usr->sid, null);
 		}
 
-		/* Try to autenticate user. */
+		/* Try to authenticate user. */
 		if (!$usr_d && !($usr_d = db_sab('SELECT last_login, id, passwd, salt, login, email, users_opt, ban_expiry, ban_reason FROM {SQL_TABLE_PREFIX}users WHERE login='. _esc($_POST['login'])))) {
 			/* Cannot login: user not in DB. */
 			login_php_set_err('login', '{TEMPLATE: login_invalid_radius}');

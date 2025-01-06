@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -136,6 +136,16 @@ function ses_get($id=0)
 /** Create an anonymous session. */
 function ses_anon_make()
 {
+	// Prevent forum scraping and brute force attacks.
+	if ($GLOBALS['MAX_CALLS_FROM_IP'] > 0) {
+		$ip_count = q_singleval('SELECT count(ip_addr) FROM {SQL_TABLE_PREFIX}ses WHERE ip_addr = '. _esc(get_ip()));
+		if ($ip_count > $GLOBALS['MAX_CALLS_FROM_IP']) {
+			header('HTTP/1.1 429 Too Many Requests', true, 429);
+			echo 'Too Many Requests';
+			die();
+		}
+	}
+
 	do {
 		$uid = 2000000000 + mt_rand(1, 147483647);
 		$ses_id = md5($uid . __request_timestamp__ . getmypid());
@@ -156,15 +166,20 @@ function ses_anon_make()
 }
 
 /** Update session status to indicate last known action. */
-function ses_update_status($ses_id, $str=null, $forum_id=0, $ret='')
+function ses_update_status($ses_id, $action=null, $forum_id=0, $ret='')
 {
 	if (empty($ses_id)) {
 		die('FATAL ERROR: No session, check your forum\'s URL and COOKIE settings.');
 	}
-	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''. ses_make_sysid() .'\', forum_id='. $forum_id .', time_sec='. __request_timestamp__ .', action='. ($str ? _esc($str) : 'NULL') .', returnto='. (!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto') .' WHERE id='. $ses_id);
+	if (strlen($_SERVER['QUERY_STRING']) > 255) {
+		// Query string exceeds 'returnto' column length.
+                die('FATAL ERROR: QUERY_STRING too long!');
+        }
+	$sys_id = ses_make_sysid();
+	q('UPDATE {SQL_TABLE_PREFIX}ses SET sys_id=\''. $sys_id .'\', forum_id='. $forum_id .', time_sec='. __request_timestamp__ .', action='. ($action ? _esc($action) : 'NULL') .', returnto='. (!is_int($ret) ? (isset($_SERVER['QUERY_STRING']) ? _esc($_SERVER['QUERY_STRING']) : 'NULL') : 'returnto') .' WHERE id='. $ses_id);
 }
 
-/** Save clear a session variable. */
+/** Save or clear a session variable. */
 function ses_putvar($ses_id, $data)
 {
 	$cond = is_int($ses_id) ? 'id='. (int)$ses_id : 'ses_id=\''. $ses_id .'\'';
