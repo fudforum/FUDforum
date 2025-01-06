@@ -1130,7 +1130,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			    'youtube_tag.plugin', // Moved to video_tags.plugin in 3.0.5
 			    'recaptcha/recaptchalib.php', // Not needed for reCAPTCHA v2 in 3.0.9
 			    'ie6_update.plugin', // Removed in 3.1.0
-			    'addthis.plugin'); // Removed in 3.1.4, service terminated as of 21 May '23
+			    'addthis.plugin', // Removed in 3.1.4, service terminated as of 21 May '23
+			    'ckeditor/ckeditor.plugin'); // Removed in 3.1.4, replaced with SCEditor.plugin
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);

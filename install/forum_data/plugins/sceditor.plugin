@@ -1,0 +1,46 @@
+<?php
+/**
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('EDITOR', 'plugin_sceditor');
+
+// Add HTML markup to initialize sceditor when we compile a theme.
+function plugin_sceditor($textbox) {
+
+	$editor_html = '
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
+<script>
+
+// Hide FUDforum\'s formatting toolbar.
+$(function() {
+	$(".FormattingToolsBG").parent().parent().hide();
+});
+
+// Replace the textarea #txtb with SCEditor
+var textarea = document.getElementById("txtb");
+sceditor.create(textarea, {
+	format: "bbcode",
+	style: "https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css"
+});
+</script>';
+
+	return $editor_html;
+}
+
+function sceditor_info() {
+	return array('name' => 'SCEditor',
+				'desc' => 'Allow WYSIWYG editing with <a href="http://sceditor.com/">SCEditor</a>.',
+				'cat'  => 'Third-party Integration',
+				'version' => '1.0');
+}
+
