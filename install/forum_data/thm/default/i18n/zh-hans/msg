@@ -485,22 +485,22 @@ login_login_btn:登录
 login_name_required:需要登录名
 login_passwd_required:需要密码
 login_invalid_radius:错误的账号或密码
-reset_confirmation:谢谢注册！\n\n进入当前账号，请点击下面的地址：\n\n{VAR: url}\n\n一旦进入当前账户，您将直接进入论坛主页。
-reset_reset:您好,\n\n您提交了重新设置密码的请求，需要重新设置密码，请点击：\n\n{VAR: url}\n\n注意：本论坛以单向加密的方式储存密码，即密码一经输入即被重新编码、无法找回。\n您每次登录输入密码时，该系统将自动对密码进行校验。\n（如果您对此加密方式感兴趣，请查阅关于MD5加密算法的相关资料。）
+reset_confirmation:感谢您的注册，\n要激活您的账户，请前往下面的URL：\n\n{VAR: url}\n\n一旦您的账户被激活，您将可以登录论坛，并重定向至首页。
+reset_reset:您好,\n\n您已请求重置密码。要完成此过程，请访问此网址：{VAR: url}\n\n注意：此论坛以单向加密机制存储密码，这意味着一旦您输入密码，它将被编码，无法找回。此方法通过比较我们记录的编码版本与您在登录提示中输入的编码版本来工作。\n\n（如果您对这种机制的工作原理感兴趣，可以了解一下 MD5 哈希算法）\n\n希望这对您有帮助！如果还有其他问题，请随时告诉我。
 rpasswd_invalid_passwd:密码错误
 rpasswd_passwd_nomatch:密码不匹配
 rpasswd_passwd_length:密码必须至少6个字符
 reset_remind_pass:密码提示问题
-reset_reset_conf:您的密码已经重新设定，并将发送电子邮件给你进行确认。如果没有确认，系统将再次发送确认邮件。
+reset_reset_conf:您的密码将被重置并发送给您。如果您尚未确认您的电子邮件地址，我们将重新向您发送确认请求。
 reset_error:在数据库中找不到电子邮件地址
 reset_update:重置密码
 rpasswd_change_pass:更改密码
 rpasswd_login:登录
 rpasswd_cur_pass:当前密码：
 rpasswd_new_pass:新密码：
-rpasswd_conf_pass:密码确认：
-ruser_title:更改登录窗体
-ruser_change_user:更改您的论坛登录
+rpasswd_conf_pass:确认密码：
+ruser_title:更改登录表单
+ruser_change_user:更改您的论坛登录信息
 ruser_cur_login:当前登录名：
 ruser_new_login:新的登录名：
 ruser_cur_pass:当前密码：
@@ -510,53 +510,53 @@ reset_reset_button:重置密码
 rate_this_thread:评价
 report_reporting_about:报告主题：
 report_subject:主题：
-report_by:发布：
+report_by:由：
 report_posted_on:发帖时间：
-report_give_reason:请填写您报告此条消息的原因：
-report_submit_report:完成
-search_entire_msg:全文搜索
-search_subject_only:主题搜索
+report_give_reason:请说明您报告此消息的原因：
+report_submit_report:提交报告
+search_entire_msg:整条消息
+search_subject_only:仅限主题
 search_forum:论坛
-search_posted_on:提交
-search_no_results:没有查询结果
+search_posted_on:发布于
+search_no_results:无结果
 search_spell_suggestions:您的意思是：
 search_all_forums:搜索所有论坛
-search_in_forum:搜索这个论坛：
+search_in_forum:在论坛中搜索：
 search_forum_search:论坛搜索
-move_thread_to:把本主题移至 <b>{VAR: thr->subject}</b> ：
-remail_email_topic:通过电子邮件向朋友推荐这个主题
+move_thread_to:把主题 <b>{VAR: thr->subject}</b> 移至：
+remail_email_topic:通过电子邮件将此主题发送给朋友
 remail_your_name:您的名字：
 remail_your_email:您的电子邮箱：
 remail_friends_name:朋友的名字：
 remail_friends_email:朋友的电子邮箱：
-remail_required:必填的
+remail_required:必填
 remail_subject:主题：
 remail_message:内容：
 remail_send_now:现在发送电子邮件
-remail_anon_opt:将这段消息复制到您设备的电子邮件客户端，以将其发送给您的朋友。
+remail_anon_opt:复制这条消息到您选择的邮件客户端，以将其发送给您的朋友。
 remail_done:完成
-remail_sent_conf:给你在{VAR-HTML: _POST['femail']}的朋友主题为{VAR: data->subject}的邮件已经成功发送。
+remail_sent_conf:有关{VAR: data->subject}主题的电子邮件已成功发送至您在 {VAR-HTML: _POST['femail']} 的朋友。
 remail_error:发生了错误
 mklist_type:类型：
 mklist_option:选项：
 mklist_additem:添加条目
-mklist_apply:提交
+mklist_apply:应用
 mklist_delete:删除
 qbud_nick_name:昵称
-qbud_add_selected:添加选定用户
+qbud_add_selected:添加所选
 qbud_selected:选择
-qbud_no_buddies:没有用户选择
-mklist_numerical:数字
+qbud_no_buddies:没有好友可供选择
+mklist_numerical:数值的
 mklist_aplha:字母
 mklist_square:方点
-mklist_disc:圆点
+mklist_disc:光盘
 mklist_circle:圆圈
 mklist_close:关闭
 email_to:至：
 email_pg_title:电子邮箱
 email_subject:主题：
 email_body:正文：
-email_submit:发送
+email_submit:电子邮件
 ppost_quote_msg:{VAR: msg_to_list}在{TEMPLATE: ppost_quote_msg_date}写道：
 ppost_quote:引用：
 ppost_to:至：
@@ -573,65 +573,65 @@ poll_timelimit:时间限制：
 poll_maxiumvotes:最大的投票数：
 poll_create:创建
 poll_update:更新
-poll_disablesmilies:不使用表情符号
+poll_disablesmilies:禁用表情符号
 poll_create_poll:发起调查
 poll_update_poll:更新调查
 poll_delete:删除
 poll_updateoption:更新选项
 poll_addoption:添加选项
-poll_unlimited:不限制
+poll_unlimited:无限
 poll_day:天
 poll_days:天
 poll_hour:小时
 poll_hours:小时
-poll_month:个月
+poll_month:月
 poll_year:年
 poll_week:周
-tabs_register:设置
-tabs_subscriptions:预定内容
+tabs_register:账户设置
+tabs_subscriptions:订阅
 tabs_bookmarkes:书签
 tabs_referrals:推荐
 tabs_buddy_list:好友列表
-tabs_ignore_list:黑名单
-tabs_private_messaging:悄悄话
-single_msg_delete:你将要<span class="ErrorText">删除</span>标题为：<b>{VAR: data[3]}</b>的帖子。
+tabs_ignore_list:忽略列表
+tabs_private_messaging:私信
+single_msg_delete:您即将<span class="ErrorText">删除</span>标题为“ <b>{VAR: data[3]}</b>的消息
 thread_delete:你正要<span class="ErrorText">删除</span>标题为<b>{VAR: data[3]}</b>的<span class="ErrorText">整个主题</span>
-delete_proceed:<font size="3"><b>是否继续?</b></font>
+delete_proceed:<span class="fb">您想要继续吗？</span>
 delete_yes:是
 delete_no:否
-error_invalidurl:该地址无效
+error_invalidurl:无效的URL。
 error_error:错误
-usrinfo_profile:{VAR: u->alias}的个人信息
-usrinfo_show_all_posts:显示用户 {VAR: u->alias}发布的所有主题
-actions_update:查找和您的个人信息内容相匹配的用户
+usrinfo_profile:{VAR: u->alias}的个人资料
+usrinfo_show_all_posts:显示{VAR: u->alias}的所有消息
+actions_update:窥探别人，比如你
 err_info:信息
 buddy_list_err_cantadd:您不能将您自己加入好友名单
 buddy_list_err_dup:你的好友列表中已经添加了这个用户
-buddy_list_err_nouser:您要新增到好友清單的使用者不存在。
-buddy_list_err_nouser_title:无法添加
-buddy_list_err_ignore:不能添加忽略您的用户到您的朋友列表。
-buddy_list_update:浏览我的好友列表
-core_err_invinp_title:输入错误
-core_err_invinp_err:你点击了一个无效的链接，请告知<a href="mailto:{GVAR: ADMIN_EMAIL}">管理员</a>具体情况。
-core_adm_login_msg:管理员可<a href="{BASE}adm/admloginuser.php">在此</a>登录。
+buddy_list_err_nouser:未找到您尝试添加到好友列表的用户。
+buddy_list_err_nouser_title:无法添加用户
+buddy_list_err_ignore:无法将忽略您的用户添加到您的好友列表中。
+buddy_list_update:浏览自己的好友列表
+core_err_invinp_title:无效输入
+core_err_invinp_err:您点击了无效链接。请告知<a href="mailto:{GVAR: ADMIN_EMAIL}">网站管理员</a>您是如何到达此处的。
+core_adm_login_msg:管理员可以点击 <a href="{BASE}adm/admloginuser.php">此处</a> 登录。
 email_err_unabletoemail_title:错误：无法发送邮件
-email_err_unabletoemail_msg:系统管理员设置邮件系统无法使用。
-email_error_unabletolocaddr:对不起，因为无法登录对方的邮件服务器导致系统无法发送邮件{VAR-HTML: _POST['tx_name']}
+email_err_unabletoemail_msg:电子邮件系统已被管理员禁用。
+email_error_unabletolocaddr:抱歉，系统无法发送电子邮件 {VAR-HTML: _POST['tx_name']}，因为无法确定电子邮件地址
 email_error_body:必须填写邮件内容
 email_error_subject:必须填写邮件主题
 email_error_namerequired:必须填写邮件接受者姓名
-email_error_invaliduser:用户名错误
+email_error_invaliduser:无效用户
 emailconf_err_invkey_title:错误
-emailconf_err_invkey_msg:无效的地址。请检查并确认你的填写的是正确的地址信息。
+emailconf_err_invkey_msg:确认密钥无效。请检查您的电子邮件，确保您输入的 URL 正确。如果您点击了两次链接，您的帐户可能已经确认。登录论坛以请求另一个密钥。
 err_inc_criticaltitle:严重错误
-err_inc_criticalmsg:发生错误，而且很不幸的是错误报告系统本身也存在问题。
+err_inc_criticalmsg:发生错误。不幸的是，错误报告系统也存在问题。
 finduser_update:搜索用户
-help_index_update:阅读<a href="{TEMPLATE: help_index_update_lnk}">使用帮助</a>
-iemail_thr_subject:新的回复 {VAR: thr_subject} 由{VAR: poster_login}
-iemail_thr_bodyemail:查看未读的回复 {VAR: goto_url['email']}\n\n如果你不想收到关于这个主题新的回复通知，请点击： {VAR: unsub_url['email']}
-iemail_frm_subject:论坛新主题 {VAR: frm_name} called {VAR: thr_subject}由{VAR: poster_login}
-iemail_frm_bodyemail:查看主题：\n{VAR: goto_url['email']}\n\n不再接受本论坛的新主题发布通知，请点击： {VAR: unsub_url['email']}
-iemail_participate:参与讨论，点此：
+help_index_update:阅读<a href="{TEMPLATE: help_index_update_lnk}">帮助</a>
+iemail_thr_subject:{VAR: poster_login}对{VAR: thr_subject}的新回复
+iemail_thr_bodyemail:要查看未读回复，请转到{VAR: goto_url['email']} \n\n如果您不希望收到有关此主题回复的进一步通知，请转到此处： {VAR: unsub_url['email']}
+iemail_frm_subject:论坛{VAR: frm_name}中有新主题，名为{VAR: thr_subject} ，作者为{VAR: poster_login}
+iemail_frm_bodyemail:要查看主题，请转到：\n{VAR: goto_url['email']}\n\n要停止接收有关此论坛新主题的通知，请转到此处： {VAR: unsub_url['email']}
+iemail_participate:要参与讨论，请访问：
 ignore_list_err_info_title:信息
 ignore_list_err_dup_msg:您已将此用户添加到您的忽略列表中
 ignore_list_err_nu_title:没有找到这个用户
@@ -639,7 +639,7 @@ ignore_list_err_nu_msg:找不到您试图要添加到您的忽略列表的用户
 ignore_list_cantign_msg:您不能忽略该用户
 ignore_list_update:浏览自己的忽略列表
 index_update:浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
-list_referers_update:浏览被提名者
+list_referers_update:浏览推荐
 login_update:登录表单
 msg_update:浏览话题<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:错误：无法发送悄悄话
