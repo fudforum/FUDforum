@@ -642,70 +642,70 @@ index_update:浏览<a href="{TEMPLATE: index_update_lnk}">论坛列表</a>
 list_referers_update:浏览推荐
 login_update:登录表单
 msg_update:浏览话题<a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
-pm_err_nopm_title:错误：无法发送悄悄话
-pm_err_nopm_msg:系统管理员禁止你使用悄悄话系统。
+pm_err_nopm_title:错误：无法发送私信
+pm_err_nopm_msg:您无法使用私信系统。它已被管理员禁用。
 pm_update:使用私信
-post_err_lockedthread_title:错误：该帖子已被锁定
-post_err_lockedthread_msg:这个主题已被锁定，不能回复
+post_err_lockedthread_title:错误：主题已锁定
+post_err_lockedthread_msg:此主题已被锁定。不再允许发帖。
 err_coppa_title:错误：您的账户尚未确认
-err_coppa_msg:我们还没有收到来自你父母或者法定监护人的关于同意你发布帖子的确认函。 如果丢失了申请表，<a href="{TEMPLATE: err_coppa_msg_lnk}">请点这里</a>。
+err_coppa_msg:我们尚未收到您父母和/或法定监护人的确认，因此您无法发布消息。如果您丢失了 COPPA 表格，<a href="{TEMPLATE: err_coppa_msg_lnk}">请再次查看</a>。
 err_banned_acct_title:错误：您已被禁止。
 err_banned_acct_msg:由于违反了论坛的规则，您的账户被此网站{IF: $ban_expiry}暂时禁止访问，直到{TEMPLATE: ban_expiry_date}{ELSE}永久禁止访问{ENDI}。
 post_err_edttimelimit_title:错误
-post_err_edttimelimit_msg:您不能在编辑此消息
-post_err_noannontopics_msg2:<legend>错误：权限不够</legend>匿名用户不允许发帖。
+post_err_edttimelimit_msg:您无法再编辑此消息
+post_err_noannontopics_msg2:<legend>错误：权限不足</legend>匿名用户不得创建主题。
 post_err_noannonposts_msg2:<legend>错误：权限不够</legend>匿名用户不许回帖。
-post_err_floodtrig_title:错误：发布灌水帖子
-post_err_floodtrig_msg:请在{PLURAL: tm|$1 second|$1 seconds}内重试
-post_err_attach_size:附件文件太大（超过了允许的最大{VAR: MAX_F_SIZE}字节）
-post_err_attach_ext:你正在上传的文件类型不符合论坛对上传文件类型的设置。
-post_err_attach_filelimit:您正在上传的文件超过了限制的数量。
+post_err_floodtrig_title:错误：触发了发帖频率限制。
+post_err_floodtrig_msg:请在{PLURAL: tm| $1秒| $1秒} 后重试
+post_err_attach_size:文件附件太大（超过允许的{VAR: MAX_F_SIZE}字节限制）
+post_err_attach_ext:您尝试上传的文件不符合允许的文件类型。
+post_err_attach_filelimit:您尝试上传的文件数量超出允许数量。
 post_err_passwd:密码错误。
 post_reply_update:在{VAR: frm->name}回复<a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a>
 post_topic_update:在<a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>发表新话题
 post_error_generic:发生错误
-postcheck_max_images_err:一次提交图片允许的最大数是{GVAR: MAX_IMAGE_COUNT} ，请尽量减少图片数量。
+postcheck_max_images_err:每条消息最多允许包含 {GVAR: MAX_IMAGE_COUNT} 个图像。请减少图像数量。
 postcheck_no_links_allowed:发布未满{PLURAL: posts_before_links|$1 message|$1 messages}之前不可使用此链接。
-postcheck_subj_needed:输入主题
-postcheck_no_such_user:本论坛没有 "{FUNC: char_fix(htmlspecialchars($v))}" 用户
+postcheck_subj_needed:主题必填
+postcheck_no_such_user:本论坛中没有名为“{FUNC: char_fix(htmlspecialchars($v))}”的用户。
 postcheck_ignored:您不能向“{FUNC: char_fix(htmlspecialchars($v))}”发送私信，因为该用户正在忽略您。
-postcheck_no_recepient:无法发送消息，找不到收信人
+postcheck_no_recepient:无法发送消息，缺少收件人
 postcheck_invalid_email:请输入您的朋友的正确电子邮箱地址。
 postcheck_email_subject:您不能发送一封不带主题的电子邮件。
 postcheck_email_body:如果没有内容，您将无法发送邮件。
 private_msg_notify_subj:读取通知：{VAR: m->subject}
-private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的悄悄话 "{VAR: m->subject}"。<br />本自动提示于{TEMPLATE: private_msg_notify_body_date}生成。<br />
-referals_update:浏览被推荐者
+private_msg_notify_body:你好，<br />{VAR: usr->login} 用户已经阅读了你的私信 "{VAR: m->subject}"。<br />本自动提示于{TEMPLATE: private_msg_notify_body_date}生成。<br />
+referals_update:浏览推荐
 register_err_short_login:您选择的登录名太短。登录名长度必须至少2个字符。
 register_err_login_notallowed:不能使用这个账号注册。
 register_err_loginunique:论坛账号必须是唯一的，这个账号已经有人使用。
-register_err_emailexists:这个电子邮件地址已经存在，请不要重复注册。如果你忘记了密码，请通过“找回密码”程序找回你的密码。
+register_err_emailexists:此电子邮件地址已与一个帐户关联。如果您忘记了密码，请使用“恢复”选项，而不要重新注册。
 register_err_shortpasswd:密码必须至少有6个字符。
 register_err_passwdnomatch:您的密码不匹配，请重试。
-register_err_invalidemail:您输入的电子邮件地址不正确。
+register_err_invalidemail:您指定的电子邮件地址似乎无效。
 register_err_needname:要成功完成此次注册，您必须输入您的名字。
 register_err_enterpasswd:您必须输入密码才能进行修改。
 register_err_adminpasswd:您必须输入<b>管理员</b>密码才能完成更改。
-register_err_notyouremail:已经有人用这个电子邮箱地址注册了，但是那个人不是你。
-register_err_avatartobig:你正在上传的文件太大，超过了{GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节的最大限制。
-register_err_avatarnotallowed:你正在上传的头像不能上传，请查看允许上传的文件类型。
+register_err_notyouremail:其他人已经使用该电子邮件地址注册。
+register_err_avatartobig:您尝试上传的文件太大，超过 {GVAR: CUSTOM_AVATAR_MAX_SIZE} 字节。
+register_err_avatarnotallowed:您尝试上传的头像不被允许。请检查允许的文件类型。
 register_conf_subject:注册确认
 register_conf_msg:感谢您的注册，\n要激活您的账户，请前往下面的URL：\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\n一旦您的账户被激活，您将可以登录论坛，并重定向至首页。
 register_welcome_subject:论坛注册确认
-register_welcome_msg:感谢您的注册，\n\n这是您在论坛的登录详情：\n\n论坛URL：{TEMPLATE: index_update_lnk}\n登录：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要修改您的设置或详细资料，请前往该页面：\n{FULL_ROOT}?t=register
+register_welcome_msg:感谢您的注册，\n\n这是您在论坛的登录详情：\n\n论坛URL：{TEMPLATE: index_update_lnk}\n登录名：{VAR: uent->login}\n密码：{VAR: _POST['reg_plaintext_passwd']}\n\n请注意密码区分大小写！\n要修改您的设置或详细资料，请前往该页面：\n{FULL_ROOT}?t=register
 register_err_cantreg_title:错误：无法注册
-regsiter_err_cantreg_msg:无法注册新的账号，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
-register_profile_update:查看个人信息
+regsiter_err_cantreg_msg:无法创建用户帐户，请和系统管理员联系<a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:查看自己的个人资料
 register_register_update:注册页
 report_err_nosuchmsg_title:错误
 report_err_nosuchmsg_msg:没有这样的消息
 reset_err_invalidkey_title:错误
-reset_err_invalidkey_msg:密码提示错误
+reset_err_invalidkey_msg:密码重置密钥无效。您的电子邮件客户端可能已自动打开此页面，使重置密钥无效。如果是这种情况，您应该很快会收到一封包含新密码的电子邮件。如果没有收到这样的电子邮件，请重试重置密码。
 reset_err_rstconf_title:信息
-reset_err_rstconf_msg:您应该在接下来几分钟内接收到有关说明的电子邮件。
-reset_newpass_title:重新输入密码
-reset_newpass_msg:您好，\n\n基于您的请求，您的登录信息显示如下：\n\n登录：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n请注意您的密码已重置为上述值。如果您希望更改您的密码，您可以通过用户信息控制面板进行：\n{FULL_ROOT}?t=register
-reset_login_notify:您的密码已通过电子邮件发送给您。接下来几分钟您应该确认它。
+reset_err_rstconf_msg:您将在接下来的几分钟内在电子邮件中收到说明。
+reset_newpass_title:重置密码
+reset_newpass_msg:您好，\n\n基于您的请求，您的登录信息显示如下：\n\n登录名：{VAR: ui[1]}\n密码：{VAR: passwd}\n\n请注意您的密码已重置为上述值。如果您希望更改您的密码，您可以通过用户信息控制面板进行：\n{FULL_ROOT}?t=register
+reset_login_notify:您的密码已通过电子邮件发送给您。您将在几分钟内收到它。
 search_update:搜索消息
 selmsg_update:浏览<a href="{TEMPLATE: selmsg_update_lnk}">今天的帖子</a>
 showposts_update:查看由该用户发表的帖子：<a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -713,69 +713,69 @@ subscribed_update:浏览自己的订阅
 bookmarked_update:浏览自己的书签列表
 thread_update:正在浏览论坛<a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:正在浏览话题（树形查看）<a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
-userinfo_update:正在查看<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>的个人详情
+userinfo_update:查看<a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}的</a>个人资料
 ERR_login_msg2:<legend>错误：您尚未登录</legend>要访问此页面，您必须是此论坛的成员之一。
-ERR_disabled_ttl:被禁止的功能
+ERR_disabled_ttl:已禁用的功能
 ERR_disabled_msg:此功能已被系统管理员禁用。
 ERR_access_ttl:错误：权限不够
 ERR_access_msg:您并无所需权限执行此操作。
-ERR_registration_disabled_ttl:注册失败
+ERR_registration_disabled_ttl:禁止注册
 ERR_registration_disabled_msg:注册功能被系统管理员禁止，请重试！
-ERR_emailconf_ttl:错误：此账号无效
-ERR_emailconf_msg:你注册的账号尚未进行邮件确认<br /><table border="0"><tr><td><ol><li>如果你没有收到确认邮件 <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请点击这里</a>。</li><li>如果此地址 {VAR: usr_d->email} 有误<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请点击这里</a>。</li></ol></td></tr></table>
+ERR_emailconf_ttl:错误：您的账户尚未确认
+ERR_emailconf_msg:您尚未通过电子邮件确认您的帐户。<br /><table border="0"><tr><td><ol><li>如果您尚未收到确认电子邮件，<a href="{TEMPLATE: ERR_emailconf_msg_lnk}">请再次请求</a>。</li><li>如果{VAR: usr_d->email}不是您的正确电子邮件地址，<a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">请指定正确的地址</a>。</li></ol></td></tr></table>
 ERR_user_ttl:错误：没有这个用户
 ERR_user_msg:没有这个用户
-ERR_systemerr_ttl:系统错误
-ERR_systemerr_msg:发生系统错误，请报告错误给管理人员。
-email_title:邮件格式
+ERR_systemerr_ttl:错误：系统错误
+ERR_systemerr_msg:发生系统错误。请报告给<a href="mailto:{GVAR: ADMIN_EMAIL}">网站管理员</a>。
+email_title:电子邮件表格
 finduser_title:查找用户
 help_title:帮助
-login_title:登录格式
+login_title:登录表单
 msg_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
-poll_title:调查编辑
-register_title:注册
-reset_title:重新输入密码
-rpasswd_title:更改密码表单
-error_title:格式错误
-index_title:欢迎到来
+poll_title:投票编辑器
+register_title:註冊表单
+reset_title:重置密码
+rpasswd_title:更改密码表格
+error_title:错误表单
+index_title:欢迎来到论坛
 search_title:搜索 {VAR-HTML: srch}
 thread_title:{VAR: frm->name}
 tree_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
-remail_emailsent:邮件已经发送
-remail_email:您好，\n\n在{GVAR: FORUM_TITLE}论坛上有一个关于“{VAR: data->subject}”的兴趣话题，您可能希望阅读。您可以在该链接查看话题：\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\n您的朋友，\n\n{VAR: usr->alias}
+remail_emailsent:电子邮件已发送
+remail_email:您好，\n\n{GVAR: FORUM_TITLE} 论坛上有一个关于“ {VAR: data->subject} ”的有趣主题，您可能想阅读一下。您可以在以下位置查看该主题：\n {FULL_ROOT}?t=rview&th= {VAR: data->id} &rid={DEF: _uid}\n\n您的朋友，\n\n {VAR: usr->alias}
 poll_add_option:添加选项：
-post_opt_html_on:<b>HTML</b>代码：<b>开放</b>
-post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>：<b>开放</b></a>
-post_opt_images_on:<b>帖图功能</b>：<b>开放</b>
-post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>表情符号</b>：<b>开放</b></a>
-post_opt_html_off:<b>HTML</b>代码：<b>关闭</b>
-post_opt_fud_off:<b>BBcode</b>：<b>关闭</b>
-post_opt_images_off:<b>帖图功能</b>：<b>关闭</b>
-post_opt_smilies_off:<b>表情符号</b>：<b>关闭</b>
+post_opt_html_on:<b>HTML</b>已<b>启用</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b>已<b>开启</b></a>
+post_opt_images_on:<b>图片</b>已<b>开启</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>表情符号</b>：<b>开启</b></a>
+post_opt_html_off:<b>HTML</b>代码已<b>关闭</b>
+post_opt_fud_off:<b>BBcode</b>已<b>关闭</b>
+post_opt_images_off:<b>图像</b>已<b>关闭</b>
+post_opt_smilies_off:<b>表情符号</b>已<b>关闭</b>
 post_opt:论坛选项：
 register_change_passwd:更改密码
 register_change_login:更改登录信息
 approved_avatar_title:您的自定义头像已获核准。
 approved_avatar_msg:你定制的头像已被系统管理员批准，以后你发布的所有信息都将显示该头像。如果你尚未看到或者看到的是旧的头像，那可能是你的浏览器缓存了相关页面，尝试多刷新几次或许能解决这个问题。
 unapproved_avatar_title:您自定义的头像被拒绝。
-unapproved_avatar_msg:系统管理员没有批准你的头像。最可能的原因是你的头像太大（字节或者尺寸），还有可能是因为包括不合适的主题文件。如果需要了解更多的相关信息，请和系统管理员联系。
-mvthread_request_move:申请移动本主题
+unapproved_avatar_msg:管理员未批准您的头像。最常见的原因是您的头像太大（尺寸和/或尺寸）或包含不适当的主题。如果您想了解有关头像被拒绝的原因的更多信息，请联系管理员。
+mvthread_request_move:请求移动
 move_request_reason:您为什么要移动本主题？
 mvthread_submit_req:提交申请
-thread_exchange:转移主题
-move_request_by:主题转移人：
-move_reason:转移主题的理由：
-thr_exch_accept:接受该主题
-thr_exch_decline:拒绝该主题
-thr_exch_orig_forum:转出的论坛：
+thread_exchange:主题转换
+move_request_by:主题移动请求者：
+move_reason:主题移动的原因：
+thr_exch_accept:接受主题
+thr_exch_decline:拒绝主题
+thr_exch_orig_forum:原论坛：
 thr_exch_dest_forum:目标论坛：
-thr_exch_no_threads:没有需要批复的主题。
+thr_exch_no_threads:没有等待批准的主题。
 thr_exch_decl_reason:拒绝主题 <b>{VAR: data->subject}</b> 转入 <b>{VAR: data->f2_name}</b> 论坛的理由
 thr_exch_submit:发布
 exch_decline_ttl:把主题 {VAR: data->subject} 转移至{VAR: data->f2_name}论坛的要求被拒绝。
 ppost_original_msg:您正在转发或回复的消息
-split_thread:分开主题
-groupmgr_no_user:此账号不存在 "{FUNC: char_fix(htmlspecialchars($gr_member))}"
+split_thread:拆分主题
+groupmgr_no_user:没有登录名为“{FUNC: char_fix(htmlspecialchars($gr_member))}”的用户
 groupmgr_already_exists:"{FUNC: char_fix(htmlspecialchars($gr_member))}" 本论坛已经存在这个用户
 groupmgr_yes:是
 groupmgr_no:否
@@ -783,15 +783,15 @@ groupmgr_action:操作
 groupmgr_member:成员
 groupmgr_cancel:取消
 groupmgr_add_member:添加成员
-groupmgr_update_member:更新成员名单
+groupmgr_update_member:更新会员
 groupmgr_edit:编辑
 groupmgr_delete:删除
 group_mgr_anon:匿名
 group_mgr_reged:所有注册用户
 show_show:显示：
-group_mgr:论坛板块管理
-group_mgr_edit_btn:编辑组
-group_mgr_heading:选择论坛管理员
+group_mgr:群组经理
+group_mgr_edit_btn:编辑群组
+group_mgr_heading:选择群组编辑
 group_mgr_group:组：
 permission_denied_title:权限被拒绝！
 permission_denied_msg:您的用户权限不允许您执行您正在尝试的操作。
@@ -802,27 +802,27 @@ p_EDIT:编辑
 p_DEL:删除
 p_STICKY:置顶帖子
 p_POLL:发起调查
-p_FILE:添加附件
+p_FILE:附加文件
 p_VOTE:投票
-p_RATE:评价帖子/用户
-p_SPLIT:分开主题
-p_LOCK:封闭帖子
-p_MOVE:转移帖子
+p_RATE:评价主题/成员
+p_SPLIT:拆分主题
+p_LOCK:锁定主题
+p_MOVE:移动主题
 p_SML:应用表情符号
 p_IMG:应用图像标签
-p_SEARCH:允许搜索
+p_SEARCH:可以搜索
 group_mgr_search:查找用户
 group_mgr_indicator:正在编辑：<b>{VAR: grp->name}</b>
 rate_worst:最差
 rate_best:最好
-post_quote_msg:{VAR: msg->login}于{TEMPLATE: make_report_date}在大作中提到：
+post_quote_msg:{VAR: msg->login}于 {TEMPLATE: make_report_date} 撰写
 post_quote:引用：
-post_quote_selected:报价将选定的文本
-userinfo_referals:被推荐的用户：
+post_quote_selected:引用所选文本
+userinfo_referals:推荐用户：
 userinfo_referals_count:{VAR: referals} 成员：
 pm_no_space_title:空间不够
-pm_no_space_msg:你的悄悄话文件夹已经超出了系统限制的空间范围 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>，其中包括 <b>{VAR: fldr_size} 字节的</b> 有用信息，<br /><br /><font class="ErrorText">请删除一些旧信息以腾出空间</font>。
-pm_space_indct_msg:您的私信文件夹已充满{VAR: percent_full}%。
+pm_no_space_msg:您的私人消息文件夹超出了允许的存储大小<b>{GVAR: MAX_PMSG_FLDR_SIZE} 字节</b>。它们当前包含<b>{VAR: fldr_size}字节</b>的消息。<br /><br /><span class="ErrorText">删除一些旧消息以释放空间。</span>
+pm_space_indct_msg:您的私信文件夹已满{VAR: percent_full}%。
 th_expr_never:从不
 th_expr_one_hr:1个小时
 th_expr_three_hr:3个小时
@@ -842,23 +842,23 @@ thread_mod_delete:删除
 action_ip:IP
 action_latest_post:最后一条消息
 online_today_last_visit:上次访问
-online_today_update:查看本论坛今天的在线用户。
+online_today_update:查看今天在论坛上的用户列表。
 logedin_todays_visitors:今天的访客
-logedin_latest_post:本论坛最新发布的主题
+logedin_latest_post:论坛上的最后一条消息：
 register_show_avatar:显示头像：
-register_show_avatar_desc:是否显示用户的头像。
-drawmsg_view_rest_post:显示剩余消息
+register_show_avatar_desc:允许您在查看其他用户的消息时隐藏他们的头像。
+drawmsg_view_rest_post:显示消息的其余部分
 post_re:回复：
 forumsel_goto_forum:转至论坛：
-minimsg_thread_view:浏览主题
-split_th_post_by:作者：
-split_th_posted_on:发表时间：
+minimsg_thread_view:主题视图
+split_th_post_by:消息来自:
+split_th_posted_on:发布于：
 split_th_subject:主题：
-split_th_new_thread_title:新的主题：
+split_th_new_thread_title:新主题标题：
 split_th_forum:论坛：
-split_th_split_sel:分出选中的帖子
-split_th_split_unsel:分出没有选中的帖子
-split_th_messages:信息
+split_th_split_sel:拆分选定的消息
+split_th_split_unsel:拆分未选定的消息
+split_th_messages:消息
 split_th_select:选择
 report_report_post:报告消息
 quicklogin_login:账号：
@@ -866,15 +866,15 @@ quicklogin_password:密码：
 quicklogin_use_cookies:是否使用Cookies功能？
 quicklogin_login_btn:登录
 quick_reply:快速回复
-quick_reply_post:邮政快速回复
+quick_reply_post:发表快速回复
 quick_reply_preview:预览快速回复
-post_notification_desc:当有人回复本主题时请通知我。
+post_notification_desc:当有人回复此消息时通知我。
 post_all_ext_allowed:（无限制）
-maximize_category:增加目录层次
+maximize_category:最大化类别
 maximize_message:最大化消息
-no_view_perm:您没有所需的足够权限查看此话题。
-report_empty_report:您不能提交空的报告。请说明推荐理由。
-report_already_reported_title:报告已经提交
+no_view_perm:您没有查看该主题所需的适当权限。
+report_empty_report:您不能发送空报告。请输入报告的原因。
+report_already_reported_title:已报告
 report_already_reported_msg:这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
 register_err_toomanyimages:你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
 pmsg_next_msg:下一条信息
