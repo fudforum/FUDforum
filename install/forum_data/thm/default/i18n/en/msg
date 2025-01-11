@@ -460,6 +460,8 @@ login_login_btn:Login
 login_name_required:Login name is required
 login_passwd_required:Password is required
 login_invalid_radius:Invalid login/password combination
+login_or:or...
+login_alternatives:Log in using:
 reset_confirmation:Thank you for registering.\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged-into the forum and\nredirected to the main page.
 reset_reset:Hello,\n\nYou have requested for your password to be reset. To complete the process,\nplease go to this URL:\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism, which means that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by comparing the encoded version we have on record with the encoded version of what you type into the Login prompt.\n(If you are interested in how this mechanism works, read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:Invalid Password
@@ -1115,7 +1117,7 @@ move_msg_th_expl:Specify the ID of the destination topic (can be in other forums
 captcha_img_alt:Captcha Verification: you will need to recognize the text in this image.
 captcha_img_help:There is no zero or one in the image.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Select all
 code_show_hide:Show/ hide

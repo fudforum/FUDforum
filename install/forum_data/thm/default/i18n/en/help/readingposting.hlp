@@ -13,8 +13,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><b><font color="#f00">http://cvs.prohost.org</font></b></td>
-    <td valign="middle" align="center"><a href="http://cvs.prohost.org" target="_blank">http://cvs.prohost.org</a></td>
+    <td valign="middle" align="center"><b><font color="#f00">https://github.com/fudforum</font></b></td>
+    <td valign="middle" align="center"><a href="https://github.com/fudforum" target="_blank">https://github.com/fudforum</a></td>
   </tr>
 </table>
 <i>Explanation:</i> FUDforum will automatically pick up URLs and convert them to valid URLs.
