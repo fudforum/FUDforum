@@ -1,0 +1,162 @@
+<?php
+/**
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id$
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+// Initialize plugin.
+plugin_add_hook('OAUTH', 'plugin_google_oauth');
+
+// Display OAuth providers on login screen.
+$OAUTH_ENABLED = true;
+
+// Append the Google Login button to the list of OAuth buttons.
+function plugin_google_oauth($oauth_button_list) {
+
+	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_oauth.ini') === false) {
+		die('ERROR: Please configure the Google OAuth plugin from the Plugin Manager Control panel.');
+	}
+
+	$google_button_code = '
+<!-- Generated with https://developers.google.com/identity/gsi/web/tools/configurator -->
+<script src="https://accounts.google.com/gsi/client" async></script>
+<div id="g_id_onload"
+     data-client_id="'. $ini['GOOGLE_CLIENT_ID'] .'"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="'. $GLOBALS['WWW_ROOT'] .'index.php?t=login'. '"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="medium"
+     data-logo_alignment="left"
+     data-width="50">
+</div>';
+
+	if (empty($oauth_button_list)) {
+		return $google_button_code;
+	} else {
+		return (string) $oauth_button_list .' &nbsp; '. $google_button_code;
+	}
+}
+
+function google_oauth_enable() {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'google/google_oauth.ini') === false) {
+		return array(null, 'Please configure the Google OAuth plugin before enabling it.');	// OK, Err.
+	}
+}
+
+function google_oauth_info() {
+	return array('name' => 'Google OAuth',
+				'desc' => 'Allow users to log in via Google OAuth.',
+				'cat'  => 'Third-party Integration',
+				'version' => '1.0');
+}
+
+function google_oauth_config() {
+	$vars = array('GOOGLE_CLIENT_ID');
+
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'google/google_oauth.ini') === false) {
+		foreach ($vars as $v) {
+			$ini[$v] = '';
+		}
+	}
+
+	if (isset($_POST['Set'])) {
+		foreach ($vars as $v) {
+			$ini[$v] = trim($_POST[$v]);
+		}
+		$fp = fopen($GLOBALS['PLUGIN_PATH'] .'google/google_oauth.ini', 'w');
+		fwrite($fp, '<?php $ini = '. var_export($ini, 1) .'; ?>');
+		fclose($fp);
+		pf(successify('Settings successfully saved.'));
+	}
+	?>
+<p>Google sign-in allows your site visitors to log in through Google in one click.
+Before you can integrate Google sign-in into your website, you need to create a Google API Console project and
+client ID by navigating to the <a href="https://console.cloud.google.com/apis">Google Developers Console</a>.</p>
+
+<p>Google Client ID:<br />
+<input name="GOOGLE_CLIENT_ID" value="<?php echo $ini['GOOGLE_CLIENT_ID'] ?>" size="60" /><br />
+<font size="-1">The client ID for your application. You can find this value in Google's API Console Credentials page.</font></p>
+
+	<?php
+}
+
+// Log in of register if OAUTH provider calls back with login credentials.
+function _plugin_google_oauth_login() {
+	// Check if Google returned data.
+	if (isset($_POST['g_csrf_token']) && isset($_POST['credential'])) {
+
+		// Load plugin settings.
+		if ((@include_once $GLOBALS['PLUGIN_PATH'] .'google/google_oauth.ini') === false) {
+			fud_logerror('Google OAuth plugin not configured', 'fud_errors');
+			die('ERROR: Please configure the Google OAuth plugin from the Plugin Manager Control panel.');
+		}
+
+		// Validate the Cross-Site Request Forgery (CSRF) token.
+		$csrf  = $_POST['g_csrf_token'];
+		if ($_COOKIE['g_csrf_token'] !== $csrf) {
+			fud_logerror('Google OAuth plugin: Invalid CSRF token from '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
+			die('Invalid CSRF token!');
+		}
+
+		// Unpack credential and check if the Client ID is valid.
+		$token = $_POST['credential'];
+		$google = json_decode(base64_decode(str_replace('_', '/', str_replace('-', '+', explode('.', $token)[1]))), true);
+		if ($google['aud'] !== $ini['GOOGLE_CLIENT_ID']) {
+			fud_logerror('Google OAuth plugin: Invalid Client ID from '. $_SERVER['REMOTE_ADDR'], 'fud_errors');
+			die('Invalid Client ID!');
+		}
+
+		// If we have an e-mail address, we can log in or register.
+		if (!empty($google['email'])) {
+			$email = filter_var($google['email'], FILTER_SANITIZE_EMAIL);
+
+			if (!($usr_d = db_sab('SELECT id, passwd, salt FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE email='. _esc($email)))) {
+				// Register new FUDforum user.
+				$uent = new fud_user_reg;
+				$uent->users_opt = -1;
+				$uent->email = $email;
+				$uent->name = !empty($google['name']) ? $google['name'] : $google['given_name'] .' '. $google['family_name'];
+
+				// Ensure the username is unique.
+				$i = 1;
+				$login = $uent->login = substr($email, 0, strpos($email, '@'));
+				while (q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE login='. _esc($uent->login))) {
+					$uent->login = $login . ++$i;
+				}
+
+				// Ensure the alias is unique.
+				$alias = $uent->alias = htmlspecialchars($uent->login);
+				while (q_singleval('SELECT id FROM '. $GLOBALS['DBHOST_TBL_PREFIX'] .'users WHERE alias='. _esc($uent->alias))) {
+					$uent->alias = $alias . ++$i;
+				}
+
+				// Assign avatar
+				if (!empty($google['picture'])) {
+					$uent->avatar = 3;
+					$uent->avatar_loc = '<img src="'. $google['picture'] .'" alt="" width="64" height="64" />';
+				}
+
+// echo "<pre>"; var_dump($uent); echo "<hr>"; var_dump($google); die();
+				$uent->add_user();
+			}
+
+			// Lookup FUDForum user and return it and return it to signal that we are authenticated.
+			if ($fud_id = get_id_by_email($email)) {
+				return usr_reg_get_full($fud_id);
+			}
+		}
+	}
+}
+

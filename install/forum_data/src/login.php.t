@@ -139,28 +139,39 @@ function error_check()
 	$_ERROR_ = 0;
 	$_ERROR_MSG_ = array();
 
-	/* Deal with quicklogin from if needed. */
+	/* Deal with quicklogin form if needed. */
 	if (isset($_POST['quick_login']) && isset($_POST['quick_password'])) {
 		$_POST['login']      = $_POST['quick_login'];
 		$_POST['password']   = $_POST['quick_password'];
 		$_POST['use_cookie'] = isset($_POST['quick_use_cookies']);
 	}
 
-	// Call authentication plugins.
-	// Plugin should return 1 (allow access) or 0 (deny access).
-	if (defined('plugins')) {
+	/* Deal with authentication plugins. */
+	if (defined('plugins') && !empty($_POST)) {
+
+		// Call simple authentication plugins.
+		// Plugin should return 1 (allow access) or 0 (deny access).
 		$ok = plugin_call_hook('AUTHENTICATE');
 		if (!empty($ok) && $ok != 1){
 			login_php_set_err('login', 'plugin: Invalid login/password combination');
 		}
-	}
 
-	// Call PRE authentication plugins.
-	// If successfully authenticated, the plugin should return a full user object.
-	// Return null to continue with FUDforum's default authentication.
-	$usr_d = null;
-	if (defined('plugins')) {
+		// Call PRE authentication plugins.
+		// If successfully authenticated, the plugin should return a full user object.
+		// Return null to continue with FUDforum's default authentication.
+		$usr_d = null;
 		$usr_d = plugin_call_hook('PRE_AUTHENTICATE', $usr_d);
+
+		// Call OAUTH plugins.
+		// Loop through OAuth providers until one provides a full user object.
+		global $plugin_hooks;
+		if (isset($plugin_hooks['OAUTH'])) {
+			foreach ($plugin_hooks['OAUTH'] as $func) {
+				if (empty($usr_d)) {
+					$usr_d = call_user_func('_'. $func . '_login');
+				}
+			}
+		}
 	}
 
 	if ($usr_d || isset($_POST['login']) && !error_check()) {
