@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 5314.2;
+$__UPGRADE_SCRIPT_VERSION = 32000;
 // define('fud_debug', 1);
 
 /*
@@ -1062,7 +1062,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
 	/* New GLOBALS.php settings to add. */
 	$default = array(
 		'FUD_OPT_4'		=> 3,	// New in 3.0.2.
-		'MAX_CALLS_FROM_IP'	=> 10000,	// New 3.1.4
+		'MAX_CALLS_FROM_IP'	=> 10000,	// New 3.2.0
 	);
 	foreach ($default as $k => $v) {
 		if (!isset($GLOBALS[$k])) {
@@ -1130,8 +1130,8 @@ pf('<h2>Step 1: Admin login</h2>', true);
 			    'youtube_tag.plugin', // Moved to video_tags.plugin in 3.0.5
 			    'recaptcha/recaptchalib.php', // Not needed for reCAPTCHA v2 in 3.0.9
 			    'ie6_update.plugin', // Removed in 3.1.0
-			    'addthis.plugin', // Removed in 3.1.4, service terminated as of 21 May '23
-			    'ckeditor/ckeditor.plugin'); // Removed in 3.1.4, replaced with SCEditor.plugin
+			    'addthis.plugin', // Removed in 3.2.0, service terminated as of 21 May '23
+			    'ckeditor/ckeditor.plugin'); // Removed in 3.2.0, replaced with SCEditor.plugin
 	foreach ($rm_plugins as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'plugins/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'plugins/'. $f);
