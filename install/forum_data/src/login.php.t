@@ -147,6 +147,7 @@ function error_check()
 	}
 
 	/* Deal with authentication plugins. */
+	$usr_d = null;
 	if (defined('plugins') && !empty($_POST)) {
 
 		// Call simple authentication plugins.
@@ -159,7 +160,6 @@ function error_check()
 		// Call PRE authentication plugins.
 		// If successfully authenticated, the plugin should return a full user object.
 		// Return null to continue with FUDforum's default authentication.
-		$usr_d = null;
 		$usr_d = plugin_call_hook('PRE_AUTHENTICATE', $usr_d);
 
 		// Call OAUTH plugins.

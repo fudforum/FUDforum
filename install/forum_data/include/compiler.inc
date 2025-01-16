@@ -281,10 +281,12 @@ function resolve_sections($file, $secname, $str)
 
 				break;
 
+			// Run time plugin integration.
 			case 'PLUGIN':
-				$ret .= '\'. (defined("plugins") ? plugin_call_hook("'. strtoupper($name) .'") : null) .\'';
+				$ret .= '\'. (defined("plugins") ? implode(" ", plugin_call_hook("'. strtoupper($name) .'")) : null) .\'';
 				break;
 
+			// Compile time plugin integration.
 			case 'INJECTION_POINT':
 				// Give all COMPILER_INJECT plugins the opportunity to add code to the template.
 				if (defined('plugins')) {

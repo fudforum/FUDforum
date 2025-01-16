@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -114,7 +114,7 @@ While it is running, your forum will be disabled!
 	if (isset($_GET['opt'])) {
 		pf('<h3>Database Optimizer progress</h3>'); 
 	} else {
-		pf('<h3>Consisteny Checker progress</h3>'); 
+		pf('<h3>Consistency Checker progress</h3>');
 		$thorough = empty($_POST['mode']) ? 1 : 0;
 	}
 
@@ -745,7 +745,7 @@ While it is running, your forum will be disabled!
 	rebuild_forum_cat_order();
 	draw_stat('Done: Rebuilding Forum/Category order cache');
 
-	draw_stat('Remove absolete entries inside sessions table');
+	draw_stat('Remove obsolete entries inside sessions table');
 	q('DELETE FROM '. $tbl .'ses WHERE user_id>2000000000 AND time_sec < '. (__request_timestamp__ - $SESSION_TIMEOUT));
 	draw_stat('Done: Removing absolete entries inside sessions table');
 

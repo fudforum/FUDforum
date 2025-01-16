@@ -12,7 +12,7 @@
 // Initialize plugin.
 plugin_add_hook('EDITOR', 'plugin_sceditor');
 
-// Add HTML markup to initialize sceditor when we compile a theme.
+// Add HTML markup to initialize sceditor.
 function plugin_sceditor($textbox) {
 
 	$editor_html = '

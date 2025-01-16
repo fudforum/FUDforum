@@ -20,7 +20,12 @@ function init_spell($lang)
 		return true;
 	} else {
 		fud_logerror('Unable to initialize spell checker for language ['. $lang .']', 'fud_errors');
-		return false;
+
+		// Fall back to local word list.
+                $d1 = enchant_broker_request_pwl_dict($r, $GLOBALS['FORUM_SETTINGS_PATH'] .'forum.pwl');
+                define('__FUD_SPELL_LINK__',  $d1);
+                define('__FUD_PSPELL_LINK__',  $d1);
+		return true;
 	}
 }
 
@@ -167,11 +172,17 @@ function spell_replace($wa, $type)
 
 function spell_check_ar($wa, $type)
 {
-	foreach($wa as $k => $v) {
-		if ($v['check'] > 0 && !enchant_dict_check(__FUD_SPELL_LINK__, $v['token']) && !enchant_dict_check(__FUD_PSPELL_LINK__, $v['token'])) {
-			$wa[$k]['token'] = draw_spell_sug_select($v, $k, $type);
-		}
-	}
+        foreach($wa as $k => $v) {
+                if ($v['check'] > 0) {
+                        // Remove hidden LEFT-TO-RIGHT and RIGHT-TO-LEFT markers
+                        $w = preg_replace('/\x20(\x0e|\x0f)/u', '', $v['token']);
+
+			// Spell check word
+                        if (!enchant_dict_check(__FUD_SPELL_LINK__, $w) && !enchant_dict_check(__FUD_PSPELL_LINK__, $w)) {
+                                $wa[$k]['token'] = draw_spell_sug_select($v, $k, $type);
+                        }
+                }
+        }
 
 	return $wa;
 }
