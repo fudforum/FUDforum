@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -491,10 +491,31 @@ function flood_check()
 	}
 
 	$spell_check_button = ($FUD_OPT_1 & 2097152 && extension_loaded('enchant') && $usr->pspell_lang) ? '{TEMPLATE: spell_check_button}' : '';
+	$diff_button        = ($msg_id!=0) ? '{TEMPLATE: diff_button}' : '';
 
-	if (isset($_POST['preview']) || isset($_POST['spell'])) {
-		$text = apply_custom_replace($msg_body);
-		$text_s = apply_custom_replace($msg_subject);
+	if (isset($_POST['preview']) || isset($_POST['spell']) || isset($_POST['diff'])) {
+
+		if (isset($_POST['diff'])) {
+			// Convert originat message back to BBcode
+			if ($perms & 16384 && !$msg_smiley_disabled) {
+				$msg_body_orig = post_to_smiley($msg->body);
+			}
+			if ($frm->forum_opt & 16) {
+				$msg_body_orig = html_to_tags($msg->body);
+			} else if ($frm->forum_opt & 8) {
+				$msg_body_orig = reverse_nl2br(reverse_fmt($msg-body));
+			}
+			$msg_body_orig = apply_reverse_replace($msg_body_orig);
+
+			// Diff code
+			fud_use('diff.inc');
+			$text = PHPDiff($msg_body_orig, $msg_body);
+			$text_s = apply_custom_replace($msg_subject);
+
+		} else {
+			$text = apply_custom_replace($msg_body);
+			$text_s = apply_custom_replace($msg_subject);
+		}
 
 		if ($frm->forum_opt & 16) {
 			$text = char_fix(tags_to_html($text, $perms & 32768));
@@ -553,7 +574,7 @@ function flood_check()
 		}
 	}
 
-	/* Sticky/announcment controls. */
+	/* Sticky/announcement controls. */
 	if ($perms & 64 && (!$thr || $msg_id == $thr->root_msg_id)) {
 		if (!isset($_POST['prev_loaded'])) {
 			if (!$thr) {
@@ -617,6 +638,7 @@ function flood_check()
 	} else {
 		$file_attachments = '';
 	}
+
 
 /*{POST_PAGE_PHP_CODE}*/
 ?>

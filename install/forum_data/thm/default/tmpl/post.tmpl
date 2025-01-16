@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -72,9 +72,10 @@
 <tr>
 	<td class="RowStyleB al">
 		{IF: $spell}{TEMPLATE: apply_spell_changes}{ENDIFI}
-		<input type="submit" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;
 		{TEMPLATE-DATA: spell_check_button}
-		<input type="submit" class="button" value="{VAR: label}" tabindex="5" name="btn_submit" onclick="document.forms[\'post_form\'].submitted.value=1;" />
+		<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="5" name="preview" />&nbsp;
+		{TEMPLATE-DATA: diff_button}
+		<input type="submit" class="button" value="{VAR: label}" tabindex="9" name="btn_submit" onclick="document.forms[\'post_form\'].submitted.value=1;" />
 	</td>
 </tr>
 </table>
@@ -166,6 +167,10 @@
 
 {SECTION: spell_check_button}
 <input accesskey="k" type="submit" class="button" value="{MSG: spell_check_msg}" name="spell" />&nbsp;
+{SECTION: END}
+
+{SECTION: diff_button}
+<input type="submit" accesskey="d" class="button" value="{MSG: post_diff_btn}" tabindex="8" name="diff" />&nbsp;
 {SECTION: END}
 
 {SECTION: post_error an error message shown at the top of ppage if there was an error with submission}
@@ -266,7 +271,8 @@
 		<input type="submit" accesskey="c" class="button" value="{MSG: post_cancel_btn}" tabindex="4" name="cancel" />&nbsp;
 		<input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="5" name="preview" />&nbsp;
 		{TEMPLATE-DATA: spell_check_button}
-		<input type="submit" accesskey="s" class="button" value="{VAR: label}" tabindex="6" name="btn_submit" onclick="document.forms['post_form'].submitted.value=1;" />
+		{TEMPLATE-DATA: diff_button}
+		<input type="submit" accesskey="s" class="button" value="{VAR: label}" tabindex="9" name="btn_submit" onclick="document.forms['post_form'].submitted.value=1;" />
 	</td>
 </tr>
 </table>
