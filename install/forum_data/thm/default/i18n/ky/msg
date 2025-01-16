@@ -748,9 +748,11 @@ post_err_mod_forum_edit_ttl:КАТА
 uc_new_topic:Жаңы тема
 modque_forum:Форум
 mmd_abort_move:Жокко чыгаруу
+sml_code:Код
 post_common_underline:Асты сызылган
 post_common_link:Шилтеме кошуу
 tabs_notifications:Кабарламалар
+code_title:Код:
 btn_new_topic:Жаңы тема
 btn_reply:жооп берүү
 btn_email:Электрондук почта

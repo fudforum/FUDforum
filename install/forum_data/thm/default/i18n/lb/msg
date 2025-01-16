@@ -128,6 +128,8 @@ unanswered_posts:Net beäntwert Messagen
 unanswered_posts_desc:All Message weisen, déi keng Äntwert hunn
 unread_posts:Net gelieste Messagen
 unread_posts_desc:All Messagë weisen, déi nach net gelies sinn
+unsub_from_thread:Sujet ofbestellen
+unsubscribe:Ofbestellen
 updated_on:Aktualiséiert den:
 user:Benotzer
 user_counter:Mir hunn <b>{VAR: st_obj->user_count}</b> registréiert {PLURAL: st_obj->user_count|Benotzer}.
@@ -306,6 +308,7 @@ login_login:Aloggen:
 login_login_btn:Aloggen
 login_name_required:Login-Numm ass obligatoresch
 login_passwd_required:D'Passwuert ass obligatoresch
+login_or:oder…
 rpasswd_invalid_passwd:Passwuert ass net valabel
 rpasswd_passwd_nomatch:D'Passwierder, déi Dir aginn hutt, sinn net identesch
 rpasswd_passwd_length:Passwuert muss mindestens 6 Zeeche laang sinn
@@ -346,6 +349,7 @@ qbud_nick_name:Spëtznumm
 qbud_selected:Eraussichen
 mklist_numerical:Numeresch
 mklist_aplha:Alphabetesch
+mklist_square:Quadrat
 mklist_disc:Scheif
 mklist_circle:Krees
 mklist_close:Zoumaachen
@@ -373,6 +377,7 @@ poll_month:Mount
 poll_year:Joer
 poll_week:Woch
 tabs_register:Astellunge vum Benotzerkont
+tabs_subscriptions:Abonnementer
 tabs_bookmarkes:Lieszeechen
 delete_yes:Jo
 delete_no:Neen
@@ -437,6 +442,7 @@ groupmgr_delete:Läschen
 group_mgr_anon:Anonym
 group_mgr_reged:All registréiert Benotzer
 show_show:Weisen:
+group_mgr_edit_btn:Grupp änneren
 group_mgr_group:Grupp:
 p_READ:Liesen
 p_REPLY:Äntwerten
@@ -565,6 +571,7 @@ finduser_flag:Fändel
 post_descr:Beschreiwung vum Theema:
 move_messages:Messagë réckelen
 move_msg_btn:Ausgewielte Messagë réckelen
+# Fuzzy
 copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles uwielen

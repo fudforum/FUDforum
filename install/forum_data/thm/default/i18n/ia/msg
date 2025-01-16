@@ -462,6 +462,8 @@ login_login_btn:Aperir session
 login_name_required:Le nomine de usator es requirite
 login_passwd_required:Le contrasigno es requirite
 login_invalid_radius:Le nomine de usator o le contrasigno es invalide
+login_or:o…
+login_alternatives:Aperir session con:
 reset_confirmation:Gratias pro inscriber te.\n\nPro activar tu conto, per favor visita le URL sequente:\n\n{VAR: url}\n\nQuando tu conto ha essite activate, tu essera identificate al foro\ne redirigite verso le pagina principal.
 reset_reset:Salute,\n\nTu ha demandate le reinitialisation de tu contrasigno. Pro completar le processo,\nper favor visita le URL sequente:\n\n{VAR: url}\n\nNOTA: Iste foro immagazina le contrasignos con un mechanismo cryptographic unidirectional.\nIsto significa que le contrasigno que tu specifica es codificate de sorta que il es IMPOSSIBILE recuperar lo.\nCata vice que tu aperi un session, le version codificate in nostre systema es comparate con le version codificate del contrasigno que tu entra.\n(Si tu vole saper como functiona iste mechanismo, cerca informationes sur le algorithmo de hash MD5.)
 rpasswd_invalid_passwd:Contrasigno invalide
@@ -1114,7 +1116,7 @@ move_msg_th_expl:Specifica le ID del topico de destination (pote esser in altere
 captcha_img_alt:Verification per Captcha: tu debe recognoscer le texto in iste imagine.
 captcha_img_help:Il non ha zero o un in iste imagine.
 powered-by:Actionate per: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Codice:
 code_select_all:Seliger toto
 code_show_hide:Revelar/celar

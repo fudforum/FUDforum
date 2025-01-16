@@ -456,6 +456,7 @@ finduser_flag:Zastava
 post_descr:Opis teme:
 pmsg_on:Datum:
 powered-by:Omogoča: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Avtorske pravice ©2001–2023 <a href="http://fudforum.org/">FUDforum, programska oprema za oglasne deske</a>
 code_title:Koda:
 code_select_all:Izberi vse

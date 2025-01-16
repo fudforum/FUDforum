@@ -349,7 +349,7 @@ register_month:Mes
 register_year:Ano
 register_gender:Sexo:
 register_bio:Biografía:
-register_bio_desc:Preséntate dando algúns detalles sobre ti mesmo, como os teus intereses, o teu traballo, etc.
+register_bio_desc:Preséntate dando algúns detalles sobre ti, como os teus intereses, o teu traballo etc.
 register_prefs:Preferencias
 register_sig:Sinatura:
 register_sig_desc:Sinatura opcional, que aparecerá na parte inferior da túa mensaxe.
@@ -465,9 +465,11 @@ login_forgot_passwd:Esqueciches o teu contrasinal?
 login_use_cookie:Usar as cookies<br /><span class="SmallText">Se estás usando un terminal público, como un computador nunha biblioteca, escola ou cibercafé, é recomendable que desmarques esta opción para unha maior seguridade.<br />Se deixas esta opción seleccionada, entón accederás automaticamente ao sistema do foro a vindeira vez que o visites.</span>
 login_login:Usuario:
 login_login_btn:Acceder ao sistema
-login_name_required:Debe inserir un nome de usuario
-login_passwd_required:Debe inserir un contrasinal
+login_name_required:Debes inserir un nome de usuario
+login_passwd_required:Debes inserir un contrasinal
 login_invalid_radius:O nome de usuario ou o contrasinal son incorrectos
+login_or:ou...
+login_alternatives:Inicia sesión usando:
 reset_confirmation:Grazas por te rexistrares.\n\nPara activar a túa conta, por favor, visita o enderezo URL que aparece a continuación:\n\n{VAR: url}\n\nUnha vez que a túa conta estea activada, accederás ao sistema do foro e\nserás redirixido cara á páxina principal.
 reset_reset:Ola:\n\nSolicitaches que o teu contrasinal fose restablecido. Para finalizar o proceso,\npor favor, visite o seguinte enderezo URL:\n\n{VAR: url}\n\nNOTA: este foro almacena os contrasinais nun mecanismo de cifrado nun único sentido, o que significa que\nunha vez que escribas o teu contrasinal, este é codificado de xeito que NON HAI FORMA ALGUNHA de recuperalo.\nIsto funciona comparando a versión codificada que temos no rexistro coa versión codificada que escribes no campo de rexistro.\n(Se estás interesado en saber como funciona este mecanismo, infórmate sobre o algoritmo de hash MD5)
 rpasswd_invalid_passwd:O contrasinal é inválido
@@ -596,7 +598,7 @@ buddy_list_err_ignore:Non se poden engadir á túa lista de amigos usuarios que 
 buddy_list_update:Navegando pola miña lista de amigos
 core_err_invinp_title:A entrada non é válida
 core_err_invinp_err:Seguiches unha ligazón non válida. Por favor, informa ao <a href="mailto:{GVAR: ADMIN_EMAIL}">administrador</a> sobre isto.
-core_adm_login_msg:Os administradores poden acceder ao sistema <a href="{BASE}adm/admloginuser.php">here</a>.
+core_adm_login_msg:Os administradores poden acceder ao sistema <a href="{BASE}adm/admloginuser.php">aquí</a>.
 email_err_unabletoemail_title:Erro: Non se pode enviar o correo electrónico
 email_err_unabletoemail_msg:O sistema de correo electrónico foi desactivado polo administrador.
 email_error_unabletolocaddr:Sentímolo, o sistema non foi capaz de enviar por correo {VAR-HTML: _POST['tx_name']} porque non puido determinar o enderezo de correo electrónico
@@ -651,7 +653,7 @@ postcheck_max_images_err:Permítese un máximo de {GVAR: MAX_IMAGE_COUNT} imaxes
 postcheck_no_links_allowed:Non podes empregar as ligazóns ata que publiques máis {PLURAL: posts_before_links|dunha mensaxe|de $1 mensaxes}.
 postcheck_subj_needed:O asunto é obrigatorio
 postcheck_no_such_user:Non existe ningún usuario chamado "{FUNC: char_fix(htmlspecialchars($v))}" neste foro.
-postcheck_ignored:Non lle podes enviar unha mensaxe privada a "{FUNC: char_fix(htmlspecialchars($v))}" porque este usuario está a ignorarche.
+postcheck_ignored:Non lle podes enviar unha mensaxe privada a "{FUNC: char_fix(htmlspecialchars($v))}" porque este usuario está a ignorarte.
 postcheck_no_recepient:Non se pode enviar a mensaxe porque falta o destinatario
 postcheck_invalid_email:Por favor, insire un enderezo de correo electrónico válido para o teu amigo.
 postcheck_email_subject:Non podes enviar un correo electrónico sen asunto.
@@ -659,7 +661,7 @@ postcheck_email_body:Non podes enviar un correo electrónico sen o corpo da mens
 private_msg_notify_subj:Notificación de lectura da mensaxe: {VAR: m->subject}
 private_msg_notify_body:Ola:<br />{VAR: usr->login} abriu a túa mensaxe privada titulada "{VAR: m->subject}".<br />Esta é unha mensaxe automática xerada o {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Navegando polos usuarios referenciados
-register_err_short_login:O nome de usuario que elixiu é curto de máis. Os nomes de usuario deben ter, polo menos, 2 caracteres.
+register_err_short_login:O nome de usuario que elixiches é curto de máis. Os nomes de usuario deben ter, polo menos, 2 caracteres.
 register_err_login_notallowed:Este nome de usuario non está permitido.
 register_err_loginunique:Os nomes de usuario do foro deben ser únicos. Xa existe un usuario con este nome.
 register_err_emailexists:Este enderezo de correo electrónico xa está asociado a unha conta. Se esqueciches o teu contrasinal, por favor, emprega a opción de restauración no canto de volverse rexistrar.
@@ -722,7 +724,7 @@ error_title:Formulario de erro
 index_title:Benvido ao foro
 search_title:Procurar for {VAR-HTML: srch}
 remail_emailsent:Enviouse o correo electrónico
-remail_email:Ola:\n\nHai un fío interesante sobre "{VAR: data->subject}" no foro {GVAR: FORUM_TITLE} que pode que queiras ler. Podes ver o fío en:   {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nO teu amigo,\n\n{VAR: usr->alias}
+remail_email:Ola:\n\nHai un fío interesante sobre "{VAR: data->subject}" no foro {GVAR: FORUM_TITLE} que pode que queiras ler. Podes ver o fío en:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nO teu amigo,\n\n{VAR: usr->alias}
 poll_add_option:Engadir unha opción:
 post_opt_html_on:O código <b>HTML</b> está <b>activado</b>
 post_opt_fud_on:O <a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBCode</b> está <b>activado</b></a>
@@ -965,7 +967,7 @@ group_resources:Este grupo controla os permisos dos seguintes foros
 register_admin_newuser_title:Rexistrouse un novo usuario e a súa conta está á espera de confirmación
 register_admin_newuser_msg:Acaba de se rexistrar un novo usuario ({VAR: uent->login}) e, dado que a confirmación de contas está activada, a súa conta non se activará ata que sexa confirmada por ti ou outro administrador do foro. Para revisar a conta, vai a: {BASE}adm/admuserapr.php\n\nEste é un proceso automático. Non respondas a esta mensaxe.\nSe queres deixar de recibir notificacións por correo electrónico de novos rexistros de usuario, podes facelo a través do panel de control administrativo. Cambia a configuración do parámetro "New Account Notification".
 post_mod_msg_notify_title:Hai unha nova mensaxe no foro "{VAR: frm->name}" á espera de aprobación
-post_mod_msg_notify_msg:Unha nova mensaxe titulada "{VAR: msg_post->subject}" acaba de ser publicada nun foro que moderas. Para revisar esta mensaxe vai a:\n{FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é un proceso automático. Non respondas a esta mensaxe.
+post_mod_msg_notify_msg:Unha nova mensaxe titulada "{VAR: msg_post->subject}" acaba de ser publicada nun foro que moderas. Para revisar esta mensaxe vai a: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEste é un proceso automático. Non respondas a esta mensaxe.
 thread_printable_pdf:Xerar un PDF para imprimir
 thread_syndicate:Publicar este foro (XML)
 reg_conf_title:Confirmación de rexistro
@@ -1059,7 +1061,7 @@ findu_no_conf:usuario non confirmado
 findu_banned:usuario expulsado
 register_max_sig_len:Lonxitude máxima:
 register_turing:Verificación:
-register_err_turing:Fallou a verificación. Por favor ténteo de novo.
+register_err_turing:Fallou a verificación. Por favor, inténtao de novo.
 modque_cat:Categoría
 modque_forum:Foro
 idx_compact_forum_row:Foros dispoñibles:
@@ -1120,7 +1122,7 @@ move_msg_th_expl:Especifica o ID do fío de destino (pode ser noutro foro)
 captcha_img_alt:Verificación por Captcha: terás que recoñecer o texto que hai nesta imaxe.
 captcha_img_help:Non hai cero ou un na imaxe.
 powered-by:Desenvolvido por: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Seleccionar todo
 code_show_hide:Mostrar/agochar

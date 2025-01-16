@@ -475,6 +475,8 @@ login_login_btn:로그인
 login_name_required:로그인 이름은 필수입니다
 login_passwd_required:비밀번호가 필요합니다
 login_invalid_radius:로그인/비밀번호 조합이 잘못되었습니다
+login_or:아니면
+login_alternatives:다음을 사용하여 로그인:
 reset_confirmation:등록해 주셔서 감사합니다.\n\n계정을 활성화하려면 아래의 URL로 이동하십시오:\n\n{VAR: url}\n\n계정이 활성화되면 포럼으로 로그인된 다음 메인 페이지로\n이동될 것입니다.
 reset_reset:안녕하세요,\n\n비밀번호를 재설정하기 위해 요청하였습니다. 과정을 완료하려면,\n이 URL로 가세요:\n\n{VAR: url}\n\n참고: 이 포럼은 비밀번호를 입력하면 비밀번호는 한 방향 암호화 매커니즘으로\n암호화되어 저장되므로 그것을 다시 얻을 수 있는 방법은 없음을 뜻합니다.\n이것은 로그인을 물어보는 것에 입력한 것을 인코딩한 버전과 기존의 인코딩된 버전을 비교하여 작동합니다.\n(이 매커니즘이 어떻게 작동하는가에 관심이 있다면, MD5 HASH 알고리즘을 읽어주세요)
 rpasswd_invalid_passwd:비밀번호가 잘못됨
@@ -1127,6 +1129,7 @@ move_msg_th_expl:(다른 포럼에 있을 수 있는) 대상 주제의 ID를 지
 captcha_img_alt:Captcha(캡차) 검증: 이 그림에 텍스트를 인식할 필요가 있습니다.
 captcha_img_help:그림에 0이나 1도 없습니다.
 powered-by:제공: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:코드:
 code_select_all:모두 선택

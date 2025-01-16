@@ -213,7 +213,7 @@ pmsg_delete:Bestere
 cur_ppage_pm:Mesacê Xısusiy
 writing_pm:Xususi Mesac Bınusne
 browsing_folder:<b>Klasorê {VAR: folders[$folder_id]}</b>
-inbox:Dora ameya
+inbox:Qutiya ameyeyan
 draft:Taslax
 sent:Rışna
 trash:Sılo

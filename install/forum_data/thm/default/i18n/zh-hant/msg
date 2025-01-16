@@ -478,6 +478,8 @@ login_login_btn:登入
 login_name_required:必須輸入登入帳號
 login_passwd_required:必須輸入密碼
 login_invalid_radius:錯誤的帳號或密碼
+login_or:其他
+login_alternatives:登入方式:
 reset_confirmation:感謝您的註冊！\n\n要讓您的帳號生效，請前至下列的地址：\n\n{VAR: url}\n\n當您的帳號生效後，您會登入至論壇並重新導向到主頁面。
 reset_reset:您好,\n\n您提交了重新設定密碼的請求。要完成重新設定密碼流程，請前往下列地址：\n\n{VAR: url}\n\n注意：本論壇以單向加密的方式儲存密碼，這代表當密碼一經輸入即被重新編碼，且流程無法返回。\n您每次登錄輸入密碼時，該系統將自動對您所輸入密碼經編碼後的內容，與我們所儲存的編碼內容進行校驗。\n（如果您對此加密方式感興趣，請查閱關於 MD5 加密演算法的相關資料。）
 rpasswd_invalid_passwd:無效的密碼
@@ -1130,7 +1132,7 @@ move_msg_th_expl:目標主題的指定 ID（可用在其它論壇）
 captcha_img_alt:驗證碼：您需要識別出在圖片裡的文字。
 captcha_img_help:圖片裡沒有零或一。
 powered-by:技術支援：FUDforum {GVAR: FORUM_VERSION}。
-copyright:版權所有 © 2001年-2023 年 <a href="http://fudforum.org/">FUDforum 留言板軟體</a>
+copyright:版權所有 &copy;2001-2025 年 <a href="http://fudforum.org/">FUDforum 留言板軟體</a>
 code_title:代碼：
 code_select_all:全選
 code_show_hide:顯示/隱藏

@@ -1123,6 +1123,7 @@ move_msg_th_expl:Oppgi ID'en til destinasjonsemnet (kan være i andre fora)
 captcha_img_alt:Captcha-verifisering: du må kjenne igjen teksten i dette bildet.
 captcha_img_help:Det er ingen null eller en i bildet.
 powered-by:Levert av: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:Opphavsrett &copy;2001–2023 <a href="http://fudforum.org/">FUDforum-oppslagstavleprogramvare</a>
 code_title:Kode:
 code_select_all:Velg alle

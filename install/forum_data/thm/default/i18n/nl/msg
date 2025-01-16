@@ -472,6 +472,8 @@ login_login_btn:Aanmelden
 login_name_required:Een gebruikersnaam invullen is verplicht
 login_passwd_required:Een wachtwoord invullen is verplicht.
 login_invalid_radius:De combinatie van gebruikersnaam en wachtwoord is onjuist
+login_or:of…
+login_alternatives:Meld u aan met:
 reset_confirmation:Dank u wel voor uw registratie.\n\nGa voor het activeren van uw gebruiker naar de onderstaande URL:\n\n{VAR: url}\n\nAls uw gebruiker actief is, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 reset_reset:Hallo,\n\nU hebt een verzoek uitgevoerd voor het opnieuw instellen van uw wachtwoord. Ga naar de volgende URL om het proces af te ronden:\n\n{VAR: url}\n\nLet op: het forum versleutelt de wachtwoorden op een manier die het niet mogelijk maakt het wachtwoord te achterhalen. De ingave van uw wachtwoord wordt versleuteld en vergeleken met de opgeslagen versleutelde versie. Als u hierover meer wilt weten, kunt u op internet zoeken naar het MD5 hash algoritme.
 rpasswd_invalid_passwd:Ongeldig wachtwoord
@@ -1124,7 +1126,7 @@ move_msg_th_expl:Geef het nummer van het doelonderwerp (kan zich in een ander fo
 captcha_img_alt:Captchacontrole: u moet de tekst in deze afbeelding herkennen
 captcha_img_help:Er is geen nul of een in de afbeelding.
 powered-by:Maakt gebruik van FUDforum {GVAR: FORUM_VERSION}.
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:Alles selecteren
 code_show_hide:Weergeven/verbergen
