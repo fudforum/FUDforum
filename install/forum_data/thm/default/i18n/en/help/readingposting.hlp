@@ -301,8 +301,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">http://www.prohost.org</font>]<br />[img]</b></font><br />http://fudforum.org/forum/images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
+    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">https://github.com/fudforum</font>]<br />[img]</b></font><br />http://fudforum.org/forum/images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="https://github.com/fudforum"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.

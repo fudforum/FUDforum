@@ -9,9 +9,9 @@ Comme dans la plupart des cas, l'administrateur ne vous permet pas d'utiliser du
 <b>Hyperliens vers une URL</b><br /><br />
 
 Le forum peut automatiquement récupérer plusieurs formes d'URLs, par exemple&nbsp;:<br />
-	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
+	<div align="Center"><font color="#FF0000">http://fudforum.org</font></div><br />
 sera automatiquement récupéré comme une URL et converti en une URL valide qui ressemblera à cela&nbsp;:
-	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
+	<div align="center"><a href="http://fudforum.org" target=_blank>http://fudforum.org</a></div><br />
 	
 	
 Vous pouvez également créer une URL vous-même en utilisant du BBcode, ceci peut être fait de 2 façons, une façon simple fonctionnerait comme ceci&nbsp;:
@@ -115,9 +115,9 @@ BBcode supporte l'alignement du texte par la marque [align] ce qui vous permet d
 <div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
     De plus, vous pouvez créer des liens avec des images en les incluant dans une marque
 <font color="#ff0000"><b>    [url][/url]</b></font> tel que <br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://fudforum.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
     qui va créer un lien avec image tel que <br />
-<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
+<div align="Center"><a href="http://fudforum.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>Citer d'autres messages</b><br />
   Il est possible de citer quelque chose qui a déjà été envoyé en mettant simplement des marques <font color="#ff0000"><b>[quote][/quote]</b></font> autour. 

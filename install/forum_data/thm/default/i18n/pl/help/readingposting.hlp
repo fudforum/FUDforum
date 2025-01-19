@@ -9,9 +9,9 @@ W związku z tym, że na forum administrator zazwyczaj nie pozwala używać znac
 <b>Osadzanie odnośników</b><br /><br />
 
 Forum może automatycznie odnajdywać różne formy odnośników, odpowiednio je zaznaczając:<br />
-	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
+	<div align="Center"><font color="#FF0000">http://fudforum.org</font></div><br />
 zostanie automatycznie rozpoznane jako odnośnik i zostanie przekształcone do poprawnej formy, która wygląda następująco:
-	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
+	<div align="center"><a href="http://fudforum.org" target=_blank>http://fudforum.org</a></div><br />
 	
 
 Możesz także samodzielnie zaznaczyć odnośnik używając BBcode. Najprostszy sposó na zrobienie tego, to użycie poniższego przykładu:
@@ -114,9 +114,9 @@ BBcode pozwala wyrównywać tekst za pomocą znacznika [align] na trzy sposoby:
 	umieści następujący obrazek w wiadomości:<br />
 <div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
 	oprócz tego obrazek może być jednocześnie odnośnikiem do wybranego adresu po użyciu znaczników <font color="#ff0000"><b>[url][/url]</b></font> w następujący sposób<br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://fudforum.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
 	który stworzy następujący obrazkowy odnośnik<br />
-<div align="Center"><a href="http://www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="obrazek" width="140" height="49" border="0"></a><br /></div><br />
+<div align="Center"><a href="http://fudforum.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="obrazek" width="140" height="49" border="0"></a><br /></div><br />
 
 <br /><b>Cytowanie innych wiadomości</b><br />
 	Istnieje możliwość zacytowania czegoś, co zostało już napisane, zaznaczająć cytowany tekst znacznikami <font color="#ff0000"><b>[quote][/quote]</b></font>. 
