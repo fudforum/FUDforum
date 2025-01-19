@@ -9,8 +9,10 @@
 * Free Software Foundation; either version 2 of the License.
 ***************************************************************************/
 
-$__UPGRADE_SCRIPT_VERSION = 32000;
 // define('fud_debug', 1);
+
+// Major version + 99 for sub-releases
+$__UPGRADE_SCRIPT_VERSION = 32001;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -520,8 +522,8 @@ function syncronize_theme($theme)
 <tr>
 <td class="linktable linkdata" nowrap="nowrap">
 <p><b>Preperation:</b></p>
-<p>Please <b><a href="http://cvs.prohost.org/index.php?title=Backup">backup</a></b> your forum<br />
-   and <b><a href="http://cvs.prohost.org/index.php?title=Upgrading">review the documentation</a></b><br />
+<p>Please <b><a href="https://github.com/fudforum/FUDforum/wiki/Make-forum-datadump">backup</a></b> your forum<br />
+   and <b><a href="https://github.com/fudforum/FUDforum/wiki/Upgrading">review the documentation</a></b><br />
    before proceeding!</p>
 
 <p><b>Upgrade steps:</b></p>
@@ -541,8 +543,8 @@ function syncronize_theme($theme)
 	}
 
 	// PHP version check.
-	if (!version_compare(PHP_VERSION, '7.0.0', '>=')) {
-		seterr('The upgrade script requires that you have PHP version 7.0.0 or higher.');
+	if (!version_compare(PHP_VERSION, '7.4.0', '>=')) {
+		seterr('The upgrade script requires that you have PHP version 7.4.0 or higher.');
 	}
 
 	/* Mbstring hackery, necessary if function overload is enabled. */
@@ -653,8 +655,8 @@ function syncronize_theme($theme)
 		function db_version() { return get_version(); }
 	}
 	$dbver = db_version();
-	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.0.0', '<')) {
-		seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.0.0 or higher.');
+	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.7.0', '<')) {
+		seterr('DBHOST_DBNAME', 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.7.0 or higher.');
 	}
 
 	/* Only allow the admin user to upgrade the forum. */

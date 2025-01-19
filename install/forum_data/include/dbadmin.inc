@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -20,8 +20,8 @@ function validate_db_version()
 
 	$dbver = db_version();	// Defined in db.inc.
 
-	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.5.0', '<')) {
-		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.5.0 or higher.';
+	if (__dbtype__ == 'mysql' && version_compare($dbver, '5.7.0', '<')) {
+		return 'MySQL version '. $dbver .' is not supported. Please upgrade to MySQL Version 5.7.0 or higher.';
 	} else if (__dbtype__ == 'pgsql' && version_compare($dbver, '8.1.0', '<')) {
 		return 'PostgreSQL version '. $dbver .' is not supported. Please upgrade to PgSql Version 8.1.0 or higher.';
 	} else if (__dbtype__ == 'oracle' && version_compare($dbver, '12.2.0', '<')) {

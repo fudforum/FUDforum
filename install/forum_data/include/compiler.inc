@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -28,7 +28,7 @@ function resolve_refs($file_name)
 	if (($str = @file_get_contents($GLOBALS['CURFILE'])) === false) {
 
 		// Try to locate file by looking at 'based_on' chain in theme.ini files.
-		$ini['based_on'] = $tset;
+		$ini = ['based_on' => $tset];
 		while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini'))) {
 			$GLOBALS['CURFILE'] = $GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/'. $file_name;
 			if (($str = @file_get_contents($GLOBALS['CURFILE'])) !== false) {

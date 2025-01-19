@@ -9,9 +9,9 @@ TOPIC_HELP:
 <b>网址超链接</b><br /><br />
 
 这个论坛可以自动识别网址超链接，比如：网址<br />
-	<div align="Center"><font color="#FF0000">http://cvs.prohost.org</font></div><br />
+	<div align="Center"><font color="#FF0000">http://fudforum.org</font></div><br />
 将被作为URL识别并指向正确的网址，其功能类似于：
-	<div align="center"><a href="http://cvs.prohost.org" target=_blank>http://cvs.prohost.org</a></div><br />
+	<div align="center"><a href="http://fudforum.org" target=_blank>http://fudforum.org</a></div><br />
 	
 	
 你自己可以用下面2种方法通过FUD代码创建URL超链接：一种是输入下列代码：
@@ -117,7 +117,7 @@ FUD代码支持文本通过使用[align]标签以下列3种方式排列：
 <div align="Center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"><br /></div>
     此外，在下列标签
 <font color="#ff0000"><b>    [url][/url]</b></font>比如<br />
-<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://www.prohost.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
+<div align="Center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://fudforum.org</font>][img]</b></font>http://fudforum.org/forum/images/fudlogo.gif<b><font color="#ff0000">[/img][/url]</font></b></font><br /></div>
     中加入图片链接，就能生成带链接的图片，如<br />
 <div align="Center"><a href="http：//www.prohost.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a><br /></div><br />
 
