@@ -34,7 +34,7 @@ sceditor.create(textarea, {
 });
 </script>';
 
-	return $editor_html;
+	return array($editor_html);
 }
 
 function sceditor_info() {

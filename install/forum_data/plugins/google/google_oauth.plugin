@@ -43,9 +43,9 @@ function plugin_google_oauth($oauth_button_list) {
 </div>';
 
 	if (empty($oauth_button_list)) {
-		return $google_button_code;
+		return array($google_button_code);
 	} else {
-		return (string) $oauth_button_list .' &nbsp; '. $google_button_code;
+		return array( reset($oauth_button_list) .' &nbsp; '. $google_button_code);
 	}
 }
 
