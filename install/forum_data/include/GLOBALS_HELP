@@ -468,7 +468,7 @@ Hostname or IP address of the WHOIS server to use for IP address analysis.}}}
 Minimum time between login attempts in seconds. This option is intended as a throttle mechanism against dictionary attacks on forum passwords.}}}
 
 {{{MAX_CALLS_FROM_IP
-The maximum number of times a user with a particular IP address can use the forum before access is denied. Set to 0 to disable or a large value to prevent forum scraping and brute force attacks.}}}
+The maximum number of times an anonymous user with a particular IP address can use the forum before access is denied. Set to 0 to disable or a large value to prevent forum scraping and brute force attacks.}}}
 
 {{{NO_ANON_ACTION_LIST	FUD_OPT_3	131072
 Disable displaying of the action list to anonymous users.}}}

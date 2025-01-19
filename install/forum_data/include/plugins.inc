@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -31,7 +31,12 @@ function plugin_call_hook($type, $data=array()) {
 			$data = call_user_func($func, $data);
 		}
 	}
-	return $data;
+
+        if (is_string($data)) {
+                return (string) $data;
+        } else {
+                return $data;
+        }
 }
 
 ?>

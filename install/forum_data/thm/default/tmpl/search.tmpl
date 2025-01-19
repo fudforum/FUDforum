@@ -109,7 +109,7 @@
 {TEMPLATE-DATA: page_stats}
 <script>
 	document.forms['search'].srch.focus();
-	highlightSearchTerms("{VAR-HTML: _GET['srch']}");
+	highlightSearchTerms("{VAR-HTML: _GET['srch'] ?? ''}");
 </script>
 {TEMPLATE: footer}
 {PAGE: END}

@@ -283,7 +283,8 @@ function resolve_sections($file, $secname, $str)
 
 			// Run time plugin integration.
 			case 'PLUGIN':
-				$ret .= '\'. (defined("plugins") ? implode(" ", plugin_call_hook("'. strtoupper($name) .'")) : null) .\'';
+				// $ret .= '\'. (defined("plugins") ? implode(" ", plugin_call_hook("'. strtoupper($name) .'")) : null) .\'';
+				$ret .= '\'. (defined("plugins") ? plugin_call_hook("'. strtoupper($name) .'") : null) .\'';
 				break;
 
 			// Compile time plugin integration.

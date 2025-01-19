@@ -508,7 +508,7 @@ function flood_check()
 			$msg_body_orig = apply_reverse_replace($msg_body_orig);
 
 			// Diff code
-			fud_use('diff.inc');
+			fud_use('diff.inc', true);
 			$text = PHPDiff($msg_body_orig, $msg_body);
 			$text_s = apply_custom_replace($msg_subject);
 
