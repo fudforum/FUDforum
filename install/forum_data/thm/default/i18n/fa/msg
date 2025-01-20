@@ -12,6 +12,7 @@
 # Author: FarsiNevis
 # Author: Fatemi127
 # Author: Huji
+# Author: Jeeputer
 # Author: Macofe
 # Author: Mjbmr
 # Author: Mohammad ebz
@@ -1130,8 +1131,7 @@ move_msg_th_expl:شناسهٔ مبحث مقصد را وارد کنید
 captcha_img_alt:تایید کپچا: شما باید متن این تصویر را تشخیص بدهید.
 captcha_img_help:تصویر دارای صفر یا یک نمی‌باشد.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:کد:
 code_select_all:انتخاب همه
 code_show_hide:نمایش/مخفی‌کردن

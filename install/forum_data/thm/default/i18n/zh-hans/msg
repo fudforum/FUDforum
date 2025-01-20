@@ -875,15 +875,15 @@ maximize_message:最大化消息
 no_view_perm:您没有查看该主题所需的适当权限。
 report_empty_report:您不能发送空报告。请输入报告的原因。
 report_already_reported_title:已报告
-report_already_reported_msg:这条信息已被推荐，相关推荐报告在论坛管理信息列表中。
-register_err_toomanyimages:你的个人签名中使用了禁止使用的图片{GVAR: FORUM_IMG_CNT_SIG}。
+report_already_reported_msg:这条消息已经被举报，举报目前正在版主的队列中。
+register_err_toomanyimages:您试图在签名中使用超过允许数量的 {GVAR: FORUM_IMG_CNT_SIG} 图像。
 pmsg_next_msg:下一条信息
 pmsg_prev_msg:前一条信息
 post_proc_reveal_spoiler:显示/隐藏内容
-register_jabber:Jabber：
-register_skype:Skype:
-register_twitter:Twitter 的句柄：
-register_google:Google Chat/IM：
+register_jabber:Jabber 账号:
+register_skype:Skype 账号:
+register_twitter:Twitter 账号:
+register_google:Google Chat/IM 账号:
 im_jabber:Jabber：
 im_google:Google Talk：
 im_skype:Skype：
@@ -896,28 +896,28 @@ ignored_user_post:<a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}<
 smladd_close_window:关闭窗口
 post_list_smilies:列出所有表情符号
 p_VISIBLE:可见
-reported_in_thread:!展开浏览：
+reported_in_thread:在：
 help_back_to_top:回到页首
 help_return_to_index:返回帮助索引
-imsg_err_message_title:帖子出错
+imsg_err_message_title:无效消息
 imsg_err_message_msg:您尝试查看的消息不存在。
 poll_edit:编辑
-register_err_not_valid_img:指定的图片连接不正确
+register_err_not_valid_img:指定的 URL 不包含有效的图像。
 pmsg_recepient:收信人
-register_err_taken_alias:您要使用的别名已在另一论坛成员使用。请选择另一个。
+register_err_taken_alias:您尝试使用的别名已被其他论坛成员使用。请选择其他别名。
 register_alias:别名：
 register_alias_desc:如果您想应用昵称代替您的用户名来显示在论坛上，请在此输入。
-register_allow_pm_msg:接受悄悄话
+register_allow_pm_msg:允许私人消息：
 register_allow_pm_msg_desc:允许其他用户在此论坛向您发送私信。
-postcheck_pm_disabled:你不能给 "{VAR-HTML: v}" 发送悄悄话，因为他没有开启悄悄话功能。
+postcheck_pm_disabled:您无法向“{VAR-HTML: v}”发送私信，因为此人不接受私信。
 polllist_vote:投票
 polllist_view_results:查看结果
-polllist_name:调查主题
+polllist_name:调查名称：
 polllist_date:发起时间
 polllist_owner:发起人
 polllist_votes:总票数
 polllist_action:操作
-polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看可用投票</a>
+polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">查看可用调查</a>
 userinfo_polls:调查：
 show_pollist:调查
 search_and:和
@@ -925,57 +925,57 @@ search_or:或
 search_desc_order:从最新开始
 search_asc_order:从最旧开始
 search_relevance_order:相关性
-search_logic:搜索方式：
+search_logic:搜索逻辑：
 search_sorting:排序方式：
 search_attach:附件：
-search_attach_all:有无
+search_attach_all:有或无
 search_attach_with:带有附件
 post_proceed:继续
-post_moderated_forum:恭喜！你已经发表成功，等版主或者管理员确认后会发布到网上！
-post_moderated_forum_ttl:受限论坛说明
+post_moderated_forum:您已在受监管的论坛中发帖。您的帖子只有在获得论坛版主或管理员的批准后才会被其他人看到。
+post_moderated_forum_ttl:受版主监督的论坛通知
 buddy_list_bday:今天是 {VAR: r[2]} 的 {VAR: age} 岁生日
-email_warning_msg:如果你修改了Email，则此账号会被暂时隐藏，请你查收邮件，点击邮件中的连接以重新激活账号！
-register_show_im:显示 IM 指示器
-register_show_im_desc:是否在用户帖子旁边显示IM。
-unread_message:未读帖子
-read_message:已读帖子
+email_warning_msg:如果您更改当前的电子邮件地址，您的账户将被标记为未确认状态，直到您通过电子邮件确认。
+register_show_im:显示即时消息指示器
+register_show_im_desc:是否在消息旁边显示作者的即时消息指示器.。
+unread_message:未读消息
+read_message:已读消息
 threadt_more:&lt;更多&gt;
-threadt_disabled_ttl:树状浏览已经被关闭。
-threadt_disabled_desc:管理员已经关闭树状浏览，请用展开浏览方式。
+threadt_disabled_ttl:主题列表的树形视图已被禁用。
+threadt_disabled_desc:管理员已禁用主题列表的树形视图。请使用平面视图代替。
 threadt_update:浏览论坛（树状浏览）<a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a>
 mmod_delete_cofirm_ttl:确认删除主题/消息
 spell_alts:别无选择
-insert_uploaded_image:将此图片显示在文章中
-finduser_help:小提示：输入单个字母就可以搜索到以这个字母开头的用户。
+insert_uploaded_image:将图像插入消息正文
+finduser_help:搜索引擎会自动将 * 掩码添加到您的查询中，<b>搜索区分大小写</b>。<br />例如，要搜索登录名以“a”开头的所有用户，请在搜索框中输入“a”。
 back_to_top:返回顶部
-pm_err_disabled_title:不能发送悄悄话
-pm_err_disabled_msg:你当前设置为不能发送悄悄话！可以在个人信息中修改设置，以激活悄悄话功能。
+pm_err_disabled_title:私信功能已禁用
+pm_err_disabled_msg:您需要在个人资料中启用“允许私信”选项，才能发送私信。
 err_mod_acc_ttl:未验证的帐户
-err_mod_acc_msg:账号在被激活之前必须得到系统管理员的确认，在得到确认之前，你的账号不享有注册用户的所有功能！
+err_mod_acc_msg:管理员选择在激活之前手动检查所有帐户。在您的帐户通过管理员验证之前，您将无法使用帐户的全部功能。
 accounts_pending_approval:待审核帐号
-saved:已提交
-register_err_time_limit:每{GVAR: REG_TIME_LIMIT}秒限制一个用户可以注册的极限已达到， 请稍等{PLURAL: reg_limit_reached|$1|$1}秒再来注册。
-register_err_avatardimtobig:头像大小 <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> 超出了论坛限制的： <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
+saved:已保存
+register_err_time_limit:已达到每 {GVAR: REG_TIME_LIMIT} 秒注册一次的限制。请等待{PLURAL: reg_limit_reached| $1秒| $1秒}，然后再次尝试注册。
+register_err_avatardimtobig:头像尺寸<b>( {VAR: img_info[0]} x {VAR: img_info[1]} )</b>超出了允许的尺寸<b>( {GVAR: CUSTOM_AVATAR_MAX_DIM} )</b>像素。
 buddy_offline:{VAR: r[2]} 当前不在线
 buddy_online:{VAR: r[2]} 当前在线
-sml_no_smilies:没有表情符号供选择。
-login_unapproved_account_ttl:未审核的帐号
-login_unapproved_account_msg:帐号需要管理员审核后才能激活使用。你的帐号还未通过审核，在通过审核之前，可能不能使用论坛的某些功能。
+sml_no_smilies:没有可用的表情符号。
+login_unapproved_account_ttl:未批准的帐户
+login_unapproved_account_msg:论坛管理员选择在激活之前手动确认每个新帐户。您的帐户尚未确认，因此您将无法访问已确认成员可用的某些功能。
 remove_from_buddy_list:从好友名单中删除
 iemail_msg_author:<b>作者：</b> {VAR: obj->alias}
 iemail_msg_subject:<b>主题：</b> {VAR: obj->subject}
 iemail_msg_date:<b>日期：</b>{TEMPLATE: dmsg_post_date}
 iemail_msg_reply:回复
 iemail_msg_quote:引用
-iemail_msg_view:查看主题/帖子
+iemail_msg_view:查看主题/消息
 threadt_sticky:置顶
 threadt_announce:公告
-reported_no_messages:没有报告的帖子。
-poll_no_polls:没有可用的投票。
-no_unread_messages:没有符合条件的未读帖子。
-thread_mark_all_read:标记所有帖子为已读
-thread_mark_all_read_desc:论坛中所有的未读标记将被清除
-private_no_messages:此板上没有帖子
+reported_no_messages:没有被举报的消息。
+poll_no_polls:没有可访问的调查。
+no_unread_messages:没有符合您查询的未读消息。
+thread_mark_all_read:将所有未读的论坛消息标记为已读
+thread_mark_all_read_desc:本论坛中所有未读消息将被标记为已读
+private_no_messages:此文件夹中没有消息。
 register_email_change_subject:电子邮件更改确认
 register_email_change_msg:请通过前往下面的URL，确认您的新电子邮件账户“{VAR: uent->email}”来替换您的旧电子邮件账户“{VAR: old_email}”：\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\n一旦您确认了您的新电子邮件地址，您的论坛账户将重新激活。
 iemail_thread_unsub:取消对此主题的订阅

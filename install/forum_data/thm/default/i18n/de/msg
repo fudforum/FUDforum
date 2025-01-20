@@ -484,6 +484,8 @@ login_login_btn:Anmelden
 login_name_required:Benutzername erforderlich
 login_passwd_required:Passwort erforderlich
 login_invalid_radius:Ungültige Benutzername/Passwort-Kombination
+login_or:oder...
+login_alternatives:Anmelden mit:
 reset_confirmation:Danke für deine Registrierung,\n\nUm dein Konto zu aktivieren, gehe bitte auf die unten angezeigte URL:\n\n{VAR: url}\n\nSobald dein Konto aktiviert ist, wirst du am Forum angemeldet\nund zur Startseite des Forums geleitet.
 reset_reset:Hallo,\n\nDu hast darum gebeten, das Passwort zurückzusetzen, um wirklich das Passwort\nZURÜCKZUSETZEN öffne bitte die nachfolgende Webseite (URL)\n\n{VAR: url}\n\nHinweis: Das Forum verschlüsselt das Passwort unidirektional. \nNach der Speicherung des Passwords im System gibt es keine Möglichkeit das\nPasswort wiederherzustellen, da nur eine verschlüsselte Prüfsumme des Passworts\ngespeichert wird. \n(Bei Interesse an der Verschlüsselungsmethode, siehe MD5-Hash-Algorithmus.)
 rpasswd_invalid_passwd:Ungültiges Passwort
@@ -1136,8 +1138,7 @@ move_msg_th_expl:Gib die ID des Zielthemas an (kann in einem anderem Forum sein)
 captcha_img_alt:CAPTCHA-Bestätigung: Du musst den Text in diesem Bild erkennen.
 captcha_img_help:Das Bild enthält keine Null oder Eins.
 powered-by:Betrieben mit: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code:
 code_select_all:alles markieren
 code_show_hide:anzeigen/verstecken
