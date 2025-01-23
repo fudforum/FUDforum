@@ -743,6 +743,8 @@ polllist_action:Аракет
 saved:Сакталды
 iemail_msg_reply:Жооп берүү
 mnav_more:Көбүрөөк &raquo;&raquo;
+mnav_minute:Мүнөт
+mnav_day:Күн
 ip_search:Издөө
 post_err_mod_forum_edit_ttl:КАТА
 uc_new_topic:Жаңы тема
