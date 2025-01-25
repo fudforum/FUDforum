@@ -73,7 +73,7 @@ function resolve_refs($file_name)
 
 	// Non-default templates may not contain all sections. Parse 'based_on' chain as well.
 	if (strpos($GLOBALS['CURFILE'], 'thm/default/tmpl') === false) {
-		$ini['based_on'] = $tset;
+		$ini = ['based_on' => $tset];
 		while ($ini['based_on'] != 'default' && ($ini = @parse_ini_file($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/theme.ini'))) {
 			if (($tmp = @file_get_contents($GLOBALS['DATA_DIR'] .'thm/'. $ini['based_on'] .'/tmpl/'. $file_name)) !== false) {
 				parse_sections($tmp, ($st !== false ? $fc['dst'] : ''), 1);
