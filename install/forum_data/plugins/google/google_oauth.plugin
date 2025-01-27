@@ -22,6 +22,14 @@ function plugin_google_oauth($oauth_button_list) {
 		die('ERROR: Please configure the Google OAuth plugin from the Plugin Manager Control panel.');
 	}
 
+        // Add HTTPS protocol to Return URL if absent. 
+        // HTTP is only allowed when using localhost during development.
+        $login_uri = $GLOBALS['WWW_ROOT'] .'index.php?t=login';
+        $scheme = parse_url($login_uri, PHP_URL_SCHEME);
+        if (empty($scheme)) {
+                $login_uri = 'https://' . ltrim($login_uri, '/');
+        }
+
 	$google_button_code = '
 <!-- Generated with https://developers.google.com/identity/gsi/web/tools/configurator -->
 <script src="https://accounts.google.com/gsi/client" async></script>
@@ -29,7 +37,7 @@ function plugin_google_oauth($oauth_button_list) {
      data-client_id="'. $ini['GOOGLE_CLIENT_ID'] .'"
      data-context="signin"
      data-ux_mode="popup"
-     data-login_uri="'. $GLOBALS['WWW_ROOT'] .'index.php?t=login'. '"
+     data-login_uri="'. $login_uri .'"
      data-auto_prompt="false">
 </div>
 <div class="g_id_signin"
@@ -148,7 +156,7 @@ function _plugin_google_oauth_login() {
 					$uent->avatar_loc = '<img src="'. $google['picture'] .'" alt="" width="64" height="64" />';
 				}
 
-// echo "<pre>"; var_dump($uent); echo "<hr>"; var_dump($google); die();
+				// echo "<pre>"; var_dump($uent); echo "<hr>"; var_dump($google); die();
 				$uent->add_user();
 			}
 
