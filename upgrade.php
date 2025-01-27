@@ -12,7 +12,7 @@
 // define('fud_debug', 1);
 
 // Major version + 99 for sub-releases
-$__UPGRADE_SCRIPT_VERSION = 32001;
+$__UPGRADE_SCRIPT_VERSION = 32002;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():

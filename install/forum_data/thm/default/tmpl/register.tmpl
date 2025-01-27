@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -434,7 +434,7 @@
                  $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/ajax-loader.gif' />");
  
                  $.ajax({
-                    url:"index.php?t=autocomplete&check=login&term=" + $("#reg_login").val(),
+                    url:"{ROOT}/index.php?t=autocomplete&check=login&term=" + $("#reg_login").val(),
                     success:function(data) {
                         if (data==1) {
                             $("#reg_login-result").html("<img src='{THEME_IMAGE_ROOT}/tick.png' />{MSG: register_login_available}");
