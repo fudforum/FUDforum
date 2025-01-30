@@ -13,6 +13,7 @@
 # Author: NEHAOUA
 # Author: Naudefj
 # Author: OsamaK
+# Author: XIDME
 # Author: أَحمد
 # Author: ترجمان05
 # Author: ديفيد
@@ -1008,7 +1009,7 @@ pm_notify_body_email:لديك رسالة خاصة جديدة عنوانها "{VA
 register_pm_notification:إشعار رسالة خاصة:
 register_pm_notification_desc:إذا مُكِّن فسوف تُشعَر كلما تُرسل لك رسالة جديدة.
 findu_admin_opts_header:اختيارات الإداريين.
-findu_unban:ألغ الطرد
+findu_unban:إلغاء الحظر
 findu_ban:اطرد
 findu_edit:تعديل
 findu_delete:حذف
