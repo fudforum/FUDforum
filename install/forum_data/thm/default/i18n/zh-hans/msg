@@ -485,6 +485,8 @@ login_login_btn:登录
 login_name_required:需要登录名
 login_passwd_required:需要密码
 login_invalid_radius:错误的账号或密码
+login_or:或者...
+login_alternatives:登录方式：
 reset_confirmation:感谢您的注册，\n要激活您的账户，请前往下面的URL：\n\n{VAR: url}\n\n一旦您的账户被激活，您将可以登录论坛，并重定向至首页。
 reset_reset:您好,\n\n您已请求重置密码。要完成此过程，请访问此网址：{VAR: url}\n\n注意：此论坛以单向加密机制存储密码，这意味着一旦您输入密码，它将被编码，无法找回。此方法通过比较我们记录的编码版本与您在登录提示中输入的编码版本来工作。\n\n（如果您对这种机制的工作原理感兴趣，可以了解一下 MD5 哈希算法）\n\n希望这对您有帮助！如果还有其他问题，请随时告诉我。
 rpasswd_invalid_passwd:密码错误

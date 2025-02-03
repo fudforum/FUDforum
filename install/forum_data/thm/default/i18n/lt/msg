@@ -472,6 +472,8 @@ login_login_btn:Prisijungti
 login_name_required:Vardas turi būti įvestas
 login_passwd_required:Slaptažodis turi būti įvestas
 login_invalid_radius:Neteisingas vardas arba slaptažodis
+login_or:arba...
+login_alternatives:Prisijunkite naudodami:
 reset_confirmation:Thank you for registering,\n\nTo activate your account please go to the URL below:\n\n{VAR: url}\n\nOnce your account is activated you will be logged into the forum and\nredirected to the main page of the forum.
 reset_reset:Hello,\n\nYou have requested for your password to be reset, to actually RESET your password\nplease go to this URL\n\n{VAR: url}\n\nNOTE: This forum stores the passwords in a one-way encryption mechanism which means, that\nonce you have entered your password it is encoded so that there is NO WAY to get it back.\nThis works by simply encoding the password every time you enter it against the encoded version and\nseeing if they match. (If you are interested in how this mechanism works read up on MD5 HASH algorithm)
 rpasswd_invalid_passwd:Neteisingas slaptažodis
@@ -1124,8 +1126,7 @@ move_msg_th_expl:Nurodykite paskirties temą (gali būti kituose forumuose) ID.
 captcha_img_alt:Captcha patikrinimas: jums reikia atpažinti tekstą paveikslėlije.
 captcha_img_help:Nėra nulio ar vieno šiame vaizde.
 powered-by:Pagal: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Autorinės teisės &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Autorinės teisės &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kodas
 code_select_all:Pasirinkti visus
 code_show_hide:Rodyti / slėpti
