@@ -487,6 +487,8 @@ login_login_btn:Вход
 login_name_required:Не указано имя учётной записи:
 login_passwd_required:Не указан пароль
 login_invalid_radius:Недопустимое сочетания имени/пароля
+login_or:или…
+login_alternatives:Войти используя:
 reset_confirmation:Спасибо за регистрацию,\n\nДля активации вашей регистрации пожалуйста следуйте приведенной ниже ссылке:\n\n{VAR: url}\n\nПосле активации вы будете зарегистрированы на форуме и\nперенаправлены на его главную страницу.
 reset_reset:Привет,\n\nВы затребовали сброс вашего пароля, для завершения этой операции\nследуйте этой ссылке\n\n{VAR: url}\n\nПримечание: Пароли в форуме хранятся в односторонне зашифрованном виде,\nчто означает невозможность получения пароля в исходном виде после того,\nкак он был введен. После ввода пароля он шифруется и результат сравнивается\nс полученной при регистрации версией. (Если вас интересуют детали,\nвы можете почитать литературу о алгоритме MD5 HASH)
 rpasswd_invalid_passwd:Неверный пароль
@@ -1141,8 +1143,7 @@ move_msg_th_expl:Укажите ID темы для переноса в нее с
 captcha_img_alt:Антибот проверка. Вам нужно распознать текст на этом изображении.
 captcha_img_help:На изображении нет цифр 0 и 1.
 powered-by:При поддержке: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:&copy; 2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:&copy; 2001—2025 <a href="https://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:CODE:
 code_select_all:Выделить все
 code_show_hide:Показать / скрыть

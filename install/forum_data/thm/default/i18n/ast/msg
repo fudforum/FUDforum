@@ -49,6 +49,7 @@ homepage:Páxina principal:
 icq_control_panel:ICQ en llinia-Panel de mensaxes
 icq_message_form:Formulariu de mensaxe ICQ:
 ignore_user:saltar tolos mensaxes d'esti usuariu
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imaxe:
 index_forum:Foru
@@ -336,6 +337,7 @@ register_occupation:Ocupación:
 register_interests:Intereses:
 register_image:Imaxe:
 register_icq:ICQ:
+register_facebook:ID de Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Páxina personal:
 register_bday:Data de nacimientu:
@@ -383,8 +385,7 @@ post_color:Color
 post_font:Lletra
 create_thread:Crear un filu
 submit_reply:Unviar respuesta
-# Fuzzy
-edit_message:Aplicar los cambios al mensaxe
+edit_message:Aplicar los cambeos
 apply_spell_changes:Aplicar los cambios ortográficos
 post_preview:Vista previa del mensaxe
 post_logedin_user:Usuariu coneutáu:
@@ -965,7 +966,7 @@ post_mod_msg_notify_msg:Un nuevu mensaxe tituláu "{VAR: msg_post->subject}" vie
 thread_printable_pdf:Xenerar un PDF pa imprimir
 thread_syndicate:Sindicar esti foru (XML)
 reg_conf_title:Confirmación de rexistru
-reg_conf_email:<b>Confirmación de corréu electrónicu</b><br />Unviámoste un corréu electrónicu que contien una URL especial a la que necesites entrar antes de que s'active la to cuenta. Si nun recibes esti corréu en dellos minutos, entra na to cuenta y asegurate de que'l corréu electrónicu qu'especificasti ye correutu. Llueu que confirmes la to cuenta, tendrás accesu a les funciones del foru que sólo tán disponibles para los usuarios rexistraos y confirmaos.
+reg_conf_email:<b>Confirmación de corréu electrónicu</b><br />Unviámoste un corréu electrónicu que contién una URL especial a la que necesites entrar antes de que s'active la to cuenta. Si nun recibes esti corréu en dellos minutos, entra na to cuenta y asegurate de que'l corréu electrónicu qu'especificasti ye correutu. Llueu que confirmes la to cuenta, tendrás accesu a les funciones del foru que sólo tán disponibles para los usuarios rexistraos y confirmaos.
 reg_conf_account:<b>Confirmación de la cuenta</b><br />Enantes de que s'active la to cuenta, tien qu'aprobala un alministrador. Cuando lo faiga, recibirás un corréu electrónicu indicando que la to cuenta se confirmó. Mentanto, pues entrar na to cuenta, pero nun podrás usar ciertes funciones.
 forum_banned_user:Les tos aiciones anteriores tienen como consecuencia la to espulsión permanente d'esti foru. Alón.
 mnav_description:Navegador de mensaxes
