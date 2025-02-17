@@ -205,7 +205,7 @@ prereg_info:د فورم قوانين
 prereg_agree:منل
 prereg_disagree:نه منل
 coppa_fax_telephone:ټيليفون:
-coppa_fax_email:برېښليک پته:
+coppa_fax_email:برېښليک‌پته:
 coppa_fax_date:نېټه:
 coppa_fax_login:ننوتل
 coppa_fax_passwd:پټنوم
@@ -332,7 +332,7 @@ findu_edit:سمول
 findu_delete:ړنگول
 merge_next:راتلونکي سرليکونه
 merge_prev:پخواني سرليکونه
-register_email_addr:برېښليک پته:
+register_email_addr:برېښليک‌پته:
 ip_search:پلټل
 userinfo_real_name:اصلي نوم:
 post_err_mod_forum_edit_ttl:تېروتنه
@@ -353,7 +353,7 @@ post_common_italics:رېوند
 post_common_align_left:کيڼه پرليکتيا
 post_common_align_right:ښي پرليکتيا
 post_common_link:يوه تړنه ورټومبل
-post_common_email:يوه برېښليک پته ورکړۍ
+post_common_email:يوه برېښليک‌پته ورکړئ
 post_common_image:يو انځور ورټومبل
 post_common_blist:گولۍ داره لړليک ورگډول
 rating_delete:ړنگول
