@@ -407,8 +407,7 @@ post_color:Renk
 post_font:Yazı tipi
 create_thread:Konu Oluştur
 submit_reply:Yanıtı Gönder
-# Fuzzy
-edit_message:Mesaj Değişikliklerini Uygula
+edit_message:Değişiklikleri Uygula
 apply_spell_changes:Yazım Değişikliklerini Uygula
 post_preview:Mesaj Önizleme
 post_logedin_user:Giriş yapan kullanıcı:
@@ -445,6 +444,7 @@ post_title:Başlık:
 post_body:Gövde:
 post_options:Seçenekler:
 post_preview_btn:Mesajı Önizle
+post_diff_btn:Değişiklikleri Göster
 post_cancel_btn:İptal
 ignore_users:Yok Sayılan Kullanıcılar
 add_ignore:Ignoramus Ekle
@@ -488,6 +488,8 @@ login_login_btn:Oturum aç
 login_name_required:Giriş adı gerekli
 login_passwd_required:Parola gereklidir
 login_invalid_radius:Geçersiz giriş/parola kombinasyonu
+login_or:veya...
+login_alternatives:Giriş için kullanın:
 reset_confirmation:Kayıt olduğunuz için teşekkürler,\n\nHesabınızı doğrulayarak etkin hale getirmek için aşağıdaki URL'ye gidin:\n\n{VAR: url}\n\nHesabınız etkinleştiğinde foruma giriş yapacak ve\nforumun ana sayfasına yönlendirileceksiniz.
 reset_reset:Selam,\n\nParolanızın yeniden belirlenmesini istediniz, bu işlemi tamamlamak için\nlütfen bu URL'ye gidin\n\n{VAR: url}\n\nNOT: Bu forum şifreleri tek yönlü bir parolama mekanizmasında saklar, yani\nparolanız girdikten sonra şifreyi geri alacak şekilde YOK kodlanır.\nBu, kaydettiğimiz parola edilmiş sürümü, Oturum Açma istemine yazdıklarınızın kodlanmış sürümüyle karşılaştırarak çalışır.\n(Bu mekanizmanın nasıl çalıştığıyla ilgileniyorsanız, MD5 HASH algoritmasını okuyun)
 rpasswd_invalid_passwd:Geçersiz Parola
@@ -653,8 +655,7 @@ post_err_lockedthread_msg:Bu konu kilitlendi. Gönderiye artık izin verilmiyor.
 err_coppa_title:HATA: Hesabınız henüz onaylanmadı
 err_coppa_msg:Ebeveyninizden ve/veya yasal vasinizden mesaj göndermenize izin verecek bir onay almadık. COPPA formunuzu kaybettiyseniz, <a href="{TEMPLATE: err_coppa_msg_lnk}">tekrar görüntüleyin</a>.
 err_banned_acct_title:HATA: Yasaklandınız.
-# Fuzzy
-err_banned_acct_msg:Forum kurallarını ihlal etmeniz nedeniyle foruma erişiminiz {IF: $ban_expiry}{DATE: ban_expiry %a, %d %B %Y %H:%M} tarihine kadar geçici olarak{ELSE}kalıcı olarak{ENDI} engellenmiştir.
+err_banned_acct_msg:Forum kurallarını ihlal ettiğiniz için siteye erişiminiz {IF: $ban_expiry}geçici olarak yasaklandı ve ardından {TEMPLATE: ban_expiry_date}{ELSE}kalıcı olarak yasaklandı{ENDI}.
 post_err_edttimelimit_title:HATA
 post_err_edttimelimit_msg:Artık bu mesajı düzenleyemezsiniz
 post_err_noannontopics_msg2:<legend>HATA: Yetersiz Ayrıcalıklar</legend>Anonim kullanıcıların konu oluşturmasına izin verilmez.
@@ -1077,6 +1078,7 @@ search_options:Arama Seçenekleri
 search_user_filter:Kullanıcıya göre filtrele:
 register_none:Bana bildirme
 findu_no_conf:onaylanmamış kullanıcı
+findu_banned:engellenen kullanıcı
 register_max_sig_len:Maksimum Uzunluk:
 register_turing:Doğrulama:
 register_err_turing:Doğrulama başarısız oldu. Lütfen tekrar deneyin.
@@ -1098,8 +1100,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:HATA: Hesabınız filtrelendi.
 err_blockedaccnt_msg:Yüklü kullanıcı filtrelerinden biri nedeniyle hesabınızın foruma erişmesi engellendi.
 merge_th_page_list:Konu Sayfa Seçimi
-# Fuzzy
-most_users_online:Bağlı kullanıcı sayısının en çok olduğu tarih, <b>{VAR: st_obj->most_online}</b> kullanıcı ile <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b> idi.
+most_users_online:Bugüne kadar en fazla çevrimiçi kullanıcı sayısı <b>{VAR: st_obj->most_online}</b> olup bu sayı, <b>{TEMPLATE: most_online_time}</b> tarihinde gerçekleşmiştir.
 sub_unsub_all_forums:Tüm Forumlardan Aboneliği İptal Et
 sub_unsub_all_topics:Tüm Konulardan Aboneliği İptal Et
 unbookmark_all_topics:Tüm yer işaretlerini kaldır
@@ -1141,8 +1142,7 @@ move_msg_th_expl:Hedef konunun kimliğini belirtin (diğer forumlarda olabilir)
 captcha_img_alt:Captcha Doğrulaması: bu resimdeki metni tanımanız gerekir.
 captcha_img_help:Görüntüde sıfır veya bir yok.
 powered-by:Destekleyen: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Telif hakkı &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Yazılımı</a>
+copyright:Telif Hakkı &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Hepsini seç
 code_show_hide:Göster/gizle
