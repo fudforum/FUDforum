@@ -593,4 +593,5 @@ pages:Säiten
 page_list_heading:Disponibel Säiten
 pm_export_header:Privat Message fir {VAR: usr->alias}
 karma_delete:Läschen
+blog:Blog
 blog_new_members:Nei Memberen
