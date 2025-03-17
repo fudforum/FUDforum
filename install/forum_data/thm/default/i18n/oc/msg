@@ -461,7 +461,7 @@ login_forgot_passwd:Ai doblidat mon senhal
 login_use_cookie:Utilizar de cookies<br /><font class="SmallText">S'utilizatz un ordinator dins un luòc public, coma una bibliotèca, una escòla o un cybercafè, es recomandat de desactivar aquesta opcion per de rasons de seguretat.<br />Se daissatz aquesta opcion activada, seretz connectat automaticament al forum quand tornaretz.</span>
 login_login:Utilizator:
 login_login_btn:Connexion
-login_name_required:Picatz vòstre nom d'utilizaire
+login_name_required:Picatz vòstre nom d'utilizator
 login_passwd_required:Picatz vòstre senhal
 login_invalid_radius:Associacion nom d'utilizaire / senhal invalida
 reset_confirmation:Mercés de vos èsser inscrit.\n\nPer activar vòstre compte, visitatz l'URL seguenta :\n\n{VAR: url}\n\nUn còp vòstre compte activat, seretz connectat sul forum e conduit cap a la pagina d'acuèlh.
