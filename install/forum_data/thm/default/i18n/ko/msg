@@ -12,6 +12,7 @@
 # Author: SeoJeongHo
 # Author: Suleiman the Magnificent Television
 # Author: ToePeu
+# Author: YeBoy371
 # Author: Yearning
 # Author: Ykhwong
 # Author: 그냥기여자
@@ -1129,8 +1130,7 @@ move_msg_th_expl:(다른 포럼에 있을 수 있는) 대상 주제의 ID를 지
 captcha_img_alt:Captcha(캡차) 검증: 이 그림에 텍스트를 인식할 필요가 있습니다.
 captcha_img_help:그림에 0이나 1도 없습니다.
 powered-by:제공: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:저작권 &copy;2001-2025 <a href="http://fudforum.org/">FUDforum 게시판 소프트웨어</a>
 code_title:코드:
 code_select_all:모두 선택
 code_show_hide:보이기/ 숨기기
