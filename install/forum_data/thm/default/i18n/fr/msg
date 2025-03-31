@@ -482,6 +482,8 @@ login_login_btn:Se connecter
 login_name_required:Veuillez saisir votre nom d’utilisateur
 login_passwd_required:Veuillez saisir votre mot de passe
 login_invalid_radius:Combinaison de nom d’utilisateur et de mot de passe incorrecte
+login_or:ou…
+login_alternatives:Se connecter en utilisant :
 reset_confirmation:Merci de vous être inscrit.\n\nAfin d’activer votre compte, veuillez visiter l’URL suivante :\n\n{VAR: url}\n\nUne fois votre compte activé, vous serez connecté au forum et conduit vers la page d accueil.
 reset_reset:Bonjour, \n\nVous avez décidé de réinitialiser votre mot de passe. Afin de poursuivre cette opération, veuillez vous diriger vers cette URL :\n\n{VAR: url}\n\nNOTE : le forum enregistre les mots de passe dans sa base de données en utilisant un mécanisme de chiffrement à sens unique, ce qui signifie qu’une fois que vous avez soumis votre mot de passe, ce dernier est chiffré de telle sorte qu’il ne sera PLUS POSSIBLE de le déchiffrer simplement.\nCeci est possible en comparant la version encodée que nous avons enregistrée avec celle de ce que vous saisissez dans la zone de saisie de l interface de connexion.\n(Pour plus d’informations sur ce mécanisme, veuillez vous référer à une documentation détaillant l’algorithme de hachage MD5)
 rpasswd_invalid_passwd:Mot de passe non valide
@@ -1134,8 +1136,7 @@ move_msg_th_expl:Précisez l’identifiant du sujet de destination (peut être s
 captcha_img_alt:Vérification par Captcha : vous devrez reconnaître le texte dans cette image.
 captcha_img_help:Il n’y a aucun zéro ou un sur cette image.
 powered-by:Propulsé par : FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright © 2001–2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright © 2001–2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Code :
 code_select_all:Tout sélectionner
 code_show_hide:Afficher / masquer
