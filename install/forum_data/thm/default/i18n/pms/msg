@@ -1,0 +1,328 @@
+# Messages for Piedmontese (Piemontèis)
+# Exported from translatewiki.net
+# Author: Borichèt
+
+action:Assion
+add_to_buddy_list:gionté a la lista dij somà
+admin:Amin
+admin_control_panel:Aministrassion
+administrator:Aministrator
+attachment:Alegà:
+avatar:Plancia përsonal:
+average_post_count:{PLURAL: u->posted_msg_count|$1 mëssagi|$1 mëssagi} ({PLURAL: avg|$1 mëssagi|$1 mëssagi} an media al di)
+biography:Biografìa:
+birth_date:Data ëd nàssita:
+by:Da:
+by_mod:da 'n moderator
+current_time:Ora atual
+custom_avatar_queue:Coa dle plance përsonalisà
+date_posted:Publicà ai
+date_registered:Dàita d'anscrission:
+download_counter:Dëscarià {PLURAL: v[3]|$1 vira|$1 vire}
+pmsg_download_counter:Dëscarià {PLURAL: r->dlcount|$1 vira|$1 vire}
+email:Adrëssa eletrònica:
+email_to_friend:Mandé për pòsta eletrònica a n'amis
+email_to_friend_desc:Ch'a manda l'URL ëd costa pàgina a dj'amis për pòsta eletrònica
+email_user:Mandé un mëssagi ëd pòsta eletrònica a l'utent
+faq:Agiut
+first_unread_msg:Andé ai mëssagi nen lesù
+first_unread_msg_desc:Andé al prim mëssagi nen lesù an s'argoment-sì
+flat_view:Artorn a la visualisassion pian-a dë stàndard
+forum:Piassa:
+forum_icon:Plancia dla piassa
+forum_new_messages:Neuv mëssagi
+forum_none_messages:Mach ij mèmber anscrit a la piassa a peulo trassé ij mëssagi lesù e nen lesù
+forum_old_messages:Gnun mëssagi neuv
+from:Da:
+gender:Sess:
+go:Andé
+goto_next_msg:Andé al mëssagi apress
+goto_prev_msg:Andé al mëssagi precedent
+home:Pàgina d'intrada
+homepage:Pàgina përsonal:
+icq_control_panel:Cartel ëd mëssagi an linia ICQ
+icq_message_form:Formolari ëd mëssagi ICQ:
+ignore_user:ignoré tuti ij mëssagi ëd s'utent-sì
+im_facebook:Facebook:
+im_yahoo:Yahoo Messenger:
+image:Plancia:
+index_forum:Piassa
+index_new_posts:Neuv mëssagi da soa ùltima vìsita
+index_no_new_posts:Gnun mëssagi neuv da soa ùltima vìsita
+index_url_redirection:Ridiression
+interests:Anteresse:
+last_post:Ùltim mëssagi
+last_thread_msg:Andé a l'ùltim mëssagi su st'argoment
+legend:Legenda
+location:Posission geogràfica:
+lock_thread:Saré l'argoment
+locked:Sarà
+locked_with_new_posts:Sarà (con dij mëssagi nen lesù)
+logged_in_list:Lista dj'utent colegà
+login:Conession
+login_header:Conession:
+logout:Dësconession
+mark_all_read:Marché tuti ij mëssagi tanme lesù
+mark_all_read_desc:Tuti ij sò mëssagi nen lesù a saran marcà tanme lesù
+members:Mèmber
+calendar:Calendari
+cal_goto_date:Sauté a:
+cal_day_heading:Eveniment për la giornà
+cal_no_events:Gnun eveniment për la giornà.
+cal_update:Përcore ël calendari dla piassa ëd discussion
+cal_birthday:Aniversari: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 aniversari|$1 aniversari}
+cal_birthday_age:({PLURAL: age|$1 ann|$1 agn}).
+message:Mëssagi
+message_counter:Nòstri utent a l'han publicà un total ëd <b>{PLURAL: post_count|$1 mëssagi|$1 mëssagi}</b> su <b>{PLURAL: thread_count|$1 argoment|$1 argoment}</b>.
+message_index:Tàula dij mëssagi
+message_index_desc:Vëdde la lista dij mëssagi
+minimize_category:Minimisé la categorìa
+minimize_message:Minimisé ël mëssagi
+moderation_queue:Coa ëd moderassion
+moderator:Moderator
+moderator_of:Moderator ëd:
+moderator_options:Opsion ëd moderassion
+moderators:{PLURAL: modcount|Moderator|Moderator}
+more_unread_messages:d'àutri mëssagi nen lesù
+more_unread_messages_desc:Smon-e d'àutri mëssagi nen lesù e marché ij mëssagi visibij atualman tanme lesù
+move_thread:Tramudé
+moved:Tramudà a n'àutra piassa ëd discussion
+moved_thread_message:S'argoment a l'é stàit tramudà a n'àutra piassa ëd discussion
+na:nen aplicàbil
+new_posts:Mëssagi neuv
+new_private_messages:Vous avez <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mëssagi privà nen lesù|mëssagi privà nen lesù}
+new_thread:Creé n'argoment neuv
+newest_user:L'ùltim utent argistrà a l'é
+next_page:Pàgina anans
+next_thread:Argoment anans:
+no_messages:A-i é gnun mëssagi an costa piassa.<br/>Ch'a sia ël prim a scrive un soget an costa piassa.
+no_msg_body:Gnun contnù dël mëssagi
+no_new_posts:Gnun mëssagi neuv
+no_posts:Gnun mëssagi
+no_subscribed_forums:Gnun abonament a dle piasse ëd discussion
+no_subscribed_threads:Gnun abonament a dj'argoment
+no_bookmarked_threads:Gnun argoment preferì
+no_unread_locked:S'argoment a l'é stàit sarà
+no_unread_msg:S'argoment a l'ha gnun mëssagi nen lesù
+no_unread_msg_unreg:Ten-e sot-euj ij mëssagi lesù e nen lesù a l'é mach possìbil për j'utent anscrit
+num_pages:Pàgine ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vot|vot}
+occupation:Mësté:
+off:dëstiss
+on:anvisch
+page_timings:Temp total butà për generé la pàgina: {PLURAL: page_gen_time|$1 second}
+pm:Mëssagerìa privà
+poll:Sondagi:
+post_count:Nùmer ëd mëssagi {VAR: u_pcount}
+post_count_l:Nùmer ëd mëssagi:
+posts:Messagi
+posts_c:Mëssagi:
+prev_thread:Argoment precedent:
+usrinfo_private_message:Mëssagi privà:
+profile:Panel ëd contròl
+profile_desc:Acede al panel ëd contròl dl'utent
+rate_thread:Valuté s'argoment
+rating:Valutassion
+rating_track:Masenté le valutassion ëd l'argoment <b>{VAR: thr->subject}</b>:
+refresh_list:Rinfrësché la lista
+register:Anscriv-se
+registered:Anscrit:
+registered_on:Anscrit ai {TEMPLATE: registered_on_date}
+replies:Rispòste
+report_to_mod:Signalé un mëssagi al moderator
+reported_messages:Mëssagi signalà
+reveal_all_posts:smon-e tuti ij mëssagi ëd {VAR: user_login}
+reveal_post:smon-e ël mëssagi
+search:Sërché
+sel_todays_posts:Mëssagi dël di
+sel_todays_posts_desc:Cangé ël filtr dij mëssadi dël di (pr'ësmon-e mach coj creà ancheuj)
+sel_unanswered_posts:Mëssagi sensa rispòsta
+sel_unanswered_posts_desc:Cangé ël filtr për ij mëssagi sensa rispòsta (për ësmon-e mach ij mëssagi che a l'han gnun-e rispòste)
+sel_unread_messages:Mëssagi nen lesù
+sel_unread_messages_desc:Cangé ël filt për ij mëssagi nen lesù (për ësmon-e mach ij mëssagi che chiel a l'ha ancor nen lesù)
+send:Mandé
+send_pm_desc:Mandé un mëssagi privà a s'utent-sì
+sender_email:Pòsta eletrònica ëd l'autor:
+sender_name:Nòm ëd l'autor:
+show_posts_by:Mostré ij mëssagi ëd: {VAR: u_alias}
+size:Taja:
+status:Stat:
+status_line:A-i é <b>{PLURAL: st_obj->online_users_reg|$1 mèmber|$1 mèmber}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 mèmber invisìbil|$1 mèmber invisìbij}</b> e <b>{PLURAL: st_obj->online_users_anon|$1 òspit|$1 òspit}</b> ch'a vìsito coste bande.
+sticky:an evidensa:
+stop_ignoring:chité d'ignoré st'utent-sì
+sub_to_thread:S'aboné a cost argoment
+sub_to_thread_desc:Arsèive dle notìfiche an sij neuv mëssagi su cost argoment
+bookmark_thread:Buté na marca a cost argoment
+bookmark_thread_desc:Giotné st'argoment a soa lista dij marcapàgina
+subject:Argoment
+subscribe:Abonesse
+subscribe_desc:Arsèive dle notìfiche cand cheidun a crea un neuv argoment su costa piassa
+subscribed_forums:Abonament a le piasse
+subscribed_forums_desc:Cangé ij filtr për le piasse a le quaj a l'é abonà (pr'ësmon-e mach ij mëssagi ëd cole piasse-lì)
+subscribed_threads:Abonesse a j'argoment
+subscribed_threads_desc:Cangé ij filtr për j'argoment ai quaj a l'é abonà (pr'ësmon-e mach ij mëssagi ëd coj argoment-lì)
+bookmarked_threads:Argoment preferì
+switch_to_thread_view:Passé a l'argoment vist an forma d'erbo
+thread:Argoment:
+thread_announcement:Anonsi:
+thread_first_unread_msg:Andé al prim mëssagi nen lesù ansima a cost argoment
+thread_thread:Argoment
+threads:Argoment
+time:Ora
+todays_posts:Mëssagi d'ancheuj
+todays_posts_desc:Smon-e tuti ij mëssagi ch'a son ëstàit publicà ancheuj
+un_ignore_user:chité d'ignoré ij mëssagi ëd cost utent
+unanswered_posts:Mëssagi sensa rispòsta
+unanswered_posts_desc:Smon-e tuti ij mëssagi ch'a l'han gnun-e rispòste
+unlock_thread:Dësbloché l'argoment
+unread_msg:Cost argoment a conten dij mëssagi che chiel a l'ha ancor nen lesù
+unread_msg_locked:Argoment blocà contenent dij mëssagi nen lesù
+unread_posts:Mëssagi nen lesù
+unread_posts_desc:Smon-e tuti ij mëssagi nen lesù
+unsub_from_thread:Disabonesse da l'argoment
+unsub_from_thread_desc:Chité d'arsèive dle notìfiche an sij neuv mëssagi su cost argoment
+unbookmark_thread:Gavé dai marca-pàgina
+unbookmark_thread_desc:Gavé st'argoment da soa lista dij marca-pàgina
+unsubscribe:Disabonesse
+unsubscribe_desc:Chité d'arsèive dle notìfiche an sij neuv argoment ëd la piassa
+updated_on:Agiornà ël:
+user:Utent
+user_counter:I l'oma <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|utent} anscrit.
+user_info:Anformassion an sl'utent
+user_info_l:Anformassion an sl'utent {VAR: u->alias}
+user_offline:{VAR: obj->login} a l'é al moment dëscolegà
+user_online:{VAR: obj->login} a l'é al moment colegà
+usrinfo_last_post:Ùltim mëssagi:
+view_results:Vëdde j'arzultà
+views:Vìsite
+vote:{PLURAL: frm->n_rating|$1 Vot}
+vote_button:Voté
+vote_for_thread:Vot
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a l'é stàit tramudà a <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> dal moderator.
+welcome_message:Bin ëvnù <b>{VAR: usr->alias}</b>, soa ùltima vìsita a l'é stàita ël {TEMPLATE: welcome_message_date}
+what_ppl_doing:Atività ëd l'utent
+reported_del_report:Eliminé un rapòrt
+reported_reason:Rason:
+reported_on:Ël:
+reported_reported_by:Signalà da:
+reported_reported_msg:Mëssagi signalà
+modque_pending_approval:Mëssagi ch'a speto l'aprovassion
+modque_approve:Aprové
+modque_delete:Eliminé
+modque_deleteall:Eliminé tut ëd l'utent
+modque_no_message:A-i é gnun mëssagi ch'a speta l'aprovassion
+pmsg_new_messages:Mëssagi privà nen lesù
+pmsg_old_messages:Mëssagi privà lesù
+deny_recipt:mandé gnun-a contenta
+deny_recipt_desc:Mandé gnun-a notìfica che a l'ha lesù 's mëssagi
+restore_to:Ripristiné an:
+move_to:Tramudé a:
+list_referes_referrals:Referense
+list_referes_members:Mèmber sota tua
+list_referes_member:Mèmber
+referals_none:Ancor gnun-a referensa
+referals_refered_by:Mèmber ëd la piassa sota tua ëd: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Conteur ëd mëssagi
+referals_registered_on:Anscrit dal
+referals_action:Assion
+pmsg_all:tuti
+pmsg_none:gnun
+folder:Dossié:
+pmsg_replied:rëspondù
+pmsg_forwarded:riadrëssà
+pmsg_subject:Argoment
+pmsg_author:Autor
+pmsg_time:Ora
+pmsg_selected:Selessioné
+pmsg_delete:Eliminé
+cur_ppage_pm:Mëssagerìa privà
+writing_pm:Scrive un mëssagi privà
+browsing_folder:Navigassion ant ël dossié <b>{VAR: folders[$folder_id]}</b>
+inbox:Cassiëtta dla pòsta
+draft:Sbòss
+sent:Mandà
+trash:Mnis
+msg_author:Autor
+avatar_sel_form:Formolari ëd selession d'ampërsonificassion
+no_avatars:Gnun-a ampërsonificassion disponìbil
+month_1:Gené
+month_2:Fërvé
+month_3:Mars
+month_4:Avril
+month_5:Maj
+month_6:Giugn
+month_7:Luj
+month_8:Ost
+month_9:Stèmber
+month_10:Otóber
+month_11:Novèmber
+month_12:Dzèmber
+sunday:Dumìnica
+sunday_short:D
+monday:Lùn-es
+monday_short:L
+tuesday:Màrtes
+tuesday_short:Mà
+wednesday:Merco
+wednesday_short:Me
+thursday:Giòbia
+thursday_short:G
+friday:Vënner
+friday_short:V
+saturday:Saba
+saturday_short:S
+male:Mas-cc
+female:Fumela
+unspecified:NEN ËSPESSIFICÀ
+register_tree_view:Lista a forma d'erbo dij mëssagi e dj'argoment
+register_msg_tree_view:Lista piata dj'argoment/Lista a erbo dij mëssagi
+register_tree_msg_view:Lista a erbo dj'argoment/Lista piata dij mëssagi
+register_flat_view:Lista a vista piata dij mëssagi e dj'argoment
+use_forum_default:Dovré la piassa dë stàndard
+finduser_user_info:Anformassion an sn'utent
+finduser_by_login:Për conession:
+finduser_submit:Sërché
+finduser_no_such_user:Gnun utent përparèj
+finduser_user:Utent
+finduser_postcount:Nùmer ëd mëssagi
+finduser_joindate:Dàita d'anscrission
+finduser_action:Assion
+yes:É
+no:Nò
+register_email:Pòsta eletrònica
+edit_time_limit:<b>Temp màssim për le modìfiche</b>: {GVAR: EDIT_TIME_LIMIT} minute
+no_edit_time_limit:<b>Temp màssim për le modìfiche</b>: Ilimità
+pmuserloc_login:Conession:
+pmuserloc_submit:Mandé
+pmuserloc_user:Utent
+pmuserloc_no_result:Gnun arzultà
+register_builtin:Pre-anstalà
+register_specify_url:Spessifiché n'URL
+register_uploaded:Carié n'ampërsonificassion
+register_login:Conession:
+register_login_desc:Lë stranòm con ël qual chiel a veul intré ant ël sistema e esse conossù ansima 's sit.
+register_login_available:Disponìbil
+register_login_taken:Già pijà
+register_password:Ciav:
+register_password_desc:Ciav për sò cont. Le ciav a son sensìbij a le majùscole e a devo esse longhe almanch 6 caràter.
+register_conf_pass:Ch'a confirma la ciav:
+register_conf_pass_desc:Për piasì, ch'a buta torna soa ciav.
+register_email_desc:Soa adrëssa ëd pòsta eletrònica. A peul serne dë stërmela sì-sota, ant la session dij Sò gust.
+register_name:Nòm:
+register_name_desc:Sò nòm ver.
+register_your_pass:Soa ciav:
+register_update:Agiorné
+register_avatar_type:Sòrt d'ampërsonificassion:
+register_del_avatar:Dëscancelé l'ampërsonificassion
+register_avatar:Ampërsonificassion:
+register_sel_avatar:Selessioné n'ampërsonificassion
+register_custom_avatar_rules:J'ampërsonificassion përsonalisà a comparisso nen prima che sio aprovà da n'aministrator.<br /><span class="SmallText">L'ampërsonificassion a dev nen esse pi gransa che <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pontin</b> e a dev esse an formà <b>jpg</b>, <b>gif</b> o <b>png</b>.</span>
+register_custom_avatar_url:URL ëd l'ampërsonificassion përsonalisà:
+register_preview:Previsualisassion
+register_custom_avatar_upload:Archivi d'ampërsonificassion përsonalisà:
+register_register:Anscriv-se
+register_required:Anformassion obligatòrie
+register_required_desc:Tuti ij camp a son obligatòri.
+register_optional:Anformassion opsionaj
+register_optional_desc:As arcomanda ëd nen arvelé d'anformassion përsonaj o d'identificassion an sò profil. Tute j'anformassion a saran acessìbij a j'àutri mèmber ëd la piassa.
