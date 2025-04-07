@@ -326,3 +326,73 @@ register_required:Anformassion obligatòrie
 register_required_desc:Tuti ij camp a son obligatòri.
 register_optional:Anformassion opsionaj
 register_optional_desc:As arcomanda ëd nen arvelé d'anformassion përsonaj o d'identificassion an sò profil. Tute j'anformassion a saran acessìbij a j'àutri mèmber ëd la piassa.
+register_location:Pòst:
+register_occupation:Ocupassion:
+register_interests:Anteresse:
+register_image:Plancia:
+register_icq:ICQ:
+register_facebook:Identificativ ans Facebook:
+register_yahoo:Yahoo Messenger:
+register_homepage:Pàgina përsonal:
+register_bday:Dàita ëd nassensa:
+register_bday_desc:S'a buta na dàita ëd nassensa, j'àutri mèmber ëd la piassa a podran vëdd-la an sò profil.
+register_day:Di
+register_month:Mèis
+register_year:Ann
+register_gender:Sess:
+register_bio:Biografìa:
+register_bio_desc:Chèich detaj ansima a chiel-midem, tanme sò anteresse, travaj, e via fòrt...
+register_prefs:Mè gust
+register_sig:Signadura:
+register_sig_desc:Signadura opsional, ch'a comparirà al fond dij sò mëssagi.
+register_reset:Buté torna coma al prinsipi
+register_def_thread_view:Vista stàndard ëd j'argoment
+register_msg_per_page:Nùmer ëd mëssagi për pàgina:
+register_show_sig:Smon-e le signadure:
+register_show_sig_desc:A-j përmet dë stërmé o dë somn-e le signadure dj'àutri mèmber ëd la piassa.
+register_use_sig_default:Dovré la signadura stàndard:
+register_use_sig_default_desc:Gionté an automàtich soa signadura a tuti ij mëssagi ch'a manda.
+register_timezone:Fus orari:
+register_ignore_admin:Ignoré ij mëssagi aministrativ:
+register_invisible_mode:Meud invisìbil:
+register_invisible_mode_desc:A stërmà sò statù ëd colegà.
+register_show_email:Smon-e l'adrëssa ëd pòsta eletrònica:
+register_show_email_desc:Ch'a serna costa opsion s'a veul che soa adrëssa ëd pòsta eletrònica a sia smonùa a j'àutri utent.
+register_notification:Selessioné la notìfica coma stàndard:
+register_notification_desc:Si la notìfica a l'é ativà coma stàndard, a peul esse disativà cand chiel a pùblica.
+register_notify_method:Serne ël métod ëd notìfica:
+register_notify_method_desc:Ch'a serna sò sistema ëd notìfica preferì o ch'a disativa le notìfiche (për esempi cand a part an vacansa).
+register_allow_email_msg:Permëtte ij mëssagi ëd pòsta eletrònica:
+register_allow_email_msg_desc:Permëtte a j'àutri utent ëd mandeje dij mëssagi a travers costa piassa.
+buddy_status:Stat
+my_buddies:Mè somà
+add_buddy:Gionté un somà
+add:Gionté
+buddy_search:Ch'a buta lë stranòm ëd l'utent ch'a veul gionté.
+member_search:O ch'a deuva la fonsionalità <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Sërché n'utent</a> për trové na përson-a.
+buddy_remove:gavé
+post_normal:Normal
+post_sticky:Tacà
+post_annoncement:Anonsi
+post_size:Taja
+post_color:Color
+post_font:Tipo ëd caràter
+create_thread:Creé n'argoment
+submit_reply:Mandé la rispòsta
+edit_message:Apliché le modìfiche
+apply_spell_changes:Apliché le coression ortogràfiche
+post_preview:Previsualisé ël mëssagi
+post_logedin_user:Utent intrà ant ël sistema:
+post_logout:seurte dal sistema
+post_passwd:Ciav ëd mëssagi:
+post_poll:Sondagi:
+post_create_poll:CREÉ UN SONDAGI
+post_poll_delete:ELIMINÉ
+post_poll_edit:MODIFICHÉ
+post_mod_opt:Opsion ëd moderassion
+post_thread_type:Sòrt d'argoment:
+post_thread_expiry:Scadensa dl'argoment:
+post_locked:Argoment blocà
+post_icons:Plancia dël mëssagi:
+post_no_icon:Gnun-a plancia
+post_smiley:Scurse dle cere:
