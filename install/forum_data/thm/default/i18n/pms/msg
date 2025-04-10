@@ -396,3 +396,28 @@ post_locked:Argoment blocà
 post_icons:Plancia dël mëssagi:
 post_no_icon:Gnun-a plancia
 post_smiley:Scurse dle cere:
+post_format_tools:Utiss për buté an forma:
+post_upload_file:Carié l'archivi
+post_file_del:Eliminé
+post_file_name:Nòm
+post_file_size:Taja
+file_attachments:Archivi alegà:
+allowed_files:Estension autorisà për j'archivi:
+max_file_size:Taja màssima ëd n'archivi:
+max_files_per_msg:Nùmer màssim d'archivi për mëssagi:
+post_notification:Notìfica ëd publicassion
+include_sig:Anserì la signadura
+include_sig_desc:Anserì la signadura ëd sò profil.
+disable_smilies:Disabilité ij sorisin an cost mëssagi
+spell_check_msg:Controlé l'ortografìa dël mëssagi
+post_form:Formolari ëd publicassion
+post_forum:Piassa:
+post_title:Tìtol:
+post_body:Còrp:
+post_options:Opsion:
+post_preview_btn:Previsualisé ël mëssagi
+post_diff_btn:Diferensa dle modìfiche
+post_cancel_btn:Anulé
+ignore_users:Utent ignorà
+add_ignore:Ignoré cheidun d'àutr
+forum_terms:Régole dla piassa
