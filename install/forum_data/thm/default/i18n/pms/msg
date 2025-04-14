@@ -421,3 +421,19 @@ post_cancel_btn:Anulé
 ignore_users:Utent ignorà
 add_ignore:Ignoré cheidun d'àutr
 forum_terms:Régole dla piassa
+forum_rules:<p>L'anscrission a costa piassa a l'é a gràtis! I ansistoma an sël fàit che chiel a dev rëspeté le régole e condission detajà sì-sota. S'a aceta coste condission, për piasì ch'a sgnaca ansima al boton <b>D'acòrd</b> al fond ëd la pàgina.</p><p>Bele che j'aministrator e ij moderator ëd costa piassa a sërcran dë tnine fòra tuti ij mëssagi inapropià, a l'é impossìbil pêr noi arlese tuti ij mëssagi. Tuti ij mëssagi a esprimo la posission ëd l'autor, e ni ij propietari dla piassa ni ij dësvlupator a peulo esse considerà responsàbij dël contnù ëd qualsëssìa mëssagi.</p><p>An ësgnacand an sël boton D'acòrd, chiel a garantis che a publicrà gnun mëssagi scaros, volgar, sessual, dëspresiant, mnassant, ni a volërà dle lej.</p><p>Ij propietari ëd costa piassa a l'ha ël drit d'eliminé, modifiché o saré qualsëssìa argoment pêr qualsëssìa rason.</p>
+forum_rules_13:<p>Tuti j'utent sota ij 13 agn a dev ciamé l'autorissassion a sò papà o maman o ij sò tuor pr'ëdventé mèmber dle piasse. Bele che la partissipassion dij mèmber sota ij 13 agn a sia bin-ëvnùa, ij ciamoma che ël papà o la maman o un tuor an manda për telescrivent o pòsta eletrònica un përmess sot-signà prima d'anscrivje.</p><p>S'a veul ancaminé ël process d'anscrission prima che noi i arseivoma ël formolari ëd përmess, ch'a sgnaca ansima al boton <b>D'acòrd</b> sì-sota. S'a veul anulé l'anscrission, ch'a sgnaca su <b>Nen d'acòrd</b> o c'a torna andré a la tàula dle piasse.</p><p>Na còpia dël formolari ëd përmess a-j sarà fornìa apress l'anscrission. Për pi d'anformassion an sël process d'anscrission, ch'a manda për piasì un mëssagi a <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+coppa_conf:Confirmassion COPPA
+coppa_before:Prima dël {TEMPLATE: coppa_date}
+coppa_after:Apress ël {TEMPLATE: coppa_date}
+coppa_link:Ch'a sgnaca an sla liura ch'a rëspond a soa dàita ëd nassensa
+coppa:<p>Un papà, na maman o un tuor legal a dev mandé për telescrivent o la pòsta n'autorisassion sot-signà a l'aministrator ëd costa piassa prima che na përson-a ëd men che 13 agn a peula rende vàlida soa anscrission.</p><p>Për d'anformassion pi aprofondìe, ch'a contata <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a></p>
+prereg_info:Régole dla piassa
+prereg_agree:D'acòrd
+prereg_disagree:Pa d'acòrd
+prereg_update:Letura dle régole dla piassa
+coppa_fax_instructions:Anstrussion për papà, maman o tuor
+coppa_fax_instructions2:Për piasì, ch'a stampa costa pàgina, ch'a la sot-signa e ch'an la manda për telescrivent o la pòsta.
+coppa_fax_reg_form:Formolari d'anscrission
+coppa_fax_sign:Për piasì, ch'a sot-signa ëd formolari sì-sota e ch'an lo manda
+coppa_fax_conf:Ij l'hai controlà j'anformassion che mia masnà a l'ha fornì e ij l'hai lesù le régole ëd confidensialità dël sit. I son anformà che j'anformassion dël profil a peulo esse modificà an dovrand na ciav. I son anformà che i peuss ciamé che cost profil d'anscrission a sia eliminà d'autut da la piassa.
