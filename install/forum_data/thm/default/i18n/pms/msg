@@ -437,3 +437,30 @@ coppa_fax_instructions2:Për piasì, ch'a stampa costa pàgina, ch'a la sot-sign
 coppa_fax_reg_form:Formolari d'anscrission
 coppa_fax_sign:Për piasì, ch'a sot-signa ëd formolari sì-sota e ch'an lo manda
 coppa_fax_conf:Ij l'hai controlà j'anformassion che mia masnà a l'ha fornì e ij l'hai lesù le régole ëd confidensialità dël sit. I son anformà che j'anformassion dël profil a peulo esse modificà an dovrand na ciav. I son anformà che i peuss ciamé che cost profil d'anscrission a sia eliminà d'autut da la piassa.
+coppa_fax_permission:Ch'a sot-signa ambelessì s'a dà ël përmess
+coppa_fax_no_permission:Ch'a sot-signa ambelessì s'a veul che ël cont a sia eliminà
+coppa_fax_parent_name:Nòm complet dël papà, dla maman o dël tuor:
+coppa_fax_relation:Relassion ëd parentela o ëd responsabilità con la masnà:
+coppa_fax_telephone:Teléfon:
+coppa_fax_email:Adrëssa ëd pòsta eletrònica:
+coppa_fax_date:Dàita:
+coppa_fax_questions:Për piasì, ch'a contata <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> s'a l'ha dle chestion
+coppa_fax_login:Stranòm
+coppa_fax_passwd:Ciav
+coppa_fax_remail:Pòsta eletrònica
+coppa_fax_name:Nòm
+login_not_logedin:A l'é nen intrà ant ël sistema. Sòn a peul esse për un-a dle rason sì-dapress:
+login_cookie_expired:Sò bëscotin a l'é scadù e a dev intré ant ël sistema për arnovelo.
+login_perm_denied:A l'ha nen ël përmess për acede a l'arsorsa tanme utent anònim. A dev intré ant ël sistema për oten-e 's përmess.
+login_want_to_register:Veul-lo anscriv-se?
+login_forgot_passwd:Ciav dësmentià
+login_use_cookie:Dovré dij bëscotin<br /><span class="SmallText">S'a deuvra un terminal pùblich, tanme n'ordinator an na biblioteca, na scòla o na piòla sibernética, a l'é arcomandà ëd disativé st'opsion për na pi gran sigurëssa. S'a lassa costa opsion ativà, a rintrërà an automàtich ant ël sistema n'àutra vira ch'a torna.</span>
+login_login:Stranòm:
+login_login_btn:Intré ant ël sistema
+login_name_required:Lë stranòm a l'é obligatòri
+login_passwd_required:La ciav a l'é obligatòria
+login_invalid_radius:Combinassion dë stranòm e ciav nen bon-a
+login_or:o...
+login_alternatives:Intré ant ël sistema an dovrand:
+reset_confirmation:Mersì ëd soa anscrission.\n\nPër ativé sò cont, ch'a vìsit l'URL sì-sota:\n\n{VAR: url}\n\nNa vira che sò cont a l'é ativà, a intrërà ant la piassa e a sarà ridiressionà a la pàgina d'intrada.
+reset_reset:Cerea,\n\nA l'ha ciamà ëd ri-inissialisé soa ciav. Për completé ël process, për piasì ch'a dirigia vers l'URL:\n\n{VAR: url}\n\nNÒTA: Costa piassa a goerna le ciav ant un mecanism ëd gifradura a sens ùnich, lòn ch'a veul dì che na vira che a l'ha mandà soa ciav, costa-sì a l'é codificà ëd fasson che a-i é GNUN-A MANERA d'avèjla andré.\nSòn a marcia përchè a confronta la version codificà che i l'oma argistrà con la version codificà ëd lòn che chiel a scriv ant la casela ëd conession!.\n(S'a l'é anteressa a coma ch'a marcia ës mecanism, ch'a lesa j'anformassion an sl'algoritm ëd separassion MD5)
