@@ -464,3 +464,6 @@ login_or:o...
 login_alternatives:Intré ant ël sistema an dovrand:
 reset_confirmation:Mersì ëd soa anscrission.\n\nPër ativé sò cont, ch'a vìsit l'URL sì-sota:\n\n{VAR: url}\n\nNa vira che sò cont a l'é ativà, a intrërà ant la piassa e a sarà ridiressionà a la pàgina d'intrada.
 reset_reset:Cerea,\n\nA l'ha ciamà ëd ri-inissialisé soa ciav. Për completé ël process, për piasì ch'a dirigia vers l'URL:\n\n{VAR: url}\n\nNÒTA: Costa piassa a goerna le ciav ant un mecanism ëd gifradura a sens ùnich, lòn ch'a veul dì che na vira che a l'ha mandà soa ciav, costa-sì a l'é codificà ëd fasson che a-i é GNUN-A MANERA d'avèjla andré.\nSòn a marcia përchè a confronta la version codificà che i l'oma argistrà con la version codificà ëd lòn che chiel a scriv ant la casela ëd conession!.\n(S'a l'é anteressa a coma ch'a marcia ës mecanism, ch'a lesa j'anformassion an sl'algoritm ëd separassion MD5)
+rpasswd_invalid_passwd:Ciav nen bon-a
+rpasswd_passwd_nomatch:Le ciav as rëspondo nen
+rpasswd_passwd_length:La ciav a dev esse longa almanch 6 caràter
