@@ -16,6 +16,7 @@
 # Author: Liangent
 # Author: LittlePaw365
 # Author: Liuxinyu970226
+# Author: Mishidexfc
 # Author: Naudefj
 # Author: NeverBehave
 # Author: PhiLiP
@@ -1142,8 +1143,7 @@ move_msg_th_expl:移至指定主题的ID（可以跨版块）
 captcha_img_alt:验证码验证：您将需要识别此图片中的文本。
 captcha_img_help:有没有为零或图像中的一个。
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:版权所有&copy;2001年-2023年<a href="http://fudforum.org/">FUDforum软件</a>
+copyright:版权所有 ©2001-2025 <a href="http://fudforum.org/">FUDforum 公告板软件</a>
 code_title:代码：
 code_select_all:全选
 code_show_hide:显示/隐藏

@@ -311,7 +311,7 @@ login_passwd_required:D'Passwuert ass obligatoresch
 login_or:oder…
 rpasswd_invalid_passwd:Passwuert ass net valabel
 rpasswd_passwd_nomatch:D'Passwierder, déi Dir aginn hutt, sinn net identesch
-rpasswd_passwd_length:Passwuert muss mindestens 6 Zeeche laang sinn
+rpasswd_passwd_length:D'Passwuert muss mindestens 6 Zeeche laang sinn
 reset_remind_pass:Erënnerung fir d'Passwuert
 reset_error:E-Mial-Adress gouf an der Datebank net fonnt
 reset_update:Passwuert zrécksetzen

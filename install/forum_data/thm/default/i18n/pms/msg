@@ -467,3 +467,6 @@ reset_reset:Cerea,\n\nA l'ha ciamà ëd ri-inissialisé soa ciav. Për completé
 rpasswd_invalid_passwd:Ciav nen bon-a
 rpasswd_passwd_nomatch:Le ciav as rëspondo nen
 rpasswd_passwd_length:La ciav a dev esse longa almanch 6 caràter
+reset_reset_conf:Soa ciav a sarà si-inissialisà e a-j sarà mandaje. S'a l'ha ancor nen confirmà soa adrëssa ëd pòsta eletrònica, l'arcesta ëd conferma a-j sarà torna mandaje.
+reset_error:Adrëssa ëd pòsta eletrònica nen trovà ant la base ëd dàit
+reset_update:Riamposté la ciav
