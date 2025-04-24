@@ -467,6 +467,73 @@ reset_reset:Cerea,\n\nA l'ha ciamà ëd ri-inissialisé soa ciav. Për completé
 rpasswd_invalid_passwd:Ciav nen bon-a
 rpasswd_passwd_nomatch:Le ciav as rëspondo nen
 rpasswd_passwd_length:La ciav a dev esse longa almanch 6 caràter
+reset_remind_pass:Memòria dla ciav
 reset_reset_conf:Soa ciav a sarà si-inissialisà e a-j sarà mandaje. S'a l'ha ancor nen confirmà soa adrëssa ëd pòsta eletrònica, l'arcesta ëd conferma a-j sarà torna mandaje.
 reset_error:Adrëssa ëd pòsta eletrònica nen trovà ant la base ëd dàit
 reset_update:Riamposté la ciav
+rpasswd_change_pass:Cangé la ciav
+rpasswd_login:Intré ant ël sistema
+rpasswd_cur_pass:Ciav atual:
+rpasswd_new_pass:Neuva ciav:
+rpasswd_conf_pass:Ch'a confirma la ciav:
+ruser_title:Formolari ëd cangiament dë stranòm
+ruser_change_user:Modifiché sò stranòm ëd la piassa
+ruser_cur_login:Stranòm atual:
+ruser_new_login:Neuv ëstranòm:
+ruser_cur_pass:Ciav atual:
+login_passwd:Ciav:
+reset_email:Pòsta eletrònica:
+reset_reset_button:Riamposté la ciav
+rate_this_thread:Valuté
+report_reporting_about:Rapòrt ansima a:
+report_subject:Oget:
+report_by:Da:
+report_posted_on:Publicà ël:
+report_give_reason:Për piasì, ch'a daga na rason për fé un rapòrt an s'ës mëssagi:
+report_submit_report:Mandé ël rapòrt
+search_entire_msg:Ël mëssagi tut antregh
+search_subject_only:Mach l'oget
+search_forum:Piassa
+search_posted_on:Publicà ël
+search_no_results:Gnun arzultà
+search_spell_suggestions:Veul-lo dì:
+search_all_forums:Sërché an tute le piasse
+search_in_forum:Sërché ant la piassa:
+search_forum_search:Arserca an na piassa
+move_thread_to:Tramudé l'argoment <b>{VAR: thr->subject}</b> a:
+remail_email_topic:Mandeje s'argoment për pòsta eletrònica a n'amis
+remail_your_name:Sò nòm:
+remail_your_email:Soa adrëssa ëd pòsta eletrònica:
+remail_friends_name:Ël nòm ëd sò amis:
+remail_friends_email:La pòsta eletrònica ëd sò amis:
+remail_required:obligatòri
+remail_subject:Oget:
+remail_message:Mëssagi:
+remail_send_now:Mangé ël mëssagi adess
+remail_anon_opt:Copié ës mëssagi ant un client ëd pòsta ch'a sern chiel për mandelo ai sò amis.
+remail_done:Fàit
+remail_sent_conf:Ël mëssagi a sò amis a {VAR-HTML: _POST['femail']} a propòsit ëd l'argoment {VAR: data->subject} a l'é stàit mandà për da bin.
+remail_error:A-i é staje n'eror
+mklist_type:Sòrt:
+mklist_option:Opsion:
+mklist_additem:Gionté n'element
+mklist_apply:Apliché
+mklist_delete:Eliminé
+qbud_nick_name:Sobrichet
+qbud_add_selected:Gionté ij selessionà
+qbud_selected:Selessioné
+qbud_no_buddies:Gnun somà disponìbil da serne
+mklist_numerical:Numérich
+mklist_aplha:Alfa
+mklist_square:Quadrà
+mklist_disc:Disch
+mklist_circle:Sercc
+mklist_close:Saré
+email_to:A:
+email_pg_title:Pòsta eletrònica
+email_subject:Oget:
+email_body:Còrp:
+email_submit:Pòsta eletrònica
+ppost_quote_msg:{VAR: msg_to_list} a l'ha scrivù su {TEMPLATE: ppost_quote_msg_date}
+ppost_quote:Sitassion:
+ppost_to:A:
