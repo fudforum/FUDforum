@@ -537,3 +537,6 @@ email_submit:Pòsta eletrònica
 ppost_quote_msg:{VAR: msg_to_list} a l'ha scrivù su {TEMPLATE: ppost_quote_msg_date}
 ppost_quote:Sitassion:
 ppost_to:A:
+ppost_from_buddy_list:Selessioné da la lista dij somà
+ppost_find_User:Trové n'utent
+ppost_track_msg:Steje dapress a 's mëssagi
