@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -331,7 +331,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
-<a href="{TEMPLATE: dmsg_reply_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" width="71" height="18" /></a>&nbsp;
+<a href="{TEMPLATE: dmsg_reply_link_lnk}" rel="nofollow"><img alt="" src="{THEME_IMAGE_ROOT}/msg_reply.gif" width="71" height="18" /></a>&nbsp;
 {SECTION: END}
 
 {SECTION: dmsg_quote_link_lnk}
@@ -339,7 +339,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_quote_link}
-<a href="{TEMPLATE: dmsg_quote_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" width="71" height="18" /></a>
+<a href="{TEMPLATE: dmsg_quote_link_lnk}" rel="nofollow"><img alt="" src="{THEME_IMAGE_ROOT}/msg_quote.gif" width="71" height="18" /></a>
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
@@ -348,7 +348,9 @@
 		<table border="0" cellspacing="0" cellpadding="0" class="wa">
 		<tr>
 			<td class="al nw">
-				{IF: $obj->user_id}<a href="{TEMPLATE: dmsg_user_profile_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>&nbsp;{IF: ($o1 & 4194304 && $a & 16)}<a href="{TEMPLATE: dmsg_email_link_lnk}" rel="nofollow"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" width="71" height="18" /></a>&nbsp;{ENDIFI}{IF: $o1 & 1024}<a href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" width="71" height="18" /></a>{ENDIFI}{ENDIFI}
+				{IF: $obj->user_id}<a href="{TEMPLATE: dmsg_user_profile_lnk}" rel="nofollow"><img alt="" src="{THEME_IMAGE_ROOT}/msg_about.gif" /></a>&nbsp;
+				{IF: ($o1 & 4194304 && $a & 16)}<a href="{TEMPLATE: dmsg_email_link_lnk}" rel="nofollow"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" width="71" height="18" /></a>&nbsp;{ENDIFI}
+				{IF: $o1 & 1024}<a href="{TEMPLATE: dmsg_private_msg_link_lnk}" rel="nofollow"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" width="71" height="18" /></a>{ENDIFI}{ENDIFI}
 				{TEMPLATE: karma_change}
 			</td>
 			<td class="GenText wa ac">{TEMPLATE-DATA: next_page}</td>
