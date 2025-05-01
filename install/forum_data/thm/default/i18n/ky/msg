@@ -65,7 +65,7 @@ logout:Чыгуу
 mark_all_read:Бардык билдирүүлөрдү окула элек деп белгилөө
 mark_all_read_desc:Бардык Сиз окуй элек билдирүүлөр окулду деп белгиленди
 members:Катышуучулар
-calendar:Жылнаама
+calendar:Календарь
 cal_goto_date:Өтүү:
 cal_day_heading:Күндүн окуялары
 cal_no_events:Бул күндүн окуялары жок
@@ -291,6 +291,7 @@ register_builtin:Камтылган
 register_specify_url:URL көрсөтүү
 register_uploaded:Сүрөт жүктөө
 register_login:Кирүү:
+register_login_available:Жеткиликтүү
 register_password:Сырсөз:
 register_conf_pass:Сырсөздү тастыктаңыз:
 # Fuzzy

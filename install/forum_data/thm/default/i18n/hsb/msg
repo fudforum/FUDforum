@@ -464,6 +464,8 @@ login_login_btn:Přizjewjenje
 login_name_required:Přizjewjenske mjeno trěbne
 login_passwd_required:Hesło trěbne
 login_invalid_radius:Njepłaćiwa kombinacija wužiwarske mjeno/hesło
+login_or:abo…
+login_alternatives:Přizjewić z:
 reset_confirmation:Dźakujemy so za registrowanje.\n\nZo by swoje konto aktiwizował, dźi na slědowacu URL:\n\n{VAR: url}\n\nRučež je twoje konto zaktiwizowane, přizjewiš so do foruma a posrědkuješ so dale na hłownu stronu.
 reset_reset:Witaj,\n\nsy požadał, zo by so swoje hesło wróćo stajiło. Zo by proceso dokónčił,\ndźi prošu k tutomu URL:\n\n{VAR: url}\n\nKEDŹBU: Tutón forum składuje hesło z jednosměrnym zaklučowanjom, štož woznamjenja, zo so hesło, tak ruče kaž sy jo składował, zaklučuje, zo by njeje ŽANA MÓŽNOSĆ, jo wróćo dóstać. To funguje přez přirunanje zaklučowaneje wersije, kotrež mamy składowane, ze zaklučowanej wersiju, kotruž zapodawaš.\n(Jeli sy na funkciskim wašnju tutoho mechanizma zajimowany, studuj algoritmus MD5 HASH)
 rpasswd_invalid_passwd:Njepłaćiwe hesło
@@ -1116,8 +1118,7 @@ move_msg_th_expl:Podaj ID ciloweje temy (móže w druhich forumach być)
 captcha_img_alt:Pruwowanje captcha: Dyrbiš tekst we wobrazu spóznać.
 captcha_img_help:Njeje nula abo jedynka we wobrazu.
 powered-by:Pohonjeny přez: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wšě wubrać
 code_show_hide:Pokazać/schować

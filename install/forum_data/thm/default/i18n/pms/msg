@@ -540,3 +540,8 @@ ppost_to:A:
 ppost_from_buddy_list:Selessioné da la lista dij somà
 ppost_find_User:Trové n'utent
 ppost_track_msg:Steje dapress a 's mëssagi
+ppost_track_msg_desc:Notificheme (con un mëssagi privà) cand ës mëssagi-sì a l'é lesù.
+ppost_send:Mandé
+ppost_save_draft:Argistré coma sbòss
+poll_blank_option:A peul nen gionté n'opsion veuida.
+poll_del_conf:S'a veul dëscancelé costa opsion, ch'a sgnaca su Va bin
