@@ -545,3 +545,31 @@ ppost_send:Mandé
 ppost_save_draft:Argistré coma sbòss
 poll_blank_option:A peul nen gionté n'opsion veuida.
 poll_del_conf:S'a veul dëscancelé costa opsion, ch'a sgnaca su Va bin
+poll_name:Nòm dël sondagi:
+poll_timelimit:Fin dël sondagi:
+poll_maxiumvotes:Nùmer màssim ëd vot:
+poll_create:Creé
+poll_update:Agiorné
+poll_disablesmilies:Disativé ij sorisin
+poll_create_poll:Creé ël sondagi
+poll_update_poll:Agiorné ël sondagi
+poll_delete:Eliminé
+poll_updateoption:Agiorné l'opsion
+poll_addoption:Gionté n'opsion
+poll_unlimited:Ilimità
+poll_day:di
+poll_days:di
+poll_hour:ora
+poll_hours:ore
+poll_month:mèis
+poll_year:ann
+poll_week:sman-a
+tabs_register:Paràmeter dël cont
+tabs_subscriptions:Abonament
+tabs_bookmarkes:Marcapàgine
+tabs_referrals:Referense
+tabs_buddy_list:Lista ëd somà
+tabs_ignore_list:Lista dj'utent ignorà
+tabs_private_messaging:Mëssagerìa privà
+single_msg_delete:A sta për <span class="ErrorText">eliminé</span> ël mëssagi antitolà: <b>{VAR: data[3]}</b>
+thread_delete:A stà për <span class="ErrorText">eliminé</span> the <span class="ErrorText">tut l'argoment</span> antitolà: <b>{VAR: data[3]}</b>

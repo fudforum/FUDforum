@@ -5,6 +5,7 @@
 # Author: Evropi
 # Author: Geraki
 # Author: Glavkos
+# Author: Jimkats
 # Author: Naudefj
 # Author: NikosLikomitros
 # Author: Nikosgranturismogt
@@ -222,8 +223,7 @@ pmsg_forwarded:προωθημένα
 pmsg_subject:Θέμα
 pmsg_author:Συγγραφέας
 pmsg_time:Ώρα
-# Fuzzy
-pmsg_selected:Επιλεγμένα
+pmsg_selected:Επίλεξε
 pmsg_delete:Διαγραφή
 cur_ppage_pm:Προσωπικά Μηνύματα
 writing_pm:Γράφοντας ένα Προσωπικό Μήνυμα
@@ -650,8 +650,7 @@ polllist_owner:Δημιουργήθηκε από
 polllist_votes:Συνολικές ψήφοι
 polllist_action:Ενέργεια
 userinfo_polls:Δημοσκοπήσεις:
-# Fuzzy
-show_pollist:Εμφάνιση ψηφοφοριών
+show_pollist:Ψηφοφορίες
 search_and:Και
 search_or:ή
 # Fuzzy
@@ -743,8 +742,7 @@ tabs_notifications:Ενημερώσεις
 finduser_flag:Σημαία
 pmsg_on:εντός
 move_messages:Μετακίνηση μηνυμάτων
-# Fuzzy
-copyright:Πνευματικά δικαιώματα &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Πνευματικά δικαιώματα &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Κωδικός:
 code_select_all:Επιλογή όλων
 btn_new_topic:Νέο θέμα
