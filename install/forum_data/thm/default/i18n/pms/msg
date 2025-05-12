@@ -573,3 +573,10 @@ tabs_ignore_list:Lista dj'utent ignorà
 tabs_private_messaging:Mëssagerìa privà
 single_msg_delete:A sta për <span class="ErrorText">eliminé</span> ël mëssagi antitolà: <b>{VAR: data[3]}</b>
 thread_delete:A stà për <span class="ErrorText">eliminé</span> the <span class="ErrorText">tut l'argoment</span> antitolà: <b>{VAR: data[3]}</b>
+delete_proceed:<span class="fb">Veul-lo andé anans?</span>
+delete_yes:É
+delete_no:Nò
+error_invalidurl:URL nen bon
+error_error:Eror
+usrinfo_profile:Profil ëd {VAR: u->alias}
+usrinfo_show_all_posts:Smon-e tuti ij mëssagi ëd {VAR: u->alias}

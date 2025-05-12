@@ -220,7 +220,7 @@ register_password:Passwuert:
 register_password_desc:Passwuert fir Äre Benotzerkont. Passwierder ënnerscheeden tëscht groussen a klenge Buschtawen a musse mindestens 6 Zeeche laang sinn.
 register_conf_pass:Passwuert confirméieren:
 register_conf_pass_desc:Gitt Äert Passwuert wgl. nach eng Kéier an.
-register_email_desc:Är E-mailadress. Dir kënnt hei drënner, am Abschnitt vun den Astellungen, wielen ob Dir se verstoppe wëllt.
+register_email_desc:Är E-Mail-Adress. Dir kënnt hei drënner am Abschnitt vun den Astellunge wielen, ob Dir se verstoppe wëllt.
 register_name:Numm:
 register_name_desc:Äre richtegen Numm.
 register_your_pass:Äert Passwuert:
@@ -296,7 +296,7 @@ prereg_update:Liest d'Reegele vum Forum
 coppa_fax_reg_form:Umeldungsformulaire
 coppa_fax_permission:Ënnerschreift hei, wann Dir Ären Accord gitt
 coppa_fax_telephone:Telefon:
-coppa_fax_email:Mailadress:
+coppa_fax_email:E-Mail-Adress:
 coppa_fax_date:Datum:
 coppa_fax_login:Benotzernumm
 coppa_fax_passwd:Passwuert
@@ -386,6 +386,7 @@ error_error:Feeler
 usrinfo_show_all_posts:All Message vum {VAR: u->alias} weisen
 err_info:Informatioun
 buddy_list_err_nouser_title:Benotzer kann net derbäigesat ginn
+core_err_invinp_title:Ongültegen Input
 email_error_subject:De Sujet ass obligatoresch
 email_error_namerequired:En Numm ass obligatoresch.
 email_error_invaliduser:Benotzer ass net valabel

@@ -873,9 +873,9 @@ post_proc_reveal_spoiler:훼방꾼 전환
 register_jabber:도배꾼 제어:
 register_skype:스카이프 핸들:
 register_twitter:트위터 핸들:
-register_google:Google 챗/IM 핸들:
+register_google:구글 챗/IM 핸들:
 im_jabber:도배꾼:
-im_google:Google 토크:
+im_google:구글 토크:
 im_skype:스카이프:
 im_twitter:트위터:
 forum_contact:연락하기
