@@ -470,6 +470,8 @@ login_login_btn:Innskráning
 login_name_required:Notendanafn vantar
 login_passwd_required:Lykilorð vantar
 login_invalid_radius:Vitlaus samsetning lykilorðs og notendanafns
+login_or:eða...
+login_alternatives:Skrá inn með:
 reset_confirmation:Takk fyrir að skrá þig.\n\nTil að virkja aðganginn, farðu á eftirfarandi vefslóð:\n\n{VAR: url}\n\nÞegar aðgangurinn þinn hefur verið virkjaður þá verður þú skráð þig inn á spjallborðið og\náframsendur á forsíðuna.
 reset_reset:Halló,\n\nÞú hefur óskað eftir því að endursetja lykilorðið þitt. Til að ljúka þeirri beiðni, vinsamlegast smelltu á eftirfarandi tengil:\n\n{VAR: url}\n\nATH: Spjallborðið geymir lykilorðið undir dulkóðun, sem þýðir að þegar þú hefur skráð lykilorðið þá er það dulkóðað og ENGIN LEIÐ er að fá það aftur. Þetta virkar með samanburði af dulkóðuðu útgáfunni sem við eigum á skrá við dulkóðaða útgáfu af því sem þú notar til þess að skrá þig inn.\n(Ef þú vilt vita enn meira um hvernig þetta virkar, flettu þá upp MD5 HASH algrím)
 rpasswd_invalid_passwd:Ógilt lykilorð
@@ -1122,8 +1124,7 @@ move_msg_th_expl:Tilgreindu auðkenni þráðarinns sem á að færa á (má ver
 captcha_img_alt:Captcha staðfesting: Þú þarft að bera kennsl á textann á þessari mynd.
 captcha_img_help:Það er ekki núll eða einn á myndinni.
 powered-by:Knúið af: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Höfundaréttur &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Höfundarréttur &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kóði:
 code_select_all:Velja allt
 code_show_hide:sýna/fela
