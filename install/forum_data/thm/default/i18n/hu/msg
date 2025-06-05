@@ -391,8 +391,7 @@ post_color:Szín
 post_font:Betűtípus
 create_thread:Téma létrehozása
 submit_reply:Válasz elküldése
-# Fuzzy
-edit_message:Az üzenet módosításainak mentése
+edit_message:Változtatások alkalmazása
 apply_spell_changes:Helyesírási javítások alkalmazása
 post_preview:Az üzenet előnézete
 post_logedin_user:Bejelentkezett felhasználó:
@@ -429,6 +428,7 @@ post_title:Cím:
 post_body:Az hozzászólás szövege:
 post_options:Beállítások:
 post_preview_btn:Üzenet előnézete
+post_diff_btn:Különbségi változások
 post_cancel_btn:Mégse
 ignore_users:Figyelmen kívül hagyott felhasználók
 add_ignore:Hozzáadás
@@ -472,6 +472,8 @@ login_login_btn:Bejelentkezés
 login_name_required:A bejelentkezési nevet kötelező megadni.
 login_passwd_required:A jelszót kötelező megadni.
 login_invalid_radius:Érvénytelen felhasználónév/jelszó-páros
+login_or:vagy...
+login_alternatives:Bejelentkezés a következő használatával:
 reset_confirmation:Köszönjük, hogy regisztráltál.\n\nA fiókod aktiválásához az alábbi URL-címet kell meglátogatnod:\n\n{VAR: url}\n\nMiután aktiválva lett a fiókod, be leszel jelentkeztetve a fórumba, és át leszel irányítva a főoldalra.
 reset_reset:Szia!\n\nÚj jelszót kértél. A folyamat befejezéséhez látogass el a következő URL-címre:\n\n{VAR: url}\n\nMEGJEGYZÉS: Ez a fórum a jelszavakat egy egyirányú titkosítási módszer segítségével tárolja, ami azt jelenti,\nhogy ha egyszer megadtad, titkosítva lesz, és NINCS MÓD a visszafejtésére.\nKésőbbiek során úgy működik, hogy az adatbázisunkban található kódolt változatot hasonlítjuk össze a bejelentkezésnél megadott jelszó kódolt változatával.\n(Amennyiben többet szeretnél megtudni arról, hogy ez hogy működik, nézz utána az MD5 HASH-algoritmusnak)
 rpasswd_invalid_passwd:Érvénytelen jelszó
@@ -506,6 +508,7 @@ search_subject_only:Csak a tárgyban
 search_forum:Fórum
 search_posted_on:Elküldve:
 search_no_results:Nincsenek találatok
+search_spell_suggestions:Úgy érted, hogy:
 search_all_forums:Keresés az összes fórumban
 search_in_forum:Keresés a fórumban:
 search_forum_search:Keresés a fórumban
@@ -967,8 +970,7 @@ iemail_forum_unsub:Leiratkozás erről a fórumról
 primary_group_prefix:A fórum elsődleges csoportja:
 group_resources:Ez a csoport a következő fórum jogosultságait vezérli
 register_admin_newuser_title:Új felhasználó regisztrált, és fiókja megerősítésre vár
-# Fuzzy
-register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {FULL_ROOT}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
+register_admin_newuser_msg:Egy új felhasználó ({VAR: uent->login}) regisztrált, és mivel a fiókok megerősítése engedélyezve van, a fiókja nem lesz aktív, amíg te, vagy egy másik adminisztrátor nem erősíti meg. A fiók ellenőrzéséhez látogass el ide: {BASE}adm/admuserapr.php\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.\nHa ki szeretnéd kapcsolni a további értesítéseket, az adminisztrátori vezérlőpulton megteheted. Módosítsd az "Értesítés új fiókregisztrációkról" beállítást.
 post_mod_msg_notify_title:Új üzenet vár elfogadásra a(z) "{VAR: frm->name}" fórumban
 post_mod_msg_notify_msg:Egy új hozzászólást írtak "{VAR: msg_post->subject}" címmel egy fórumba, amit te moderálsz. Az üzenet ellenőrzéséhez menj a következő címre: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nEz egy automatikusan generált üzenet, ne válaszolj rá.
 thread_printable_pdf:Nyomtatható PDF gererálása
@@ -1061,6 +1063,7 @@ search_options:Keresési beállítások
 search_user_filter:Szűrés felhasználó alapján:
 register_none:Nem kérek értesítést
 findu_no_conf:nem megerősített felhasználó
+findu_banned:kitiltott felhasználó
 register_max_sig_len:Maximális hossz:
 register_turing:Ellenőrzés:
 register_err_turing:Ellenőrzés érvénytelen. Próbálja újra.
@@ -1125,8 +1128,7 @@ move_msg_th_expl:Add meg a céltéma azonosítóját (lehet más fórumban is)
 captcha_img_alt:Captcha-ellenőrzés: fel kell ismerned a képen látható szöveget.
 captcha_img_help:Nincs nulla vagy egy a képen.
 powered-by:Az oldalt a FUDfórum {GVAR: FORUM_VERSION} hajtja.
-# Fuzzy
-copyright:Copyright &copy;2001–2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kód:
 code_select_all:Összes kijelölése
 code_show_hide:Megjelenítés/ elrejtés

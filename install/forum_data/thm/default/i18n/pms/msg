@@ -580,3 +580,39 @@ error_invalidurl:URL nen bon
 error_error:Eror
 usrinfo_profile:Profil ëd {VAR: u->alias}
 usrinfo_show_all_posts:Smon-e tuti ij mëssagi ëd {VAR: u->alias}
+actions_update:Spié d'àutra gent coma chiel
+err_info:Anformassion
+buddy_list_err_cantadd:A peul pa gionté chiel-midem a soa lista ëd somà
+buddy_list_err_dup:A-i é già cost utent-sì an soa lista ëd somà
+buddy_list_err_nouser:L'utent che a l'ha sërcà ëd gionté a soa lista ëd somà a l'é nen ëstàit trovà.
+buddy_list_err_nouser_title:Impossìbil gionté l'utent
+buddy_list_err_ignore:Impossìbil gionté a soa lista ëd somà dj'utent ch'a lo ignòro.
+buddy_list_update:Përcore soa lista d'amis
+core_err_invinp_title:Imission nen bon-a
+core_err_invinp_err:A l'é andaje dapress a na liura nen bon-a. Për piasì, ch'a anforma l'<a href="mailto:{GVAR: ADMIN_EMAIL}">aministrator</a> ëd coma a l'é rivaje.
+core_adm_login_msg:J'aministrator a peulo intré ant ël sistema <a href="{BASE}adm/admloginuser.php">ambelessì</a>.
+email_err_unabletoemail_title:EROR: Impossìbil mandé dij mëssagi an pòsta eletrònica
+email_err_unabletoemail_msg:Ël sistema ëd mëssagi për pòsta eletrònica a l'é stàit disativà da l'aministrator.
+email_error_unabletolocaddr:An dëspias, ël sistema a l'é pa podù mandé un mëssagi ëd pòsta eletrònica a {VAR-HTML: _POST['tx_name']} përchè a l'ha nen riussì a determiné soa adrëssa
+email_error_body:Ël contnù a l'é obligatòri
+email_error_subject:L'oget a l'é obligatòri
+email_error_namerequired:Un nòm a l'é obligatòri
+email_error_invaliduser:Utent nen bon
+emailconf_err_invkey_title:Eror
+emailconf_err_invkey_msg:Ciav ëd confirmassion nen bon-a. Për piasì, ch'a verìfica soa pòsta eletrònica për esse sigur che a l'ha anserì l'URL për da bin. S'a l'ha sgnacà doe vire an sla liura, sò cont a podrìa già esse confirmà. Ch'a intra ant la piassa për ciamé n'àutra ciav.
+err_inc_criticaltitle:Eror crìtich
+err_inc_criticalmsg:A-i é rivaje n'eror. Belavans a-i é ëdcò un problema con ël sistema ëd rapòrt d'eror.
+finduser_update:Sërché dj'utent
+help_index_update:Letura ëd l'<a href="{TEMPLATE: help_index_update_lnk}">Agiut</a>
+iemail_thr_subject:Neuva rispòsta a {VAR: thr_subject} da {VAR: poster_login}
+iemail_thr_bodyemail:Për vëdde le rispòste nen lesùa, ch'a vada a {VAR: goto_url['email']}\n\nS'a veul pi nen arsèive dle notìfiche relative a le rispòste su cost argoment, për piasì ch'a vada a: {VAR: unsub_url['email']}
+iemail_frm_subject:Neuv argoment ant la piassa {VAR: frm_name}, antitolà {VAR: thr_subject}, da {VAR: poster_login}
+iemail_frm_bodyemail:Për vëdde l'argoment, ch'a vada a:\n{VAR: goto_url['email']}\n\nPër arsèive pi nen dle notìfiche relative ai neuv argoment an sa piassa, për piasì ch'a vada ambelessì: {VAR: unsub_url['email']}
+iemail_participate:Për partissipé a la discussion, ch'a vada ambelessì:
+ignore_list_err_info_title:Anformassion
+ignore_list_err_dup_msg:A l'ha già cost utent-sì an soa lista dle përson-e da ignoré
+ignore_list_err_nu_title:Utent nen trovà
+ignore_list_err_nu_msg:L'utent che a l'ha sërcà ëd gionté a soa lista ëd përson-e da ignoré a l'é nen ëstàit trovà.
+ignore_list_cantign_msg:A peul nen ignoré cost utent-sì
+ignore_list_update:Përcore soa lista ëd përson-e da ignoré
+index_update:Përcore la <a href="{TEMPLATE: index_update_lnk}">lista dle piasse</a>
