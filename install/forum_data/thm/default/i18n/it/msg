@@ -16,6 +16,7 @@
 # Author: Rippitippi
 # Author: Selven
 # Author: Ubyfudder
+# Author: Wheelygay
 
 action:Azione
 add_to_buddy_list:aggiungi alla lista amici
@@ -431,6 +432,7 @@ post_title:Titolo:
 post_body:Testo:
 post_options:Opzioni:
 post_preview_btn:Anteprima del messaggio
+post_diff_btn:Mostra cambiamenti
 post_cancel_btn:Annulla
 ignore_users:Utenti ignorati
 add_ignore:Aggiungi utente da ignorare
@@ -474,6 +476,8 @@ login_login_btn:Login
 login_name_required:Login richiesta
 login_passwd_required:Password richiesta
 login_invalid_radius:Login/password non corretti
+login_or:o...
+login_alternatives:Accedi tramite:
 reset_confirmation:Grazie per esserti registrato! \n\nPer attivare il tuo account fai click sull'indirizzo sottostante:\n\n{VAR: url}\n\nUna volta attivato l'account, verrai autenticato nel forum e\nverrà caricata la pagina principale del forum.
 reset_reset:Ciao!\n\nHai chiesto di reimpostare la tua password. Per farlo VERAMENTE \nvai all'indirizzo\n\n{VAR: url}\n\nNOTA BENE: questo forum memorizza le password con un meccanismo di criptazione a senso unico, il che vuol dire che \nuna volta che hai inserito la tua password, non c'è più verso di poterla leggere in chiaro.\nIl meccanismo è molto semplice: ogni volta che inserisci la tua password, essa viene nuovamente criptata e confrontata con quella memorizzata nel database, per verificare\nse coincidono (algoritmo di hash MD5).
 rpasswd_invalid_passwd:Password non valida
@@ -508,6 +512,7 @@ search_subject_only:Solo oggetto
 search_forum:Forum
 search_posted_on:Inviato
 search_no_results:Nessun risultato
+search_spell_suggestions:Vuoi dire:
 search_all_forums:Cerca in tutti i forum
 search_in_forum:Cerca nel forum:
 search_forum_search:Ricerca nel forum
@@ -1061,6 +1066,7 @@ search_options:Opzioni di ricerca
 search_user_filter:Filtro per utente:
 register_none:Non avvisarmi
 findu_no_conf:utente non approvato
+findu_banned:utente bannato
 register_max_sig_len:Lunghezza massima:
 register_turing:Verifica:
 register_err_turing:Verifica fallita. Riprova.
