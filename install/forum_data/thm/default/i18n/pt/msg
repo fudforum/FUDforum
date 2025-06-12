@@ -15,6 +15,7 @@
 # Author: Mansil
 # Author: McDutchie
 # Author: Naudefj
+# Author: O andras
 # Author: Tark
 # Author: Vitorvicentevalente
 # Author: Waldir
@@ -397,8 +398,7 @@ post_color:Cor
 post_font:Fonte
 create_thread:Criar Tópico
 submit_reply:Submeter resposta
-# Fuzzy
-edit_message:Aplicar Alterações nas Mensagens
+edit_message:Aplicar Alterações
 apply_spell_changes:Aplicar Alterações de ortografia
 post_preview:Visualisar o Post
 post_logedin_user:Membro Logado:
@@ -643,8 +643,7 @@ post_err_lockedthread_msg:Este tópico está bloqueado, não é permitido coloca
 err_coppa_title:ERRO: A sua conta ainda não foi confirmada
 err_coppa_msg:Ainda não recebemos uma confirmação dos teus pais ou tutores legais, o que te permitiria publicar mensagens. Se perdeste o teu formulário COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">consulta-o novamente</a>.
 err_banned_acct_title:ERRO: Você foi banido.
-# Fuzzy
-err_banned_acct_msg:Your account was {IF: $ban_expiry}temporarily banned until {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanently{ENDI} from accessing the site, due to a violation of the forum&#39s rules.
+err_banned_acct_msg:A sua conta foi {IF: $ban_expiry}temporariamente banida até {TEMPLATE: ban_expiry_date}{ELSE}permanentemente banida{ENDI} de aceder ao site, devido a uma violação das regras do fórum.
 post_err_edttimelimit_title:ERRO
 post_err_edttimelimit_msg:Já não pode editar esta mensagem
 post_err_noannontopics_msg2:<legend>ERRO: Privilégios Insuficientes</legend>Utilizadores anónimos não têm permissão para criar tópicos.
@@ -1088,8 +1087,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ERRO: Sua conta foi filtrada.
 err_blockedaccnt_msg:O acesso ao fórum foi bloqueado à sua conta devido a um dos filtros de utilizadores instalados.
 merge_th_page_list:Seleção de página do tópico
-# Fuzzy
-most_users_online:O recorde de utilizadores em linha foi <b>{VAR: st_obj->most_online}</b> <b>({DATE: st_obj->most_online_time %a, %d %B %Y %H:%M})</b>
+most_users_online:O maior número de utilizadores online foi <b>{VAR: st_obj->most_online}</b> a <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Cancelar inscrição em todos os fóruns
 sub_unsub_all_topics:Cancelar inscrição em todos os tópicos
 unbookmark_all_topics:Remover todos os favoritos
@@ -1131,8 +1129,7 @@ move_msg_th_expl:Especifique a ID do tópico de destino (pode estar em outros f�
 captcha_img_alt:Verificação por Captcha: você terá que reconhecer o texto nesta imagem.
 captcha_img_help:Não há nenhum zero nem um na imagem.
 powered-by:Potenciado por: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Direitos de autor &copy;2001-2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Direitos de autor &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Código:
 code_select_all:Selecionar tudo
 code_show_hide:Mostrar / ocultar
