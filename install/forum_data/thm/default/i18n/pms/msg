@@ -616,3 +616,8 @@ ignore_list_err_nu_msg:L'utent che a l'ha sërcà ëd gionté a soa lista ëd p�
 ignore_list_cantign_msg:A peul nen ignoré cost utent-sì
 ignore_list_update:Përcore soa lista ëd përson-e da ignoré
 index_update:Përcore la <a href="{TEMPLATE: index_update_lnk}">lista dle piasse</a>
+list_referers_update:Consultassion dij referent
+login_update:Formolari d'intrada ant ël sistema
+msg_update:Consultassion ëd l'argoment <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
+pm_err_nopm_title:EROR: la mëssagërìa privà a l'é disabilità
+pm_err_nopm_msg:A peul nen dovré ël sistema ëd mëssagërìa privà. A l'é stàit disabilità da l'aministrator.
