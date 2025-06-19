@@ -621,3 +621,4 @@ login_update:Formolari d'intrada ant ël sistema
 msg_update:Consultassion ëd l'argoment <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:EROR: la mëssagërìa privà a l'é disabilità
 pm_err_nopm_msg:A peul nen dovré ël sistema ëd mëssagërìa privà. A l'é stàit disabilità da l'aministrator.
+err_coppa_title:EROR: sò cont a l'é ancor pa confirmà
