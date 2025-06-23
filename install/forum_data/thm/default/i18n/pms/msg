@@ -621,4 +621,14 @@ login_update:Formolari d'intrada ant ël sistema
 msg_update:Consultassion ëd l'argoment <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
 pm_err_nopm_title:EROR: la mëssagërìa privà a l'é disabilità
 pm_err_nopm_msg:A peul nen dovré ël sistema ëd mëssagërìa privà. A l'é stàit disabilità da l'aministrator.
+pm_update:Utilisament ëd la mëssagerìa privà
+post_err_lockedthread_title:EROR: l'argoment a l'é ancadnà
+post_err_lockedthread_msg:Cost argoment-sì a l'é ancandnà. Le publicassion a son pi nen përmëttùe.
 err_coppa_title:EROR: sò cont a l'é ancor pa confirmà
+err_coppa_msg:I l'oma arseivù gnun-a confirmassion dai sò o da sò tuor legal ch'a l'autoriso a publiché dij mëssagi. S'a l'ha përdù sò formolari COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">ch'a l'oten-a torna</a>.
+err_banned_acct_title:EROR: chiel a l'é stàit taparà fòra.
+err_banned_acct_msg:Sò cont a l'é stàit {IF: $ban_expiry}blocà ëd fasson temporania fin-a al {TEMPLATE: ban_expiry_date}{ELSE}blocà ëd fasson përmanta{ENDI} da l'acess al sit, për via ëd na violassion dle régole dla piassa.
+post_err_edttimelimit_title:EROR
+post_err_edttimelimit_msg:A peul pi nen modifiché ës mëssagi
+post_err_noannontopics_msg2:<legend>EROR: drit insuficent</legend>J'utent anònim a son pa autorisà a creé dj'argoment.
+post_err_noannonposts_msg2:<legend>EROR: drit insuficent</legend>J'utent anònim a son pa autorisà a rësponde.
