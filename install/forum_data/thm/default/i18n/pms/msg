@@ -632,3 +632,12 @@ post_err_edttimelimit_title:EROR
 post_err_edttimelimit_msg:A peul pi nen modifiché ës mëssagi
 post_err_noannontopics_msg2:<legend>EROR: drit insuficent</legend>J'utent anònim a son pa autorisà a creé dj'argoment.
 post_err_noannonposts_msg2:<legend>EROR: drit insuficent</legend>J'utent anònim a son pa autorisà a rësponde.
+post_err_floodtrig_title:EROR: inondassion ëd publicassion arconossùa.
+post_err_floodtrig_msg:Për piasì, ch'a preuva torna tra {PLURAL: tm|$1 second|$1 second}
+post_err_attach_size:L'archivi alegà a l'é tròp gròss (dzora dël lìmit autorisà ëd {VAR: MAX_F_SIZE} otet)
+post_err_attach_ext:L'archivi ch'a sërca ëd carié a rëspond nen a le sòrt d'archivi autorisà.
+post_err_attach_filelimit:A l'é an camin ch'a sêrca ëd carié pi d'archivi che lòn ch'a l'é autorisà.
+post_err_passwd:Ciav nen bon-a.
+post_reply_update:Rispòsta a <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> an {VAR: frm->name}
+post_topic_update:A scriv un neuv argoment an <a {TEMPLATE: post_topic_update_lnk}{VAR: frm->name}</a>
+post_error_generic:A-i é staje n'eror

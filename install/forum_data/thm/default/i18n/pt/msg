@@ -30,18 +30,18 @@ attachment:Anexo:
 avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 Mensagem|$1 Mensagens} ({PLURAL: avg|$1 mensagem em média|$1 mensagens em média} por dia)
 biography:Biografia:
-birth_date:Data de nascimento:
+birth_date:Data de Nascimento:
 by:Por:
 by_mod:pelo Moderador
-current_time:Hora atual
-custom_avatar_queue:Fila de avatares personalizados
+current_time:Hora Atual
+custom_avatar_queue:Fila de Avatares Personalizados
 date_posted:Data de Publicação
 date_registered:Data do Registo:
 download_counter:Transferido {PLURAL: v[3]|$1 vez|$1 vezes}
 pmsg_download_counter:Transferido {PLURAL: r->dlcount|$1 vez|$1 vezes}
 email:Correio electrónico:
 email_to_friend:Enviar correio a um amigo
-email_to_friend_desc:Enviar a URL desta página a um ou mais amigos por correio electrónico
+email_to_friend_desc:Enviar o URL desta página a amigo(s) via correio electrónico
 email_user:Enviar mensagem ao utilizador por correio electrónico
 faq:Ajuda
 first_unread_msg:Ir para mensagens não lidas
@@ -50,18 +50,18 @@ flat_view:Voltar para a vista plana predefinida
 forum:Fórum:
 forum_icon:Ícone do Fórum
 forum_new_messages:Novas mensagens
-forum_none_messages:Só membros registados do fórum mantêm registo das mensagens lidas e não lidas
+forum_none_messages:Apenas membros registados do fórum mantêm registo das mensagens lidas e não lidas
 forum_old_messages:Não há novas mensagens
 from:De:
-gender:Sexo:
+gender:Género:
 go:Avançar
 goto_next_msg:Ir para a mensagem seguinte
 goto_prev_msg:Ir para a mensagem anterior
 home:Início
 homepage:Página inicial:
-icq_control_panel:Painel de mensagens do ICQ Online
-icq_message_form:Formulário de mensagem ICQ:
-ignore_user:Ignorar todas as mensagens deste utilizador
+icq_control_panel:Painel de Mensagens do ICQ Online
+icq_message_form:Formulário de Mensagem ICQ:
+ignore_user:ignorar todas as mensagens deste utilizador
 im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imagem:
@@ -72,11 +72,11 @@ index_url_redirection:Redirecionamento
 interests:Interesses:
 last_post:Última mensagem
 last_thread_msg:Ir para a última mensagem neste tópico
-legend:Legenda:
+legend:Legenda
 location:Localização:
 lock_thread:Fechar Tópico
 locked:Fechado
-locked_with_new_posts:Fechado(com mensagens não lidas)
+locked_with_new_posts:Fechado (com mensagens não lidas)
 logged_in_list:Lista de utilizadores a visitar o forum
 login:Entrar
 login_header:Utilizador:
@@ -93,35 +93,35 @@ cal_birthday:Aniversário: {VAR: user}
 cal_birthdays:{PLURAL: birthdays|$1 aniversário|$1 aniversários}
 cal_birthday_age:({PLURAL: age|$1 ano|$1 anos}).
 message:Mensagem
-message_counter:Os nossos utilizadores colocaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
+message_counter:Os nossos utilizadores publicaram um total de <b>{PLURAL: post_count|$1 mensagem|$1 mensagens}</b> em <b>{PLURAL: thread_count|$1 tópico|$1 tópicos}</b>.
 message_index:Indice da mensagem
 message_index_desc:Ver lista de mensagens
 minimize_category:Minimizar Categoria
 minimize_message:Minimizar Mensagem
-moderation_queue:Moderação
+moderation_queue:Fila de Moderação
 moderator:Moderador
-moderator_of:Moderador ausente:
+moderator_of:Moderador de:
 moderator_options:Opcções do Moderador
 moderators:{PLURAL: modcount|Moderador|Moderadores}
 more_unread_messages:mais mensagens não lidas
-more_unread_messages_desc:Mostrar mais mensagens não lidas e marcar as mensagens correntes como lidas
+more_unread_messages_desc:Mostrar mais mensagens não lidas e marcar as mensagens visíveis como lidas
 move_thread:Mover
-moved:Movida para outro forum
-moved_thread_message:Este tópico foi movido para outro Forum
+moved:Movida para outro fórum
+moved_thread_message:Este tópico foi movido para outro fórum
 na:n/d
-new_posts:Novos Posts
-new_private_messages:Tem <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensagem privada não lida|mensagens privadas não lidas}
+new_posts:Novas Mensagens
+new_private_messages:Tens <span class="GenTextRed">({VAR: c})</span> {PLURAL: c|mensagem privada não lida|mensagens privadas não lidas}
 new_thread:Criar um novo tópico
 newest_user:O último utilizador registado é
 next_page:Página Seguinte
 next_thread:Próximo Tópico:
-no_messages:Não há mensagens neste fórum.<br />Seja o primeiro a postar um tópico neste fórum.
-no_msg_body:mensagem vazia
-no_new_posts:Não há novos posts
-no_posts:Não há mensagens
-no_subscribed_forums:Não há forums subscritos
-no_subscribed_threads:Não há topicos subscritos
-no_bookmarked_threads:Não há nenhum tópico nos favoritos
+no_messages:Não há mensagens neste fórum.<br />Sê o primeiro a publicar um tópico neste fórum.
+no_msg_body:Mensagem Vazia
+no_new_posts:Sem Mensagens Novas
+no_posts:Sem Mensagens
+no_subscribed_forums:Sem fórums subscritos
+no_subscribed_threads:Sem topicos subscritos
+no_bookmarked_threads:Sem tópicos nos favoritos
 no_unread_locked:Este tópico foi fechado
 no_unread_msg:Neste tópico não há mensagens não lidas
 no_unread_msg_unreg:As mensagens lidas e não lidas só podem ser localizadas por membros registados
@@ -212,7 +212,7 @@ user_info:Informação do utilizador
 user_info_l:Informação do utilizador {VAR: u->alias}
 user_offline:{VAR: obj->login}  está neste momento offline
 user_online:{VAR: obj->login} está neste momento online
-usrinfo_last_post:Ultimo Post:
+usrinfo_last_post:Última Mensagem:
 view_results:Ver resultados
 views:Vistas
 vote:{PLURAL: frm->n_rating|$1 Voto|$1 Votos}
@@ -400,7 +400,7 @@ create_thread:Criar Tópico
 submit_reply:Submeter resposta
 edit_message:Aplicar Alterações
 apply_spell_changes:Aplicar Alterações de ortografia
-post_preview:Visualisar o Post
+post_preview:Pré-visualização da Mensagem
 post_logedin_user:Membro Logado:
 post_logout:sair
 post_passwd:Password para fazer posts:
@@ -412,7 +412,7 @@ post_mod_opt:Opções do Moderador:
 post_thread_type:Tipo de Tópico:
 post_thread_expiry:Tópico expirado:
 post_locked:Tópico fechado
-post_icons:Icon do Post:
+post_icons:Ícone da Mensagem:
 post_no_icon:Nenhum Icon
 post_smiley:Atalhos para os smiles:
 post_format_tools:Ferramentas de formatação:
@@ -435,6 +435,7 @@ post_title:Título:
 post_body:Corpo:
 post_options:Opções:
 post_preview_btn:Visualisar mensagem
+post_diff_btn:Mostrar Diferenças
 post_cancel_btn:Cancelar
 ignore_users:Utilizadores ignorados
 add_ignore:Adicionar ignorados
@@ -478,6 +479,8 @@ login_login_btn:Submeter
 login_name_required:Login requer nome
 login_passwd_required:Password requerida
 login_invalid_radius:Combinação inválida de Login/password
+login_or:ou...
+login_alternatives:Iniciar sessão com:
 reset_confirmation:Obrigado por se registar,\n\nPara ativar a sua conta aceda à URL:\n\n{VAR: url}\n\nAssim que a conta esteja ativa, será autenticado no fórum e\nredirecionado para a página principal.
 reset_reset:Ola,\n\nPediu para que a sua password seja restaurada, para restaurar a sua password\npor favor vá a URL\n\n{VAR: url}\n\nNOTE: Este forum guarda as passwords com um sistema de encriptação não reversível o que quer dizer, que\uma vez entrada a password será codificada e não haverá possibilidade de a recuperar.\nIsto funciona por simples codificação da password e comparada cada vez que é introduzida com a versão codificada e\nverificando se são iguais.
 rpasswd_invalid_passwd:Password Inválida
@@ -1066,6 +1069,7 @@ search_options:Opções de Pesquisa
 search_user_filter:Filtrar por utilizador:
 register_none:Não me notificar
 findu_no_conf:utilizador não confirmado
+findu_banned:utilizador banido
 register_max_sig_len:Comprimento Máximo:
 register_turing:Verificação:
 register_err_turing:A verificação falhou. Tente novamente, por favor.
