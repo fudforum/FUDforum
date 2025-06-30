@@ -5,6 +5,7 @@
 # Author: Amjad Khan
 # Author: Baloch Khan
 # Author: Ibrahim khashrowdi
+# Author: شاه زمان پټان
 
 action:کړنه
 admin:پازوال
@@ -254,7 +255,7 @@ poll_hour:ساعت
 poll_hours:ساعتونه
 poll_month:مياشت
 poll_year:کال
-poll_week:اونۍ
+poll_week:اوونۍ
 delete_yes:هو
 delete_no:نه
 error_error:تېروتنه
@@ -292,8 +293,8 @@ th_expr_never:هېڅکله
 th_expr_one_day:۱ ورځ
 th_expr_two_day:۲ ورځې
 th_expr_four_day:۴ ورځې
-th_expr_one_week:۱ اونۍ
-th_expr_two_week:۲ اونۍ
+th_expr_one_week:۱ اوونۍ
+th_expr_two_week:۲ اوونۍ
 th_expr_one_month:۱ مياشت
 th_expr_two_month:۲ مياشتې
 th_expr_four_month:۴ مياشتې
@@ -326,7 +327,7 @@ iemail_msg_reply:ځوابول
 threadt_announce:خبرتيا
 mnav_hour:ساعت (ساعتونه)
 mnav_day:ورځ (ورځې)
-mnav_week:اونۍ
+mnav_week:اوونۍ
 mnav_month:مياشت (مياشتې)
 findu_edit:سمول
 findu_delete:ړنگول
