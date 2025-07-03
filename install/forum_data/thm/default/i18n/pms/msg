@@ -665,3 +665,17 @@ register_err_enterpasswd:A dev buté soa ciav atual për completé ij cangiament
 register_err_adminpasswd:A dev buté soa ciav d'<b>aministrator</b> për completé ij cangiament.
 register_err_notyouremail:Cheidun d'àutr a l'é già anscrivusse con costa adrëssa ëd pòsta eletrònica.
 register_err_avatartobig:L'archivi ch'a sërca Ëd carié a l'é tròp gròss, pi che {GVAR: CUSTOM_AVATAR_MAX_SIZE} otet.
+register_err_avatarnotallowed:L'ampërsonisassion ch'a sërca ëd carié a l'é nen consentìa. Ch'a verìfica le sòrt d'archivi autorisà.
+register_conf_subject:Confirmassion ëd l'anscrission
+register_conf_msg:Mersì ëd soa anscrission,\nPër ativé sò cont, për piasì ch'a vada a l'URL sì-sota:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nNa vira che sò cont a l'é ativà, a intrërà ant la piassa e a sarà ridiressionà a la pàgina d'intrada.
+register_welcome_subject:Confirmassion ëd soa anscrission a la piassa
+register_welcome_msg:Mersì d'esse anscrivusse,\n\nCosti-sì a son ij sò detaj ëd conession a la piassa:\n\nURL ëd la piassa: {TEMPLATE: index_update_lnk}\nStranòm: {VAR: uent->login}\nCiav: {VAR: _POST['reg_plaintext_passwd']}\n\nCh'as visa che le ciav a son sensìbij a le majùscole!\nPër modifiché ij sò gust o profil, ch'a vada a costa pàgina:\n{FULL_ROOT}?t=register
+register_err_cantreg_title:EROR: impossìbil anscriv-lo
+regsiter_err_cantreg_msg:Impossìbil creé un cont, për piasì ch'a contata l'aministrator: <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+register_profile_update:An letura ëd sò pròpi profil
+register_register_update:Pàgina d'anscrission
+report_err_nosuchmsg_title:EROR
+report_err_nosuchmsg_msg:Gnun mëssagi përparèj
+reset_err_invalidkey_title:EROR
+reset_err_invalidkey_msg:Ciav ëd riampostassion ëd ciav d'acess nen bon-a. A l'é possìbil che sò client ëd pòsta eletrònica a l'abia già duvertà an automàtich costa pàgina, lòn ch'a l'ha invalidà la ciav ëd riampostassion. S'a l'é parèj, a dovrìa tra pòch arsèive un mëssagi ëd pòsta eletrònica con soa neuva ciav d'acess. Si ës mëssagi a riva nen, për piasì ch'a preuva a torna riamposté la ciav.
+reset_err_rstconf_title:Anformassion
