@@ -80,8 +80,8 @@ logged_in_list:登入使用者清單
 login:登入
 login_header:登入：
 logout:登出
-mark_all_read:標記所有訊息為已讀
-mark_all_read_desc:標記您所有未讀的訊息為已讀
+mark_all_read:將所有訊息標記為已讀
+mark_all_read_desc:所有未讀訊息將標記為已讀
 members:成員
 calendar:日曆
 cal_goto_date:跳至：
@@ -965,7 +965,7 @@ threadt_announce:公告
 reported_no_messages:無回報訊息。
 poll_no_polls:沒有可取用的調查。
 no_unread_messages:沒有符合您查詢條件的未讀訊息。
-thread_mark_all_read:標記所有未讀論壇訊息為已讀
+thread_mark_all_read:將所有未讀論壇訊息標記為已讀
 thread_mark_all_read_desc:在此論壇中的所有未讀訊息將標記成已讀
 private_no_messages:在此資料夾中沒有任何訊息。
 register_email_change_subject:確認變更電子郵件

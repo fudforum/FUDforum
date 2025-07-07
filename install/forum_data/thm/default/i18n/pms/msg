@@ -679,3 +679,24 @@ report_err_nosuchmsg_msg:Gnun mëssagi përparèj
 reset_err_invalidkey_title:EROR
 reset_err_invalidkey_msg:Ciav ëd riampostassion ëd ciav d'acess nen bon-a. A l'é possìbil che sò client ëd pòsta eletrònica a l'abia già duvertà an automàtich costa pàgina, lòn ch'a l'ha invalidà la ciav ëd riampostassion. S'a l'é parèj, a dovrìa tra pòch arsèive un mëssagi ëd pòsta eletrònica con soa neuva ciav d'acess. Si ës mëssagi a riva nen, për piasì ch'a preuva a torna riamposté la ciav.
 reset_err_rstconf_title:Anformassion
+reset_err_rstconf_msg:A dovrìa arsèive dj'anstrussion për pòsta eletrònica da-sì chèiche minute.
+reset_newpass_title:Riamposté la ciav
+reset_newpass_msg:Cerea,\n\nConforma a lòn ch'a l'ha ciamà, soa anformassion ëd conession a son coste-sì:\n\nStranòm: {VAR: ui[1]}\nCiav: {VAR: passwd}\n\nCh'a nòta chesoa ciav a l'é stàita riampostà al valor sì-dzora. S'a veul\nmodifiché soa ciav a peul felo via ël panel ëd contròl dj'anformassion ëd l'utent a:\n{FULL_ROOT}?t=register
+reset_login_notify:Soa ciav a l'é stàita mandaje an pòsta eletrònica. A dovrìa arsèiv-la da-sì chèiche minute.
+search_update:Arserca ëd mëssagi
+selmsg_update:Navigassion ant le <a href="{TEMPLATE: selmsg_update_lnk}">publicassion d'ancheuj</a>
+showposts_update:Ociada a le publicassion ëd: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
+subscribed_update:Navigassion ant ij pròpi abonament
+bookmarked_update:Navigassion ant la pròpia lista dij marcapàgine
+thread_update:Navigassion ant la pàgina <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
+tree_update:Navigassion ant l'argoment (a vista d'erbo) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
+userinfo_update:Ociada al profil ëd <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}</a>
+ERR_login_msg2:<legend>EROR: A l'é nen rintrà ant ël sistema</legend>Për acede a costa pàgina a dev esse mèmber ëd costa piassa.
+ERR_disabled_ttl:Fonsionalità disativà
+ERR_disabled_msg:Costa fonsionalità a l'é stàita disativà da l'aministrator ëd sistema.
+ERR_access_ttl:EROR: përmess insuficent
+ERR_access_msg:A l'ha nen ij përmess necessari për fé costa assion.
+ERR_registration_disabled_ttl:Anscrission disativà
+ERR_registration_disabled_msg:L'aministrator a l'ha disativà l'anscrission. Për piasì, ch'a preuva torna pi tard.
+ERR_emailconf_ttl:EROR: sò cont a l'é ancor pa confirmà
+ERR_emailconf_msg:A l'ha ancor nen confirmà sò cont an pòsta eletrònica.<br /><table border="0"><tr><td><ol><li>S'a l'ha arseivù gnun mëssagi ëd confirmassion, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">ch'a lo ciama torna</a>.</li><li>Si {VAR: usr_d->email} a l'é nen soa adrëssa eletrònica giusta, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ch'a spessìfica l'adrëssa bon-a</a>.</li></ol></td></tr></table>
