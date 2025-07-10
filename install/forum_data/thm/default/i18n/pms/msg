@@ -700,3 +700,12 @@ ERR_registration_disabled_ttl:Anscrission disativà
 ERR_registration_disabled_msg:L'aministrator a l'ha disativà l'anscrission. Për piasì, ch'a preuva torna pi tard.
 ERR_emailconf_ttl:EROR: sò cont a l'é ancor pa confirmà
 ERR_emailconf_msg:A l'ha ancor nen confirmà sò cont an pòsta eletrònica.<br /><table border="0"><tr><td><ol><li>S'a l'ha arseivù gnun mëssagi ëd confirmassion, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">ch'a lo ciama torna</a>.</li><li>Si {VAR: usr_d->email} a l'é nen soa adrëssa eletrònica giusta, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">ch'a spessìfica l'adrëssa bon-a</a>.</li></ol></td></tr></table>
+ERR_user_ttl:EROR: utent inesistent
+ERR_user_msg:S'utent-sì a esist nen
+ERR_systemerr_ttl:EROR: eror ëd sistema
+ERR_systemerr_msg:A l'é rivaje n'eror ëd sistema. Për piasì, ch'a lo comùnica al <a href="mailto:{GVAR: ADMIN_EMAIL}">mèistr dël sit</a>.
+email_title:Formolari ëd pòsta eletrònica
+finduser_title:Trové n'utent
+help_title:Agiut
+login_title:Formolari d'intrada ant ël sistema
+register_title:Formolari d'anscrission
