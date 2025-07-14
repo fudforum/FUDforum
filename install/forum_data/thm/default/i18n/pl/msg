@@ -61,7 +61,6 @@ homepage:Strona domowa:
 icq_control_panel:Panel wiadomości ICQ
 icq_message_form:Formularz wiadomości ICQ:
 ignore_user:Ignoruj tego użytkownika
-im_facebook:Facebook:
 im_yahoo:Komunikator Yahoo:
 image:Obrazek:
 index_forum:Forum
@@ -349,7 +348,6 @@ register_occupation:Zawód:
 register_interests:Zainteresowania:
 register_image:Adres obrazka:
 register_icq:ICQ
-register_facebook:Identyfikator Facebook:
 register_yahoo:Komunikator Yahoo:
 register_homepage:Strona domowa:
 register_bday:Data urodzenia:
@@ -397,7 +395,8 @@ post_color:Kolor
 post_font:Czcionka
 create_thread:Wyślij
 submit_reply:Odpowiedz
-edit_message:Zastosuj zmiany
+# Fuzzy
+edit_message:Edytuj wiadomość
 apply_spell_changes:Zastosuj zmiany pisowni
 post_preview:Podgląd wiadomości
 post_logedin_user:Jesteś zalogowany jako:
@@ -434,7 +433,6 @@ post_title:Temat:
 post_body:Treść:
 post_options:Opcje:
 post_preview_btn:Podgląd wiadomości
-post_diff_btn:Porównaj zmiany
 post_cancel_btn:Anuluj
 ignore_users:Ignorowani Użytkownicy
 add_ignore:Dodawanie ignorowanych
@@ -478,8 +476,6 @@ login_login_btn:Zaloguj się
 login_name_required:Nazwa użytkownika jest wymagana
 login_passwd_required:Hasło jest wymagane
 login_invalid_radius:Nieprawidłowa kombinacja nazwy użytkownika/hasła
-login_or:lub...
-login_alternatives:Zaloguj się poprzez:
 reset_confirmation:Dziękujemy za zarejestrowanie się.\n\nAby aktywować swoje konto, przejdź do adresu wskazanego poniżej:\n\n{VAR: url}\n\nPo aktywacji Twojego konta zostaniesz zalogowany na forum\ni przeniesiony na główna stronę forum.
 reset_reset:Witaj,\n\nPoprosiłeś o wyzerowanie swojego hasła, ale aby faktycznie WYZEROWAĆ Twoje hasło\nprzejdź pod ten adres:\n\n{VAR: url}\n\nUWAGA: Nasze forum zapisuje hasła za pomocą jednokierunkowej funkcji szyfrującej,\ndlatego nie można odtworzyć raz wczytanego hasła.\nSprawdzanie hasła polega na tym, że podczas logowania Twoje hasło jest szyfrowane\ni porównywane z zapisaną w formie zaszyfrowanej wersją.\n(Jeśli chcesz wiedzieć więcej poczytaj o algorytmie mieszającym MD5).
 rpasswd_invalid_passwd:Nieprawidłowe Hasło
@@ -514,7 +510,6 @@ search_subject_only:Tylko temat
 search_forum:Forum
 search_posted_on:Zamieszczona dnia
 search_no_results:Brak wyników.
-search_spell_suggestions:Czy masz na myśli:
 search_all_forums:Przeszukaj wszystkie fora
 search_in_forum:Szukaj w forum:
 search_forum_search:Szukanie w forum
@@ -645,7 +640,8 @@ post_err_lockedthread_msg:Ten wątek jest zablokowany, więc nie wolno zamieszcz
 err_coppa_title:BŁĄD: Twoje konto nie jest jeszcze potwierdzone
 err_coppa_msg:Nie otrzymaliśmy potwierdzenia od Twojego rodzica lub prawnego opiekuna, co pozwoliłoby Ci zamieszczać wiadomości. Jeśli zgubiłeś swój formularz COPPA <a href="{TEMPLATE: err_coppa_msg_lnk}">pobierz go ponownie</a>.
 err_banned_acct_title:BŁĄD - zostałeś zablokowany.
-err_banned_acct_msg:Twoje konto zostało {IF: $ban_expiry}pozbawione dostępu na forum do czasu {TEMPLATE: ban_expiry_date}{ELSE}trwale pozbawione dostępu{ENDI} na forum z powodu złamania regulaminu.
+# Fuzzy
+err_banned_acct_msg:Twoje konto zostało {IF: $ban_expiry}pozbawione dostępu na forum do czasu {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}trwale pozbawione dostępu{ENDI} na forum z powodu złamania regulaminu.
 post_err_edttimelimit_title:BŁĄD
 post_err_edttimelimit_msg:Nie możesz już edytować tej wiadomości
 post_err_noannontopics_msg2:<legend>BŁĄD: Brak Uprawnień</legend>Anonimowym użytkownikom forum nie wolno tworzyć nowych wątków. Aby to było możliwe, należy się zarejestrować.
@@ -1068,7 +1064,6 @@ search_options:Opcje wyszukiwania
 search_user_filter:Wyłącznie wiadomości użytkownika:
 register_none:Nie powiadamiaj mnie
 findu_no_conf:niezatwierdzony użytkownik
-findu_banned:użytkownik pozbawiony dostępu do usługi
 register_max_sig_len:Maksymalna długość:
 register_turing:Weryfikacja:
 register_err_turing:Weryfikacja nie powiodła się. Proszę spróbuj ponownie.
@@ -1090,7 +1085,8 @@ dmsg_ip:IP
 err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
 err_blockedaccnt_msg:Dostęp do tego forum został zablokowany dla twojego konta użytkownika za pomocą jednego z zainstalowanych filtrów użytkowników.
 merge_th_page_list:Strona wyboru wątków
-most_users_online:Najwięcej użytkowników najdłużej online (<b>{VAR: st_obj->most_online}</b>) było dnia <b>{TEMPLATE: most_online_time}</b>
+# Fuzzy
+most_users_online:Najwięcej użytkowników online (<b>{VAR: st_obj->most_online}</b>) było dnia <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
 sub_unsub_all_forums:Wypisz ze wszystkich forów
 sub_unsub_all_topics:Wypisz ze wszystkich tematów
 unbookmark_all_topics:Usuń wszystkie zakładki
@@ -1132,7 +1128,8 @@ move_msg_th_expl:Określ ID tematu docelowego (może znajdować się w innym for
 captcha_img_alt:Weryfikacja captcha – musisz odczytać tekst z obrazka.
 captcha_img_help:Na zdjęciu nie występuje zero i jedynka.
 powered-by:Korzysta z oprogramowania FUDforum {GVAR: FORUM_VERSION}.
-copyright:Prawa autorskie &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+# Fuzzy
+copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KOD
 code_select_all:Wybierz wszystko
 code_show_hide:Pokaż lub ukryj

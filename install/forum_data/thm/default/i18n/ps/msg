@@ -71,7 +71,7 @@ prev_thread:پخوانی سرليک:
 usrinfo_private_message:شخصي پيغام:
 rate_thread:سرليک ارزول
 rating:ارزښت
-register:ثبتول
+register:نوم‌ليکنه
 replies:ځوابونه
 reveal_post:پيغام ښکاره کول
 search:پلټل
@@ -162,7 +162,7 @@ register_name_desc:ستاسې اصلي نوم.
 register_your_pass:ستاسې پټنوم:
 register_update:اوسمهالول
 register_preview:مخليدنه
-register_register:ثبتول
+register_register:نوم‌ليکنه
 register_required:اړين مالومات
 register_required_desc:ټولو ډاگونو ته اړتيا ده.
 register_location:ځای:
