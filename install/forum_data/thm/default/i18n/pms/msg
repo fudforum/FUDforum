@@ -708,4 +708,12 @@ email_title:Formolari ëd pòsta eletrònica
 finduser_title:Trové n'utent
 help_title:Agiut
 login_title:Formolari d'intrada ant ël sistema
+poll_title:Editor ëd sondagi
 register_title:Formolari d'anscrission
+reset_title:Riamposté la ciav
+rpasswd_title:Formolari ëd modìfica dla ciav
+error_title:Formolari d'eror
+index_title:Bin-ëvnù an sla piassa
+search_title:Arserca ëd {VAR-HTML: srch}
+remail_emailsent:Ël mëssagi a l'é stàit mandà
+remail_email:Cerea,\n\nA-i é n'argoment anteressant a propòsit ëd «{VAR: data->subject}» an sla piassa {GVAR: FORUM_TITLE} che miraco chiel a l'avrìa piasì ëd lese. A peul vëdde l'argoment a:\n{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nSò amis,\n\n{VAR: usr->alias}

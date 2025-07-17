@@ -410,7 +410,7 @@ post_file_del:Borrar
 post_file_name:Nome
 post_file_size:Tamaño
 file_attachments:Arquivos adxuntos:
-allowed_files:Extensións de arquivos permitidas:
+allowed_files:Extensións de ficheiro permitidas:
 max_file_size:Tamaño máximo para o arquivo:
 max_files_per_msg:Máximo de arquivos por mensaxe:
 post_notification:Notificación de mensaxes
