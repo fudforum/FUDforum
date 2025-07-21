@@ -717,3 +717,33 @@ index_title:Bin-ëvnù an sla piassa
 search_title:Arserca ëd {VAR-HTML: srch}
 remail_emailsent:Ël mëssagi a l'é stàit mandà
 remail_email:Cerea,\n\nA-i é n'argoment anteressant a propòsit ëd «{VAR: data->subject}» an sla piassa {GVAR: FORUM_TITLE} che miraco chiel a l'avrìa piasì ëd lese. A peul vëdde l'argoment a:\n{FULL_ROOT}{ROOT}?t=rview&th={VAR: data->id}&rid={DEF: _uid}\n\nSò amis,\n\n{VAR: usr->alias}
+poll_add_option:Gionté n'opsion:
+post_opt_html_on:Ël còdes <b>HTML</b> a l'é <b>ativà</b>
+post_opt_fud_on:Ël <b><a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBcode</b> a l'é <b>ativà</b></a>
+post_opt_images_on:Le <b>plance</b> a son <b>ativà</b>
+post_opt_smilies_on:Ij <a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>sorisin</b> a son <b>ativà</b></a>
+post_opt_html_off:Ël còdes <b>HTML</b> a l'é <b>disativà</b>
+post_opt_fud_off:Ël <b>BBcode</b> a l'é <b>disativà</b>
+post_opt_images_off:Le <b>plance</b> a son <b>disativà</b>
+post_opt_smilies_off:Ij <b>sorisin</b> a son <b>disativà</b>
+post_opt:Opsion ëd la piassa:
+register_change_passwd:cangé la ciav
+register_change_login:modifiché la conession
+approved_avatar_title:Soa ampërsonificassion përsonalisà a l'é stàita aprovà.
+approved_avatar_msg:Soa ampërsonificassion a l'é stàita aprovà da j'aministrator. A dovrìa adess comparì tanme soa ampërsonificassion su tuti ij sò mëssagi. S'a la s-ciàira nen o a s-ciàira l'ampërsonificassion veja, a l'é pêrchè sò navigador a l'ha butà la pàgina an memòria local. Ch'a preuva a rinfrëschela na vira o doe. Ant la pi part dij cas son a arzòlv ël problema dla memòria local.
+unapproved_avatar_title:Soa ampërsonisassion përsonalisà a l'é stàita arfudà.
+unapproved_avatar_msg:L'aministrator a l'ha nen aprovà soa ampërsonisassion. Le rason pi frequente a son che l'ampërsonisassion a l'é tròp granda (taja o dimension) o a conten dle ròbe inapropià. A vorèissa pi d'anformassion an sla rason dl'arfud ëd soa ampërsonisassion, ch'a contata l'aministrator.
+mvthread_request_move:arcesta ëd tramud
+move_request_reason:Përchè a desìdera che l'argoment a sia tramudà?
+mvthread_submit_req:Mandé l'arcesta
+thread_exchange:Cangiament d'argoment
+move_request_by:Tramud ëd l'argoment ciamà da:
+move_reason:Rason për ël tramud ëd l'argoment:
+thr_exch_accept:aceté l'argoment
+thr_exch_decline:arfudé l'argoment
+thr_exch_orig_forum:Piassa d'adoss:
+thr_exch_dest_forum:Piassa ëd destinassion:
+thr_exch_no_threads:Gnun argoment ch'a speta d'aprovassion.
+thr_exch_decl_reason:Rason për arfudé l'argoment <b>{VAR: data->subject}</b> ant la piassa <b>{VAR: data->f2_name}</b>
+thr_exch_submit:Mandé
+exch_decline_ttl:Ël tramud ëd l'argoment {VAR: data->subject} ant la piassa {VAR: data->f2_name} a l'é stàit arfudà.

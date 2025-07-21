@@ -205,7 +205,7 @@ finduser_user:Benotzer
 finduser_postcount:Zuel vun de Messagen
 finduser_action:Aktioun
 yes:Jo
-no:Neen
+no:Nee
 register_email:Mail
 pmuserloc_login:Aloggen:
 pmuserloc_submit:Schécken
@@ -380,7 +380,7 @@ tabs_register:Astellunge vum Benotzerkont
 tabs_subscriptions:Abonnementer
 tabs_bookmarkes:Lieszeechen
 delete_yes:Jo
-delete_no:Neen
+delete_no:Nee
 error_invalidurl:Ongülteg URL
 error_error:Feeler
 usrinfo_show_all_posts:All Message vum {VAR: u->alias} weisen
@@ -432,7 +432,7 @@ thr_exch_accept:Theema akzeptéieren
 thr_exch_submit:Schécken
 split_thread:Theema opsplécken
 groupmgr_yes:Jo
-groupmgr_no:Neen
+groupmgr_no:Nee
 groupmgr_action:Aktioun
 groupmgr_member:Member
 groupmgr_cancel:Ofbriechen
@@ -510,7 +510,7 @@ search_desc_order:déi Neist fir d'éischt
 search_asc_order:déi Eelst fir d'éischt
 search_relevance_order:Relevanz
 search_logic:Sich-Logik:
-search_sorting:Zortéieren no:
+search_sorting:Sortéieren no:
 saved:Gespäichert
 buddy_offline:{VAR: r[2]} ass elo offline
 buddy_online:{VAR: r[2]} ass elo online
