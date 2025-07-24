@@ -747,3 +747,23 @@ thr_exch_no_threads:Gnun argoment ch'a speta d'aprovassion.
 thr_exch_decl_reason:Rason për arfudé l'argoment <b>{VAR: data->subject}</b> ant la piassa <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Mandé
 exch_decline_ttl:Ël tramud ëd l'argoment {VAR: data->subject} ant la piassa {VAR: data->f2_name} a l'é stàit arfudà.
+ppost_original_msg:mëssage che l'é an camin ch'a inoltra o ch'a-j rëspond
+split_thread:Separé l'argoment
+groupmgr_no_user:A-i é gnun utent ëstranomà «{FUNC: char_fix(htmlspecialchars($gr_member))}»
+groupmgr_already_exists:L’utent «{FUNC: char_fix(htmlspecialchars($gr_member))}» a esist già an costa partìa.
+groupmgr_yes:É
+groupmgr_no:Nò
+groupmgr_action:Assion
+groupmgr_member:Mèmber
+groupmgr_cancel:Anulé
+groupmgr_add_member:Gionté un mèmber
+groupmgr_update_member:Agiorné ël mèmber
+groupmgr_edit:Modifiché
+groupmgr_delete:Eliminé
+group_mgr_anon:Anònim
+group_mgr_reged:Tuti j'utent anscrit
+show_show:Smon-e:
+group_mgr_edit_btn:Modifiché la partìa
+group_mgr_heading:Selession dla partìa da modifiché
+group_mgr_group:Partìa:
+permission_denied_title:Përmess arfudà!
