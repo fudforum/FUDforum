@@ -763,7 +763,21 @@ groupmgr_delete:Eliminé
 group_mgr_anon:Anònim
 group_mgr_reged:Tuti j'utent anscrit
 show_show:Smon-e:
+group_mgr:Gestor ëd partìe
 group_mgr_edit_btn:Modifiché la partìa
 group_mgr_heading:Selession dla partìa da modifiché
 group_mgr_group:Partìa:
 permission_denied_title:Përmess arfudà!
+permission_denied_msg:In sò privilegi d'utent a-j pêrmëtto nen ëd fé l'assion ch'a sërca ëd fé.
+p_READ:Lese
+p_POST:Publiché
+p_REPLY:Rësponde
+p_EDIT:Modifiché
+p_DEL:Eliminé
+p_STICKY:Mëssagi tacà
+p_POLL:Creé un sondagi
+p_FILE:Taché dj'archivi
+p_VOTE:Voté
+p_RATE:Rapòrt argoment/mèmber
+p_SPLIT:Separé dj'argoment
+p_MOVE:Tramudé dj'argoment
