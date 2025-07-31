@@ -252,6 +252,7 @@ mklist_option:Možnost:
 mklist_additem:Dodaj predmet
 mklist_apply:Uporabi
 mklist_delete:Izbriši
+qbud_nick_name:Vzdevek
 qbud_selected:Izberi
 mklist_close:Zapri
 email_to:Za:

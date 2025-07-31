@@ -904,6 +904,7 @@ mmd_abort_move:Отказ
 dmsg_ip:IP:
 post_common_bold:Получер
 rating_delete:Изтриване
+tabs_notifications:Известия
 code_select_all:Избиране на всички
 code_show_hide:Показване/ скриване
 btn_delete:изтриване

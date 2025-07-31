@@ -780,4 +780,40 @@ p_FILE:Taché dj'archivi
 p_VOTE:Voté
 p_RATE:Rapòrt argoment/mèmber
 p_SPLIT:Separé dj'argoment
+p_LOCK:Ancadné dj'argoment
 p_MOVE:Tramudé dj'argoment
+p_SML:Dovré dij sorisin
+p_IMG:Usé dle tichëtte ëd plancia
+p_SEARCH:A peul fé n'arserca
+group_mgr_search:Trové n'utent
+group_mgr_indicator:Modìfica an cors ëd: <b>{VAR: grp->name}</b>
+rate_worst:Pes
+rate_best:Mej
+post_quote_msg:{VAR: msg->login} a l'ha scrivù ël {TEMPLATE: make_report_date}
+post_quote:Sitassion:
+post_quote_selected:Sité ël test selessionà
+userinfo_referals:Utent sota tua:
+userinfo_referals_count:{VAR: referals} mèmber
+pm_no_space_title:Pi gnun pòst disponìbil!
+pm_no_space_msg:Sò dossié dij mëssagi privà a sorpassa la taja d'anmagasinament autorisà ëd <b>{GVAR: MAX_PMSG_FLDR_SIZE} otet</b>. A conten atualman <b>{VAR: fldr_size} otet</b> ëd mëssagi.<br /><br /><span class="ErrorText">Ch'a elìmina dij vej mëssagi për fé 'd pòst.</span>
+pm_space_indct_msg:Ij sò dossié ëd mëssagi privà a son pien a {VAR: percent_full}%.
+th_expr_never:Mai
+th_expr_one_hr:1 ora
+th_expr_three_hr:3 ore
+th_expr_four_hr:4 ore
+th_expr_eight_hr:8 ore
+th_expr_sixteen_hr:16 ore
+th_expr_one_day:1 di
+th_expr_two_day:2 di
+th_expr_four_day:4 di
+th_expr_one_week:1 sman-a
+th_expr_two_week:2 sman-e
+th_expr_one_month:1 mèis
+th_expr_two_month:2 mèis
+th_expr_four_month:4 mèis
+th_expr_one_year:1 ann
+thread_mod_delete:Eliminé
+action_ip:IP
+action_latest_post:Ùltim mëssagi
+online_today_last_visit:Visità l'ùltima vira
+online_today_update:Vëdde la lista d'utent ch'a son ëstàit ant la piassa ancheuj.
