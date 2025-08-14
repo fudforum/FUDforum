@@ -29,10 +29,14 @@ forum:فورم:
 forum_icon:د فورم نښه
 forum_new_messages:نوي پيغامونه
 forum_old_messages:نوي پيغامونه نشته
+from:له:
 gender:جنس:
 go:ورځه
+goto_next_msg:بل پيغام ته ورتلل
+goto_prev_msg:مخکني پيغام ته ورتلل
 home:کور
 homepage:وېبپاڼه:
+im_facebook:فيسبوک:
 im_yahoo:ياهو مسېنجر:
 image:انځور:
 index_forum:فورم

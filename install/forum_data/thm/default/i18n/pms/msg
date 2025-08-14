@@ -817,6 +817,20 @@ action_ip:IP
 action_latest_post:Ùltim mëssagi
 online_today_last_visit:Visità l'ùltima vira
 online_today_update:Vëdde la lista d'utent ch'a son ëstàit ant la piassa ancheuj.
+logedin_todays_visitors:Visitator d'ancheuj
 logedin_latest_post:Ùltim mëssagi ant la piassa:
 register_show_avatar:Smon-e j'ampërsonisassion:
 register_show_avatar_desc:A-j përmet dë stërmé j'ampërsonisassion dj'àutri utent cand a les ij sò mëssagi.
+drawmsg_view_rest_post:Smon-e ël rest dël mëssagi
+post_re:Ri:
+forumsel_goto_forum:Andé a la piassa:
+minimsg_thread_view:Vista dl'argoment
+split_th_post_by:Mëssagi da:
+split_th_posted_on:Publicà ël:
+split_th_subject:Oget:
+split_th_new_thread_title:Tìtol dël neuv argoment:
+split_th_forum:Piassa:
+split_th_split_sel:Separé ij mëssagi selessionà
+split_th_split_unsel:Separé ij mëssagi nen selessionà
+split_th_messages:Mëssagi
+split_th_select:Selessioné
