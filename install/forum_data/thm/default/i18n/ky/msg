@@ -424,7 +424,7 @@ coppa_fax_no_permission:Эгерде катталууну бөгөттөңүз �
 coppa_fax_parent_name:Ата-энесинин толук ысымы:
 coppa_fax_relation:Баласы менен кандай жакындыгы бар:
 coppa_fax_telephone:Телефон:
-coppa_fax_email:Электрондук дарек:
+coppa_fax_email:Электрондук почта:
 coppa_fax_date:Дата:
 coppa_fax_questions:Түрдүү суроолор боюнча консультация <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:Кирүү
@@ -475,7 +475,7 @@ search_in_forum:Издөө үчүн форум:
 search_forum_search:Форумдан издөө
 move_thread_to:Теманы <b>{VAR: thr->subject}</b> форумга которуу:
 remail_email_topic:Бул теманы электрондук дарек аркылуу жөнөтүү
-remail_your_name:Сиздин ысым:
+remail_your_name:Атыңыз:
 remail_your_email:Сиздин Э-дарек:
 remail_friends_name:Алуучунун ысымы:
 remail_friends_email:Алуучунун Э-дареги:
@@ -747,6 +747,7 @@ iemail_msg_reply:Жооп берүү
 mnav_more:Көбүрөөк &raquo;&raquo;
 mnav_minute:Мүнөт
 mnav_day:Күн
+register_email_addr:Электрондук почта:
 ip_search:Издөө
 post_err_mod_forum_edit_ttl:КАТА
 uc_new_topic:Жаңы тема
@@ -755,6 +756,7 @@ mmd_abort_move:Жокко чыгаруу
 sml_code:Код
 post_common_underline:Асты сызылган
 post_common_link:Шилтеме кошуу
+post_common_email_popup:Электрондук почта:
 tabs_notifications:Кабарламалар
 code_title:Код:
 btn_new_topic:Жаңы тема
