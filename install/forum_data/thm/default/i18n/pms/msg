@@ -848,3 +848,8 @@ maximize_category:Massimisé la categorìa
 maximize_message:Massimisé ël mëssagi
 no_view_perm:A l'ha nen ij përmess giust për acede a cost argoment-sì
 report_empty_report:A peul nen mandé na signalassion veuida. Për piasì, ch'a buta na rason për soa signalassion.
+report_already_reported_title:Già signalà
+report_already_reported_msg:Ës mëssagi-sì a l'é già stàit signalà e ël rapòrt a l'é al moment ant la coa dël moderator.
+register_err_toomanyimages:A l'é an camin ch'a preuva a dovré pi che le {GVAR: FORUM_IMG_CNT_SIG} plance consentìe a soa signadura.
+pmsg_next_msg:Mëssagi apress
+pmsg_prev_msg:Mëssagi prima
