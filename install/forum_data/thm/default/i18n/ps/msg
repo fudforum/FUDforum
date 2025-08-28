@@ -12,13 +12,13 @@ admin:پازوال
 admin_control_panel:اداره
 administrator:پازوال
 attachment:مښلن:
-avatar:اواتار:
+avatar:ځان‌بڼه:
 biography:ژوندليک:
 birth_date:زېږون نېټه
 by:لخوا د:
-current_time:اوسينی وخت
+current_time:اوسنی وخت
 date_posted:د خپرولو نېټه
-date_registered:د ثبتېدلو نېټه:
+date_registered:نوم‌ليکنې نېټه:
 download_counter:{PLURAL: v[3]|$1 ځل|$1 ځله} ښکته شوی
 pmsg_download_counter:{PLURAL: r->dlcount|$1 ځل|$1 ځله} ښکته شوی
 email:برېښليک:
@@ -37,7 +37,7 @@ goto_prev_msg:مخکني پيغام ته ورتلل
 home:کور
 homepage:وېبپاڼه:
 im_facebook:فيسبوک:
-im_yahoo:ياهو مسېنجر:
+im_yahoo:ياهو مېسېنجر:
 image:انځور:
 index_forum:فورم
 interests:لېوالتياوې:
@@ -49,7 +49,7 @@ login:ننوتل
 login_header:ننوتل:
 logout:وتل
 members:غړي
-calendar:کاليزه
+calendar:کليز
 cal_goto_date:ورټوپ کړه:
 cal_day_heading:د نن پېښې
 cal_birthday:زېږون ورځ: {VAR: user}
@@ -73,7 +73,7 @@ posts:پيغامونه
 posts_c:پيغامونه:
 prev_thread:پخوانی سرليک:
 usrinfo_private_message:شخصي پيغام:
-rate_thread:سرليک ارزول
+rate_thread:سکالو ارزول
 rating:ارزښت
 register:نوم‌ليکنه
 replies:ځوابونه
@@ -105,8 +105,8 @@ view_results:پايلې کتل
 views:کتنې
 vote_button:رايه ورکول
 vote_for_thread:رايه ورکول
-what_ppl_doing:د کارن فعالیتونه
-reported_reason:سبب:
+what_ppl_doing:کارن چارې
+reported_reason:لامل:
 modque_delete:ړنگول
 list_referes_member:غړی
 pmsg_all:ټول
@@ -122,31 +122,31 @@ draft:گارليک
 sent:لېږل شوي
 msg_author:ليکوال
 month_1:جنوري
-month_2:فبروري
+month_2:فېبروري
 month_3:مارچ
-month_4:اپرېل
-month_5:مې
+month_4:اپريل
+month_5:می
 month_6:جون
 month_7:جولای
-month_8:اگسټ
+month_8:اگست
 month_9:سېپتمبر
 month_10:اکتوبر
 month_11:نومبر
-month_12:ډيسمبر
-sunday:يونۍ
+month_12:ډېسمبر
+sunday:يوه‌نۍ
 sunday_short:ا
-monday:دونۍ
+monday:دوه‌نۍ
 monday_short:د
-tuesday:درې نۍ
+tuesday:درې‌نۍ
 wednesday_short:م
-thursday:پينځنۍ
+thursday:پېنځه‌نۍ
 thursday_short:ش
 friday:جمعه
 friday_short:ج
-saturday:خالي
-saturday_short:خ
+saturday:پيلنۍ
+saturday_short:پ
 male:نارينه
-female:ښځه
+female:ښځينه
 unspecified:ناټاکلی
 finduser_user_info:د کارن مالومات
 finduser_submit:موندل
@@ -173,7 +173,7 @@ register_location:ځای:
 register_occupation:دنده:
 register_interests:لېوالتياوې:
 register_image:انځور:
-register_yahoo:ياهو مسېنجر:
+register_yahoo:ياهو مېسېنجر:
 register_homepage:وېبپاڼه:
 register_bday:زېږون نېټه:
 register_day:ورځ
@@ -181,9 +181,9 @@ register_month:مياشت
 register_year:کال
 register_gender:جنسيت:
 register_bio:ژوندليک:
-register_prefs:غوره توبونه
+register_prefs:غوره‌توبونه
 register_sig:لاسليک:
-register_show_sig:لاسليکونه ښکاره کول:
+register_show_sig:لاسليکونه ښودل:
 register_timezone:د وخت سيمه:
 buddy_status:دريځ
 add:ورگډول
@@ -192,7 +192,7 @@ post_annoncement:خبرتيا
 post_size:کچه
 post_color:رنگ
 post_font:ليکبڼه
-create_thread:سرليک جوړول
+create_thread:سکالو جوړول
 post_preview:مخليدنه
 post_logout:وتل
 post_poll_delete:ړنگول
@@ -238,7 +238,7 @@ remail_friends_name:د ملگري نوم:
 remail_friends_email:د ملگري برېښليک:
 remail_message:پيغام:
 remail_done:ترسره شو
-mklist_option:خوښنې:
+mklist_option:خوښنه:
 mklist_delete:ړنگول
 qbud_nick_name:کورنی نوم
 qbud_add_selected:ټاکلي ورگډول
@@ -255,8 +255,8 @@ poll_update:اوسمهالول
 poll_delete:ړنگول
 poll_day:ورځ
 poll_days:ورځې
-poll_hour:ساعت
-poll_hours:ساعتونه
+poll_hour:گړۍ
+poll_hours:گړۍ
 poll_month:مياشت
 poll_year:کال
 poll_week:اوونۍ
@@ -285,7 +285,7 @@ groupmgr_add_member:غړی ورگډول
 groupmgr_edit:سمول
 groupmgr_delete:ړنگول
 group_mgr_anon:ورکنومی
-show_show:ښکاره کول:
+show_show:ښودل:
 group_mgr_group:ډله:
 p_READ:لوستل
 p_REPLY:ځوابول
@@ -329,14 +329,14 @@ unread_message:نالوستی پيغام
 read_message:پيغام لوستل
 iemail_msg_reply:ځوابول
 threadt_announce:خبرتيا
-mnav_hour:ساعت (ساعتونه)
+mnav_hour:گړۍ
 mnav_day:ورځ (ورځې)
 mnav_week:اوونۍ
 mnav_month:مياشت (مياشتې)
 findu_edit:سمول
 findu_delete:ړنگول
-merge_next:راتلونکي سرليکونه
-merge_prev:پخواني سرليکونه
+merge_next:راتلونکې سکالوگانې
+merge_prev:پخوانۍ سکالوگانې
 register_email_addr:برېښليک‌پته:
 ip_search:پلټل
 userinfo_real_name:اصلي نوم:
@@ -344,7 +344,7 @@ post_err_mod_forum_edit_ttl:تېروتنه
 delete_msg_pm_body:آرنی پيغام
 delete_msg_pm_subject:سکالو: {VAR: data[15]}
 uc_new_pm:نوي شخصي پيغامونه
-uc_new_topic:نوی سرليک
+uc_new_topic:نوې سکالو
 search_options:د پلټلو خوښنې
 modque_cat:وېشنيزه
 modque_forum:فورم
@@ -366,8 +366,8 @@ finduser_flag:رپی
 move_messages:پيغامونه لېږدول
 code_title:کوډ:
 code_select_all:ټول ټاکل
-code_show_hide:ښکاره کول/ پټول
-btn_new_topic:نوی سرليک
+code_show_hide:ښودل/ پټول
+btn_new_topic:نوې سکالو
 btn_delete:ړنگول
 btn_edit:سمول
 btn_reply:ځوابول
