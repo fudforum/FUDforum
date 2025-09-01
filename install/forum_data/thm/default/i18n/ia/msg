@@ -240,7 +240,7 @@ pmsg_selected:Seliger
 pmsg_delete:Deler
 cur_ppage_pm:Messageria private
 writing_pm:Scriber un message private
-browsing_folder:Tu vide le dossier <b>{VAR: folders[$folder_id]}</b>
+browsing_folder:Exploration del dossier <b>{VAR: folders[$folder_id]}</b>
 inbox:Cassa de entrata
 draft:Versiones provisori
 sent:Messages inviate

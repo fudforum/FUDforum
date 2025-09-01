@@ -250,7 +250,7 @@ pmsg_selected:Selecteren
 pmsg_delete:Verwijderen
 cur_ppage_pm:Privéberichten
 writing_pm:Privébericht schrijven
-browsing_folder:Bezig met het bekijken van de map <b>{VAR: folders[$folder_id]}</b>
+browsing_folder:Verkennen map <b>{VAR: folders[$folder_id]}</b>
 inbox:Postvak IN
 draft:Concepten
 sent:Verzonden
