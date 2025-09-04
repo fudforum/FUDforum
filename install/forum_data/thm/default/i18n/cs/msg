@@ -7,6 +7,7 @@
 # Author: Juandev
 # Author: Kusavica
 # Author: Macofe
+# Author: Matus cz
 # Author: Matěj Grabovský
 # Author: McDutchie
 # Author: Mormegil
@@ -58,6 +59,7 @@ homepage:Domovská stránka:
 icq_control_panel:ICQ Online panel
 icq_message_form:Formulář ICQ zprávy:
 ignore_user:ignorovat uživatele
+im_facebook:Facebook
 im_yahoo:Yahoo Messenger:
 image:Obrázek:
 index_forum:Fórum
@@ -248,8 +250,7 @@ pmsg_forwarded:předáno
 pmsg_subject:Nadpis
 pmsg_author:Autor
 pmsg_time:Čas
-# Fuzzy
-pmsg_selected:Vybráno
+pmsg_selected:Vybrat
 pmsg_delete:Smazat
 cur_ppage_pm:Pošta
 writing_pm:Píšete poštu
@@ -316,11 +317,14 @@ register_builtin:Přednastavené
 register_specify_url:Zadat URL
 register_uploaded:Náhrát ikonu uživatele
 register_login:Uživatelské jméno:
+register_login_desc:Jméno, pod kterým se chcete přihlašovat a být na tomto webu známí.
+register_login_taken:Už se používá
 register_password:Heslo:
 register_conf_pass:Potvrzení hesla:
 # Fuzzy
 register_email_desc:Prosím, zadejte platnou emailovou adresu. Můžete ji skrýt před ostatními uživateli v sekci nastavení.
 register_name:Jméno:
+register_name_desc:Vaše skutečné jméno.
 register_your_pass:Heslo:
 register_update:Aktualizovat
 register_avatar_type:Typ ikony uživatele:
@@ -333,8 +337,7 @@ register_preview:Nahrát
 register_custom_avatar_upload:Soubor s novou ikonou uživatele:
 register_register:Registrovat
 register_required:Nutné informace
-# Fuzzy
-register_required_desc:Všechna pole je nutno vyplnit.  Prosím uvažte, že heslo je citlivé na velikost znaků (A,a).
+register_required_desc:Všechna pole je nutno vyplnit.
 register_optional:Volitelné informace
 register_optional_desc:Doporučujeme nezveřejňovat žádné důvěrné informace. Ostatní uživatelé do nich mohou nahlížet.
 register_location:Adresa:
@@ -342,6 +345,7 @@ register_occupation:Zaměstnání:
 register_interests:Zájmy:
 register_image:Vzhled:
 register_icq:ICQ
+register_facebook:Facebook ID:
 register_yahoo:Yahoo Messenger:
 register_homepage:Domovská stránka:
 register_bday:Datum narození:
@@ -389,8 +393,7 @@ post_color:Barva
 post_font:Písmo
 create_thread:Vytvoř téma
 submit_reply:Odešli odpověď
-# Fuzzy
-edit_message:Aplikuj změny zpráv
+edit_message:Použít změny
 apply_spell_changes:Aplikuj změny způsobu psaní
 post_preview:Náhled příspěvku
 post_logedin_user:Přihlášený uživatel:
@@ -470,6 +473,7 @@ login_login_btn:Přihlásit
 login_name_required:Uživatelské jméno je nutné k přihlášení
 login_passwd_required:Heslo je nutné k přihlášení
 login_invalid_radius:Nesprávná kombinace uživatelského jména/hesla
+login_or:nebo...
 reset_confirmation:Děkujeme za vaši registraci,\n\npro aktivování vašeho účtu přejděte na následující adresu:\n\n{VAR: url}\n\n/Pokud je váš účet již aktivován, budete přihlášen(a) do fóra a\npřesměrován(a) na hlavní stránku fóra.
 reset_reset:Dobrý den,\n\npožádal(a) jste o vynulování vašeho hesla. Pro okamžité vynulování vašeho hesla,\nprosím, přejděte na tuto URL\n\n{VAR: url}\n\nPOZNÁMKA: Toto fórum ukládá hesla jednosměrným šifrovacím mechanismem, což znamená,\nže heslo je vždy zakódované a není žádná možnost vám ho zaslat zpět.\nHeslo se hned po každém odeslání zakóduje a porovnává se s zakódovanou verzí na serveru jestli se shodují.\n (Pokud vás zájímá, jak tento mechanismus pracuje, přečtete si o MD5 HASH algoritmu)
 rpasswd_invalid_passwd:Nesprávné heslo

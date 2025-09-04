@@ -272,7 +272,7 @@ post_logout:ausloggen
 post_poll:Ëmfro:
 post_poll_delete:LÄSCHEN
 post_poll_edit:ÄNNEREN
-post_no_icon:Keen Icon
+post_no_icon:Kee Symbol
 post_upload_file:Fichier eroplueden
 post_file_del:Läschen
 post_file_name:Numm
@@ -553,6 +553,7 @@ mmd_mov_title:Theeme réckelen
 mmd_abort_move:Ofbriechen
 mmd_move:Theeme réckelen
 pmsg_pdf_btn:PDF-Archiv maachen
+search_results_hdr:{VAR: total} Sichresultater fonnt
 dmsg_ip:IP:
 sml_code:Code
 register_topics_per_page:Theme pro Säit:
