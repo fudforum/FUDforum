@@ -472,7 +472,7 @@ coppa_fax_passwd:Mot de passe
 coppa_fax_remail:Courriel
 coppa_fax_name:Nom
 login_not_logedin:Vous n’êtes pas connecté. Cela peut être dû à l’une des raisons suivantes :
-login_cookie_expired:Votre cookie a expiré et vous devez vous connecter afin de le renouveler.
+login_cookie_expired:Votre témoin (''cookie'') a expiré et vous devez vous connecter afin de le renouveler.
 login_perm_denied:Vous n’avez pas la permission d’accéder à la ressource que vous désirez en tant qu’utilisateur anonyme. Vous devez être inscrit et connecté pour obtenir cette permission.
 login_want_to_register:Voulez-vous vous inscrire ?
 login_forgot_passwd:J’ai oublié mon mot de passe
