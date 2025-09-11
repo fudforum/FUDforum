@@ -346,6 +346,7 @@ delete_msg_pm_subject:سکالو: {VAR: data[15]}
 uc_new_pm:نوي شخصي پيغامونه
 uc_new_topic:نوې سکالو
 search_options:د پلټلو خوښنې
+register_err_turing:تاييدول نابرياله شول. مهرباني وکړئ بيا هڅه وکړئ.
 modque_cat:وېشنيزه
 modque_forum:فورم
 mmd_abort_move:ناگارل
