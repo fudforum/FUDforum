@@ -3,6 +3,7 @@
 # Author: Ajeje Brazorf
 # Author: Alex Khimich
 # Author: Amin
+# Author: Amire80
 # Author: Breawycker
 # Author: EugeneZelenko
 # Author: Fryed-peach
@@ -288,7 +289,7 @@ poll_hours:{{Identical|Hour}}
 poll_month:{{Identical|Month}}
 poll_year:{{Identical|Year}}
 poll_week:{{Identical|Week}}
-tabs_bookmarkes:{{Identical|Bookmark}}
+tabs_bookmarkes:{{identical|Bookmark}}
 delete_yes:{{Identical|Yes}}
 delete_no:{{Identical|No}}
 error_error:{{Identical|Error}}
