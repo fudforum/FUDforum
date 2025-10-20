@@ -13,6 +13,7 @@
 # Author: Fatemi127
 # Author: Huji
 # Author: Jeeputer
+# Author: LordProfo
 # Author: Macofe
 # Author: Mjbmr
 # Author: Mohammad ebz
@@ -465,7 +466,7 @@ coppa_fax_email:آدرس ایمیل:
 coppa_fax_date:تاریخ:
 coppa_fax_questions:درصورتیکه سوالی دارید، با این ایمیل مکاتبه کنید: <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>
 coppa_fax_login:ورود
-coppa_fax_passwd:رمز عبور
+coppa_fax_passwd:گذرواژه
 coppa_fax_remail:ایمیل
 coppa_fax_name:نام
 login_not_logedin:شما وارد نشده‌اید. این می‌تواند به یکی از این دلایل باشد:
@@ -953,7 +954,7 @@ buddy_offline:{VAR: r[2]} هم‌اکنون آفلاین است
 buddy_online:{VAR: r[2]} هم‌اکنون آنلاین است
 sml_no_smilies:هیچ شکلکی موجود نیست.
 login_unapproved_account_ttl:حساب تاییدنشده
-login_unapproved_account_msg:هرحساب‌کاربری تازه قبل از فعال شدن باید توسط ادمین تأیید شود. حساب‌کاربری شما هنوز تأیید نشده است، لذا شما به بعضی از امکانات دسترسی نخواهید داشت.
+login_unapproved_account_msg:مدیر انجمن تصمیم گرفته است که هر حساب کاربری جدید را پیش از فعال‌سازی به صورت دستی تأیید کند. حساب شما هنوز تأیید نشده است، بنابراین نمی‌توانید به برخی از ویژگی‌های موجود برای اعضای تأیید شده دسترسی داشته باشید.
 remove_from_buddy_list:حذف از لیست دوستان
 iemail_msg_author:<b>نویسنده:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>موضوع:</b> {VAR: obj->subject}
