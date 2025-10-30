@@ -51,6 +51,7 @@ homepage:Κεντρική σελίδα:
 icq_control_panel:Πίνακας ICQ Online-Μηνυμάτων
 icq_message_form:Φόρμα Μηνύματος ICQ:
 ignore_user:αγνόηση όλων των μηνυμάτων από αυτόν τον χρήστη
+im_facebook:Facebook:
 im_yahoo:Yahoo Αγγελιοφόρος:
 image:Εικόνα:
 index_forum:Φόρουμ
@@ -313,6 +314,7 @@ register_occupation:Απασχόληση:
 register_interests:Ενδιαφέροντα:
 register_image:Εικόνα:
 register_icq:Ταυτότητα ICQ:
+register_facebook:Facebook ID:
 register_yahoo:Αγγελιοφόρος Yahoo:
 register_homepage:Κεντρική σελίδα:
 register_bday:Ημερομηνία Γέννησης:
@@ -381,6 +383,7 @@ post_diff_btn:Αλλαγές διαφορών
 post_cancel_btn:Ακύρωση
 ignore_users:Αγνοημένοι χρήστες
 forum_terms:Όροι χρήσης του φόρουμ
+coppa_conf:Επιβεβαίωση COPPA
 prereg_info:Κανόνες του Φόρουμ
 prereg_agree:Συμφωνώ
 prereg_disagree:Διαφωνώ
@@ -397,6 +400,7 @@ login_login:Είσοδος:
 login_login_btn:Είσοδος
 login_name_required:Το όνομα σύνδεσης απαιτείται.
 login_passwd_required:Απαιτείται κωδικός πρόσβασης
+login_or:ή...
 rpasswd_invalid_passwd:Λανθασμένος Κωδικός
 rpasswd_passwd_nomatch:Οι κωδικοί πρόσβασης δεν αντιστοιχούν.
 rpasswd_passwd_length:Οι κωδικοί πρόσβασης πρέπει να έχουν τουλάχιστον 6 χαρακτήρες.
@@ -442,8 +446,7 @@ mklist_apply:Εφαρμογή
 mklist_delete:Διαγραφή
 qbud_nick_name:Ψευδώνυμο
 qbud_add_selected:Πρόσθεση επιλεγμένων
-# Fuzzy
-qbud_selected:Επιλεγμένος
+qbud_selected:Επιλογή
 mklist_numerical:Αριθμητικό
 mklist_aplha:άλφα
 mklist_square:Τετράγωνο
@@ -653,10 +656,8 @@ userinfo_polls:Δημοσκοπήσεις:
 show_pollist:Ψηφοφορίες
 search_and:Και
 search_or:ή
-# Fuzzy
-search_desc_order:Φθίνουσα σειρά
-# Fuzzy
-search_asc_order:Αύξουσα σειρά
+search_desc_order:Νεότερα πρώτα
+search_asc_order:Παλαιότερα πρώτα
 search_attach:Συνημμένα:
 search_attach_all:Με ή χωρίς
 search_attach_with:Με συνάψεις
