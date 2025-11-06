@@ -751,6 +751,7 @@ register_email_addr:Электрондук почта:
 ip_search:Издөө
 post_err_mod_forum_edit_ttl:КАТА
 uc_new_topic:Жаңы тема
+modque_cat:Категория
 modque_forum:Форум
 mmd_abort_move:Жокко чыгаруу
 sml_code:Код

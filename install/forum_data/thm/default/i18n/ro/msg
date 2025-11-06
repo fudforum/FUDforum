@@ -6,6 +6,7 @@
 # Author: McDutchie
 # Author: Minisarm
 # Author: Naudefj
+# Author: SZ475
 # Author: Wintereu
 
 action:Acțiune
@@ -14,7 +15,7 @@ admin:Administrator
 admin_control_panel:Administrare
 administrator:Administrator
 attachment:Atașament:
-avatar:Imagine:
+avatar:Avatar:
 average_post_count:{PLURAL: u->posted_msg_count|$1 mesaj|$1 mesaje} ({PLURAL: avg|$1 mesaj|$1 mesaje} în medie pe zi)
 biography:Biografie:
 birth_date:Data nașterii:
@@ -49,6 +50,7 @@ homepage:Pagina personală:
 icq_control_panel:Panoul de control mesaje ICQ
 icq_message_form:Formularul de mesaje ICQ:
 ignore_user:ignoră toate mesajele trimise de acest utilizator
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:Imagine:
 index_forum:Forum
@@ -58,20 +60,22 @@ index_url_redirection:Redirecționare
 interests:Interese:
 last_post:Ultima trimitere
 last_thread_msg:Du-te la ultimul mesaj din aceasta tema
-legend:Legenda:
-location:Locatie:
-lock_thread:Blocheaza tema
-locked:Blocata
+legend:Legendă
+location:Locație:
+lock_thread:Blochează tema
+locked:Blocat
 locked_with_new_posts:Blocata (fara/ mesaje necitite)
 logged_in_list:Logheaza in lista de utilizatori
-login:Autentifica
-login_header:Autentifica:
-logout:Iesire
+login:Autentificare
+login_header:Autentificare:
+logout:Ieșire
 mark_all_read:Marchează toate mesajele ca citite
 mark_all_read_desc:Toate mesajele necitite vor fi marcate ca citite
 members:Membri
 calendar:Calendar
-cal_goto_date:Salt la:
+cal_goto_date:Sari la:
+cal_day_heading:Evenimente pentru ziua respectivă
+cal_no_events:Niciun eveniment pentru ziua respectivă.
 cal_birthday:Ziua de naștere: {VAR: user}
 cal_birthday_age:({PLURAL: age|$1 an|$1 ani}).
 message:Mesaj
@@ -109,20 +113,21 @@ no_unread_msg_unreg:Mesajele necitite pot fi urmarite doar de utiliozatorii inre
 num_pages:Pagini ({VAR: ttl_pg}):
 num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|vot|voturi}
 occupation:Ocupatia:
-off:OPRIT
-on:PORNIT
+off:oprit
+on:pornit
 page_timings:Timpul total necesar generării paginii: {PLURAL: page_gen_time|$1 secunde}
 pm:Mesaje personale
 poll:Sondaj:
 post_count:Mesaje trimise {VAR: u_pcount}
 post_count_l:Mesaje trimise:
-posts:Trimise
-posts_c:Trimise:
-prev_thread:Tema precedenta:
+posts:Mesaje
+posts_c:Mesaje:
+prev_thread:Tema precedentă:
 usrinfo_private_message:Mesaje personale:
 profile:Profil
 profile_desc:Accesați panoul de control al utilizatorului
 rate_thread:Voteaza tema
+rating:Evaluare
 refresh_list:Lista de reimprospatare
 register:Înregistrare
 registered:Inregistrat:
@@ -194,8 +199,7 @@ vote_button:Voteaza
 vote_for_thread:Voteaza
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> a fost mutat la <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> de moderator
 welcome_message:Bine ati venit <b>{VAR: usr->alias}</b>, ultima vizita a fost pe {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Arata procesele utilizatorilor
+what_ppl_doing:Activitatea utilizatorului
 reported_del_report:Sterge raport
 reported_reason:Motiv:
 reported_on:Pe:
@@ -212,9 +216,9 @@ deny_recipt_desc:Nu trimite confirmare de citere a acestui mesaj
 restore_to:Refa la:
 move_to:Muta la:
 list_referes_referrals:Referinte
-list_referes_members:Membri cu referinte
-list_referes_member:Membri
-referals_none:Nici o referinta inca
+list_referes_members:Membrii la care se face referire
+list_referes_member:Membru
+referals_none:Nici-o referință incă.
 referals_refered_by:Memebrii forumului au primit referinte de la: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Numar mesaje trimise
 referals_registered_on:Inregistrat la
@@ -227,15 +231,14 @@ pmsg_forwarded:trimis
 pmsg_subject:Subiect
 pmsg_author:Autor
 pmsg_time:Data
-# Fuzzy
-pmsg_selected:Selectat
-pmsg_delete:Sterge
+pmsg_selected:Selectează
+pmsg_delete:Șterge
 cur_ppage_pm:Mesaj personal
 writing_pm:Scrierea unui mesaj personal
 browsing_folder:Navigheaza in directorul <b>{VAR: folders[$folder_id]}</b>
 inbox:Casuta postala
-draft:Salvate
-sent:Trimise
+draft:Schiță
+sent:Trimis
 trash:Gunoi
 msg_author:Autor
 avatar_sel_form:Formular de selctie imagine
@@ -247,7 +250,7 @@ month_4:Aprilie
 month_5:Mai
 month_6:Junie
 month_7:Julie
-month_8:august
+month_8:August
 month_9:Septembrie
 month_10:Octombrie
 month_11:Noiembrie
@@ -275,9 +278,9 @@ register_tree_msg_view:Listare arborescenta/Listare normala
 register_flat_view:Vizualizare normala
 use_forum_default:Foloseste standardele forumului
 finduser_user_info:Informații despre utilizator
-finduser_by_login:Dupa numele de utilizator:
-finduser_submit:Cauta
-finduser_no_such_user:Nici un utilizator gasit
+finduser_by_login:Prin autentificare:
+finduser_submit:Caută
+finduser_no_such_user:Nici un utilizator găsit
 finduser_user:Utilizator
 finduser_postcount:Numar mesaje trimise
 finduser_joindate:Data inscriereii
@@ -295,11 +298,13 @@ register_builtin:Incorporat
 register_specify_url:Specifica URL
 register_uploaded:Incarca imagine
 register_login:Utilizator:
+register_login_available:Disponibil
+register_login_taken:Deja luat
 register_password:Parola:
 register_conf_pass:Confira Parola:
-# Fuzzy
-register_email_desc:Va rugam sa introduceti o adresa de email valida.
+register_email_desc:Adresa dvs. de e-mail. Puteți alege să o ascundeți mai jos, în secțiunea Preferințe.
 register_name:Nume:
+register_name_desc:Numele tău real.
 register_your_pass:Parola:
 register_update:Actualizează
 register_avatar_type:Tipul imaginii:
@@ -312,8 +317,7 @@ register_preview:Previzualizare
 register_custom_avatar_upload:Fisier imagine:
 register_register:Înregistrare
 register_required:Informatii necesare
-# Fuzzy
-register_required_desc:Toate campurile
+register_required_desc:Toate câmpurile sunt obligatorii.
 register_optional:Informatii optionale
 register_optional_desc:Este recomandat sa nu aratati toate informatiile despre dumneavoastra.
 register_location:Locatia:
@@ -321,6 +325,7 @@ register_occupation:Ocupatia:
 register_interests:Interese:
 register_image:Imagine:
 register_icq:Numar ICQ:
+register_facebook:ID-ul Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Pagina personala:
 register_bday:Data nasterii:
@@ -367,8 +372,7 @@ post_color:Culoare
 post_font:Font
 create_thread:Creeaza Tema
 submit_reply:Trimite raspuns
-# Fuzzy
-edit_message:Aplica modificarile mesajului
+edit_message:Aplică modificările
 apply_spell_changes:Aplica modificari limbaj
 post_preview:Previzualizare mesaj
 post_logedin_user:Inregistrat ca utilizator:
@@ -399,8 +403,7 @@ include_sig:Include Semnatura
 include_sig_desc:Include semnatura profilului meu
 disable_smilies:Dezactiveaza smilies
 spell_check_msg:Verifica limba mesajului
-# Fuzzy
-post_form:Trimite Forum
+post_form:Postează Forum
 post_forum:Forum:
 post_title:Titlu:
 post_body:Corpul mesajului:
@@ -453,6 +456,8 @@ login_login_btn:Autentifica
 login_name_required:Numele de utilizator este necesar
 login_passwd_required:Parola este necesara
 login_invalid_radius:Combinatie gresita utilizator/parola
+login_or:sau...
+login_alternatives:Conectați-vă folosind:
 reset_confirmation:Va multumim pentru ca v-ati inregistrat,\n\nPentru a va activa contul mergeti la agresa de mai jos:\n\n{VAR: url}\n\nOdata ce contul dumneavoastra va fi confirmat veti fi automat autentificat si trimis la prima pagina a forumului.
 reset_reset:Ziua buna,\n\nAti cerut ca parola sa fie resetata, pentru a o reseta mergeti la adresa URL\n\n{VAR: url}
 rpasswd_invalid_passwd:Parola incorecta
@@ -461,6 +466,7 @@ rpasswd_passwd_length:Parola trebuie sa aiba minim 6 caractre
 reset_remind_pass:Reseteaza parola
 reset_reset_conf:Parola va fi resetata si trimisa prin email. Va rugam sa raspundeti la email pentru a confirma primirea parolei.
 reset_error:Adresa de email nu a fost gasita in baza de date.
+reset_update:Resetează parola
 rpasswd_change_pass:Schimba parola
 rpasswd_login:Utilizator
 rpasswd_cur_pass:Parola curenta:
@@ -506,8 +512,7 @@ mklist_apply:Aplica
 mklist_delete:Sterge
 qbud_nick_name:Porecla
 qbud_add_selected:Adauga selecat
-# Fuzzy
-qbud_selected:Selecat
+qbud_selected:Selectare
 qbud_no_buddies:Nici un prieten
 mklist_numerical:Numeric
 mklist_aplha:Alfa
@@ -885,17 +890,14 @@ polllist_votes:Voturi totale
 polllist_action:Actiune
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Vezi sondaje disponibile</a>
 userinfo_polls:Sondaje:
-# Fuzzy
-show_pollist:Arata sondaje
+show_pollist:Sondaje
 search_and:SI
 search_or:SAU
-# Fuzzy
-search_desc_order:Ordine descendenta
-# Fuzzy
-search_asc_order:Ordine ascendenta
+search_desc_order:Cele mai noi primele
+search_asc_order:Cele mai vechi primele
+search_relevance_order:Relevanță
 search_logic:Cautare logica:
-# Fuzzy
-search_sorting:Sorteaza rezultatele dupa data:
+search_sorting:Sortare după:
 search_attach:Atașamente:
 search_attach_all:Cu sau fără
 search_attach_with:Cu atașamente
@@ -1042,10 +1044,8 @@ search_user_filter:Filtrat de utilizator:
 register_none:Nu mă notifica
 findu_no_conf:Utilizator neconfirmat
 register_max_sig_len:Lungimea Maxima:
-# Fuzzy
-register_turing:Va rog sa introduceti codul afisat mai jos:
-# Fuzzy
-register_err_turing:Cod de validare incorect.
+register_turing:Verificare:
+register_err_turing:Verificarea a eșuat. Vă rugăm să încercați din nou.
 modque_cat:Categorie
 modque_forum:Forum
 idx_compact_forum_row:Forumuri Disponibile:
@@ -1087,6 +1087,7 @@ topic_list_rating:{VAR: r[17]} din {PLURAL: r[21]|$1 vot|$1 voturi}
 tabs_notifications:Notificări
 finduser_flag:Drapel
 post_descr:Descriere subiect:
+pmsg_on:pornit
 move_messages:Mută mesajele
 move_msg_btn:Mută mesajele selectate
 captcha_img_alt:Verificare CAPTCHA: va trebui să recunoașteți textul din imagine.
