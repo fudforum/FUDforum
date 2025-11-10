@@ -1,0 +1,310 @@
+# Messages for Moldovan (молдовеняскэ)
+# Exported from translatewiki.net
+# Author: Cybernenea11
+
+action:Акциуне
+add_to_buddy_list:адэугаре ла листа де приетень
+admin:Администратор
+admin_control_panel:Администрацие
+administrator:Администратор
+attachment:Аташамент:
+avatar:Аватар:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Месаж|$1 Месаже} ({PLURAL: avg|$1 месаж|$1 месаже} ын медие пе зи)
+biography:Биографие:
+birth_date:Дата наштерий:
+by:Де:
+by_mod:де Модератор
+current_time:Орэ курентэ
+custom_avatar_queue:Коада имаӂинилор екстерне
+date_posted:Дата публикэрий
+date_registered:Дата ынреӂистрэрий:
+download_counter:Дескэркат {PLURAL: v[3]|$1 датэ|де $1 орь|де $1 де орь}
+pmsg_download_counter:Дескэркат {PLURAL: r->dlcount|$1 датэ|де $1 орь|де $1 де орь}
+email:Поштэ електроникэ:
+email_to_friend:Тримитере прин пошта електроникэ
+email_to_friend_desc:Тримитеря легэтурий URL кэтре ачест месаж прин пошта електроникэ
+email_user:Тримитеря скрисорий кэтре утилизатор
+faq:Ажутор
+first_unread_msg:Тречере ла месаже нечитите
+first_unread_msg_desc:Тречере ла примул месаж нечитит пе ачастэ темэ
+flat_view:Ревенире ла аспект инициал
+forum:Форум:
+forum_icon:Пиктограма форумулуй
+forum_new_messages:Месаже ной
+forum_none_messages:Доар мембрий ынреӂистраць ай форумулуй пот мониториза месажеле читите &amp; нечитите
+forum_old_messages:Нич ун месаж ноу
+from:Де ла:
+gender:Секс:
+go:Тречере
+goto_next_msg:Тречере ла месаж урмэтор
+goto_prev_msg:Тречере ла месаж пречедент
+home:Принчипалэ
+homepage:Паӂинэ-Веб персоналэ:
+icq_control_panel:Паноу де презенцэ ын реця ICQ
+icq_message_form:Формулар де месаже ICQ:
+ignore_user:игнораря тутурор месажелор де ла ачест утилизатор
+im_facebook:Facebook:
+im_yahoo:Yahoo Messenger:
+image:Имаӂине:
+index_forum:Форум
+index_new_posts:Месаже ной де ла ултима читире
+index_no_new_posts:Нич ун месаж ноу де ла ултима читире
+index_url_redirection:Редирекционаре
+interests:Интересе:
+last_post:Ултимул месаж
+last_thread_msg:Тречере ла ултимул месаж дин ачастэ темэ
+legend:Леӂендэ:
+location:Ситуаре ӂеографикэ:
+lock_thread:Ынкидеря темей
+locked:Темэ ынкисэ
+locked_with_new_posts:Темэ ынкисэ (сынт месаже нечитите)
+logged_in_list:Акум пе форум
+login:Ынтраре ын конт
+login_header:Конт:
+logout:Ынкееря сесиуний
+mark_all_read:Маркаря тутурор месажелор ка читите
+mark_all_read_desc:Тоате месажеле думнявоастрэ нечитите вор фи маркате ка читите
+members:Мембри
+calendar:Календар
+cal_goto_date:Тречере ла:
+cal_day_heading:Евенименте зилей
+cal_no_events:Нич ун евенимент астэзь.
+cal_update:Обсерваря календарулуй форумулуй
+cal_birthday:Зиуа де наштере: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 зи де наштере|$1 зиле де наштере|$1 де зиле де наштере}
+cal_birthday_age:(вырстэ {PLURAL: age|$1 ан|$1 ань|$1 де ань}).
+message:Месаж
+message_counter:Утилизаторий ноштри ау лэсат <b>{PLURAL: post_count|$1 месаж|$1 месаже|$1 де месаже}</b> пе <b>{PLURAL: thread_count|$1 темэ|$1 теме|$1 де теме}</b>.
+message_index:Листэ де месаже
+message_index_desc:Екзаминаря листей де месаже
+minimize_category:Рестрынӂеря категорией
+minimize_message:Рестрынӂеря месажулуй
+moderation_queue:Коадэ де модераре
+moderator:Модератор
+moderator_of:Модератор ла:
+moderator_options:Опциунь модераторулуй
+moderators:{PLURAL: modcount|Модератор|Модераторь}
+more_unread_messages:алте месаже нечитите
+more_unread_messages_desc:Афишаря алтор месаже нечитите ши маркаря месажелор куренте ка читите
+move_thread:Мутаре
+moved:Мутатэ ын алт форум
+moved_thread_message:Ачастэ темэ а фост мутатэ ын алт форум
+na:инапликабил
+new_posts:Месаже ной
+new_private_messages:Авець <span class="GenTextRed">{VAR: c}</span> {PLURAL: c|месаж приват нечитит|месаже привате нечитите|месаже привате нечитите}
+new_thread:Креаря уней теме ной
+newest_user:Ултимул утилизатор ынреӂистрат:
+next_page:Паӂинэ урмэтоаре
+next_thread:Темэ урмэтоаре
+no_messages:Ну сынт месаже ын ачест форум.<br />Путець девени примул каре креазэ ун субьект де дискуцие аич.
+no_msg_body:Месажул ну аре концинут
+no_new_posts:Нич ун месаж ноу
+no_posts:Нич ун месаж
+no_subscribed_forums:Нич ун форум абонат
+no_subscribed_threads:Нич о темэ абонатэ
+no_bookmarked_threads:Нич о темэ ын Семне де карте
+no_unread_locked:Ачастэ темэ а фост ынкисэ
+no_unread_msg:Ачастэ темэ ну аре месаже нечитите
+no_unread_msg_unreg:Месажеле читите &amp; нечитите пот фи мониторизате доар де кэтре утилизаторий ынреӂистраць
+num_pages:Паӂинь ({VAR: ttl_pg}):
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|вот|вотурь|де вотурь}
+occupation:Окупацие:
+off:оприт
+on:порнит
+page_timings:Тимпул тотал консумат пентру ӂенераря паӂиний: {PLURAL: page_gen_time|$1 секундэ|$1 секунде}
+pm:Поштэ персоналэ
+poll:Вотаре:
+post_count:Нумэр де месаже {VAR: u_pcount}
+post_count_l:Нумэр де месаже:
+posts:Месаже
+posts_c:Месаже:
+prev_thread:Темэ пречедентэ:
+usrinfo_private_message:Месаж персонал:
+profile:Паноу де контрол
+profile_desc:Акчес ла паноул де контрол ал утилизаторулуй
+rate_thread:Евалуаря темей
+rating:Евалуаре
+rating_track:Ӂестиуня евалуэрилор пентру <b>{VAR: thr->subject}</b>:
+refresh_list:Реынноиря листей
+register:Ынреӂистраре
+registered:Ынреӂистрат:
+registered_on:Ынреӂистрат ла {TEMPLATE: registered_on_date}
+replies:Рэспунсурь
+report_to_mod:Рапортаря месажулуй унуй модератор ал форумулуй
+reported_messages:Месаже рапортате
+reveal_all_posts:афишаря тутурор месажелор тримисе де {VAR: user_login}
+reveal_post:афишаря месажулуй
+search:Кэутаре
+sel_todays_posts:Месаже де астэзь
+sel_todays_posts_desc:Комутаря филтрулуй месажелор де астэзь (вор фи афишате нумай месажеле тримисе астэзь)
+sel_unanswered_posts:Месаже фэрэ рэспунс
+sel_unanswered_posts_desc:Комутаря филтрулуй месажелор фэрэ рэспунс (вор фи афишате нумай месаже фэрэ рэспунс)
+sel_unread_messages:Месаже нечитите
+sel_unread_messages_desc:Комутаря филтрулуй месажелор нечитите (вор фи афишате нумай месаже нечитите)
+send:Тримитере
+send_pm_desc:Тримитеря месажулуй персонал ачестуй утилизатор
+sender_email:Пошта тримицэторулуй:
+sender_name:Нуме тримицэторулуй:
+show_posts_by:Афишаря месажелор тримисе де: {VAR: u_alias}
+size:Дименсиуне:
+status:Статут:
+status_line:Ын моментул де фацэ <b>{PLURAL: st_obj->online_users_reg|$1 мембру|$1 мембри|$1 де мембри}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 мембру инвизибил|$1 мембри инвизибиль|$1 де мембри инвизибиль}</b> ши <b>{PLURAL: st_obj->online_users_anon|$1 оаспете|$1 оаспець|$1 де оаспець}</b> сынт презенць пе ачест форум.
+sticky:липите:
+stop_ignoring:ынчетаря игнорэрий ачестуй утилизатор
+sub_to_thread:Абонаре ла темэ
+sub_to_thread_desc:Примиря нотификэрилор деспре ноиле месаже пе ачастэ темэ
+bookmark_thread:Адэугаря Семнулуй де карте
+bookmark_thread_desc:Адэугаря Семнулуй де карте пентру ачастэ темэ
+subject:Субьект
+subscribe:Абонаре
+subscribe_desc:Примиря нотификэрилор атунч кынд чинева креазэ о темэ ноуэ ын ачест форум
+subscribed_forums:Форумурь абонате
+subscribed_forums_desc:Комутаря филтрулуй форумурилор абонате (вор фи афишате нумай месаже де пе форумуриле ла каре сынтець абонат)
+subscribed_threads:Теме абонате
+subscribed_threads_desc:Комутаря филтрулуй темелор абонате (вор фи афишате нумай месаже дин темеле ла каре сынтець абонат)
+bookmarked_threads:Семне де карте пентру теме
+switch_to_thread_view:Комутаре ла аспект арборесчент
+thread:Темэ:
+thread_announcement:Анунц:
+thread_first_unread_msg:Тречере ла примул месаж нечитит дин ачастэ темэ
+thread_thread:Темэ
+threads:Теме
+time:Орэ
+todays_posts:Месаже де астэзь
+todays_posts_desc:Афишаря тутурор месажелор тримисе астэзь
+un_ignore_user:ынчетаря игнорэрий месажелор тримисе де ачест утилизатор
+unanswered_posts:Месаже фэрэ рэспунс
+unanswered_posts_desc:Афишаря тутурор месажелор фэрэ рэспунс
+unlock_thread:Редескидеря темей
+unread_msg:Ачастэ темэ концине месаже пе каре ну ле-аць читит
+unread_msg_locked:Темэ ынкисэ ку месаже нечитите
+unread_posts:Месаже нечитите
+unread_posts_desc:Афишаря тутурор месажелор нечитите
+unsub_from_thread:Дезабонаре де ла темэ
+unsub_from_thread_desc:Ренунцаря ла примиря нотификэрилор деспре ноиле месаже пе ачастэ темэ
+unbookmark_thread:Елиминаря Семнулуй де карте
+unbookmark_thread_desc:Елиминаря Семнулуй де карте пентру ачастэ темэ
+unsubscribe:Дезабонаре
+unsubscribe_desc:Ренунцаря ла примиря нотификэрилор деспре ноиле теме ын ачест форум
+updated_on:Реынноире ла:
+user:Утилизатор
+user_counter:Авем <b>{VAR: st_obj->user_count}</b> {PLURAL: st_obj->user_count|утилизатор ынреӂистрат|утилизаторь ынреӂистраць|де утилизаторь ынреӂистраць}.
+user_info:Информаций деспре утилизатор
+user_info_l:Информаций деспре утилизатор {VAR: u->alias}
+user_offline:{VAR: obj->login} ну есте ын реця
+user_online:{VAR: obj->login} есте ын реця
+usrinfo_last_post:Ултимул месаж:
+view_results:Екзаминаря резултателор
+views:Визионэрь
+vote:{PLURAL: frm->n_rating|$1 вот|$1 вотурь|$1 де вотурь}
+vote_button:Вотаре
+vote_for_thread:Евалуаре
+was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> мутат де модератор ла <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
+welcome_message:Бине аць венит, <b>{VAR: usr->alias}</b>, ултима думнявоастрэ визитэ а фост пе {TEMPLATE: welcome_message_date}
+what_ppl_doing:Активитатя утилизаторулуй
+reported_del_report:Штерӂеря рапортулуй
+reported_reason:Каузэ:
+reported_on:Дата рапортэрий:
+reported_reported_by:Рапортат де:
+reported_reported_msg:Месаже рапортате
+modque_pending_approval:Месаже ын аштептаря апробэрий
+modque_approve:Апробаре
+modque_delete:Штерӂере
+modque_deleteall:Штерӂеря тутурор месажелор тримисе де ачест утилизатор
+modque_no_message:Нич ун месаж ын аштептаря апробэрий
+pmsg_new_messages:Месаж персонал нечитит
+pmsg_old_messages:Месаж персонал читит
+deny_recipt:интерзичеря нотификэрий
+deny_recipt_desc:Тримицэторул ну ва фи нотификат деспре читиря месажулуй сэу де кэтре думнявоастрэ
+restore_to:Рекупераре ла:
+move_to:Мутаре ла:
+list_referes_referrals:Инвитат
+list_referes_members:Мембри инвитаць прин легэтурь де рекомандаре
+list_referes_member:Мембру
+referals_none:Нич ун мембру инвитат прин легэтурь де рекомандаре.
+referals_refered_by:Мембри инвитаць прин легэтурь де рекомандаре тримисе де: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_post_count:Нумэр де месаже
+referals_registered_on:Дата ынреӂистрэрий
+referals_action:Акциуне
+pmsg_all:тоате
+pmsg_none:нич ун
+folder:Мапэ:
+pmsg_replied:рэспунс
+pmsg_forwarded:редирекционат
+pmsg_subject:Субьект
+pmsg_author:Аутор
+pmsg_time:Орэ
+pmsg_selected:Селектаре
+pmsg_delete:Штерӂере
+cur_ppage_pm:Поштэ персоналэ
+writing_pm:Скриеря унуй месаж персонал
+browsing_folder:Обсерваря мапей <b>{VAR: folders[$folder_id]}</b>
+inbox:Примите
+draft:Чорнэ
+sent:Тримисе
+trash:Кош де гуной
+msg_author:Аутор
+avatar_sel_form:Селектаря имаӂиний
+no_avatars:Нич о имаӂине диспонибилэ
+month_1:Януарие
+month_2:Фебруарие
+month_3:Мартие
+month_4:Априлие
+month_5:Май
+month_6:Юние
+month_7:Юлие
+month_8:Аугуст
+month_9:Септембрие
+month_10:Октомбрие
+month_11:Ноембрие
+month_12:Дечембрие
+sunday:Думиникэ
+sunday_short:дм
+monday:Лунь
+monday_short:лн
+tuesday:Марць
+tuesday_short:мар
+wednesday:Меркурь
+wednesday_short:мер
+thursday:Жой
+thursday_short:жой
+friday:Винерь
+friday_short:вн
+saturday:Сымбэтэ
+saturday_short:см
+male:Маскулин
+female:Феминин
+unspecified:Ну есте индикат
+register_tree_view:Аспект арборесчент
+register_msg_tree_view:Форумурь плате/Теме арборесченте
+register_tree_msg_view:Форумурь арборесченте/Теме плате
+register_flat_view:Аспект плат
+use_forum_default:Инициал
+finduser_user_info:Информаций деспре утилизатор
+finduser_by_login:Дупэ нуме:
+finduser_submit:Кэутаре
+finduser_no_such_user:Утилизатор инекзистент
+finduser_user:Утилизатор
+finduser_postcount:Нумэр де месаже
+finduser_joindate:Дата адерэрий
+finduser_action:Акциуне
+yes:Да
+no:Ну
+register_email:Поштэ електроникэ
+edit_time_limit:<b>Тимп де редактаре диспонибил</b>: {GVAR: EDIT_TIME_LIMIT} мин.
+no_edit_time_limit:<b>Тимп де редактаре диспонибил</b>: Нелимитат
+pmuserloc_login:Нуме:
+pmuserloc_submit:Кэутаре
+pmuserloc_user:Утилизатор
+pmuserloc_no_result:Ну с'а гэсит нимик
+register_builtin:Ынкорпорат
+register_specify_url:Индикаря адресей URL
+register_uploaded:Ынкэркаря имаӂиний
+register_login:Конт:
+register_login_desc:Нумеле суб каре дориць сэ ынтраць ын систем ши сэ фиць куноскут пе ачест сайт.
+register_login_available:Диспонибил
+register_login_taken:Дежа луат
+register_password:Паролэ:
+register_password_desc:Парола пентру контул думнявоастрэ. Паролеле сынт сенсибиле ла мажускуле ши минускуле ши требуе сэ концин чел пуцин 6 карактере.
+register_conf_pass:Парола ынкэ о датэ (пентру верификаре):
+register_conf_pass_desc:Вэ ругэм, реынтродучець парола думнявоастрэ ынкэ о датэ.
