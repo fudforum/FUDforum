@@ -269,8 +269,8 @@ register_show_email:इमेल-ठेगाना देखाउने:
 buddy_status:स्थिति
 my_buddies:मेरो साथीहरू
 add_buddy:साथीहरू थप्ने
-add:थप्ने
-buddy_remove:हटाउने
+add:थप्नुहोस्
+buddy_remove:हटाउनुहोस्
 post_normal:सामान्य
 post_sticky:स्टिकी
 post_annoncement:घोषणा
@@ -328,10 +328,10 @@ poll_hours:घन्टा
 register_change_passwd:प्रवेश शब्द परिवर्तन गर्नुहाेस्
 groupmgr_delete:मेट्ने
 p_DEL:मेट्ने
-th_expr_one_hr:घण्टा
-th_expr_three_hr:३ घण्टा
-th_expr_eight_hr:८ घण्टा
-th_expr_sixteen_hr:१६ घण्टा
+th_expr_one_hr:१ घन्टा
+th_expr_three_hr:३ घन्टा
+th_expr_eight_hr:८ घन्टा
+th_expr_sixteen_hr:१६ घन्टा
 th_expr_one_day:१ दिन
 th_expr_two_day:२ दिन
 th_expr_four_day:४ दिन
