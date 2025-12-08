@@ -1091,7 +1091,7 @@ mnav_sub_only:Buscar só nos foros aos que estou subscrito
 register_topics_per_page:Fíos por páxina:
 login_min_time:Este foro permite un intento de inicio de sesión cada {VAR: MIN_TIME_BETWEEN_LOGIN} segundos, por favor, agarde {FUNC: ($usr_d->last_login + $MIN_TIME_BETWEEN_LOGIN - __request_timestamp__)} segundos antes de intentalo de novo.
 post_not_logged_in:Non accedeu ao sistema, de xeito que a mensaxe será publicada anonimamente.
-post_common_bold:Negra
+post_common_bold:Grosa
 post_common_italics:Cursiva
 post_common_underline:Subliñado
 post_common_align_left:Aliñar á esquerda
