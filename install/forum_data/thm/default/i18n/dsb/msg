@@ -460,6 +460,8 @@ login_login_btn:Pśizjawjenje
 login_name_required:Wužywarske mě jo trěbne
 login_passwd_required:Gronidło jo trěbne
 login_invalid_radius:Njepłaśiwa kombinacija wužywarske mě/gronidło
+login_or:abo…
+login_alternatives:Pśizjawiś z:
 reset_confirmation:Źěkujomy se za registrěrowanje.\n\nAby swójo konto aktiwěrował, źi k slědujucemu URL:\n\n{VAR: url}\n\nGaž twójo konto jo zaktiwěrowane, buźoš se pla foruma pśizjawjaś a na głowny bok dalej pósrědnjaś.
 reset_reset:Witaj,\n\nsy pominał, aby se swójo gronidło slědk stajiło. Aby proceso dokóńcył,\nźi pšosym k toś tomu URL:\n\n{VAR: url}\n\nGLĚDAJŚO: Toś ten forum składujo gronidło z jadnosměrnym koděrowanim, což groni, až se gronidło, gaž sy jo składł, koděrujo, aby njejo ŽEDNA MÓŽNOSĆ, jo slědk dostaś. To funkcioněrujo pśez pśirownowanje skoděrowaneje wersije, kótaraž jo skłaźona, ze skoděrowaneju wersiju, kótaruž zapódawaš.\n(Jolic maš zajm za funkcisku wašnju toś togo mechanizma, studěruj algoritmus MD5 HASH)
 rpasswd_invalid_passwd:Njepłaśiwe gronidło
@@ -1112,8 +1114,7 @@ move_msg_th_expl:Pódaj ID celoweje temy (móžo teke w drugich forumach byś)
 captcha_img_alt:Pśespytanje captcha: Musyš tekst we wobrazu spóznaś.
 captcha_img_help:Njejo nula abo jadenka we wobrazu.
 powered-by:Spěchowany přez: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Wše wubraś
 code_show_hide:Pokazaś/schowaś

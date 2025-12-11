@@ -19,6 +19,7 @@
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
+# Author: Penyuwangi
 # Author: StefanusRA
 # Author: Totosunarto
 # Author: Veracious
@@ -329,7 +330,7 @@ register_login_available:Tersedia
 register_login_taken:Sudah diambil
 register_password:Kata sandi:
 register_password_desc:Kata sandi untuk akun Anda. Kata sandi peka terhadap huruf dan harus memiliki panjang karakter lebih dari 6 karakter.
-register_conf_pass:Konfirmasi Password:
+register_conf_pass:Konfirmasikan Kata Sandi:
 register_conf_pass_desc:Tolong masukkan kembali kata sandi Anda.
 register_email_desc:Alamat surel Anda. Anda bisa menyembunyikan surel pada bagian preferensi.
 register_name:Nama:
@@ -407,7 +408,7 @@ apply_spell_changes:Lakukan pengubahan ejaan
 post_preview:Pratayang pesan
 post_logedin_user:Pengguna sedang Aktif:
 post_logout:keluar log
-post_passwd:Password untuk menulis:
+post_passwd:Kata sandi Pemostingan:
 post_poll:Angket:
 post_create_poll:BUAT ANGKET
 post_poll_delete:HAPUS
@@ -445,7 +446,7 @@ ignore_users:Pengguna diacuhkan
 add_ignore:Tambah diacuhkan
 forum_terms:Pernyataan Forum
 forum_rules:<p>Pendaftaran untuk forum ini bebas! Kami bersikeras bahwa anda mematuhi peraturan dan kebijakan yang rinci di bawah ini. Jika Anda setuju dengan persyaratan, silahkan tekan tombol <b>Setuju</b> di akhir halaman. </p> <p> Meskipun para administrator dan moderator forum ini akan selalu berusaha untuk menjaga obyektivitas semua pesan dalam forum ini, tidak mungkin bagi kami untuk memeriksa semua pesan. Semua pesan yang ada mengungkapkan sudut pandang dari penulisnya masing-masing, dan baik pemilik forum atau para pengembang tidak bertanggung jawab atas isi dari setiap pesan tersebut. </p> <p> Dengan mengklik tombol Setuju, Anda menjamin bahwa Anda tidak akan memasukkan segala pesan yang cabul, vulgar, berorientasi seksual, kebencian, mengancam, atau melanggar hukum. </p> <p> Pemilik forum ini memiliki hak untuk menghapus, mengedit, memindahkan atau menutup topik apapun untuk alasan apapun. </p>
-forum_rules_13:<p>Semua pengguna di bawah umur 13 tahun harus meminta izin dari orang tua atau wali mereka untuk mendapatkan keanggotaan  forum. Sementara kami menyambut partisipasi dari anggota di bawah 13, kami meminta orang tua atau wali mengirim faks atau surat formulir izin yang telah ditandatangani sebelum kami memberikan keanggotaan.</p><p>Jika Anda ingin memulai proses registrasi sebelum kami menerima bentuk izin, tekan tombol <b>Setuju</b> di bawah ini. Jika Anda ingin membatalkan registrasi, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum. </p><p>Salinan formulir izin dapat didownload di sini. Untuk informasi lebih lanjut tentang proses pendaftaran, silakan kirim e-mail ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>Semua pengguna di bawah umur 13 tahun harus meminta izin dari orang tua atau wali mereka untuk mendapatkan keanggotaan  forum. Sementara kami menyambut partisipasi dari anggota di bawah 13, kami meminta orang tua atau wali mengirim faks atau surat formulir izin yang telah ditandatangani sebelum kami memberikan keanggotaan.</p><p>Jika Anda ingin memulai proses pendaftaran sebelum kami menerima bentuk izin, tekan tombol <b>Setuju</b> di bawah ini. Jika Anda ingin membatalkan registrasi, tekan <b>Tidak setuju</b> untuk kembali ke indeks forum. </p><p>Salinan formulir izin dapat diunduh di sini. Untuk informasi lebih lanjut tentang proses pendaftaran, silakan kirim surel ke <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:Konfirmasi COPPA
 coppa_before:Sebelum {TEMPLATE: coppa_date}
 coppa_after:Sesudah {TEMPLATE: coppa_date}
@@ -457,9 +458,9 @@ prereg_disagree:Tidak setuju
 prereg_update:Membaca aturan forum
 coppa_fax_instructions:Petunjuk untuk orang-tua / wali
 coppa_fax_instructions2:Silakan cetak halaman ini, tanda-tangani, dan kirim atau fax kembali kepada kami:
-coppa_fax_reg_form:Formulir Registrasi
+coppa_fax_reg_form:Formulir Pendaftaran
 coppa_fax_sign:Silakan tanda tangani formulir di bawah ini dan kirimkan ke kami
-coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profile bisa diubah menggunakan password. Kami mengerti bahwa kami dapat meminta agar data profile pendaftaran ini dihapus seluruhnya dari forum.
+coppa_fax_conf:Kami sudah melihat informasi yang diberikan anak kami dan kami sudah membaca&mengerti Kebijakan Kepribadian dari halaman web. Kami mengerti bahwa informasi profil bisa diubah menggunakan kata sandi. Kami mengerti bahwa kami dapat meminta agar data profile pendaftaran ini dihapus seluruhnya dari forum.
 coppa_fax_permission:Tanda tangan di sini jika anda setuju/memberikan izin
 coppa_fax_no_permission:Tanda-tangan disini jika anda ingin data pendaftaran dihapus
 coppa_fax_parent_name:Nama orang-tua/wali:
@@ -476,27 +477,27 @@ login_not_logedin:Anda belum login. Ada beberapa kemungkinan sebab:
 login_cookie_expired:Cookie sudah kedaluwarsa, dan anda harus login ulang untuk memperbaharuinya.
 login_perm_denied:Anda tidak berhak mengakses sumber daya sebagai pengguna tamu. Anda harus login untuk memperoleh hak.
 login_want_to_register:Hendak mendaftar?
-login_forgot_passwd:Lupa password
+login_forgot_passwd:Lupa kata sandi
 login_use_cookie:Gunakan cookie <br /> <span class="SmallText">Jika anda menggunakan terminal publik seperti komputer di perpustakaan, sekolah, atau Internet kafe, direkomendasikan bahwa Anda harus centang pada pilihan ini untuk lebih aman.<br />Jika anda mengacuhkan pilihan  ini maka Anda akan langsung login ke forum, ketika Anda berkunjung.</span>
 login_login:Login
 login_login_btn:Masuk log
 login_name_required:Diperlukan nama Login
-login_passwd_required:Diperlukan Password
-login_invalid_radius:Kombinasi Login/password tidak berlaku
+login_passwd_required:Diperlukan kata sandi
+login_invalid_radius:Paduan masuk log/kata sandi tidak sah
 reset_confirmation:Terima-kasih atas pendaftarannya,\n\nUntuk mengaktifkan, silakan buka halaman:\n\n{VAR: url}\n\nBila sudah aktif, anda bisa login ke forum dan\nsecara otomatis diarahkan ke halaman utama.
-reset_reset:Hallo,\n\nAnda meminta password anda ditimpa ulang. Untuk meneruskan proses silakan menjuj ke halaman ini:\n\n{VAR: url}\n\nCatatan: Forum ini menyimpan password dengan proses satu arah, artinya sekali anda memberikan password\nakan dienkripsi sehingga tidak mungkin untuk mengambilnya lagi!\nCara kerjanya adalah dengan membandingkan versi terenkripsi dengan yang anda ketik saat login.\n(Jika ingin tahu lebih detil, baca algoritma MD5 HASH)
-rpasswd_invalid_passwd:Password salah
+reset_reset:Halo,\n\nAnda meminta kata sandi anda diatur ulang. Untuk meneruskan proses silakan menuju ke halaman ini:\n\n{VAR: url}\n\nCatatan: Forum ini menyimpan kata sandi dengan proses satu arah, artinya sekali anda memberikan kaat sandi\nakan dienkripsi sehingga tidak mungkin untuk mengambilnya lagi!\nCara kerjanya adalah dengan membandingkan versi terenkripsi dengan yang anda ketik saat masuk log.\n(Jika ingin tahu lebih rinci, baca algoritma MD5 HASH)
+rpasswd_invalid_passwd:Kata sandi tidak sah
 rpasswd_passwd_nomatch:Sandi tidak cocok
-rpasswd_passwd_length:Password minimal 6 karakter
-reset_remind_pass:Pengingat Password
+rpasswd_passwd_length:Kata sandi mesti setidaknya sepanjang 6 karakter.
+reset_remind_pass:Pengingat Kata Sandi
 reset_reset_conf:Kata sandi Anda akan ditimpa dan dikirimkan ke surel Anda. Jika anda belum mengkonfirmasikan di alamat surel, konfirmasi akan dikirim ulang.
 reset_error:E-mail address tidak ada di database
 reset_update:Setel ulang kata sandi
-rpasswd_change_pass:Ubah Password
+rpasswd_change_pass:Ubah Kata Sandi
 rpasswd_login:Masuk log
 rpasswd_cur_pass:Sandi Sekarang:
-rpasswd_new_pass:Password baru:
-rpasswd_conf_pass:Ulang Password:
+rpasswd_new_pass:Kata Sandi Baru:
+rpasswd_conf_pass:Konfirmasikan Kata Sandi:
 ruser_title:Ubah Formulir Log Masuk
 ruser_change_user:Ubah Log Masuk Forum Anda
 ruser_cur_login:Log Masuk Sekarang:
@@ -504,7 +505,7 @@ ruser_new_login:Log Masuk Baru:
 ruser_cur_pass:Sandi Sekarang:
 login_passwd:Kata sandi:
 reset_email:Surel:
-reset_reset_button:Timpa Password
+reset_reset_button:Atur Ulang Kata Sandi
 rate_this_thread:Nilai
 report_reporting_about:Melaporkan mengenai:
 report_subject:subyek:
@@ -571,7 +572,7 @@ poll_timelimit:Batas waktu:
 poll_maxiumvotes:Maksimal Pemilih:
 poll_create:Buat
 poll_update:Perbarui
-poll_disablesmilies:Non-aktifkan smilies
+poll_disablesmilies:Matikan smilies
 poll_create_poll:Buat poling
 poll_update_poll:perbaiki poling
 poll_delete:Hapus
@@ -613,7 +614,7 @@ core_err_invinp_title:Masukan tidak sah
 core_err_invinp_err:Anda mengikuti alamat yang salah. Beritahu <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> bagaimana anda bisa sampai disini.
 core_adm_login_msg:Administrator dapat masuk log <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">di sini</a>
 email_err_unabletoemail_title:ERROR: tidak bisa mengirim e-mail
-email_err_unabletoemail_msg:e-mail sudah dinon-aktifkan oleh administrator.
+email_err_unabletoemail_msg:Sistem surel sudah dimatkan oleh pengurus.
 email_error_unabletolocaddr:Maaf, tidak bisa mengirim ke {VAR-HTML: _POST['tx_name']} karena alamat tujuan tidak diketahui
 email_error_body:Isi pesan harus ada
 email_error_subject:Isi subyek harus ada
@@ -658,7 +659,7 @@ post_err_floodtrig_msg:Coba lagi dalam {PLURAL: tm|$1 detik|$1 detik}
 post_err_attach_size:Berkas lampiran terlalu besar (melebihi batas yang diizinkan sebesar {VAR: MAX_F_SIZE} bita)
 post_err_attach_ext:Berkas yang anda kirimkan tidak diizinkan, jenis file tidak sesuai dengan yang diizinkan.
 post_err_attach_filelimit:Anda mencoba melebihi batas jumal berkas sisipan.
-post_err_passwd:Password tidak benar.
+post_err_passwd:Kata sandi salah.
 post_reply_update:Sedang membalas <a href="{TEMPLATE: msg_post_lnk}">{VAR: thr->subject}</a> di {VAR: frm->name}
 post_topic_update:Sedang menulis topik baru <a href="{TEMPLATE: post_topic_update_lnk}">{VAR: frm->name}</a>
 post_error_generic:Terjadi kesalahan
@@ -678,32 +679,32 @@ register_err_short_login:Nama masuk log yang anda pilih terlalu singkat. Nama ma
 register_err_login_notallowed:Nama pengguna tersebut tidak diizinkan.
 register_err_loginunique:Nama login harus unik, nama tersebut sudah terpakai.
 register_err_emailexists:alamat surel tersebut sudah dihubungkan dengan sebuah akun. Jika Anda lupa kata sandi Anda, pergunakan bantuan Balikkan Kata Sandi alih-alih mendaftar ulang.
-register_err_shortpasswd:Password minimal 6 karakter.
-register_err_passwdnomatch:Password tidak sesuai, mohon dicoba lagi.
+register_err_shortpasswd:Kata sandi mesti setidaknya sepanjang 6 karakter.
+register_err_passwdnomatch:Kata sandi tidak sesuai, mohon dicoba lagi.
 register_err_invalidemail:Alamat surel yang anda masukkan tampaknya tidak berlaku.
-register_err_needname:ANda harus memasukkan nama agar proses registrasi sukses.
-register_err_enterpasswd:Password diperlukan untuk melakukan perubahan
+register_err_needname:Untuk berhasil menyelesaikan pendaftaran ini, Anda harus memasukkan nama Anda.
+register_err_enterpasswd:Kata sandi diperlukan untuk melakukan perubahan
 register_err_adminpasswd:Anda harus memasukkan katakunci <b>pengurus</b> untuk melakukan perubahan.
 register_err_notyouremail:Seseorang sudah memakai alamat e-mail tsb.
 register_err_avatartobig:Berkas yang anda kirimkan terlalu besar, lebih dari {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
 register_err_avatarnotallowed:Avatar yang Anda kirimkan tidak sah. Mohon periksa lagi jenis berkas yang diizinkan.
-register_conf_subject:Konfirmasi Registrasi
-register_conf_msg:Terima-kasih atas registrasi anda,\nUntuk mengaktifkan akun anda, silakan ke:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSesudah aktif, anda bisa login&\nsecara otomatis akan diarahkan ke halaman utama.
-register_welcome_subject:Konfirmasi Registrasi Forum
-register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLogin: {VAR: uent->login}\nPassword: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat password merupakan ''case sensitive''!\nUntuk mengubah pengesetan atau profile, tuju halaman ini:\n{FULL_ROOT}?t=register
+register_conf_subject:Konfirmasi Pendaftaran
+register_conf_msg:Terima kasih atas pendaftarannya,\nUntuk menyalakan akun Anda, silakan ke:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSetelah akun Anda dinyalakan, Anda akan masuk log ke forum dan\ndialihkan ke halaman utama.
+register_welcome_subject:Konfirmasi Pendaftaran Forum
+register_welcome_msg:Terima-kasih telah mendaftar,\n\nBerikut adalah keterangan lengkap anda:\n\nURL Forum: {TEMPLATE: index_update_lnk}\nLog masuk: {VAR: uent->login}\nKata sandi: {VAR: _POST['reg_plaintext_passwd']}\n\nMohon diingat kata sandi bersifat peka terhadap huruf besar dan kecil!\nUntuk mengubah pengaturan atau profil, tuju halaman ini:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:SALAH: tidak dapat mendaftar
 regsiter_err_cantreg_msg:Tidak bisa membuat akun pengguna, mohon hubungi administrator di <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Melihat profil pribadi
-register_register_update:Halaman Registrasi
+register_register_update:Halaman Pendaftaran
 report_err_nosuchmsg_title:GALAT
 report_err_nosuchmsg_msg:Pesan tidak ada
 reset_err_invalidkey_title:GALAT
 reset_err_invalidkey_msg:Kunci penimpaan kata sanditidak benar. Mungkin aplikasi surel Anda membuka halaman ini, menjadikan kunci tidak berlaku. Jika demikian, dalam beberapa saat lagi, Anda akan menerima surel dengan kata sandi Anda yang baru. Jika tidak demikian, silakan ulang proses penimpaan kata sandi.
 reset_err_rstconf_title:Informasi
 reset_err_rstconf_msg:Dalam beberapa menit, Anda akan menerima petunjuk di surel.
-reset_newpass_title:Timpa password
-reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi login anda adalah:\n\nLogin: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nHarap diingat baik-baik bahwa password anda telah disetel ulang menjadi seperti di atas. Jika anda ingin merubah kembali password Anda\nbisa andalakukan di panel kontrol pengguna di:\n{FULL_ROOT}?t=register
-reset_login_notify:Password anda sudah dikirim melalui e-mail, dalam beberapa saat anda akan menerimanya<br />
+reset_newpass_title:Atur Ulang Kata Sandi
+reset_newpass_msg:Halo,\n\nSesuai permintaan anda, informasi log masuk anda adalah:\n\nLog masuk: {VAR: ui[1]}\nKata sandi: {VAR: passwd}\n\nHarap diingat baik-baik bahwa kata sandi anda telah diatur ulang menjadi seperti di atas. Jika anda ingin merubah kembali kata sandi Anda\nbisa anda lakukan di panel kontrol pengguna di:\n{FULL_ROOT}?t=register
+reset_login_notify:Kata sandi anda sudah dikirim melalui surel, dalam beberapa saat anda akan menerimanya<br />
 search_update:Mencari pesan
 selmsg_update:Melihat <a href="{TEMPLATE: selmsg_update_lnk}">pesan hari ini</a>
 showposts_update:Melihat pesan dari: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -713,12 +714,12 @@ thread_update:Melihat forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->n
 tree_update:Melihat topik (tree view) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
 userinfo_update:Melihat profile dari <a href="{TEMPLATE: userinfo_update_lnk}">{VAR: u->alias}'s</a>
 ERR_login_msg2:<legend>SALAH: Anda tidak login</legend>Untuk mengakses forum ini, anda harus menjadi anggota
-ERR_disabled_ttl:Fasilitas dinon-aktifkan
+ERR_disabled_ttl:Fitur dimatikan
 ERR_disabled_msg:Fitur ini telah dinonaktifkan oleh pengurus sistem.
 ERR_access_ttl:SALAH: Wewenang tidak mencukupi
 ERR_access_msg:Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
-ERR_registration_disabled_ttl:Registrasi di non-aktifkan
-ERR_registration_disabled_msg:Administrator sudah menon-aktifkan proses registrasi, cobalah beberapa saat lagi.
+ERR_registration_disabled_ttl:Pendaftaran Dimatikan
+ERR_registration_disabled_msg:Pengurus sudah mematikan pendaftaran, cobalah beberapa saat lagi.
 ERR_emailconf_ttl:SALAH: Akun anda belum dikonfirmasi
 ERR_emailconf_msg:Anda belum mengkonfirmasi akun Anda melalui surel.<br /><table border="0"><tr><td><ol><li>Jika Anda belum menerima konfirmasi surat-e,<a href="{TEMPLATE: ERR_emailconf_msg_lnk}"> minta lagi disini</a>.</li><li>Jika {VAR: usr_d->email} bukan surel Anda yang benar, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">isi alamat yang benar disini</a>.</li></ol></td></tr></table>
 ERR_user_ttl:SALAH: Pengguna tidak ada
@@ -730,25 +731,25 @@ finduser_title:Cari Pengguna
 help_title:Bantuan
 login_title:Formulir Login
 poll_title:Pembuatan Poling
-register_title:Formulir Registrasi
-reset_title:Timpa Password
-rpasswd_title:Formulir pengubah Password
+register_title:Daftarkan Formulir
+reset_title:Atur Ulang Kata Sandi
+rpasswd_title:Ubah Bentuk Kata Sandi
 error_title:Formulir Kesalahan
 index_title:Selamat datang di forum
 search_title:Mencari {VAR-HTML: srch}
 remail_emailsent:Surel terkirim
 remail_email:Halo,\n\nAda topik menarik tentang "{VAR: data->subject}" di forum {GVAR: FORUM_TITLE} yang mungkin ingin Anda baca. Anda dapat melihatnya dari sini:\n {FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nTeman Anda,\n\n{VAR: usr->alias}
 poll_add_option:Tambah pilihan:
-post_opt_html_on:kode <b>HTML</b> di<b>AKTIFKAN</b>
-post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> di<b>AKTIFKAN</b></a>
-post_opt_images_on:<b>Gambar</b> di<b>AKTIFKAN</b>
-post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> di<b>AKTIFKAN</b></a>
-post_opt_html_off:kode <b>HTML</b> di<b>NON-AKTIFKAN</b>
-post_opt_fud_off:<b>BBcode</b> di<b>NON-AKTIFKAN</b>
-post_opt_images_off:<b>Images</b> di<b>NON-AKTIFKAN</b>
-post_opt_smilies_off:<b>Smilies</b> di<b>NON-AKTIFKAN</b>
+post_opt_html_on:kode <b>HTML</b> <b>dinyalakan</b>
+post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> <b>dinyalakan</b></a>
+post_opt_images_on:<b>Gambar</b> <b>dinyalakan</b>
+post_opt_smilies_on:<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> <b>dinyalakan</b></a>
+post_opt_html_off:kode <b>HTML</b> <b>dimatikan</b>
+post_opt_fud_off:<b>BBcode</b> <b>dimatikan</b>
+post_opt_images_off:<b>Gambar-gambar</b> <b>dimatikan</b>
+post_opt_smilies_off:<b>Smilies</b> d<b>dimatikan</b>
 post_opt:Pilihan Forum:
-register_change_passwd:ubah password
+register_change_passwd:ubah kata sandi
 register_change_login:ubah log masuk
 approved_avatar_title:Avatar kustom anda disetujui.
 approved_avatar_msg:Avatar kustom anda disetujui oleh administrator. Avatar ini seharusnya muncul disetiap pesan anda. Jika tidak, refresh browser sekali atau dua kali.
@@ -1008,7 +1009,7 @@ mnav_update:Memeriksa pesan dengan <a href="{TEMPLATE: mnav_update_lnk}">Navigas
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Pemberitahuan Pesan Pribadi Baru
 pm_notify_body_email:Anda mendapat pesan pribadi baru dengan subjek "{VAR: subject}", dari "{VAR: from}", di forum "{GVAR: FORUM_TITLE}".\nUntuk melihat, tekan di sini: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nUntuk menghentikan pemberitahuan, nonaktifkan "Pemberitahuan Pesan Pribadi" di profil Anda.
 register_pm_notification:Pemberitahuan Pesan Pribadi
-register_pm_notification_desc:Jika di aktifkan, anda akan menerima surel jika ada pesan pribadi untuk Anda.
+register_pm_notification_desc:Jika dinyalakan, anda akan menerima surel jika ada pesan pribadi untuk Anda.
 findu_admin_opts_header:Pilihan Admin.
 findu_unban:Ijinkan
 findu_ban:Cekal

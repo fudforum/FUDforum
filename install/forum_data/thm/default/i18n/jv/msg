@@ -1,5 +1,6 @@
 # Messages for Javanese (Jawa)
 # Exported from translatewiki.net
+# Author: Bennylin
 # Author: Diki Ananta
 # Author: Kangit23
 # Author: Macofe
@@ -1118,7 +1119,7 @@ rating_delete:Busak
 post_always_on_top:Priksa topik sing tansah katon ing sisih ndhuwur listing topic
 topic_rating:{VAR: frm->rating} saka {PLURAL: frm->n_rating|$1 milih|$1 votes}
 topic_list_rating:{VAR: r[17]} saka {PLURAL: r[21]|$1 milih|$1 votes}
-tabs_notifications:Wara-wara
+tabs_notifications:Pambiwara
 finduser_flag:Tenger
 post_descr:Topic Description:
 pmsg_on:ing
