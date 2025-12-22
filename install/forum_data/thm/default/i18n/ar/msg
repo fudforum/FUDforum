@@ -251,7 +251,7 @@ pmsg_forwarded:مُمرَّرة
 pmsg_subject:الموضوع
 pmsg_author:المؤلف
 pmsg_time:الوقت
-pmsg_selected:تحديد
+pmsg_selected:اختر
 pmsg_delete:حذف
 cur_ppage_pm:مراسلة خاصة
 writing_pm:اكتب رسالة خاصة
@@ -538,7 +538,7 @@ mklist_apply:طبِّق
 mklist_delete:حذف
 qbud_nick_name:الاسم المستعار
 qbud_add_selected:أضف المختار
-qbud_selected:تحديد
+qbud_selected:اختر
 qbud_no_buddies:لا يوجد أصدقاء يمكن الاختيار منهم
 mklist_numerical:مرقمة
 mklist_aplha:ألفبائية
