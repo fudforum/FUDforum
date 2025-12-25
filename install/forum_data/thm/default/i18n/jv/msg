@@ -161,7 +161,7 @@ sub_to_thread:Langganan topic
 sub_to_thread_desc:Nampa kabar bab anyar pesen nang topik iki
 bookmark_thread:Bookmark topic
 bookmark_thread_desc:Tambah topik iki menyang dhaptar tetenger
-subject:Subjek
+subject:Subyèk
 subscribe:langganan
 subscribe_desc:Nampa kabar yen wong nggawe topik anyar ing forum iki
 subscribed_forums:Subscribed Forum
@@ -238,7 +238,7 @@ pmsg_none:ora ana
 folder:folder:
 pmsg_replied:wangsulane
 pmsg_forwarded:diterusake
-pmsg_subject:Subjek
+pmsg_subject:Subyèk
 pmsg_author:Pangarang
 pmsg_time:Wektu
 # Fuzzy

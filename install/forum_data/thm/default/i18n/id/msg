@@ -484,7 +484,7 @@ login_login_btn:Masuk log
 login_name_required:Diperlukan nama Login
 login_passwd_required:Diperlukan kata sandi
 login_invalid_radius:Paduan masuk log/kata sandi tidak sah
-reset_confirmation:Terima-kasih atas pendaftarannya,\n\nUntuk mengaktifkan, silakan buka halaman:\n\n{VAR: url}\n\nBila sudah aktif, anda bisa login ke forum dan\nsecara otomatis diarahkan ke halaman utama.
+reset_confirmation:Terima-kasih atas pendaftarannya,\n\nUntuk menyalakan, silakan buka halaman:\n\n{VAR: url}\n\nBila sudah dinyalakan, anda bisa masuk log ke forum dan\nsecara otomatis diarahkan ke halaman utama.
 reset_reset:Halo,\n\nAnda meminta kata sandi anda diatur ulang. Untuk meneruskan proses silakan menuju ke halaman ini:\n\n{VAR: url}\n\nCatatan: Forum ini menyimpan kata sandi dengan proses satu arah, artinya sekali anda memberikan kaat sandi\nakan dienkripsi sehingga tidak mungkin untuk mengambilnya lagi!\nCara kerjanya adalah dengan membandingkan versi terenkripsi dengan yang anda ketik saat masuk log.\n(Jika ingin tahu lebih rinci, baca algoritma MD5 HASH)
 rpasswd_invalid_passwd:Kata sandi tidak sah
 rpasswd_passwd_nomatch:Sandi tidak cocok
@@ -945,7 +945,7 @@ insert_uploaded_image:Masukan gambar pada badan pesan
 finduser_help:Mesin pencari akan secara otomatis menambahkan "*" ke kata pencarian, <b>Pencarian membedakan huruf besar/kecil</b>.<br />misalkan untuk mencari semua pengguna yang berawal 'a', masukkan 'a' ke kotak pencari.
 back_to_top:Kembali ke Atas
 pm_err_disabled_title:Pesan pribadi nonaktif
-pm_err_disabled_msg:Anda tidak bisa mengirim pesan pribadi sampai mengaktifkan pilihan 'mekanisme Pesan Pribadi' di profile anda.
+pm_err_disabled_msg:Anda tidak bisa mengirim pesan pribadi sampai menyalakan pilihan 'Izinkan Pesan Pribadi' di profil Anda.
 err_mod_acc_ttl:Akun belum diverifikasi
 err_mod_acc_msg:Pengurus sudah menentukan bahwa semua akun baru harus diperiksa secara manual sebelum dinyalakan. Sebelum akun Anda diabsahkan oleh pengurus, Anda belum memperoleh semua fasilitas yang tersedia untuk akun anda.
 accounts_pending_approval:Akun menunggu persetujuan
