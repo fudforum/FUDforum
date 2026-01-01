@@ -13,6 +13,7 @@
 # Author: Poxnar
 # Author: Rockyfelle
 # Author: Sabelöga
+# Author: Stefan2255
 # Author: Tobulos1
 # Author: Warrakkk
 # Author: WikiPhoenix
@@ -394,8 +395,7 @@ post_color:Färg
 post_font:Typsnitt
 create_thread:Börja diskussion
 submit_reply:Skicka svar
-# Fuzzy
-edit_message:Editera inlägg
+edit_message:Tillämpa ändringar
 apply_spell_changes:Godta stavningskontrollens ändringar
 post_preview:Förhandsgranska inlägget
 post_logedin_user:Inloggad medlem:
@@ -432,6 +432,7 @@ post_title:Rubrik:
 post_body:Text:
 post_options:Alternativ:
 post_preview_btn:Förhandsgranska meddelande
+post_diff_btn:Visa ändringar
 post_cancel_btn:Avbryt
 ignore_users:Ignorerade medlemmar
 add_ignore:Ignorera medlem
@@ -475,6 +476,8 @@ login_login_btn:Logga in
 login_name_required:Användarnamnet är obligatoriskt
 login_passwd_required:Lösenordet är obligatoriskt
 login_invalid_radius:Ogiltig kombination av användarnamn och lösenord
+login_or:eller...
+login_alternatives:Logga in med:
 reset_confirmation:Tack för din registrering!\n\nFör att aktivera ditt konto skall du gå till följande URL:\n\n{VAR: url}\n\nNär ditt konto har aktiverats blir du inloggad i forumet och\nvidaresänd till forumets första sida.
 reset_reset:Hej!\n\nDu har begärt att ditt lösenord nollställs. För att verkligen NOLLSTÄLLA ditt lösenord\nvänligen besök denna URL\n\n{VAR: url}\n\nNOTERA: Forumet sparar lösenorden med enkelriktade krypteringsmekanismer vilket innebär att\nnär du väl har skrivit ditt lösenord krypteras det så att det inte går att dekryptera.\nDet här fungerar genom att helt enkelt kryptera lösenordet varje gång du skriver in det. Sedan jämförs resultatet för att se om den nya och den sparade versionen\nstämmer överens. (Om du är intresserad av att veta hur det hela fungerar kan du läsa om "MD5 HASH"-algoritmen)
 rpasswd_invalid_passwd:Ogiltigt lösenord
@@ -640,8 +643,7 @@ post_err_lockedthread_msg:Den här diskussionen är låst och inga fler inlägg 
 err_coppa_title:FEL: Ditt konto är inte bekräftat ännu
 err_coppa_msg:Vi har inte fått en bekräftelse av din förälder eller förmyndare, vilket skulle tillåtit dig att skriva inlägg. Om du tappat bort ditt COPPA-formulär kan du <a href="{TEMPLATE: err_coppa_msg_lnk}">se det här</a>.
 err_banned_acct_title:FEL: Du har blivit avstängd.
-# Fuzzy
-err_banned_acct_msg:Ditt konto blev {IF: $ban_expiry}temporärt avstängt till {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}permanent avstängt{ENDI} för tillgång till websidan på grund av överträdelser av forumets regler.
+err_banned_acct_msg:Ditt konto blev {IF: $ban_expiry}tillfälligt avstängt tills {TEMPLATE: ban_expiry_date}{ELSE}permanent avstängt{ENDI} från att komma åt webbplatsen på grund av ett brott mot forumets regler.
 post_err_edttimelimit_title:FEL
 post_err_edttimelimit_msg:Du kan inte editera det här meddelandet längre
 post_err_noannontopics_msg2:<legend>FEL: Otillräckliga privilegier</legend>Anonyma användare får inte skapa ämnen.
@@ -1064,6 +1066,7 @@ search_options:Sökalternativ
 search_user_filter:Filtrerar efter användare:
 register_none:Meddela mig inte
 findu_no_conf:obekräftad användare
+findu_banned:avstängd användare
 register_max_sig_len:Maximal längd:
 register_turing:Verifiering:
 register_err_turing:Verifiering misslyckades. Var god försök igen.
@@ -1085,8 +1088,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:FEL: Ditt konto har filtrerats bort.
 err_blockedaccnt_msg:Ditt konto har spärrats från att komma åt forumet på grund av något av de installerade användarfiltren.
 merge_th_page_list:Ämnesidesval
-# Fuzzy
-most_users_online:Flest användare online samtidigt var <b>{VAR: st_obj->most_online}</b> on <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Flest användare online någonsin var <b>{VAR: st_obj->most_online}</b> den <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Avsluta prenumeration från alla forum
 sub_unsub_all_topics:Avsluta Prenumeration Från Alla Ämnen
 unbookmark_all_topics:Ta bort alla bokmärken
@@ -1128,8 +1130,7 @@ move_msg_th_expl:Specificera ID på destinationsämnet (kan vara i andra fora)
 captcha_img_alt:Caotcha verifiering: du måste tolka texten i denna bild.
 captcha_img_help:Det finns ingen nolla eller etta i bilden.
 powered-by:Drivs av: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2022 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Kod:
 code_select_all:Välj alla
 code_show_hide:Visa / dölj
