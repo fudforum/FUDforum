@@ -76,6 +76,7 @@ calendar:Calendar
 cal_goto_date:Sari la:
 cal_day_heading:Evenimente pentru ziua respectivă
 cal_no_events:Niciun eveniment pentru ziua respectivă.
+cal_update:Răsfoind calendarul forumului
 cal_birthday:Ziua de naștere: {VAR: user}
 cal_birthday_age:({PLURAL: age|$1 an|$1 ani}).
 message:Mesaj
@@ -153,6 +154,7 @@ size:Marimea:
 status:Statut:
 # Fuzzy
 status_line:Sunt <b>{VAR: st_obj->online_users_reg}</b> membri, <b>{VAR: st_obj->online_users_hidden}</b> membri invizibili si <b>{VAR: st_obj->online_users_anon}</b> vizitatori.
+sticky:lipicios:
 stop_ignoring:nu mai ignora acest utilizator
 sub_to_thread:Inscriere la tema
 sub_to_thread_desc:Primeste notificari despre mesaje noi in aceasta tema
@@ -208,6 +210,7 @@ reported_reported_msg:Mesaje raportate
 modque_pending_approval:Mesaje care asteapta aprobare
 modque_approve:Aproba
 modque_delete:Sterge
+modque_deleteall:Ștergeți tot de la utilizator
 modque_no_message:Nu este nici un mesaj care asteapta aprobare
 pmsg_new_messages:Mesaj personal necitit
 pmsg_old_messages:Mesaj personal citit
@@ -366,6 +369,7 @@ buddy_search:Introduceti numele celui pe care doriti sa il cautati.
 member_search:Sau foloseste optiunea <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Cauta persoana</a> pentru a gasi o persoana.
 buddy_remove:sterge
 post_normal:Normal
+post_sticky:Lipicios
 post_annoncement:Anunt
 post_size:Marime
 post_color:Culoare
@@ -1043,6 +1047,7 @@ search_options:Optiuni de cautare
 search_user_filter:Filtrat de utilizator:
 register_none:Nu mă notifica
 findu_no_conf:Utilizator neconfirmat
+findu_banned:utilizator blocat
 register_max_sig_len:Lungimea Maxima:
 register_turing:Verificare:
 register_err_turing:Verificarea a eșuat. Vă rugăm să încercați din nou.
@@ -1058,9 +1063,11 @@ pmsg_pdf_btn:Creeaza Arhiva PDF
 search_results_hdr:{VAR: total} Rezultate Gasite
 thread_del_all:Șterge selecția
 thread_mov_all:Mută selecția
+thread_merge_all:Îmbinați Selecțiile
 dmsg_ip:IP:
 err_blockedaccnt_title:EROARE: Contul dumneavoastră a fost filtrat.
 unbookmark_all_topics:Elimină toate marcajele
+tabs_own_posts:Afișează propriile postări
 sml_emoticon:Emoticon
 sml_code:Cod
 register_topics_per_page:Subiecte per pagină:
@@ -1102,6 +1109,8 @@ postcheck_min_len_err:Mesajul dumneavoastră este prea scurt. Lungimea minimă e
 btn_new_topic:Subiect nou
 btn_new_pm:Mes. privat nou
 btn_post_reply:Publică răsp.
+btn_tree_view:Vizualizare arborescentă
+btn_flat_view:Vizualizare plată
 btn_about:Profil
 btn_small_pm:M. priv.
 btn_delete:șterge
@@ -1112,6 +1121,7 @@ btn_quote:citat
 btn_email:E-mail
 btn_show_posts:postări
 btn_homepage:www
+feed_no_data:Nu s-au găsit date potrivite.
 feed_rdf:Flux RDF
 feed_rss:Flux RSS2
 feed_atom:Flux ATOM
@@ -1122,4 +1132,13 @@ page_list_heading:Pagini disponibile
 page_list_total:{PLURAL: i|o pagină listată|$1 pagini listate}.
 page_update:Răsfoind pagina
 pm_export_header:Mesaje private pentru {VAR: usr->alias}
+pm_export_footer:Exportat:
+karma:Karma
+karma_track:Gestionați reputația utilizatorului:
 karma_delete:Șterge
+rate_author:Evaluează autorul:
+blog_update:Citind blogul forumului
+blog:Blog
+blog_new_members:Membri noi
+blog_new_posts:Postare recentă
+blog_viewed_posts:Cele mai vizualizate
