@@ -897,7 +897,7 @@ polllist_vote:Прагаласаваць
 polllist_view_results:Паказаць вынікі
 polllist_name:Назва галасаваньня
 polllist_date:Створанае
-polllist_owner:Стваральнік
+polllist_owner:Створана
 polllist_votes:Усяго галасоў
 polllist_action:Дзеяньне
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Прагляд даступных галасаваньняў</a>
