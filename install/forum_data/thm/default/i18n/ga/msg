@@ -1,5 +1,6 @@
 # Messages for Irish (Gaeilge)
 # Exported from translatewiki.net
+# Author: Aindriu80
 # Author: Jagwar
 # Author: Macofe
 # Author: McDutchie
@@ -47,6 +48,7 @@ homepage:Leathanach Baile:
 icq_control_panel:ICQ Painéal Líne-Teachtaireacht
 icq_message_form:ICQ Teachtaireacht Foirm:
 ignore_user:neamhaird a dhéanamh ar gach teachtaireacht úsáideoir seo Feicthe Le
+im_facebook:Facebook:
 im_yahoo:Yahoo Messenger:
 image:íomhá:
 index_forum:Fóram
@@ -74,6 +76,7 @@ cal_day_heading:Imeachtaí don lá
 cal_no_events:Imeachtaí ar bith don lá.
 cal_update:Brabhsáil an fhóraim féilire
 cal_birthday:breithlá: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 breithlá|$1 breithlaethanta}
 cal_birthday_age:({PLURAL: age|$1 bliain|$1 bliana d'aois}).
 message:Teachtaireacht
 message_counter:Ár n-úsáideoirí an bpost san iomlán <b>{PLURAL: post_count|$1 teachtaireacht |$1 teachtaireacht}</b> taobh istigh <b>{PLURAL: thread_count|$1 ábhar |$1 topaicí}</b>.
@@ -203,8 +206,7 @@ vote_button:Vóta
 vote_for_thread:Vóta
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> Tá bhog sé go dtí <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> ag an moderator.
 welcome_message:Fáilte <b>{VAR: usr->alias}</b>, do chuairt dheireanach a bhí ar {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Taispeáin cad iad na daoine ag déanamh
+what_ppl_doing:Gníomhaíocht Úsáideora
 reported_del_report:Scrios Tuarascáil
 reported_reason:Fáth:
 reported_on:ar:
@@ -237,8 +239,7 @@ pmsg_forwarded:ar aghaidh
 pmsg_subject:ábhar
 pmsg_author:Údar
 pmsg_time:am
-# Fuzzy
-pmsg_selected:roghnaithe
+pmsg_selected:Roghnaigh
 pmsg_delete:Scrios
 cur_ppage_pm:Teachtaireachtaí príobháideacha
 writing_pm:Scríobh Teachtaireacht Príobháideach
@@ -305,11 +306,16 @@ register_builtin:tógtha I
 register_specify_url:Sonraigh URL
 register_uploaded:Uasluchtaigh Avatar
 register_login:Logáil isteach:
+register_login_desc:An t-ainm ar mhaith leat logáil isteach leis agus a bheith aitheanta ar an suíomh seo.
+register_login_available:Ar fáil
+register_login_taken:Tógtha cheana féin
 register_password:D'fhocal faire:
+register_password_desc:Pasfhocal do do chuntas. Tá pasfhocail íogair ó thaobh cás de agus ní mór dóibh a bheith 6 charachtar ar a laghad.
 register_conf_pass:Dearbhaigh Pasfhocal:
-# Fuzzy
-register_email_desc:Cuir isteach seoladh ríomhphoist bailí. Is féidir leat a roghnú chun é a cheilt thíos, i rannóg na Roghanna.
+register_conf_pass_desc:Cuir isteach do phasfhocal arís.
+register_email_desc:Do sheoladh ríomhphoist. Is féidir leat é a cheilt thíos, sa rannán Roghanna.
 register_name:Ainm:
+register_name_desc:D'ainm fíor.
 register_your_pass:Do Pasfhocal:
 register_update:Nuashonraigh
 register_avatar_type:Cineál Avatar:
@@ -322,8 +328,7 @@ register_preview:Réamhamhairc
 register_custom_avatar_upload:Custom Comhad Avatar:
 register_register:Cláraigh
 register_required:Eolas Riachtanach
-# Fuzzy
-register_required_desc:Gach réimsí atá ag teastáil. Tabhair faoi deara go bhfuil focal faire cás íogair.
+register_required_desc:Tá gach réimse riachtanach.
 register_optional:Eolas roghnach
 register_optional_desc:Tá sé nach molta go bhfuil tú nochtann aon fhaisnéis phearsanta nó a aithint i do phróifíl. Beidh gach eolas ar viewable ag baill fóram eile.
 register_location:Location:
@@ -331,6 +336,7 @@ register_occupation:Slí Bheatha:
 register_interests:leasanna:
 register_image:íomhá:
 register_icq:ICQ:
+register_facebook:Aitheantas Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Leathanach Baile:
 register_bday:Dáta Breithe:
@@ -368,8 +374,7 @@ my_buddies:mo Buddies
 add_buddy:Cuir Buddy
 add:Cuir
 buddy_search:Cuir isteach an logáil isteach an t-úsáideoir mian leat a chur leis.
-# Fuzzy
-member_search:Nó úsáid an <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Aimsigh Úsáideoir</a> gné a aimsiú duine.
+member_search:Nó bain úsáid as an ngné <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Aimsigh Úsáideoir</a> chun duine a aimsiú.
 buddy_remove:bhaint
 post_normal:gnáth
 post_sticky:greamaitheach
@@ -379,8 +384,7 @@ post_color:dath
 post_font:Cló
 create_thread:Cruthaigh Topic
 submit_reply:Cuir Freagra
-# Fuzzy
-edit_message:Cuir Athruithe Teachtaireacht
+edit_message:Cuir Athruithe i bhFeidhm
 apply_spell_changes:Cuir Athruithe i Litriú
 post_preview:teachtaireacht Réamhamhairc
 post_logedin_user:Logáilte isteach úsáideora:
@@ -417,13 +421,13 @@ post_title:Teideal:
 post_body:comhlacht:
 post_options:roghanna:
 post_preview_btn:Teachtaireacht Réamhamhairc
+post_diff_btn:Athruithe Difríochta
 post_cancel_btn:Cealaigh
 ignore_users:Úsáideoirí Rinneadh neamhshuim
 add_ignore:Cuir ignoramus
 forum_terms:Téarmaí Fóram
 forum_rules:<p>Clárú leis an bhfóram saor in aisce! Déanann muid go seasann tú cloí leis na rialacha agus na polasaithe mionsonraithe thíos. Má aontaíonn tú leis na téarmaí, le do thoil brúigh an <b> Aontú </b> cnaipe ag bun an leathanaigh. </P> <p> Cé go mbeidh na riarthóirí agus moderators an fhóraim iarracht a choinneáil ar gach teachtaireacht objectionable as fhóram seo, go bhfuil sé dodhéanta dúinn athbhreithniú a dhéanamh ar gach teachtaireacht. Iúl gach teachtaireacht na tuairimí an údar, agus beidh ní úinéirí an fhóraim nó na forbróirí a bheith freagrach as ábhar aon teachtaireacht. </P> <p> Trí chliceáil ar an gcnaipe Chomhaontaithe, barántas tú nach mbeidh tú sa phost aon teachtaireachtaí atá gáirsiúil, vulgar, gnéasach-dhírithe, hateful, bagairt, nó ar shlí eile violate aon dlíthe. </p> <p> Tá sé de cheart a bhaint, eagar, a aistriú nó gar aon ábhar ar chúis ar bith an úinéirí an bhfóram seo. </p>
-# Fuzzy
-forum_rules_13:Ní mór do gach úsáideoir <p> faoi 13 bliain d'aois chead óna tuismitheoir nó caomhnóir a lorg chun tuairiscíodh ballraíocht a fháil chun na fóraim. Cé go gcuirimid fáilte roimh rannpháirtíocht ó bhaill faoi 13, a cheangal againn go bhfuil tuismitheoir nó caomhnóir facs nó post ar ais an fhoirm cheada sínithe sula dheonú againn mballraíocht. </P> <p> Más mian leat chun tús a chur leis an bpróiseas clárúcháin roimh dúinn ag fáil fhoirm cheada seo, brúigh an <b> Aontú </b> cnaipe thíos. Más mian leat chun an clárú a chealú, brúigh <b> Ní aontaím </b> Is féidir le filleadh ar an innéacs fóraim. </P> <p> cóip den fhoirm cead a íoslódáil anseo. Chun tuilleadh eolais a fháil maidir leis an bpróiseas clárúcháin, le do thoil r-phost a sheoladh chuig <a href="mailto:{GVAR: ADMIN_EMAIL}"> {GVAR: ADMIN_EMAIL}. </A> </p>
+forum_rules_13:<p>Ní mór do gach úsáideoir faoi bhun 13 bliana d'aois cead a lorg óna dtuismitheoir nó óna gcaomhnóir chun ballraíocht a fháil sna fóraim. Cé go gcuirimid fáilte roimh rannpháirtíocht ó bhaill faoi bhun 13 bliana d'aois, ní mór do thuismitheoir nó do chaomhnóir foirm cheada sínithe a sheoladh ar ais tríd an facs nó tríd an bpost sula ndeonaímid ballraíocht.</p><p>Más mian leat an próiseas clárúcháin a thosú sula bhfaighimid foirm cheada, brúigh an cnaipe <b>Aontaím</b> thíos. Más mian leat an clárú a chealú, brúigh <b>Ní Aontaím</b> chun filleadh ar innéacs na bhfóram.</p><p>Cuirfear cóip den fhoirm cheada i láthair tar éis clárúcháin. Le haghaidh tuilleadh eolais faoin bpróiseas clárúcháin, seol ríomhphost chuig <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA Daingniú
 coppa_before:roimh {TEMPLATE: coppa_date}
 coppa_after:Tar éis {TEMPLATE: coppa_date}
@@ -434,8 +438,7 @@ prereg_agree:aontú
 prereg_disagree:Ní aontaím
 prereg_update:Léitheoireacht na rialacha fóram
 coppa_fax_instructions:Treoracha le haghaidh Tuismitheoir nó Caomhnóir
-# Fuzzy
-coppa_fax_instructions2:Tabhair Priontáil an leathanach seo, í a shíniú, agus é a facs chuig:
+coppa_fax_instructions2:Priontáil an leathanach seo, sínigh é, agus seol ar ais chugainn é sa phost nó ar facs.
 coppa_fax_reg_form:Foirm Chlárúcháin
 coppa_fax_sign:Sínigh an fhoirm thíos agus seol chugainn é le do thoil
 coppa_fax_conf:Tá athbhreithniú déanta agam an t-eolas ag mo pháiste ar fáil agus tá an Polasaí Príobháideachta le haghaidh an láithreán gréasáin léite agam. Tuigim go bhféadfaidh an t-eolas ar phróifíl a athrú ag baint úsáide as focal faire. Tuigim gur féidir liom a iarraidh go bhfuil an phróifíl clárú a bhaint go hiomlán as an bhfóram.
@@ -462,6 +465,8 @@ login_login_btn:Logáil isteach
 login_name_required:Tá ainm logáil isteach ag teastáil
 login_passwd_required:Tá Pasfhocal ag teastáil
 login_invalid_radius:Neamhbhailí login/teaglaim focal faire
+login_or:nó...
+login_alternatives:Logáil isteach ag baint úsáide as:
 reset_confirmation:Go raibh maith agat as clárú.\n\nChun do chuntas a ghníomhachtú téigh go dtí an URL thíos le do thoil:\n\n{VAR: url}\n\nNuair atá do chuntas gníomhachtaithe a bheidh tú logáilte isteach-an fóram agus\natreorú chuig an leathanach príomh.
 reset_reset:Dia duit,\n\nA d'iarr tú ar do phasfhocal a athshocrú bheith. Chun an próiseas a chríochnú,\ntéigh go dtí an URL le do thoil:\n\n{VAR: url}\n\nTABHAIR FAOI DEARA: Stórálann an fóram an focal faire i meicníocht criptithe aon-bhealach, rud a chiallaíonn go\nnuair a bhíonn tú isteach do phasfhocal tá sé ionchódaithe ionas go bhfuil aon bhealach chun é a fháil ar ais.\nOibríonn sé seo trí chomparáid a dhéanamh leis an leagan ionchódaithe atá againn ar taifead leis an leagan ionchódaithe ar cad leat cineál isteach Logáil isteach pras.\n(Má tá suim agat i conas a oibríonn an mheicníocht, a léamh suas ar algartam MD5 Hash)
 rpasswd_invalid_passwd:Pasfhocal neamhbhailí
@@ -470,6 +475,7 @@ rpasswd_passwd_length:Ní mór Pasfhocal bheith ar a laghad 6 carachtair ar fad
 reset_remind_pass:Pasfhocal Meabhrúchán
 reset_reset_conf:Beidh do phasfhocal a athshocrú agus a sheoladh a thabhairt duit. Mura bhfuil tú deimhnithe go fóill do sheoladh r-phoist, an t-iarratas deimhnithe a ath-sheoladh chugat.
 reset_error:Seoladh r-phoist nach bhfuil le fáil i mbunachar sonraí
+reset_update:Athshocraigh an focal faire
 rpasswd_change_pass:Athraigh Pasfhocal
 rpasswd_login:Logáil isteach
 rpasswd_cur_pass:Pasfhocal Reatha:
@@ -495,6 +501,7 @@ search_subject_only:ábhar Amháin
 search_forum:Fóram
 search_posted_on:Posted ar
 search_no_results:Uimh Torthaí
+search_spell_suggestions:An bhfuil i gceist agat:
 search_all_forums:Cuardaigh Gach Forums
 search_in_forum:Cuardaigh i Fóram:
 search_forum_search:Fóram Cuardaigh
@@ -519,8 +526,7 @@ mklist_apply:Iarratas
 mklist_delete:Scrios
 qbud_nick_name:leasainm
 qbud_add_selected:Cuir Roghnaithe
-# Fuzzy
-qbud_selected:roghnaithe
+qbud_selected:Roghnaigh
 qbud_no_buddies:Uimh cairde a roghnú as
 mklist_numerical:uimhriúil
 mklist_aplha:alfa
@@ -589,8 +595,7 @@ buddy_list_err_ignore:Ní féidir úsáideoirí atá tú neamhaird ar do liosta 
 buddy_list_update:Liosta chara féin Browsing
 core_err_invinp_title:Ionchur neamhbhailí
 core_err_invinp_err:Tá tú i ndiaidh nasc neamhbhailí. Le do thoil fógra a thabhairt don <a href="mailto:{GVAR: ADMIN_EMAIL}">stiúrthóir gréasáin</a> conas a fuair tú anseo.
-# Fuzzy
-core_adm_login_msg:Is féidir le Riarthóirí logáil isteach <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">anseo</a>.
+core_adm_login_msg:Is féidir le riarthóirí logáil isteach <a href="{BASE}adm/admloginuser.php">anseo</a>.
 email_err_unabletoemail_title:EARRÁID: Níorbh fhéidir a r-phost
 email_err_unabletoemail_msg:Tá an córas r-phost curtha faoi mhíchumas ag an riarthóir.
 email_error_unabletolocaddr:Tá brón orainn, bhí an córas in ann a r-phost {VAR-HTML: _POST['tx_name']} toisc go raibh sé in ann chun a chinneadh an seoladh r-phoist
@@ -627,8 +632,7 @@ post_err_lockedthread_msg:Tá an topaic seo faoi ghlas. Postála a thuilleadh a 
 err_coppa_title:EARRÁ: Nach bhfuil do chuntas deimhnithe go fóill
 err_coppa_msg:Ní mór dúinn a fuarthas deimhniú ó do thuismitheoir agus/nó caomhnóir dlíthiúil, rud a cheadaíonn duit chun teachtaireachtaí a phost. Má chaill tú d'fhoirm COPPA, <a href="{TEMPLATE: err_coppa_msg_lnk}">féachaint air arís</a>.
 err_banned_acct_title:EARRÁID: Tá tú cuireadh toirmeasc.
-# Fuzzy
-err_banned_acct_msg:Do chuntas a bhí {IF: $ban_expiry}toirmeasc go sealadach go dtí go {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}toirmeasc buan{ENDI} ó rochtain a fháil ar an láithreán, mar gheall ar shárú ar na rialacha an fóram ar.
+err_banned_acct_msg:Cuireadh cosc ​​sealadach ar do chuntas {IF: $ban_expiry}go dtí go gcuirfí cosc ​​buan {TEMPLATE: ban_expiry_date}{ELSE}ar {ENDI} rochtain a fháil ar an suíomh, mar gheall ar shárú ar rialacha an fhóraim.
 post_err_edttimelimit_title:EARRÁ
 post_err_edttimelimit_msg:Is féidir leat a thuilleadh in eagar teachtaireacht seo
 post_err_noannontopics_msg2:<legend>EARRÁ: Easpa Pribhléidí</legend>Ní úsáideoirí gan ainm Tá cead chun topaicí a chruthú.
@@ -654,8 +658,7 @@ postcheck_email_body:Ní féidir leat a sheoladh r-phoist gan an comhlacht teach
 private_msg_notify_subj:Léigh Fógra Do: {VAR: m->subject}
 private_msg_notify_body:Dia duit,<br />{VAR: usr->login} D'oscail do theachtaireacht phríobháideach dar teideal, "{VAR: m->subject}".<br />Is é seo an fógra uathoibrithe ginte ag {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Brabhsáil atreoruithe
-# Fuzzy
-register_err_short_login:Is é an Login a roghnaigh tú ró-ghearr. Ní mór ainm logála isteach a bheith ar a laghad 4 carachtair ar fad.
+register_err_short_login:Tá an Logáil Isteach atá roghnaithe agat ró-ghearr. Ní mór ainmneacha logála isteach a bheith dhá charachtar ar a laghad ar fhad.
 register_err_login_notallowed:Ní hé seo an t-ainm logáil isteach a cheadaítear.
 register_err_loginunique:Ní mór Fóram ainm logála isteach a bheith ar leith. Tá cheana féin i d'úsáideoir leis an ainm seo.
 register_err_emailexists:Tá an seoladh r-phoist a bhaineann cheana féin le cuntas. Má tá dearmad déanta agat ar do phasfhocal bain úsáid as an rogha Athchóirigh, in ionad ath-chlárú.
@@ -684,8 +687,7 @@ reset_err_rstconf_title:Eolas
 reset_err_rstconf_msg:Ba chóir duit treoracha i do r-phost a fháil i miontuairiscí amach romhainn.
 reset_newpass_title:Athshocraigh Pasfhocal
 reset_newpass_msg:Dia duit,\n\nMar a iarradh dealraitheach do chuid faisnéise logáil isteach, thíos:\n\nLogáil isteach: {VAR: ui[1]}\nPasfhocal: {VAR: passwd}\n\nTabhair faoi deara go bhfuil do phasfhocal bhí athshocrú chun an luach thuas. Más mian leat\na athrú ar do phasfhocal is féidir leat é sin a dhéanamh tríd an painéal úsáideoirí rialaithe info at:\n{FULL_ROOT}?t=register
-# Fuzzy
-reset_login_notify:Do phasfhocal curtha r-phost a thabhairt duit. Ba chóir duit é a fháil laistigh de na miontuairiscí amach romhainn. <br/>
+reset_login_notify:Tá do phasfhocal seolta chugat trí ríomhphost. Ba chóir go bhfaighfeá é laistigh de chúpla nóiméad.
 search_update:teachtaireachtaí Cuardach
 selmsg_update:Brabhsáil <a href="{TEMPLATE: selmsg_update_lnk}">Inniu Poist</a>
 showposts_update:Ag féachaint ar post ag: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -719,8 +721,7 @@ error_title:Foirm earráid
 index_title:Fáilte chuig an fóram
 search_title:Cuardaigh le haghaidh {VAR-HTML: srch}
 remail_emailsent:Cuireadh Ríomhphost
-# Fuzzy
-remail_email:Dia duit,\n\nTá ábhar suimiúil faoi "{VAR: data->subject}" ar {GVAR: FORUM_TITLE} fóram gur b'fhéidir gur mhaith leat a léamh. Is féidir leat a fheiceáil ar an ábhar seo ag:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\ndo chara,\n\n{VAR: usr->alias}
+remail_email:Haigh,\n\nTá topaic spéisiúil faoi "{VAR: data->subject}" ar fhóram {GVAR: FORUM_TITLE} a d'fhéadfadh a bheith spéisiúil duit a léamh. Is féidir leat an topaic a fheiceáil ag:\n{FULL_ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nDo chara,\n\n{VAR: usr->alias}
 poll_add_option:Cuir Rogha:
 post_opt_html_on:<b>HTML</b> Tá <b> ar </b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>BBcode</b> Tá <b>ar</b></a>
@@ -897,17 +898,14 @@ polllist_votes:Vótaí iomlán
 polllist_action:gníomh
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Athbhreithniú Cartlann Fáil</a>
 userinfo_polls:Pobalbhreitheanna:
-# Fuzzy
-show_pollist:Taispeáin Cartlann
+show_pollist:Pobalbhreitheanna
 search_and:AGUS
 search_or:NÓ
-# Fuzzy
-search_desc_order:Eagar Íslitheach
-# Fuzzy
-search_asc_order:Ascending Ordú
+search_desc_order:Is nuaí ar dtús
+search_asc_order:Is sine ar dtús
+search_relevance_order:Ábharthacht
 search_logic:Loighic Cuardaigh:
-# Fuzzy
-search_sorting:Torthaí Sórtáil de réir Date in:
+search_sorting:Sórtáil de réir:
 search_attach:ceangaltáin:
 search_attach_all:Le nó gan
 search_attach_with:le ceangaltán
@@ -964,11 +962,9 @@ iemail_forum_unsub:Díliostáil ón bhfóram seo
 primary_group_prefix:Grúpa Bunscoileanna do fóram:
 group_resources:Rialaíonn an grúpa ceadanna de na fóraim seo a leanas
 register_admin_newuser_title:Tá úsáideoir nua cláraithe agus tá a gcuntas go dtí go ndeimhneofar
-# Fuzzy
-register_admin_newuser_msg:A úsáideoir nua ({VAR: uent->login}) chláraigh díreach, agus ós rud é go bhfuil dearbhú cuntas ar chumas, nach mbeidh a n-chuntas a bheith gníomhach go dtí go mbeidh sé daingnithe le tú féin nó riarthóir fóram eile. Athbhreithniú a dhéanamh ar an chuntas téigh go dtí do thoil: {GVAR: WWW_ROOT}adm/admuserapr.php\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.\nMás mian leat a mhúchadh fógraí ríomhphoist clárúcháin nua úsáideora amach anseo, is féidir leat é sin a dhéanamh tríd an Painéal Rialúcháin Riaracháin. Athraigh an "Nua Chuntas Fógra" suíomh.
+register_admin_newuser_msg:Tá úsáideoir nua ({VAR: uent->login}) díreach tar éis clárú, agus ós rud é go bhfuil dearbhú cuntais cumasaithe, ní bheidh a gcuntas gníomhach go dtí go ndeimhneoidh tú féin nó riarthóir fóram eile é. Chun an cuntas a athbhreithniú, téigh chuig: {BASE}adm/admuserapr.php\n\nIs próiseas uathoibrithe é seo. Ná freagair an teachtaireacht seo.\nMás mian leat fógraí ríomhphoist amach anseo maidir le clárúcháin úsáideoirí nua a mhúchadh, is féidir leat é sin a dhéanamh tríd an bPainéal Rialaithe Riarthóra. Athraigh an socrú "Fógra Cuntais Nua".
 post_mod_msg_notify_title:Teachtaireacht nua i bhfóram "{VAR: frm->name}" feitheamh ceadú
-# Fuzzy
-post_mod_msg_notify_msg:A teachtaireacht nua dar teideal "{VAR: msg_post->subject}" Cuireadh i bpost ach i bhfóram go bhfuil tú measartha. Athbhreithniú a dhéanamh ar an teachtaireacht seo téigh go dtí: {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nIs próiseas uathoibrithe. Ná freagra don teachtaireacht seo.
+post_mod_msg_notify_msg:Postáladh teachtaireacht nua dar teideal "{VAR: msg_post->subject}" i bhfóram a dhéanann tú modhnóireacht air. Chun an teachtaireacht seo a athbhreithniú, téigh chuig: {FULL_ROOT}?t=modque#{VAR: msg_post->id}\n\nIs próiseas uathoibrithe é seo. Ná freagair an teachtaireacht seo.
 thread_printable_pdf:Gin inphriontáilte PDF
 thread_syndicate:Syndicate bhfóram seo (XML)
 reg_conf_title:Deimhniú clárúcháin
@@ -994,8 +990,7 @@ mnav_month:Mí(onna)
 mnav_title:teachtaireacht Navigator
 mnav_update:Brabhsáil Teachtaireachtaí ag baint úsáide as <a href="{TEMPLATE: mnav_update_lnk}">teachtaireacht Navigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Fógra Teachtaireacht Príobháideacha Nua
-# Fuzzy
-pm_notify_body_email:Tá tú teachtaireacht phríobháideach nua dar teideal "{VAR: subject}", ó "{VAR: from}", san fhóram "{GVAR: FORUM_TITLE}".\nChun breathnú ar an teachtaireacht, cliceáil anseo: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nChun stop a chur fógraí sa todhchaí, a dhíchumasú "Teachtaireacht Fógra Príobháideacha" i do phróifíl.
+pm_notify_body_email:Tá teachtaireacht phríobháideach nua agat dar teideal "{VAR: subject}", ó "{VAR: from}", sa fhóram "{GVAR: FORUM_TITLE}".\nChun an teachtaireacht a fheiceáil, cliceáil anseo: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nChun fógraí amach anseo a stopadh, díchumasaigh "Fógra Teachtaireachta Príobháidí" i do phróifíl.
 register_pm_notification:Teachtaireacht Príobháideach Fógra:
 register_pm_notification_desc:Má cumasaithe, beidh tú in iúl aon uair a teachtaireacht phríobháideach a sheoladh chugat.
 findu_admin_opts_header:Roghnaíonn an admin.
@@ -1060,11 +1055,10 @@ search_options:Roghanna Cuardaigh
 search_user_filter:Scag de réir úsáideora:
 register_none:Ná in iúl dom
 findu_no_conf:úsáideoir nár daingníodh
+findu_banned:úsáideoir toirmiscthe
 register_max_sig_len:Fad Uasmhéid:
-# Fuzzy
-register_turing:Cuir isteach an cód a thaispeántar thíos:
-# Fuzzy
-register_err_turing:Cód bailíochtú neamhbhailí.
+register_turing:Fíorú:
+register_err_turing:Theip ar an bhfíorú. Déan iarracht arís.
 modque_cat:catagóir
 modque_forum:Fóram
 idx_compact_forum_row:Fóraim ar Fáil:
@@ -1083,8 +1077,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:EARRÁID: Tá do chuntas ndearnadh scagadh.
 err_blockedaccnt_msg:Tá do chuntas cosc curtha ó rochtain a fháil ar an fóram mar gheall ar cheann de na scagairí úsáideora suiteáilte.
 merge_th_page_list:Topaic Leathanach Roghnaithe
-# Fuzzy
-most_users_online:An chuid is mó d'úsáideoirí riamh a bhí ar líne <b>{VAR: st_obj->most_online}</b> ar <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:Ba é <b>{VAR: st_obj->most_online}</b> an líon úsáideoirí ar líne is mó riamh ar <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Díliostáil Ó Gach Fóraim
 sub_unsub_all_topics:Díliostáil Ó Gach Ábhair
 unbookmark_all_topics:Bain na leabharmharcanna
@@ -1126,8 +1119,7 @@ move_msg_th_expl:Sonraigh an ID an ábhar scríbe (Is féidir a bheith i bhfóra
 captcha_img_alt:Fíorú Captcha: beidh ort a aithint an téacs ar an íomhá.
 captcha_img_help:Níl aon náid nó ceann san íomhá.
 powered-by:Powered by: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Cóipcheart &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Feasachán Bogearraí</a>
+copyright:Cóipcheart ©2001-2025 <a href="http://fudforum.org/">Bogearraí Clár Fógraí FUDforum</a>
 code_title:cód:
 code_select_all:Roghnaigh gach
 code_show_hide:Taispeáin/ folaigh
@@ -1165,3 +1157,10 @@ karma:karma
 karma_track:Bainistigh cáil úsáideora:
 karma_delete:Scrios
 rate_author:Údar Ráta:
+blog_update:Ag léamh bhlag an fhóraim
+blog:Blag
+blog_new_members:Baill Nua
+blog_new_posts:Postáil Le Déanaí
+blog_rated_posts:An rátáil is fearr
+blog_viewed_posts:An chuid is mó a fhéachtar air
+blog_comments:{PLURAL: topic->replies|$1 trácht|$1 tráchtanna}

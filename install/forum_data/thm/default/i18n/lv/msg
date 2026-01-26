@@ -3,6 +3,7 @@
 # Author: Edgars2007
 # Author: Macofe
 # Author: Papuass
+# Author: Rusjanis
 # Author: Silraks
 
 action:Darbība
@@ -116,8 +117,7 @@ posts_c:Ieraksti:
 prev_thread:Iepriekšējā tēma:
 usrinfo_private_message:Privātā vēstule:
 profile:Uzstādījumi
-# Fuzzy
-profile_desc:Nospiest lai pārietu uz vadības paneli
+profile_desc:Piekļūstiet lietotāja vadības panelim
 rate_thread:Novērtēt tēmu
 rating:Reitings
 refresh_list:Atjaunot sarakstu
@@ -195,8 +195,7 @@ vote_for_thread:Novērtējums
 # Fuzzy
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> moderātors pārcēla uz forumu <a href="{TEMPLATE: was_moved_msg_lnk2}">{{VAR: r[12]}</a>
 welcome_message:Sveiki <b><u>{VAR: usr->alias}</u></b>, prieks Jūs atkal redzēt kopš {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:parādīt ko kurš dara
+what_ppl_doing:Lietotāja aktivitāte
 reported_del_report:Dzēst atskaiti
 reported_reason:Iemesls:
 reported_on:Paziņojuma datums:
@@ -228,8 +227,7 @@ pmsg_forwarded:labots
 pmsg_subject:Tēma
 pmsg_author:Autors
 pmsg_time:Laiks
-# Fuzzy
-pmsg_selected:Izvēlēts
+pmsg_selected:Izvēlēties
 pmsg_delete:Dzēst
 cur_ppage_pm:Privātais pasts
 writing_pm:Izveidot privāto vēstuli
@@ -314,8 +312,7 @@ register_preview:Priekšapskate
 register_custom_avatar_upload:Nozīmītes fails:
 register_register:Reģistrācija
 register_required:Obligātā informācija
-# Fuzzy
-register_required_desc:Visi lauki ir obligāti jāaizpilda. Atcerieties, ka paroles ir reģistra jūtīgas.
+register_required_desc:Visi lauki ir obligāti jāaizpilda.
 register_optional:Papildus informācija
 register_optional_desc:Nav vēlams pārlieki izplūst.
 register_location:Dzīves vieta:
@@ -366,8 +363,7 @@ post_color:Krāsa
 post_font:Fonts
 create_thread:Izveidot tēmu
 submit_reply:Nosūtīt atbildi
-# Fuzzy
-edit_message:Rediģēt ierakstu
+edit_message:Lietot izmaiņas
 apply_spell_changes:Apstiprināt pareizrakstības pārbaudi
 post_preview:Priekšapskate
 post_logedin_user:Lietotājs:
@@ -877,10 +873,8 @@ userinfo_polls:Balsojumi:
 show_pollist:Parādīt balsojumus
 search_and:UN
 search_or:VAI
-# Fuzzy
-search_desc_order:Dilstoši
-# Fuzzy
-search_asc_order:Augoši
+search_desc_order:Jaunākie vispirms
+search_asc_order:Vecākie vispirms
 search_relevance_order:Atbilstība
 search_logic:Loģiskie argumenti:
 search_sorting:Kārtot pēc:
