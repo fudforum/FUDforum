@@ -157,7 +157,7 @@ status:Status:
 status_line:Ana <b>{PLURAL: st_obj->online_users_reg|$1 anggota |$1anggota}</b>, <b>{PLURAL: st_obj->online_users_hidden|$1 kahuripan anggota|$1 kahuripan anggota}</b> lan <b>{PLURAL: st_obj->online_users_anon|$1 tamu|$1 tamu}</b> ngunjungi iki Papan.
 sticky:caket:
 stop_ignoring:mungkasi mboten midhangetaken pengguna
-sub_to_thread:Langganan topic
+sub_to_thread:Langganan topik
 sub_to_thread_desc:Nampa kabar bab anyar pesen nang topik iki
 bookmark_thread:Bookmark topic
 bookmark_thread_desc:Tambah topik iki menyang dhaptar tetenger
@@ -190,7 +190,7 @@ unsub_from_thread:Wurung langganan topik
 unsub_from_thread_desc:Stop nampa kabar bab pesen anyar ing topic
 unbookmark_thread:Busak saka tetenger
 unbookmark_thread_desc:Copot topik iki saka daftar tetenger
-unsubscribe:Mandeg langganan
+unsubscribe:Wurung langganan
 unsubscribe_desc:Stop nampa kabar bab topik anyar ing forum
 updated_on:Dianyari ing:
 user:Naraguna

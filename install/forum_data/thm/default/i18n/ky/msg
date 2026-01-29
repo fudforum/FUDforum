@@ -34,7 +34,7 @@ forum:Форум:
 forum_icon:Форумдун белгиси
 forum_new_messages:Жаңы билдирмелер
 forum_none_messages:Форумга катталган гана колдонуучулар жаңы билдирүүлөрдү &amp окуй алышат
-forum_old_messages:Жаңы билдирүүлөр жок
+forum_old_messages:Жаңы билдирмелер жок
 from:Кимден:
 gender:Жыныс:
 go:Өтүү
@@ -97,7 +97,7 @@ next_page:Кийинки барак
 next_thread:Кийинки тема:
 no_messages:Бул форумда билдирүүлөр жок.<br /> Бул жерде жаңы теманы талкулоого биничилерден болуңуз.
 no_msg_body:Билдирүүнүн текти жок
-no_new_posts:Жаңы билдирүүлөр жок
+no_new_posts:Жаңы билдирмелер жок
 no_posts:Билдирүүлөр жок
 no_subscribed_forums:Жазылууга форумдар жок
 no_subscribed_threads:Жазылууга темалар жок
@@ -115,8 +115,8 @@ pm:Жеке билдирүүлөр
 poll:Добуш берүү:
 post_count:Билдирүүлөрдүн саны {VAR: u_pcount}
 post_count_l:Билдирүүлөрдүн саны
-posts:Билдирүүлөр
-posts_c:Билдирүүлөр:
+posts:Билдирмелер
+posts_c:Билдирмелер:
 prev_thread:Мурунку тема:
 usrinfo_private_message:Жеке билдирүүлөр:
 profile:оңдоп-түздөө аспабы
@@ -481,7 +481,7 @@ remail_friends_name:Алуучунун ысымы:
 remail_friends_email:Алуучунун Э-дареги:
 remail_required:Сөзсүз
 remail_subject:Тема:
-remail_message:Билдирүү:
+remail_message:Билдирме:
 remail_send_now:Жаңы Э-кат жөнөтүү
 remail_done:Даяр
 remail_error:Катачылык чыкты
@@ -702,7 +702,7 @@ split_th_new_thread_title:Жаңы теманын аталышы
 split_th_forum:Форум:
 split_th_split_sel:Белгиленген билдирүүлөрдү бөлүү
 split_th_split_unsel:Белгиленбеген билдирүүлөрдү бөлүү
-split_th_messages:Билдирүүлөр
+split_th_messages:Билдирмелер
 split_th_select:Тандалды
 report_report_post:Маалымат
 quicklogin_login:Кирүү
@@ -747,9 +747,11 @@ iemail_msg_reply:Жооп берүү
 mnav_more:Көбүрөөк &raquo;&raquo;
 mnav_minute:Мүнөт
 mnav_day:Күн
+dmsg_reply_num:билдирме #{VAR: obj->reply_to}
 register_email_addr:Электрондук почта:
 ip_search:Издөө
 post_err_mod_forum_edit_ttl:КАТА
+dmsg_num:билдирме #{VAR: obj->id}
 uc_new_topic:Жаңы тема
 modque_cat:Категория
 modque_forum:Форум
