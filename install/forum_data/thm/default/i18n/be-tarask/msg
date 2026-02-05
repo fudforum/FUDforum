@@ -229,7 +229,7 @@ restore_to:Аднавіць у:
 move_to:Перанесьці ў:
 list_referes_referrals:Запрошаныя
 list_referes_members:Запрошаныя карыстальнікі
-list_referes_member:Карыстальнік
+list_referes_member:Удзельнік
 referals_none:Пакуль няма запрошаных.
 referals_refered_by:Карыстальнікі форуму, запрошаныя: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
 referals_post_count:Колькасьць паведамленьняў
