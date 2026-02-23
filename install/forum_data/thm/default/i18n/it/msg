@@ -50,7 +50,7 @@ forum_new_messages:Nuovi messaggi
 forum_none_messages:Solo gli utenti registrati del forum possono tener traccia dei messaggi letti e non letti
 forum_old_messages:Nessun nuovo messaggio
 from:Da:
-gender:Sesso:
+gender:Genere:
 go:Vai
 goto_next_msg:Messaggio successivo
 goto_prev_msg:Messaggio precedente
@@ -355,7 +355,7 @@ register_bday_desc:Se decidi di rendere nota la tua data di nascita, gli altri u
 register_day:Giorno
 register_month:Mese
 register_year:Anno
-register_gender:Sesso:
+register_gender:Genere:
 register_bio:Biografia:
 register_bio_desc:Alcune informazioni su di te, come i tuoi interessi, il tuo lavoro, ecc.
 register_prefs:Opzioni
