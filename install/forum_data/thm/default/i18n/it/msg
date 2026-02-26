@@ -592,7 +592,7 @@ thread_delete:Si sta per <span class="ErrorText">cancellare</span> un<span class
 delete_proceed:Vuoi procedere?
 delete_yes:Sì
 delete_no:No
-error_invalidurl:URL non corretto
+error_invalidurl:URL non valido
 error_error:Errore
 usrinfo_profile:Profilo {VAR: u->alias}
 usrinfo_show_all_posts:Mostra tutti i post di {VAR: u->alias}
