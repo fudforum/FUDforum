@@ -465,7 +465,7 @@ login_name_required:Nama log masuk diperlukan
 login_passwd_required:Kata laluan diperlukan
 login_invalid_radius:Gabungan log masuk/kata laluan tidak sah
 reset_confirmation:Terima kasih kerana berdaftar.\n\nUntuk mengaktifkan akaun anda, sila ke URL berikut:\n\n{VAR: url}\n\nSebaik sahaja akaun anda diaktifkan, anda akan log masuk ke dalam forum dan dilencongkan ke laman utama.
-reset_reset:Helo,\n\nAnda telah memohon supaya kata laluan anda direset. Untuk menyiapkan prosesnya, sila ke URL berikut:\n\n{VAR: url}\n\nPERHATIAN: Forum ini menyimpan kata laluan dalam mekanisme penyulitan sehala, iaitu sebaik sahaja anda mengisikan kata laluan anda, ia akan dikodkan supaya ia langsung TIDAK BOLEH diambil balik. Ini berfungsi dengan membandingkan versi yang dikodkan dalam rekod kami dengan versi yang dikodkan yang anda taipkan dalam prompt Log Masuk.\n(Jika anda berminat untuk tahu cara mekanisme ini berfungsi, sila kaji algortima MD5 HASH)
+reset_reset:Salam sejahtera,\n\nAnda telah memohon supaya kata laluan anda ditetapkan semula. Untuk selesaikan prosesnya, sila ke URL berikut:\n\n{VAR: url}\n\nPERHATIAN: Forum ini menyimpan kata laluan dalam mekanisme penyulitan satu hala, maksudnya sebaik sahaja anda mengisikan kata laluan anda, ia akan dikodkan supaya ia langsung TIDAK BOLEH diambil balik. Hal ini berfungsi dengan membandingkan versi yang dikodkan dalam rekod kami dengan versi yang dikodkan yang anda taipkan dalam prompt Log Masuk.\n(Jika anda berminat untuk tahu cara mekanisme ini berfungsi, sila kaji algortima MD5 HASH)
 rpasswd_invalid_passwd:Kata Laluan Tidak Sah
 rpasswd_passwd_nomatch:Kata laluan tidak sepadan
 rpasswd_passwd_length:Kata laluan mestilah 6 aksara ke atas
