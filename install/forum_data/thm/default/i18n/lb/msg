@@ -314,7 +314,7 @@ rpasswd_passwd_nomatch:D'Passwierder, déi Dir aginn hutt, sinn net identesch
 rpasswd_passwd_length:D'Passwuert muss mindestens 6 Zeeche laang sinn
 reset_remind_pass:Erënnerung fir d'Passwuert
 reset_error:E-Mial-Adress gouf an der Datebank net fonnt
-reset_update:Passwuert zrécksetzen
+reset_update:Passwuert zerécksetzen
 rpasswd_change_pass:Passwuert änneren
 rpasswd_login:Aloggen
 rpasswd_cur_pass:Aktuellt Passwuert:
@@ -323,7 +323,7 @@ rpasswd_conf_pass:Confirméiert d'Passwuert:
 ruser_cur_pass:Aktuellt Passwuert:
 login_passwd:Passwuert:
 reset_email:Mail:
-reset_reset_button:Passwuert zrécksetzen
+reset_reset_button:Passwuert zerécksetzen
 rate_this_thread:Bewäerten
 report_subject:Sujet:
 report_by:Vum:
@@ -413,13 +413,13 @@ report_err_nosuchmsg_title:FEELER
 report_err_nosuchmsg_msg:Sou ee Message gëtt et net
 reset_err_invalidkey_title:FEELER
 reset_err_rstconf_title:Informatioun
-reset_newpass_title:Passwuert zrécksetzen
+reset_newpass_title:Passwuert zerécksetzen
 reset_login_notify:Är Passwuert gouf per E-Mail un Iech geschéckt. Dir misst et bannen den nächste puer Minutte kréien.
 ERR_access_ttl:FEELER: Net genuch Rechter
 ERR_systemerr_ttl:FEELER: Systemfeeler
 finduser_title:Benotzer fannen
 help_title:Hëllef
-reset_title:Passwuert zrécksetzen
+reset_title:Passwuert zerécksetzen
 index_title:Wëllkomm am Forum
 poll_add_option:Optioun derbäisetzen:
 post_opt_html_on:<b>HTML</b> ass <b>aktivéiert</b>
