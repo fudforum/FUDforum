@@ -394,7 +394,7 @@ emailconf_err_invkey_title:Feeler
 err_inc_criticaltitle:Kritesche Feeler
 finduser_update:Sicht no Benotzer
 iemail_participate:Fir bei der Diskussioun matzemaache gitt dohinner:
-ignore_list_err_info_title:Informatioun
+ignore_list_err_info_title:Informatiounen
 ignore_list_err_nu_title:Benotzer net fonnt
 ignore_list_cantign_msg:Dir däerft dëse Benotzer net ignoréieren
 post_err_lockedthread_title:FEELER:Gespaarte Sujet
@@ -412,7 +412,7 @@ register_register_update:Umeldungssäit
 report_err_nosuchmsg_title:FEELER
 report_err_nosuchmsg_msg:Sou ee Message gëtt et net
 reset_err_invalidkey_title:FEELER
-reset_err_rstconf_title:Informatioun
+reset_err_rstconf_title:Informatiounen
 reset_newpass_title:Passwuert zerécksetzen
 reset_login_notify:Är Passwuert gouf per E-Mail un Iech geschéckt. Dir misst et bannen den nächste puer Minutte kréien.
 ERR_access_ttl:FEELER: Net genuch Rechter
