@@ -309,7 +309,7 @@ login_login_btn:Aloggen
 login_name_required:Login-Numm ass obligatoresch
 login_passwd_required:D'Passwuert ass obligatoresch
 login_or:oder…
-rpasswd_invalid_passwd:Passwuert ass net valabel
+rpasswd_invalid_passwd:Ongültegt Passwuert
 rpasswd_passwd_nomatch:D'Passwierder, déi Dir aginn hutt, sinn net identesch
 rpasswd_passwd_length:D'Passwuert muss mindestens 6 Zeeche laang sinn
 reset_remind_pass:Erënnerung fir d'Passwuert
@@ -389,7 +389,7 @@ buddy_list_err_nouser_title:Benotzer kann net derbäigesat ginn
 core_err_invinp_title:Ongültegen Input
 email_error_subject:De Sujet ass obligatoresch
 email_error_namerequired:En Numm ass obligatoresch.
-email_error_invaliduser:Benotzer ass net valabel
+email_error_invaliduser:Ongültege Benotzer
 emailconf_err_invkey_title:Feeler
 err_inc_criticaltitle:Kritesche Feeler
 finduser_update:Sicht no Benotzer
