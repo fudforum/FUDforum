@@ -476,7 +476,7 @@ login_or:of…
 login_alternatives:Meld u aan met:
 reset_confirmation:Dank u wel voor uw registratie.\n\nGa voor het activeren van uw gebruiker naar de onderstaande URL:\n\n{VAR: url}\n\nAls uw gebruiker actief is, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 reset_reset:Hallo,\n\nU hebt een verzoek uitgevoerd voor het opnieuw instellen van uw wachtwoord. Ga naar de volgende URL om het proces af te ronden:\n\n{VAR: url}\n\nLet op: het forum versleutelt de wachtwoorden op een manier die het niet mogelijk maakt het wachtwoord te achterhalen. De ingave van uw wachtwoord wordt versleuteld en vergeleken met de opgeslagen versleutelde versie. Als u hierover meer wilt weten, kunt u op internet zoeken naar het MD5 hash algoritme.
-rpasswd_invalid_passwd:Ongeldig wachtwoord
+rpasswd_invalid_passwd:Onjuist wachtwoord
 rpasswd_passwd_nomatch:De wachtwoorden komen niet overeen
 rpasswd_passwd_length:Het wachtwoord moet ten minste zes tekens lang zijn
 reset_remind_pass:Wachtwoord wijzigen via e-mail
@@ -885,7 +885,7 @@ p_VISIBLE:Zichtbaar
 reported_in_thread:In:
 help_back_to_top:terug naar boven
 help_return_to_index:Terug naar hulpindex
-imsg_err_message_title:Ongeldig bericht
+imsg_err_message_title:Onjuist bericht
 imsg_err_message_msg:Het bericht dat u wilt bekijken bestaat niet.
 poll_edit:Bewerken
 register_err_not_valid_img:De opgegeven URL bevat geen geldige afbeelding.
