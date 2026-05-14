@@ -248,7 +248,7 @@ pmsg_delete:Выдаліць
 cur_ppage_pm:Прыватныя паведамленьні
 writing_pm:Стварэньне асабістага паведамленьня
 browsing_folder:Прагляд тэчкі <b>{VAR: folders[$folder_id]}</b>
-inbox:Уваходзячыя
+inbox:Уваходныя
 draft:Чарнавік
 sent:Дасланыя
 trash:Сьметнік
