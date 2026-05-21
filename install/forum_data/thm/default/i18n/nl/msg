@@ -171,9 +171,9 @@ subject:Onderwerp
 subscribe:Abonneren
 subscribe_desc:Een bericht ontvangen als iemand een nieuw onderwerp aanmaakt in dit forum
 subscribed_forums:Geabonneerde forums
-subscribed_forums_desc:Het filter geabonneerde forums omschakelen (toont alleen berichten in forums waarop u geabonneerd bent)
+subscribed_forums_desc:Het filter geabonneerde forums omschakelen (geeft alleen berichten weer in forums waarop u geabonneerd bent)
 subscribed_threads:Geabonneerde onderwerpen
-subscribed_threads_desc:Het filter geabonneerde onderwerpen omschakelen (toont alleen berichten van onderwerpen waarop u geabonneerd bent)
+subscribed_threads_desc:Het filter geabonneerde onderwerpen omschakelen (geeft alleen berichten weer van onderwerpen waarop u geabonneerd bent)
 bookmarked_threads:Onderwerpen met bladwijzer
 switch_to_thread_view:Onderwerp in boomstructuur weergeven
 thread:Onderwerp:
