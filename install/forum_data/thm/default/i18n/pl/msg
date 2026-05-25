@@ -6,6 +6,7 @@
 # Author: Dawidg81
 # Author: DeRudySoulStorm
 # Author: Faren
+# Author: G3raltJJ
 # Author: Krzyz23
 # Author: Macofe
 # Author: Mateon1
@@ -26,21 +27,21 @@ admin:Administrator
 admin_control_panel:Administracja
 administrator:Administrator
 attachment:Załącznik:
-avatar:Portret
-average_post_count:{PLURAL: u->posted_msg_count|$1 wiadomość|$1 wiadomości} (średnio {PLURAL: avg|$1 wiadomość|$1 wiadomości} dziennie)
+avatar:Awatar:
+average_post_count:{PLURAL: u->posted_msg_count|$1 Wiadomość|$1 Wiadomości} ( {PLURAL: średnio|$1 wiadomość|$1 wiadomości} dziennie)
 biography:Biografia:
 birth_date:Data urodzenia:
-by:autor:
+by:Autor:
 by_mod:przez Moderatora
-current_time:Aktualna data
-custom_avatar_queue:Kolejka Avatarów Użytkowników
-date_posted:Data zamieszczenia
+current_time:Aktualny Czas
+custom_avatar_queue:Kolejka Własnych Avatarów
+date_posted:Data Zamieszczenia
 date_registered:Dołączył:
-download_counter:Pobrane {PLURAL: v[3]|$1 raz|$1 razy}
+download_counter:Pobrano {PLURAL: v[3]|$1 raz|$1 razy}
 pmsg_download_counter:Pobrano {PLURAL: r->dlcount|$1 raz|$1 razy}
-email:E‐mail
-email_to_friend:Wyślij do znajomego
-email_to_friend_desc:Wyślij adres tej strony znajomemu pocztą elektroniczną
+email:E‐mail:
+email_to_friend:E-mail do znajomego
+email_to_friend_desc:Wyślij adres URL tej strony do znajomego/znajomych poprzez e-mail
 email_user:Wyślij e‐mail do użytkownika
 faq:Pomoc
 first_unread_msg:Przejdź do nieprzeczytanych wiadomości
@@ -61,6 +62,7 @@ homepage:Strona domowa:
 icq_control_panel:Panel wiadomości ICQ
 icq_message_form:Formularz wiadomości ICQ:
 ignore_user:Ignoruj tego użytkownika
+im_facebook:Facebook:
 im_yahoo:Komunikator Yahoo:
 image:Obrazek:
 index_forum:Forum
@@ -348,6 +350,7 @@ register_occupation:Zawód:
 register_interests:Zainteresowania:
 register_image:Adres obrazka:
 register_icq:ICQ
+register_facebook:ID Facebooka (Identyfikator)
 register_yahoo:Komunikator Yahoo:
 register_homepage:Strona domowa:
 register_bday:Data urodzenia:

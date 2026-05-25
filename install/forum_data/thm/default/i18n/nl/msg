@@ -611,7 +611,7 @@ email_error_subject:Een bericht kan pas verzonden worden als het een onderwerp h
 email_error_namerequired:Het is verplicht een naam op te geven
 email_error_invaliduser:Ongeldige gebruiker
 emailconf_err_invkey_title:Fout
-emailconf_err_invkey_msg:De bevestigingssleutel is ongeldig. Controleer uw e-mail en zorg dat u de juiste URL hebt opgegeven.
+emailconf_err_invkey_msg:De bevestigingssleutel is incorrect. Controleer uw e-mail en zorg dat u de juiste url hebt opgegeven.
 err_inc_criticaltitle:Er is een kritieke fout opgetreden
 err_inc_criticalmsg:Er is een fout opgetreden. Helaas is er ook een probleem met het rapportagesysteem.
 finduser_update:Bezig met het zoeken naar gebruikers
@@ -689,7 +689,7 @@ register_register_update:Registratiepagina
 report_err_nosuchmsg_title:Fout
 report_err_nosuchmsg_msg:Onbekend bericht
 reset_err_invalidkey_title:Fout
-reset_err_invalidkey_msg:Er is een ongeldige sleutel voor het opnieuw instellen van het wachtwoord opgegeven. Het is mogelijk dat uw e-mailprogramma deze pagina al automatisch heeft geopend, waardoor de sleutel ongeldig is geworden. Als dit het geval is, dan ontvangt u snel een e-mail met uw nieuwe wachtwoord. Als u zo'n e-mail niet ontvangt, probeer dan opnieuw het wachtwoord opnieuw in te stellen.
+reset_err_invalidkey_msg:Er is een incorrecte sleutel voor het opnieuw instellen van het wachtwoord opgegeven. Het is mogelijk dat uw e-mailprogramma deze pagina al automatisch heeft geopend, waardoor de sleutel niet langer gebruikt kan geworden. Als dit het geval is, dan ontvangt u snel een e-mail met uw nieuwe wachtwoord. Als u zo'n e-mail niet ontvangt, probeer dan opnieuw het wachtwoord opnieuw in te stellen.
 reset_err_rstconf_title:Gegevens
 reset_err_rstconf_msg:U ontvangt meestal binnen enkele minuten een e-mail met instructies.
 reset_newpass_title:Wachtwoord opnieuw instellen
