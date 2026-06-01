@@ -15,6 +15,7 @@
 # Author: RhAnish
 # Author: Shirayuki
 # Author: Sujiniku
+# Author: Tensama0415
 # Author: Yamagata Yusuke
 # Author: ネイ
 
@@ -395,8 +396,7 @@ post_color:色
 post_font:フォント
 create_thread:トピックを作成
 submit_reply:返信を送信
-# Fuzzy
-edit_message:メッセージ変更を適用する
+edit_message:変更を適用する
 apply_spell_changes:スペル変更を適用する
 post_preview:メッセージのプレビュー
 post_logedin_user:ログイン利用者:
