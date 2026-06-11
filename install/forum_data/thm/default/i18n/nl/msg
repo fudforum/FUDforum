@@ -142,7 +142,7 @@ register:Registreren
 registered:Geregistreerd:
 registered_on:Geregistreerd op {TEMPLATE: registered_on_date}
 replies:Antwoorden
-report_to_mod:Dit bericht aan een moderator rapporteren
+report_to_mod:Dit bericht aan een moderator melden
 reported_messages:Gerapporteerde berichten
 reveal_all_posts:alle berichten weergeven van {VAR: user_login}
 reveal_post:bericht weergeven
@@ -310,7 +310,7 @@ pmuserloc_submit:Verzenden
 pmuserloc_user:Gebruiker
 pmuserloc_no_result:Geen resultaten
 register_builtin:Ingebouwd
-register_specify_url:Geef een URL op
+register_specify_url:Geef een url op
 register_uploaded:Avatar uploaden
 register_login:Gebruikersnaam:
 register_login_desc:De naam waarmee u wilt aanmelden en bekend staan op deze site.
@@ -330,7 +330,7 @@ register_del_avatar:Avatar verwijderen
 register_avatar:Avatar:
 register_sel_avatar:Avatar selecteren
 register_custom_avatar_rules:Uw aangepaste avatar verschijnt niet totdat deze door een beheerder is goedgekeurd.<br /><font class="SmallText">De avatar mag niet groter zijn dan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet van het type <b>jpg</b>, <b>gif</b> of <b>png</b> zijn.</font>
-register_custom_avatar_url:URL voor avatar:
+register_custom_avatar_url:Avatar-url:
 register_preview:Voorvertoning
 register_custom_avatar_upload:Eigen avatarbestand:
 register_register:Registreren
@@ -476,7 +476,7 @@ login_or:of…
 login_alternatives:Meld u aan met:
 reset_confirmation:Dank u wel voor uw registratie.\n\nGa voor het activeren van uw gebruiker naar de onderstaande URL:\n\n{VAR: url}\n\nAls uw gebruiker actief is, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 reset_reset:Hallo,\n\nU hebt een verzoek uitgevoerd voor het opnieuw instellen van uw wachtwoord. Ga naar de volgende URL om het proces af te ronden:\n\n{VAR: url}\n\nLet op: het forum versleutelt de wachtwoorden op een manier die het niet mogelijk maakt het wachtwoord te achterhalen. De ingave van uw wachtwoord wordt versleuteld en vergeleken met de opgeslagen versleutelde versie. Als u hierover meer wilt weten, kunt u op internet zoeken naar het MD5 hash algoritme.
-rpasswd_invalid_passwd:Onjuist wachtwoord
+rpasswd_invalid_passwd:Incorrect wachtwoord
 rpasswd_passwd_nomatch:De wachtwoorden komen niet overeen
 rpasswd_passwd_length:Het wachtwoord moet ten minste zes tekens lang zijn
 reset_remind_pass:Wachtwoord wijzigen via e-mail
@@ -588,7 +588,7 @@ thread_delete:U staat op het punt het <span class="ErrorText">hele onderwerp</sp
 delete_proceed:<span class="fb"><b>Wilt u doorgaan?</b></font></span>
 delete_yes:Ja
 delete_no:Nee
-error_invalidurl:Ongeldige URL
+error_invalidurl:Onjuiste url
 error_error:Fout
 usrinfo_profile:Profiel van {VAR: u->alias}
 usrinfo_show_all_posts:Alle berichten van {VAR: u->alias} weergeven
@@ -600,7 +600,7 @@ buddy_list_err_nouser:De gebruiker die u aan uw vriendelijst probeerde toe te vo
 buddy_list_err_nouser_title:Het was niet mogelijk om de gebruiker toe te voegen
 buddy_list_err_ignore:Het is niet mogelijk om gebruikers die u negeren toe te voegen aan uw vriendenlijst.
 buddy_list_update:Eigen vriendenlijst aan het bekijken
-core_err_invinp_title:Ongeldige invoer
+core_err_invinp_title:Incorrecte invoer
 core_err_invinp_err:U hebt een ongeldige koppeling gevolgd. Neem contact op met de <a href="mailto:{GVAR: ADMIN_EMAIL}">webmaster</a> en geef aan hoe u hier bent gekomen.
 core_adm_login_msg:<a href="{BASE}adm/admloginuser.php">Aanmelden als beheerder</a>.
 email_err_unabletoemail_title:FOUT: het was niet mogelijk om een e-mail te verzenden
@@ -609,7 +609,7 @@ email_error_unabletolocaddr:Het systeem was helaas niet in staat om {VAR-HTML: _
 email_error_body:Een bericht kan pas verzonden worden als het inhoud heeft
 email_error_subject:Een bericht kan pas verzonden worden als het een onderwerp heeft
 email_error_namerequired:Het is verplicht een naam op te geven
-email_error_invaliduser:Ongeldige gebruiker
+email_error_invaliduser:Incorrecte gebruiker
 emailconf_err_invkey_title:Fout
 emailconf_err_invkey_msg:De bevestigingssleutel is incorrect. Controleer uw e-mail en zorg dat u de juiste url hebt opgegeven.
 err_inc_criticaltitle:Er is een kritieke fout opgetreden
@@ -846,7 +846,7 @@ split_th_split_sel:Geselecteerde berichten splitsen
 split_th_split_unsel:Niet-geselecteerde berichten splitsen
 split_th_messages:Berichten
 split_th_select:Selecteren
-report_report_post:Bericht rapporteren
+report_report_post:Bericht melden
 quicklogin_login:Gebruikernaam:
 quicklogin_password:Wachtwoord:
 quicklogin_use_cookies:Cookies gebruiken?
@@ -1106,7 +1106,7 @@ post_common_link_popup:Koppelingslocatie:
 post_common_email:E-mailadres invoegen
 post_common_email_popup:E-mailadres:
 post_common_image:Een afbeelding invoegen
-post_common_image_popup:Afbeeldings-URL:
+post_common_image_popup:Afbeeldings-url:
 post_common_nlist:Genummerde lijst toevoegen
 post_common_blist:Een ongenummerde lijst toevoegen
 post_common_quote:Citaat toevoegen
