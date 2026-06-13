@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -219,21 +219,25 @@
 <?php
 // Calculate values for pie chart.
 if (isset($total_disk_usage)) {
-	$tot = $sql_disk_usage + (int)$total_disk_usage;
-	$db  = $sql_disk_usage / $tot *100;
+	$tot   = $sql_disk_usage + (int)$total_disk_usage;
+	$db    = $sql_disk_usage / $tot *100;
 	$data  = $disk_usage_array['DATA_DIR']      / $tot *100;
-	$web = $disk_usage_array['WWW_ROOT_DISK'] / $tot *100;
+	$web   = $disk_usage_array['WWW_ROOT_DISK'] / $tot *100;
 	if ($db < 1) $db = 1;
 ?>
 <h4>Disk Usage:</h4>
 <table class="resulttable fulltable">
+<tr style="line-height: 1px;">
+	<td></td>
+	<td></td>
+	<td rowspan="4" width="250px" align="right"> <div id="piechart" style="width:250px; height:250px; display:none;"></div> </td>
+</tr>
 <?php
 	if (!$same_dir) {
 ?>
 <tr class="field">
 	<td><b>Web directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where all the forum's web browseable files are stored</span></td>
 	<td align="right" valign="top"><?php echo number_format($disk_usage_array['WWW_ROOT_DISK']/1024); ?> KB</td>
-	<td rowspan="3" width="250px"> <img src="https://chart.googleapis.com/chart?cht=p3&amp;chs=250x100&amp;chd=t:<?php echo (int)$db .','. (int)$web .','. (int)$data; ?>&amp;chl=DB|Web files|Data files" align="right" /> <td>
 </tr>
 
 <tr class="field">
@@ -246,7 +250,6 @@ if (isset($total_disk_usage)) {
 <tr class="field">
 	<td><b>Forum directories:</b><br /><span style="font-size: x-small;"><?php echo $WWW_ROOT_DISK; ?><br />This is where the forum's files are stored.</span></td>
 	<td align="right" valign="top"><?php echo number_format($total_disk_usage/1024); ?> KB</td>
-	<td rowspan="3" width="250px"> <img src="https://chart.googleapis.com/chart?cht=p3&amp;chs=250x100&amp;chd=t:<?php echo (int)$db .','. (int)$web; ?>&amp;chl=DB|Files" align="right" /> <td>
 </tr>
 <?php
 	}
@@ -261,6 +264,25 @@ if (isset($total_disk_usage)) {
 	<td align="right" valign="top"><?php echo number_format(($total_disk_usage+$sql_disk_usage)/1024); ?> KB</td>
 </tr>
 </table>
+
+<!-- Draw Pie Chart. -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script async="async">
+	google.charts.load('current', {packages: ['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = new google.visualization.arrayToDataTable([
+			['Area', 'Space'],
+			['DB', <?php echo (int)$db ?>],
+			['Web', <?php echo (int)$web ?>],
+			['Data',  <?php if (!$same_dir) echo (int)$data; else echo 0; ?>]
+		]);
+		var options = {legend: 'bottom'};
+		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		chart.draw(data, options);
+	}
+	jQuery("#piechart").show();
+</script>
 
 <h4>Forum Statistics:</h4>
 <table class="resulttable fulltable">

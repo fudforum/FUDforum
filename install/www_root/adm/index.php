@@ -47,18 +47,18 @@
 <?php
 	/* Check if consistency check is required. */
 	if (@file_exists($GLOBALS['TMP'] .'RUN_CONSISTENCY_CHECK')) {
-		echo '<div class="alert dismiss" title="Conistency Check">Please run the forum\'s <a href="consist.php?'. __adm_rsid .'">consistency checker</a>.<br /></div>';
+		echo '<div class="alert dismiss" title="Consistency Check">Please run the forum\'s <a href="consist.php?'. __adm_rsid .'">consistency checker</a>.<br /></div>';
 	}
 
 	/* Check for files that should be removed. */
 	if (@file_exists($WWW_ROOT_DISK .'convert.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'convert.php">Please <a href="../convert.php">run</a> and <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>converter</em> script before a hacker discovers it.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'convert.php">Please <a href="../convert.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>converter</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'install.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'install.php">Please <a href="../install.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>install</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'uninstall.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'uninstall.php">Please <a href="../uninstall.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>uninstall</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'upgrade.php')) {
-		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run</a> and <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>upgrade</em> script before a hacker discovers it.<br /></div>';
+		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'upgrade.php">Please <a href="../upgrade.php">run</a> or <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>upgrade</em> script before a hacker discovers it.<br /></div>';
 	} elseif  (@file_exists($WWW_ROOT_DISK .'unprotect.php')) {
 		echo '<div class="alert dismiss" title="'. $WWW_ROOT_DISK .'unprotect.php">Please <a href="admbrowse.php?cur='. urlencode($WWW_ROOT_DISK) .'&amp;'. __adm_rsid .'#flagged">delete</a> the <em>unprotect</em> script before a hacker discovers it.<br /></div>';
 	} elseif (@file_exists($WWW_ROOT_DISK .'fudforum_archive')) {
@@ -94,7 +94,7 @@ Welcome to your forum's Admin Control Panel. From here you can control how your 
 
 <table border="0"><tr><td width="50%" valign="top">
 
-	<h4>Getting help:</h4>
+	<h4>Getting Help:</h4>
 	FUDforum's documentation is available on our <b><a href="https://github.com/fudforum/FUDforum/wiki">development and documentation wiki</a></b>. Please report any problems on the <b><a href="https://github.com/fudforum/FUDforum/discussions">support forum</a></b>.
 
 </td><td width="50%" valign="top">
@@ -148,11 +148,10 @@ while ($r = db_rowarr($c)) {
 $registrations_per_day = array_values($registrations_per_day); 
 ?>
 
-<script src="https://www.google.com/jsapi"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 <script async="async">
-// jQuery(document).ready(function () {
-	google.load("visualization", "1", {packages:["corechart"]});
-	google.setOnLoadCallback(drawChart);
+	google.charts.load('current', {packages: ['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
 	function drawChart() {
 		var data = new google.visualization.DataTable();
 		data.addColumn('string', 'Days ago');

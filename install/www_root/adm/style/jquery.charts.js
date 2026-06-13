@@ -3,7 +3,9 @@
 	// This script was written by Steve Fenton
 	// http://www.stevefenton.co.uk/Content/Jquery-Side-Content/
 	// Feel free to use this jQuery Plugin
-	// Version: 1.1.0
+	// Version: 1.1.2
+	// Contributions by:
+	//     Hug Capella
 	
 	$.fn.charts = function (settings) {
 	
@@ -20,7 +22,10 @@
 			chartfgcolours: ["#FFFFFF", "#FFFFFF", "#FFFFFF"],
 			chartpadding: 8,
 			chartheight: 300,
-			showlabels: true
+			showlabels: true,
+			showgrid: false,
+			gridlines: 8,
+			gridvalues: true
 		};
 		
 		if (settings) {
@@ -69,8 +74,8 @@
 			var output = "";
 			var colourIndex = 0;
 			var leftShim = 0;
-			var shimAdjustment = RoundToTwoDecimalPlaces(100 / labelArray.length);//Math.floor(100 / labelArray.length);
-			var widthAdjustment = shimAdjustment - 1;
+			var shimAdjustment = RoundToTwoDecimalPlaces((100 + config.chartpadding) / labelArray.length);
+			var widthAdjustment = shimAdjustment - config.chartpadding;
 			
 			var groupName = "";
 			var useGroups = false;
@@ -80,6 +85,27 @@
 			
 			output += "<div style=\"height: " + config.chartheight + "px; position: relative;\">";
 			
+			if (config.showgrid) {
+
+                var gridLineCount = config.gridlines;
+                var gridLineValue = (largestValue / gridLineCount);
+                var gridLineHeight = (gridLineValue / largestValue) * 100;
+
+                // All grid sections should be same height
+				for (var i = 0; i < gridLineCount; i++) {
+					var alternatingClass = "odd";
+					if (i%2 == 0) {
+						alternatingClass = "even";
+					}
+					output += "<div class=\"" + config.classmodifier + "gridline " + alternatingClass + "\" style=\"height: " + gridLineHeight + "%;\">";
+                    if (config.gridvalues) {
+                        var value = (gridLineCount - i) * gridLineValue;
+                        output += "<span style=\"display: inline-block; width: 3em; position: relative; left: -3em; border-top: 1px solid Gray;\">" + value + "</span>";
+                    }
+                    output += "</div>";
+				}
+			}
+
 			for (var i = 0; i < valueArray.length; i++) {
 			
 				if (colourIndex >= config.chartbgcolours.length) {
@@ -108,33 +134,33 @@
 						output += '<div class="' + config.classmodifier + 'group" style="text-align: center; z-index: 1000; position: absolute; bottom: -1.5em; left: ' + leftShim + '%; display: block; background-color: ' + config.chartbgcolours[colourIndex] + '; color: ' + config.chartfgcolours[colourIndex] + '; width: ' + groupWidth + '%;">' + groupName + '</div>';
 					}
 				}
-				
+
 				// Labels
 				var displayLabel = "";
 				if (config.showlabels) {
 					displayLabel = "<span style=\"display: block; width: 100%; position: absolute; bottom: 0; text-align: center; background-color: " + config.chartbgcolours[colourIndex] + ";\">" + labelArray[i] + "</span>"
 				}
-				
+
 				// Column
-				output += "<div class=\"" + config.classmodifier + "bar\" style=\"position: absolute; bottom: 0; left: " + leftShim + "%; display: block; height: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; width: " + widthAdjustment + "%; text-align: center;\" rel=\"" + barHeight + "\" title=\"" + labelTextArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\">" + valueArray[i] + displayLabel + "</div>"
+				output += "<div class=\"" + config.classmodifier + "bar\" style=\"position: absolute; bottom: 0; left: " + leftShim + "%; display: block; height: 0%; background-color: " + config.chartbgcolours[colourIndex] + "; color: " + config.chartfgcolours[colourIndex] + "; width: " + widthAdjustment + "%; text-align: left;\" rel=\"" + barHeight + "\" title=\"" + labelTextArray[i] + " - " + valueArray[i] + " (" + percent + "%)" + "\"><div style=\"text-align:center\">" + valueArray[i] + "</div>" + displayLabel + "</div>"
 
 				leftShim = leftShim + shimAdjustment;
-				
+
 				colourIndex++;
 			}
-			
+
 			output += "</div>";
-			
+
 			return output;
 		}
-		
+
 		function GetWaterfallOutput(labelArray, valueArray, totalValue, largestValue, labelTextArray) {
 			var output = "";
 			var colourIndex = 0;
 			var leftShim = 0;
 			var shimAdjustment = RoundToTwoDecimalPlaces(100 / labelArray.length);
 			var widthAdjustment = shimAdjustment - 1;
-			
+
 			output += "<div style=\"height: " + config.chartheight + "px; position: relative;\">";
 			
 			var runningTotal = 0;
@@ -208,6 +234,7 @@
 			
 			// Values
 			var values = $table.find("tbody tr");
+                        if (config.direction=='vertical') config.chartpadding*= (values.length-1)*100/$table.parent().width()/values.length
 			
 			var labelArray = new Array();
 			var labelTextArray = new Array();
@@ -289,6 +316,15 @@
 				$table.hide();
 			}
 			
+			//$("." + config.classmodifier + "gridline").each( function () {
+			//	$This = $(this);
+			//	if ($This.hasClass("even")) {
+			//		$This.css({ opacity: 0.5 });
+			//	} else {
+			//		$This.css({ opacity: 0.2 });
+			//	}
+			//});
+
 			// Animation
 			$("." + config.classmodifier + "bar").each( function() {
 				var calculatedSize = $(this).attr("rel");
@@ -328,3 +364,4 @@
 		return this;
 	};
 })(jQuery);
+
