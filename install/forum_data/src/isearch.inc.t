@@ -74,14 +74,14 @@ function index_text($subj, $body, $msg_id)
 		$weight = $spaces ? round(40 / ($spaces + 1)) : 100;
 	}
 
-	// Spilt text into word arrays, note how $subj is repeated for increaded relevancy.
+	// Spilt text into word arrays, note how $subj is repeated for increased relevancy.
 	$w1 = text_to_worda($subj, null, null, 1);
 	$w2 = text_to_worda(str_repeat($subj.' ', $weight) .' '. $body, null, null, 1);
 	if (!$w2) {
 		return;
 	}
 
-	// Register words - this will asign an "id" to each.
+	// Register words - this will assign an "id" to each.
 	ins_m('{SQL_TABLE_PREFIX}search', 'word', 'text', array_keys($w2));
 
 	// Populate title index
