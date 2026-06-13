@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -11,8 +11,15 @@
 
 /*{PRE_HTML_PHP}*/
 
-	/* Remove old unconfirmed users. */
-	if ($FUD_OPT_2 & 1) {
+        /* Remove old unconfirmed users, run once per day */
+        $lock_file = $GLOBALS['TMP'] . 'cleanup_unconfirmed_users.lock';
+        $today_start = strtotime('today');
+
+        /* Run only if it has NOT been executed today */
+	if (
+            ($FUD_OPT_2 & 1) &&		// EMAIL_CONFIRMATION enabled
+            (!file_exists($lock_file) || filemtime($lock_file) < $today_start)
+        ) {
 		$account_expiry_date = __request_timestamp__ - (86400 * $UNCONF_USER_EXPIRY);
 		$list = db_all('SELECT id FROM {SQL_TABLE_PREFIX}users WHERE '. q_bitand('users_opt', 131072) .'=0 AND join_date<'. $account_expiry_date .' AND posted_msg_count=0 AND last_visit<'. $account_expiry_date .' AND id!=1 AND '. q_bitand('users_opt', 1048576) .'=0');
 
@@ -20,8 +27,11 @@
 			fud_use('private.inc');
 			fud_use('users_adm.inc', true);
 			usr_delete($list);
+			unset($list);
 		}
-		unset($list);
+
+		/* Mark as executed today */
+		touch($lock_file);
 	}
 
 	/* Log user out and redirect to correct page. */
