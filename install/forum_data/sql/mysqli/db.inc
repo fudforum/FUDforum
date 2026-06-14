@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -99,7 +99,12 @@ function db_affected()
 
 function uq($query)
 {
-	return q($query);
+	$db = db::$db;
+	$r = $db->real_query($query);
+	if ($db->error) {
+		fud_sql_error_handler($query, $db->error, $db->errno, db_version());
+	}
+	return $db->use_result();
 }
 
 if (!defined('fud_query_stats')) {
