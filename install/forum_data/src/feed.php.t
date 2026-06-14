@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -80,9 +80,10 @@ function feed_cache_cleanup()
 	$cache_files = glob($GLOBALS['FORUM_SETTINGS_PATH'].'feed_cache_*');
 	if (is_array($cache_files)) {
 		foreach ($cache_files as $v) {
-			$filemtime = @filemtime($v);
+		        if (!is_file($v)) continue; 	// Skip directories and invalid entries.
+			$filemtime = filemtime($v);
 			if ($filemtime && $filemtime + $GLOBALS['FEED_CACHE_AGE'] < __request_timestamp__) {
-				unlink($v);
+				@unlink($v);
 			}
 		}
 	}
@@ -169,7 +170,7 @@ function smiley_full(&$data)
 			if (isset($_GET['sf'])) {
 				$_GET['frm'] = db_all('SELECT forum_id FROM {SQL_TABLE_PREFIX}forum_notify WHERE user_id='. (int)$_GET['sf']);
 			} else if (isset($_GET['st'])) {
-				$_GET['th'] = db_all('SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='. (int)$_GET['sf']);
+				$_GET['th'] = db_all('SELECT thread_id FROM {SQL_TABLE_PREFIX}thread_notify WHERE user_id='. (int)$_GET['st']);
 			}
 			if (isset($_GET['cat'])) {
 			 	$lmt .= ' AND f.cat_id IN('. multi_id($_GET['cat']) .')';
@@ -461,6 +462,7 @@ function smiley_full(&$data)
 		if ($FEED_CACHE_AGE) {
 			echo ($out = ob_get_clean());
 			$fp = fopen($file_name, 'w');
+			flock($fp, LOCK_EX);
 			fwrite($fp, $out);
 			fclose($fp);
 		}

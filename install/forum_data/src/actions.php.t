@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -76,6 +76,7 @@
 		}
 
 		if (!$r[2] || ($is_a || !empty($limit[$r[2]]) || $r[13])) {
+			$r[0] = $r[0] ?? '';	// Prevent PHP warnings
 			if ($FUD_OPT_2 & 32768) {	// USE_PATH_INFO
 				if (($p = strpos($r[0], 'href="')) !== false) {
 					$p += 6;

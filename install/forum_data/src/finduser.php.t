@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -68,6 +68,8 @@
 		$total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}users WHERE '. $qry .' id > 1 AND '. q_bitand('users_opt', 1073741824) .' = 0');
 	}
 	if ($total > $MEMBERS_PER_PAGE) {
+		$ul = $usr_login ? urlencode($usr_login) : 0;
+
 		if ($FUD_OPT_2 & 32768) {
 			$pg = '{ROOT}/ml/';
 
@@ -85,9 +87,7 @@
 				$pg .= '0/';
 			}
 
-			$ul = $usr_login ? urlencode($usr_login) : 0;
 			$pg2 = '/'. $ul .'/';
-
 			if (isset($_GET['js_redr'])) {
 				$pg2 .= '1/';
 			}
@@ -96,6 +96,7 @@
 			$pager = tmpl_create_pager($start, $MEMBERS_PER_PAGE, $total, $pg, $pg2);
 		} else {
 			$pg = '{ROOT}?t=finduser&amp;'. _rsid .'&amp;';
+
 			if ($usr_login) {
 				$pg .= 'usr_login='. urlencode($usr_login) .'&amp;';
 			}

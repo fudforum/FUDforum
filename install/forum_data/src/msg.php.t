@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,8 +12,8 @@
 /*{PRE_HTML_PHP}*/
 
 	$count = $usr->posts_ppg ? $usr->posts_ppg : $POSTS_PER_PAGE;
-	$th = isset($_GET['th']) ? (int) $_GET['th'] : 0;
-	$RSS = '{TEMPLATE: msg_RSS}';
+	$th    = isset($_GET['th']) ? (int) $_GET['th'] : 0;
+	$RSS   = '{TEMPLATE: msg_RSS}';
 
 	if (isset($_GET['goto']) && $_GET['goto'] !== 'end') {
 		$_GET['goto'] = (int) $_GET['goto'];
@@ -60,7 +60,8 @@
                 // This can produce insonsitent results if you have more than one topic with the same subject.
 		// Narro down a forum with forum:subject.
                 // Example URL: http://your.forum.com/t/subject
-                list($subj, $frm) = array_reverse(explode(':', $_GET['th'], 2));
+                list($subj, $frm) = array_reverse(explode(':', $_GET['th'] ?? '', 2));
+
                 $count = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}msg m
                                         LEFT JOIN {SQL_TABLE_PREFIX}thread t ON m.thread_id = t.id
                                         LEFT JOIN {SQL_TABLE_PREFIX}forum f ON t.forum_id = f.id
