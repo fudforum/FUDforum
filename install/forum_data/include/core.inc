@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 * Free Software Foundation; version 2 of the License.
 **/
 
-$FORUM_VERSION = '3.2.0';
+$FORUM_VERSION = '3.2.1';
 
 ignore_user_abort('1');
 
@@ -76,7 +76,7 @@ function get_random_value($bitlength=32)
 	return $v;
 }
 
-/** Get user's IP Address. */
+/** Get user's IP address. */
 function get_ip()
 {
 	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -84,7 +84,7 @@ function get_ip()
 		$ip = strtok($_SERVER['HTTP_X_FORWARDED_FOR'], ',');
 		do {
 			$ip = str_replace('::ffff:', '', $ip);
-			// Disallowed ip ranges that are normally used for private networks.
+			// Disallowed IP ranges that are normally used for private networks.
 			if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE)) {
 				return $ip;
 			}
@@ -96,8 +96,8 @@ function get_ip()
 	return (filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0');
 }
 
-/** Print an localized and time-zone adjusted date.
- *  Data formats are defined in date_formats.tmpl
+/** Print a localized and time-zone adjusted date.
+ *  Date formats are defined in date_formats.tmpl
  */
 function print_date($format, $date) {
 
@@ -127,7 +127,7 @@ function print_date($format, $date) {
 	}
 }
 
-/** Prepare string for use in a SEO URL - inspired by MediaWiki's wfUrlencode(). */
+/** Prepare string for use in an SEO URL - inspired by MediaWiki's wfUrlencode(). */
 function seo_url_bit($str) {
         $str = str_replace(' ', '_', $str);
         $str = str_replace('/', '|', $str);
