@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -72,7 +72,10 @@ function get_preview_img($id)
 
 	// DWLND_REF_CHK
 	$WWW_ROOT = preg_replace('#^\/\/|^https?:\/\/|www\.#', '', $WWW_ROOT);	// Remove www, \\ and http/https before referer checking.
-	if ($FUD_OPT_2 & 4194304 && !empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $WWW_ROOT) === false) {
+	$HTTP_REFERER    = $_SERVER['HTTP_REFERER']    ?? '';
+	$HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+	if ($FUD_OPT_2 & 4194304 && strpos($HTTP_REFERER, $WWW_ROOT) === false) {
 		header($_SERVER['SERVER_PROTOCOL'] .' 403 Forbidden', true, 403);
 		echo 'Forbidden - bad referer';
 		exit;
@@ -91,7 +94,7 @@ function get_preview_img($id)
 	if (!$r[0]) {
 		$r[0] = 'application/octet-stream';
 		$append = 'attachment; ';
-	} else if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') && preg_match('!^(?:audio|video|image)/!i', $r[0])) {
+	} else if (strpos($HTTP_USER_AGENT, 'MSIE') && preg_match('!^(?:audio|video|image)/!i', $r[0])) {
 		$append = 'inline; ';
 	} else if (strncmp($r[0], 'image/', 6)) {
 		$append = 'attachment; ';
@@ -115,7 +118,7 @@ function get_preview_img($id)
 	 *	http://support.microsoft.com/?kbid=812935
 	 *	http://support.microsoft.com/default.aspx?scid=kb;en-us;316431
 	 */
-	if ($_SERVER['SERVER_PORT'] == '443' && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
+	if ($_SERVER['SERVER_PORT'] == '443' && (strpos($HTTP_USER_AGENT, 'MSIE') !== false)) {
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0', 1);
 		header('Pragma: public', 1);
 	} else if (__fud_cache(filemtime($r[2]))) {
