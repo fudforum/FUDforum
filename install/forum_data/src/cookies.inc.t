@@ -177,7 +177,7 @@ function ses_anon_make()
 function ses_update_status($ses_id, $action=null, $forum_id=0, $ret='')
 {
 	if (empty($ses_id)) {
-		header('HTTP/1.1 400 Bad Request', true, 400)
+		header('HTTP/1.1 400 Bad Request', true, 400);
 		echo 'FATAL ERROR: No session, check your forum\'s URL and COOKIE settings.';
 		exit;
 	}

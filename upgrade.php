@@ -521,7 +521,7 @@ function syncronize_theme($theme)
 <table class="maintable" style="height:100%;">
 <tr>
 <td class="linktable linkdata" nowrap="nowrap">
-<p><b>Preperation:</b></p>
+<p><b>Preparation:</b></p>
 <p>Please <b><a href="https://github.com/fudforum/FUDforum/wiki/Make-forum-datadump">backup</a></b> your forum<br />
    and <b><a href="https://github.com/fudforum/FUDforum/wiki/Upgrading">review the documentation</a></b><br />
    before proceeding!</p>
@@ -535,7 +535,7 @@ function syncronize_theme($theme)
 <p><span class="linkgroup">Step 3:</span> Consistency check</p>
 
 <p>Thank you for keeping<br />
-   your forum up-to-date!</p>
+   your forum up to date!</p>
 </td>
 <td class="maindata">
 
@@ -712,7 +712,7 @@ pf('<h2>Step 1: Admin login</h2>', true);
    <td colspan="2"><br /></td>
 </tr>
 <tr class="field">
-	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling. FUDforum will not update custom template sets and you may have to do it manually! If checked, the upgrade may <u>overwrite</u> and <u>destroy</u> custom themes.</small></label></td>
+	<td><label for="custom_tmpl" title="If unsure, leave unchecked!"><b>Update custom template sets?</b><br /><small>Leave unchecked to preserve custom styling. FUDforum will not update custom template sets and you will have to do it manually! If checked, the upgrade may <u>overwrite</u> and <u>destroy</u> custom themes.</small></label></td>
 	<td><input type="checkbox" id="custom_tmpl" name="custom_tmpl" value="1" /></td>
 </tr>
 <tr class="field">

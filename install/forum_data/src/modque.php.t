@@ -79,7 +79,7 @@
 	INNER JOIN {SQL_TABLE_PREFIX}cat c ON f.cat_id=c.id
 	LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 	LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
-	LEFT JOIN {SQL_TABLE_PREFIX}karma_rate_track karma ON karma.msg_id=m.id AND karma.user_id='. _uid . '
+	LEFT JOIN {SQL_TABLE_PREFIX}karma_rate_track karma ON karma.msg_id=m.id AND karma.user_id='. _uid .'
 	LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
 	LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
 	WHERE f.forum_opt>=2 AND m.apr=0

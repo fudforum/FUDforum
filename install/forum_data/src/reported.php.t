@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -50,6 +50,7 @@ function draw_path($cid)
 			u.sig, u.custom_status, u.icq, u.jabber, u.facebook, u.yahoo, u.skype, u.google, u.users_opt, u.last_visit AS time_sec,
 			l.name AS level_name, l.level_opt, l.img AS level_img,
 			p.max_votes, p.expiry_date, p.creation_date, p.name AS poll_name, p.total_votes,
+			u.karma, karma.id AS cant_karma,
 			mr.id AS report_id, mr.stamp AS report_stamp, mr.reason AS report_reason,
 			u2.id AS report_user_id, u2.alias AS report_user_login, u2.last_visit AS time_sec_r,
 			m2.subject AS thread_subject,
@@ -63,8 +64,9 @@ function draw_path($cid)
 			LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 			LEFT JOIN {SQL_TABLE_PREFIX}users u2 ON mr.user_id=u2.id
 			LEFT JOIN {SQL_TABLE_PREFIX}level l ON u.level_id=l.id
+			LEFT JOIN {SQL_TABLE_PREFIX}karma_rate_track karma ON karma.msg_id=m.id AND karma.user_id='. _uid .'
 			LEFT JOIN {SQL_TABLE_PREFIX}poll p ON m.poll_id=p.id
-			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid.'
+			LEFT JOIN {SQL_TABLE_PREFIX}poll_opt_track pot ON pot.poll_id=p.id AND pot.user_id='. _uid .'
 		ORDER BY mr.id');
 
 	$perms = 2147483647;
