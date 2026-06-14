@@ -57,7 +57,7 @@
 		$_GET['start'] = (ceil($pos/$count) - 1) * $count;
 	} else if (!$th) {
                 // Try to lookup ThreadID from URL, similar to what Wikipedia does.
-                // This can produce insonsitent results if you have more than one topic with the same subject.
+                // This can produce inconsistent results if you have more than one topic with the same subject.
 		// Narro down a forum with forum:subject.
                 // Example URL: http://your.forum.com/t/subject
                 list($subj, $frm) = array_reverse(explode(':', $_GET['th'] ?? '', 2));
