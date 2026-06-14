@@ -1,6 +1,6 @@
 <?php
 /***************************************************************************
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -12,7 +12,7 @@
 // define('fud_debug', 1);
 
 // Major version + 99 for sub-releases
-$__UPGRADE_SCRIPT_VERSION = 32002;
+$__UPGRADE_SCRIPT_VERSION = 32100;
 
 /*
   * SQL Upgrade Functions - format is tablename_colname():
@@ -1106,7 +1106,11 @@ pf('<h2>Step 1: Admin login</h2>', true);
  	}
 
 	/* Remove obsolete include files. */
-	$rm_inc = array('file_adm.inc');	// Renamed to fs.inc (3.0.5).
+	$rm_inc = array('file_adm.inc',	// Renamed to fs.inc (3.0.5).
+			  'font/courier.php',	// Replace PHP fonts with json files (3.2.1)
+  			  'font/helvetica.php',
+  			  'font/helveticab.php'
+			 );
 	foreach ($rm_inc as $f) {
 		if (file_exists($GLOBALS['DATA_DIR'] .'include/'. $f)) {
 			unlink($GLOBALS['DATA_DIR'] .'include/'. $f);

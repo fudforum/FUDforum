@@ -37,7 +37,8 @@ Uninstall steps:
 2) Copy uninstall.php to your forum's Web Root directory.
    Tip: Upload it using your forum's 'File Manager' in the Admin Control Panel.
 
-3) Run uninstall.php from your web browser.
+3) Run uninstall.php from your web browser. 
+   Click on "Dry Run" before doing the actual uninstall.
 
 
 Quick Start Commands:
