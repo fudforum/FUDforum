@@ -8,6 +8,7 @@
 # Author: شاه زمان پټان
 
 action:کړنه
+add_to_buddy_list:انډيوالانو لړليک ته ورگډول
 admin:پازوال
 admin_control_panel:اداره
 administrator:پازوال
@@ -16,18 +17,24 @@ avatar:ځان‌بڼه:
 biography:ژوندليک:
 birth_date:زېږون نېټه
 by:لخوا د:
+by_mod:د مدير له خوا
 current_time:اوسنی وخت
+custom_avatar_queue:د ځان‌بڼې دوديز کتار
 date_posted:د خپرولو نېټه
 date_registered:نوم‌ليکنې نېټه:
 download_counter:{PLURAL: v[3]|$1 ځل|$1 ځله} ښکته شوی
 pmsg_download_counter:{PLURAL: r->dlcount|$1 ځل|$1 ځله} ښکته شوی
 email:برېښليک:
 email_to_friend:ملگري ته برېښليک لېږل
+email_to_friend_desc:د دې مخ وېبتړ مو خپلو ملگرو ته د برېښليک له لارې ولېږئ.
 email_user:دې کارن ته يو برېښليک لېږل
 faq:لارښود
+first_unread_msg:نالوستو پيغامونو ته ورتلل
+first_unread_msg_desc:د‌ دې سمولو دننه لومړي نالوستي پيغام ته ورشئ
 forum:فورم:
 forum_icon:د فورم نښه
 forum_new_messages:نوي پيغامونه
+forum_none_messages:يوازې د ټولنځي نوم‌ليکلي غړي کولی شي لوستي &amp; نالوستي پيغامونه وڅاري
 forum_old_messages:نوي پيغامونه نشته
 from:له:
 gender:جنس:
@@ -36,46 +43,82 @@ goto_next_msg:بل پيغام ته ورتلل
 goto_prev_msg:مخکني پيغام ته ورتلل
 home:کور
 homepage:وېبپاڼه:
+ignore_user:د دې کارن ټول پيغامونه له پامه غورځول
 im_facebook:فيسبوک:
 im_yahoo:ياهو مېسېنجر:
 image:انځور:
 index_forum:فورم
+index_new_posts:د وروستۍ لوستنې راهيسې نوي پيغامونه
+index_no_new_posts:د وروستۍ لوستنې راهيسې هېڅ نوي پيغامونه نشته
+index_url_redirection:مخگرځونه
 interests:لېوالتياوې:
 last_post:وروستی پيغام
+last_thread_msg:د دې سکالو وروستي پيغام ته ورتلل
+legend:څرگندوونکی‌سرليک
 location:استوگنځی:
 lock_thread:سرليک تړل
 locked:تړل شوی
+logged_in_list:ننوتي کارنانو لړليک
 login:ننوتل
 login_header:ننوتل:
 logout:وتل
+mark_all_read:ټول پيغامونه لوستل شوي په نښه‌کول
+mark_all_read_desc:ستاسو ټول نالوستي پيغامونه به د لوستل شوي په توگه په نښه شي
 members:غړي
 calendar:کليز
 cal_goto_date:ورټوپ کړه:
 cal_day_heading:د نن پېښې
+cal_no_events:د ورځې لپاره هېڅ پېښه نشته.
+cal_update:د فورم کليز لټول
 cal_birthday:زېږون ورځ: {VAR: user}
+cal_birthdays:{PLURAL: birthdays|$1 زېږورځ|$1 زېږورځې}
+cal_birthday_age:({PLURAL: age|$1 کلن|$1 کلن}).
 message:پيغام
 message_index:د پيغام ليکلړ
 message_index_desc:د پيغامونو لړليک کتل
 minimize_category:وېشنيزه وړوکې کول
 minimize_message:پيغام وړوکی کول
+moderation_queue:مديرانو کتار
+moderator:مدير
+moderator_of:مدير د:
+moderator_options:مدير خوښنې
+moderators:{PLURAL: modcount|مدير|مديران}
+more_unread_messages:نور نالوستي پيغامونه
 move_thread:لېږدول
+moved:بل ټولنځي ته لېږدول شوی
+moved_thread_message:دا سکالو بل ټولنځي ته لېږدول شوې ده
+na:ناڅرگند
 new_posts:نوي پيغامونه
 new_thread:يو نوی بحث پيلول
+newest_user:ترټولو نوی نوم‌ليکلی کارن
 next_page:بل مخ
 next_thread:راتلونکی سرليک:
+no_msg_body:پيغام هېڅ ليک نه لري
 no_new_posts:نوي پيغامونه نشته
 no_posts:پيغامونه نشته
+no_subscribed_forums:هېڅ ټولنځي کې گډون نه لرئ
+no_subscribed_threads:هېڅ سکالو کې گډون نه لرئ
+no_bookmarked_threads:هېڅ کتاب‌نښه شوې سکالوگانې نشته
+no_unread_msg:دا سکالو هېڅ نالوستي پيغامونه نه لري
+no_unread_msg_unreg:لوستي &amp; نالوستي يوازې د نوم‌ليکلو کارنانو لپاره څارل کېږي
+num_pages:مخونه {VAR: ttl_pg}:
+num_votes:{VAR: obj->total_votes} {PLURAL: obj->total_votes|رايه|رايې}
 occupation:دنده:
 off:گول
 on:بل
+page_timings:د مخ جوړولو لپاره ټولټال لگېدلی وخت: {PLURAL: page_gen_time|$1 ثانيې}
+poll:اندغوښتنه:
 post_count_l:د پيغامونو شمېر:
 posts:پيغامونه
 posts_c:پيغامونه:
 prev_thread:پخوانی سرليک:
 usrinfo_private_message:شخصي پيغام:
+profile:کنټرول منځدړه
+profile_desc:د کارن کنټرول منځدړې ته لاسرسی
 rate_thread:سکالو ارزول
 rating:ارزښت
 register:نوم‌ليکنه
+registered:نوم‌ليکلی:
 replies:ځوابونه
 reveal_post:پيغام ښکاره کول
 search:پلټل
@@ -87,8 +130,13 @@ sender_email:د لېږونکي برېښليک:
 sender_name:د لېږونکي نوم:
 size:کچه:
 status:دريځ:
+stop_ignoring:دا کارن له پامه نه غورځوئ
+sub_to_thread:دې سکالو کې گډون‌کول
+bookmark_thread:کتابنښې سکالو
 subject:موضوع
 subscribe:ونډه جوړول
+subscribed_forums:گډون کړې ټولنځي
+subscribed_threads:گډون کړې سکالوگانې
 thread:سرليک:
 thread_announcement:خبرتيا:
 thread_thread:سرليک
@@ -98,29 +146,54 @@ todays_posts:د نن ورځې پيغامونه
 unanswered_posts:ناځوابه پيغامونه
 unanswered_posts_desc:ټول هغه پيغامونه، چې ځوابونه نلري، ښکاره کول
 unread_posts:نالوستي پيغامونه
+unsub_from_thread:د دې سکالو له ونډې وتل
+unsubscribe:گډون‌پرېښودل
+updated_on:هم‌مهاله‌شوی په:
 user:کارن
 user_info:د کارن مالومات
+user_info_l:کارن مالومات {VAR: u->alias}
+user_offline:{VAR: obj->login} اوسمهال افلاطون ده
+user_online:{VAR: obj->login} وسمهال پرليکه ده
 usrinfo_last_post:وروستی پيغام:
 view_results:پايلې کتل
 views:کتنې
+vote:{PLURAL: frm->n_rating|$1 رايه|$1 رايې}
 vote_button:رايه ورکول
 vote_for_thread:رايه ورکول
 what_ppl_doing:کارن چارې
+reported_del_report:راپور ړنگول
 reported_reason:لامل:
+reported_on:په:
+reported_reported_by:راپور ورکوونکي:
+reported_reported_msg:راپور شوي پيغامونه
+modque_pending_approval:هغه پيغامونه چې د منلو په تمه دي
+modque_approve:منل
 modque_delete:ړنگول
+modque_deleteall:د کارن څخه ټول ړنگول
+modque_no_message:هېڅ پيغام د منلو په تمه نشته
+restore_to:بيازېرمل په:
+move_to:ته لېږدول:
 list_referes_member:غړی
+referals_post_count:پيغام شمېر
+referals_registered_on:نوم‌ليکلی په
+referals_action:چاره
 pmsg_all:ټول
 pmsg_none:هېڅ
+folder:پوښۍ:
 pmsg_replied:ځواب شو
+pmsg_forwarded:مخته‌وړل
+pmsg_subject:سکالو
 pmsg_author:ليکوال
 pmsg_time:وخت
-# Fuzzy
-pmsg_selected:ټاکلی
+pmsg_selected:ټاکل
 pmsg_delete:ړنگول
 inbox:ليکبکس
 draft:گارليک
 sent:لېږل شوي
+trash:خځلې
 msg_author:ليکوال
+avatar_sel_form:د ځان‌بڼې ټاکلو فورمه
+no_avatars:هېڅ ځان‌بڼې شتون نه لري
 month_1:جنوري
 month_2:فېبروري
 month_3:مارچ
@@ -138,6 +211,8 @@ sunday_short:ا
 monday:دوه‌نۍ
 monday_short:د
 tuesday:درې‌نۍ
+tuesday_short:درې‌نۍ
+wednesday:څلورنۍ
 wednesday_short:م
 thursday:پېنځه‌نۍ
 thursday_short:ش
@@ -148,31 +223,53 @@ saturday_short:پ
 male:نارينه
 female:ښځينه
 unspecified:ناټاکلی
+use_forum_default:تلواله ټولنځی کارول
 finduser_user_info:د کارن مالومات
+finduser_by_login:ننوتلو له مخې:
 finduser_submit:موندل
 finduser_no_such_user:پدې نوم کارن نشته
 finduser_user:کارن
+finduser_postcount:د پيغامونو شمېر:
 finduser_joindate:د گډون نېټه
+finduser_action:چاره
 yes:هو
 no:نه
 register_email:برېښليک
+edit_time_limit:<b>د سمون وخت حد</b>:{GVAR: EDIT_TIME_LIMIT} دقيقې
+no_edit_time_limit:<b>د سمون وخت حد</b>: بې‌پايه
 pmuserloc_login:ننوتل:
 pmuserloc_submit:سپارل
 pmuserloc_user:کارن
+pmuserloc_no_result:هېڅ پايله نشته
+register_specify_url:وېبتړ مشخصول
+register_uploaded:ځان‌بڼه راپورته‌کول
 register_login:ننوتل:
+register_login_desc:هغه نوم چې تاسو يې غواړئ په دې وېبپاڼې کې د ننوتلو او پېژندلو لپاره وکاروئ.
+register_login_available: لاسرسي وړ
+register_login_taken:لادمخه اخيستل شوی
 register_password:پټنوم:
+register_conf_pass:پټنوم تاييدول:
+register_conf_pass_desc:مهرباني وکړئ پټنوم مو يوځل بيا وليکئ.
 register_name:نوم:
 register_name_desc:ستاسې اصلي نوم.
 register_your_pass:ستاسې پټنوم:
 register_update:اوسمهالول
+register_avatar_type:ځان‌بڼې ډول:
+register_del_avatar:ځان‌بڼه ړنگول
+register_avatar:ځان‌بڼه:
+register_sel_avatar:ځان‌بڼه غوره‌کول
+register_custom_avatar_url:د ځان‌بڼې دوديز وېبتړ:
 register_preview:مخليدنه
+register_custom_avatar_upload:د ځان‌بڼې دوديزه دوتنه:
 register_register:نوم‌ليکنه
 register_required:اړين مالومات
 register_required_desc:ټولو ډاگونو ته اړتيا ده.
+register_optional:اختياري مالومات
 register_location:ځای:
 register_occupation:دنده:
 register_interests:لېوالتياوې:
 register_image:انځور:
+register_facebook:فيسبوک پېژند:
 register_yahoo:ياهو مېسېنجر:
 register_homepage:وېبپاڼه:
 register_bday:زېږون نېټه:
@@ -183,28 +280,55 @@ register_gender:جنسيت:
 register_bio:ژوندليک:
 register_prefs:غوره‌توبونه
 register_sig:لاسليک:
+register_reset:له‌سره‌اوڼل
+register_def_thread_view:د سکالو تلواله کتل:
+register_msg_per_page:په هر مخ کې پيغامونه:
 register_show_sig:لاسليکونه ښودل:
 register_timezone:د وخت سيمه:
+register_invisible_mode_desc:ستاسو پر ليکه دريځ پټوي.
+register_show_email:برېښليک پته ښودل:
+register_notification:تلواله خبرتيا ټاکل:
+register_notify_method:د خبرتيا چلندلار خوښول:
 buddy_status:دريځ
+my_buddies:زما انډيوالان
+add_buddy:انډيوال ورگډول
 add:ورگډول
+buddy_remove:لرې‌کول
 post_normal:نورمال
 post_annoncement:خبرتيا
 post_size:کچه
 post_color:رنگ
 post_font:ليکبڼه
 create_thread:سکالو جوړول
+edit_message:بدلونونه پلي‌کول
+apply_spell_changes:املايي بدلونونه پلي‌کوف
 post_preview:مخليدنه
+post_logedin_user:ننوتی کارن:
 post_logout:وتل
+post_poll:اندغوښتنه:
+post_create_poll:اندغوښتنه جوړول
 post_poll_delete:ړنگول
 post_poll_edit:سمول
+post_mod_opt:مدير خوښنې:
+post_thread_type:سکالو ډول:
+post_thread_expiry:سکالو پای‌نېټه:
+post_no_icon:هېڅ انځورن نشته
+post_upload_file:دوتنه راپورته‌کول
 post_file_del:ړنگول
 post_file_name:نوم
 post_file_size:کچه
+file_attachments:د دوتنې مښلېدنې:
+allowed_files:اجازه ورکړل شوې دوتنې شاتاړي:
+max_file_size:د دوتنې تر ټولو لويه کچه:
+max_files_per_msg:په هر پيغام کې ترټولو لويې دوتنې:
+include_sig:لاسليک رانغاړل
+include_sig_desc:د خپل پېژنيال لاسليک پکې راونغاړئ.
 post_forum:فورم:
 post_title:سرليک:
 post_options:خوښنې:
 post_preview_btn:مخليدنه
 post_cancel_btn:ناگارل
+ignore_users:له پامه غورځول شوي کارنان
 forum_terms:د فورم شرطونه
 prereg_info:د فورم قوانين
 prereg_agree:منل
@@ -242,10 +366,16 @@ mklist_option:خوښنه:
 mklist_delete:ړنگول
 qbud_nick_name:کورنی نوم
 qbud_add_selected:ټاکلي ورگډول
-# Fuzzy
-qbud_selected:ټاکلي
+qbud_selected:ټاکل
+mklist_numerical:شمېريز
+mklist_aplha:الفا
+mklist_square:څلورڅنډيز
+mklist_circle:دايره
 mklist_close:تړل
+email_to:ته:
 email_pg_title:برېښليک
+email_subject:سکالو:
+email_body:بدن:
 email_submit:برېښليک
 ppost_find_User:کارن موندل
 ppost_send:لېږل
@@ -346,37 +476,72 @@ delete_msg_pm_subject:سکالو: {VAR: data[15]}
 uc_new_pm:نوي شخصي پيغامونه
 uc_new_topic:نوې سکالو
 search_options:د پلټلو خوښنې
+search_user_filter:د کارن له‌خوا چاڼ شوی:
+register_none:مه مې خبروه
+findu_no_conf:ناتاييد شوی کارن
+findu_banned:منع شوی کارن
+register_max_sig_len:ڈیر اوږدوالی:
+register_turing:تایید:
 register_err_turing:تاييدول نابرياله شول. مهرباني وکړئ بيا هڅه وکړئ.
 modque_cat:وېشنيزه
 modque_forum:فورم
+idx_compact_forum_row:شته فورمونه:
+mmd_del_title:سکالوگانې ړنگول
+mmd_mov_title:سکالوگانې لېږدول
 mmd_abort_move:ناگارل
+mmd_move:سکالوگانې لېږدول
 pmsg_pdf_btn:د PDF خونديځ جوړول
 thread_del_all:ټاکل شوی ړنگول
 thread_mov_all:ټاکلي لېږدول
+thread_merge_all:ټاکلي اخږل
 dmsg_ip:آی پي:
 post_common_bold:زغرد
 post_common_italics:رېوند
+post_common_underline:کرښ‌لاندې
 post_common_align_left:کيڼه پرليکتيا
 post_common_align_right:ښي پرليکتيا
 post_common_link:يوه تړنه ورټومبل
 post_common_email:يوه برېښليک‌پته ورکړئ
+post_common_email_popup:برېښليک پته:
 post_common_image:يو انځور ورټومبل
+post_common_image_popup:انځور وېبتړ:
+post_common_nlist:شمېر لړ ورگډول
 post_common_blist:گولۍ داره لړليک ورگډول
+post_common_quote:وینالېږد ورگډول
+post_common_code:کوډ ورگډول
 rating_delete:ړنگول
+tabs_notifications:خبرتياوې
 finduser_flag:رپی
+post_descr:سکالو څرگنداوی:
+pmsg_on:په
 move_messages:پيغامونه لېږدول
+move_msg_btn:غوره‌شوي پيغامونه لېږدول
 code_title:کوډ:
 code_select_all:ټول ټاکل
 code_show_hide:ښودل/ پټول
 btn_new_topic:نوې سکالو
+btn_tree_view:ونې ليد
+btn_about:پېژنيال
+btn_small_pm:پ‌پ
 btn_delete:ړنگول
 btn_edit:سمول
 btn_reply:ځوابول
+btn_forward:مخته‌وړل
+btn_quote:وينالېږد
 btn_email:برېښليک
+btn_homepage:www
+feed_no_data:هېڅ ورته اومتوک ونه موندل شو.
+feed_rdf:ار‌ډي‌اېف کتنمخ
+feed_rss:ار‌اېس‌اېس۲ کتنمخ
+feed_atom:اتوم کتنمخ
 custom_filed_required:د دغو ډاگونو ډکولو ته اړتيا ده.
 pages:مخونه
 page_list_heading:شته مخونه
 page_list_total:{PLURAL: i|$1 مخ|$1 مخونه} لړليک.
 page_update:مخ سپړنه
+pm_export_footer:بهرلېږل‌شوی:
 karma_delete:ړنگول
 rate_author:ليکوال ارزول:
+blog_new_members:نوي غړي
+blog_viewed_posts:ډېر کتل‌شوی
+blog_comments:{PLURAL: topic->ځوابونه|$1 څرگندونه|$1 څرگندونې}
