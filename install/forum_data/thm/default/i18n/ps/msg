@@ -107,7 +107,9 @@ occupation:دنده:
 off:گول
 on:بل
 page_timings:د مخ جوړولو لپاره ټولټال لگېدلی وخت: {PLURAL: page_gen_time|$1 ثانيې}
+pm:پټواله پيغام‌رسونې
 poll:اندغوښتنه:
+post_count:پيغام شمېر {VAR: u_pcount}
 post_count_l:د پيغامونو شمېر:
 posts:پيغامونه
 posts_c:پيغامونه:
@@ -117,9 +119,11 @@ profile:کنټرول منځدړه
 profile_desc:د کارن کنټرول منځدړې ته لاسرسی
 rate_thread:سکالو ارزول
 rating:ارزښت
+refresh_list:لړليک تاندول
 register:نوم‌ليکنه
 registered:نوم‌ليکلی:
 replies:ځوابونه
+reported_messages:راپور شوي پيغامونه
 reveal_post:پيغام ښکاره کول
 search:پلټل
 sel_todays_posts:د نن ورځې پيغامونه
@@ -245,7 +249,7 @@ register_specify_url:وېبتړ مشخصول
 register_uploaded:ځان‌بڼه راپورته‌کول
 register_login:ننوتل:
 register_login_desc:هغه نوم چې تاسو يې غواړئ په دې وېبپاڼې کې د ننوتلو او پېژندلو لپاره وکاروئ.
-register_login_available: لاسرسي وړ
+register_login_available:لاسرسي وړ
 register_login_taken:لادمخه اخيستل شوی
 register_password:پټنوم:
 register_conf_pass:پټنوم تاييدول:
@@ -284,7 +288,11 @@ register_reset:له‌سره‌اوڼل
 register_def_thread_view:د سکالو تلواله کتل:
 register_msg_per_page:په هر مخ کې پيغامونه:
 register_show_sig:لاسليکونه ښودل:
+register_use_sig_default:په تلواله توگه لاسليک کارول:
+register_use_sig_default_desc:هر پيغام چې تاسو خپروئ په خپلکاري ډول ورسره خپل لاسليک ورتړل.
 register_timezone:د وخت سيمه:
+register_ignore_admin:اداري پيغامونه له پامه وغورځوئ:
+register_invisible_mode:نه‌ليدل‌کېدونکی ونگ‌ډول:
 register_invisible_mode_desc:ستاسو پر ليکه دريځ پټوي.
 register_show_email:برېښليک پته ښودل:
 register_notification:تلواله خبرتيا ټاکل:
@@ -300,6 +308,7 @@ post_size:کچه
 post_color:رنگ
 post_font:ليکبڼه
 create_thread:سکالو جوړول
+submit_reply:ځواب سپارل
 edit_message:بدلونونه پلي‌کول
 apply_spell_changes:املايي بدلونونه پلي‌کوف
 post_preview:مخليدنه
@@ -327,12 +336,19 @@ post_forum:فورم:
 post_title:سرليک:
 post_options:خوښنې:
 post_preview_btn:مخليدنه
+post_diff_btn:د توپير بدلونونه
 post_cancel_btn:ناگارل
 ignore_users:له پامه غورځول شوي کارنان
+add_ignore:له پامه غورځېدلی کارن ورگډول
 forum_terms:د فورم شرطونه
 prereg_info:د فورم قوانين
 prereg_agree:منل
 prereg_disagree:نه منل
+prereg_update:د ټولنځي قوانين لوستل
+coppa_fax_instructions:د مور او پلار يا سرپرست لپاره لارښوونې
+coppa_fax_instructions2:مهرباني وکړئ دا مخ چاپ کړئ، لاسليک يې کړئ، او بېرته يې موږ ته د برېښليک يا فاکس له لارې راولېږئ.
+coppa_fax_reg_form:نوم‌ليکنې فورمه
+coppa_fax_sign:مهرباني وکړئ لاندې فورمه لاسليک کړئ او موږ ته يې راولېږئ
 coppa_fax_telephone:ټيليفون:
 coppa_fax_email:برېښليک‌پته:
 coppa_fax_date:نېټه:
@@ -344,29 +360,64 @@ login_want_to_register:ځان ثبتول غواړې؟
 login_forgot_passwd:پټنوم مې هېر شوی
 login_login:ننوتل:
 login_login_btn:ننوتل
+login_name_required:ننوتلو نوم اړين دی
+login_passwd_required:پټنوم اړين دی
+login_or:يا...
 rpasswd_invalid_passwd:ناسم پټنوم
+rpasswd_passwd_nomatch:پټنومونه مو سره ورته نه دي
+rpasswd_passwd_length:پټنوم باید لږ تر لږه ۶ لوښې اوږد وي
+reset_remind_pass:پټنوم يادوونکی
+reset_update:پټنوم بياپرځايول
 rpasswd_change_pass:پټنوم بدلول
 rpasswd_login:ننوتل
 rpasswd_cur_pass:اوسنی پټنوم:
 rpasswd_new_pass:نوی پټنوم:
+rpasswd_conf_pass:پټنوم تاييدول:
+ruser_title:ننوتلو فورمه بدلول
+ruser_change_user:خپل د فورمې ننوتل بدلول
+ruser_cur_login:اوسني ننوتل:
+ruser_new_login:نوي ننوتل:
+ruser_cur_pass:اوسنی پټنوم:
 login_passwd:پټنوم:
 reset_email:برېښليک:
+reset_reset_button:پټنوم بياپرځايول
 rate_this_thread:ارزول
+report_reporting_about:په اړه راپور ورکول:
 report_subject:سکالو:
+report_by:لخوا د:
+report_posted_on:خپور شوی په:
+report_give_reason:مهرباني وکړئ لامل يې وليکئ چې ولې تاسو دا پيغام راپور کړی دی:
+report_submit_report:راپور سپارل
+search_entire_msg:ټول پیغام
+search_subject_only:يوازې سکالو
 search_forum:فورم
+search_posted_on:خپور شوی په
+search_no_results:هېڅ پايلې نشته
+search_spell_suggestions:ستاسو موخه دا ده:
 search_all_forums:ټول فورمونه پلټل
 search_in_forum:په فورم کې پلټنه:
+search_forum_search:ټولنځي پلټل
+move_thread_to:د سکالو لېږدول {VAR: thr->subject}:
+remail_email_topic:ملگري ته دا سکالو برېښليکول
 remail_your_name:ستاسې نوم:
 remail_your_email:ستاسې برېښليک:
 remail_friends_name:د ملگري نوم:
 remail_friends_email:د ملگري برېښليک:
+remail_required:اړین
+remail_subject:سکالو:
 remail_message:پيغام:
+remail_send_now:همدا اوس برېښليک ولېږئ
 remail_done:ترسره شو
+remail_error:یوه تېروتنه وه
+mklist_type:ډول:
 mklist_option:خوښنه:
+mklist_additem:توکی ورگډول
+mklist_apply:پلي‌کول
 mklist_delete:ړنگول
 qbud_nick_name:کورنی نوم
 qbud_add_selected:ټاکلي ورگډول
 qbud_selected:ټاکل
+qbud_no_buddies:د خوښولو لپاره انډيوالان نشته
 mklist_numerical:شمېريز
 mklist_aplha:الفا
 mklist_square:څلورڅنډيز
@@ -377,12 +428,25 @@ email_pg_title:برېښليک
 email_subject:سکالو:
 email_body:بدن:
 email_submit:برېښليک
+ppost_quote_msg:{VAR: msg_to_list} په {TEMPLATE: ppost_quote_msg_date} ليکلی
+ppost_quote:وينالېږد:
+ppost_to:ترلاسه‌کوونکی:
+ppost_from_buddy_list:د انډيوالانو له نوملړه يې غوره کړئ
 ppost_find_User:کارن موندل
+ppost_track_msg:د دې پيغام پلنيوی کول
 ppost_send:لېږل
 ppost_save_draft:گارليک خوندي کول
+poll_name:اندغوښتې نوم:
+poll_timelimit:وخت موده:
+poll_maxiumvotes:ډېرې رايې:
 poll_create:جوړول
 poll_update:اوسمهالول
+poll_create_poll:اندغوښتنه جوړول
+poll_update_poll:اندغوښتنه هم‌مهالول
 poll_delete:ړنگول
+poll_updateoption:هم‌مهالولو خوښنې
+poll_addoption:خوښنه ورگډول
+poll_unlimited:بې پايه
 poll_day:ورځ
 poll_days:ورځې
 poll_hour:گړۍ
@@ -390,22 +454,74 @@ poll_hours:گړۍ
 poll_month:مياشت
 poll_year:کال
 poll_week:اوونۍ
+tabs_register:گڼون اوڼنې
+tabs_subscriptions:گډونونه
+tabs_bookmarkes:کتاب‌‌نښې
+tabs_buddy_list:انډيواقنوملړ
+tabs_ignore_list:له پامه غورځول شوی لړليک
 delete_yes:هو
 delete_no:نه
+error_invalidurl:ناسم وېبتړ
 error_error:تېروتنه
+usrinfo_profile:د {VAR: u->alias} پېژنيال
 err_info:مالومات
+buddy_list_err_nouser_title:کارن نشي ورگډولی
+buddy_list_err_ignore:هغه کارن چې تاسو له پامه غورځوئ ستاسو د انډيوالانو نوملړ ته نشي ورگډېدی.
+buddy_list_update:خپل د انډيوالانو نوملړ پلټل
+core_err_invinp_title:ناسم ننوت
+email_err_unabletoemail_title:تېروتنه: برېښليک لېږلی نشي
+email_error_body:دا بدن اړين دی
+email_error_subject:سکالو اړينه ده
+email_error_namerequired:نوم اړين دی
 email_error_invaliduser:ناسم کارن
+emailconf_err_invkey_title:تېروتنه
+err_inc_criticaltitle:جدي تېروتنه
+finduser_update:کارنان پلټل
 ignore_list_err_info_title:مالومات
 ignore_list_err_nu_title:کارن و نه موندل شو
+login_update:ننوتلو فورمه
+post_err_edttimelimit_title:تېروتنه
 post_err_passwd:ناسم پټنوم.
+postcheck_subj_needed:سکالو اړينه ده
+register_conf_subject:نوم‌ليکنې تاييد
+register_profile_update:خپل پېژنيال کتل
+register_register_update:نوم‌ليکنې مخ
 report_err_nosuchmsg_title:تېروتنه
+report_err_nosuchmsg_msg:داسې پيغام نشته
 reset_err_invalidkey_title:تېروتنه
 reset_err_rstconf_title:مالومات
+reset_newpass_title:پټنوم بياپرځايول
+search_update:پيغامونه پلټي
+ERR_disabled_ttl:ناچارن ځانگړنه
+ERR_registration_disabled_ttl:نوم‌ليکنه ناچارن شوې
+email_title:برېښليک فورمه
 finduser_title:کارن موندل
 help_title:لارښود
+login_title:ننوتلو فورمه
+poll_title:اندغوښتې سمونگر
+register_title:نوم‌ليکنې فورمه
+reset_title:پټنوم بياپرځايول
+rpasswd_title:پټنوم فورمه بدلول
+error_title:تېروتنې فورمه
 index_title:فورم ته ښه راغلاست
+search_title:{VAR-HTML: srch} پلټل
+remail_emailsent:برېښليک ولېږل شو
+poll_add_option:خوښنه ورگډول:
+post_opt_html_on:<b>اېچ‌ټي‌اېم‌اېل</b> <b>بل دی</b>
+post_opt_images_on:<b>انځورونه</b> <b>بل دي</b>
 post_opt:د فورم خوښنې:
 register_change_passwd:پټنوم بدلول
+register_change_login:ننوتل بدلول
+approved_avatar_title:ستاسو دوديزه ځان‌بڼه ومنل شوه.
+unapproved_avatar_title:ستاسو دوديزه ځان‌بڼه ونه‌منل شوه.
+mvthread_request_move:لېږد غوښتنه
+move_request_reason:ولې غواړئ چې سکالو ولېږدول شي؟
+mvthread_submit_req:غوښتنه سپارل
+move_request_by:د سکالو لېږد غوښتونکی:
+move_reason:د سکالو لېږد لامل:
+thr_exch_accept:سکالو منل
+thr_exch_decline:سکالو ردول
+thr_exch_orig_forum:ار ټولنځی:
 thr_exch_submit:سپارل
 groupmgr_yes:هو
 groupmgr_no:نه
@@ -416,14 +532,32 @@ groupmgr_edit:سمول
 groupmgr_delete:ړنگول
 group_mgr_anon:ورکنومی
 show_show:ښودل:
+group_mgr_edit_btn:ډله سمول
+group_mgr_heading:د ډلې سمونگر ټاکل
 group_mgr_group:ډله:
+permission_denied_title:پرېښونه ناگاره شوه
 p_READ:لوستل
 p_REPLY:ځوابول
 p_EDIT:سمول
 p_DEL:ړنگول
+p_POLL:اندغوښتنې جوړول
+p_FILE:مښلېدلې دوتنې
 p_VOTE:رايه ورکول
+p_RATE:سکالوگانې/غړي درجه‌بندي کول
+p_SPLIT:سکالوگانو وېشل
+p_MOVE:سکالوگانې لېږدول
+p_IMG:انځور نښلنونه کارول
+p_SEARCH:پلټلی شي
 group_mgr_search:کارن موندل
+rate_worst:ترټولو بد
+rate_best:غوره
+post_quote:وينالېږد:
 th_expr_never:هېڅکله
+th_expr_one_hr:۱ گړۍ
+th_expr_three_hr:۳ گړۍ
+th_expr_four_hr:۴ گړۍ
+th_expr_eight_hr:۸ گړۍ
+th_expr_sixteen_hr:۱۶ گړۍ
 th_expr_one_day:۱ ورځ
 th_expr_two_day:۲ ورځې
 th_expr_four_day:۴ ورځې
@@ -434,10 +568,24 @@ th_expr_two_month:۲ مياشتې
 th_expr_four_month:۴ مياشتې
 th_expr_one_year:۱ کال
 thread_mod_delete:ړنگول
+action_ip:وېب‌پته
 action_latest_post:وروستی پيغام
+online_today_last_visit:وروستۍ ليدنه
+logedin_todays_visitors:نن ورځې ليدونکي
+logedin_latest_post:ټولنځي کې وروستی پيغام:
+register_show_avatar:ځان‌بڼې ښودل:
+forumsel_goto_forum:ټولنځي ته ورتلل:
+minimsg_thread_view:سکالو کتل
+split_th_post_by:پيغام ورکوونکي:
+split_th_posted_on:خپور شوی په:
+split_th_subject:سکالو:
+split_th_new_thread_title:نوې سکالو سرليک:
 split_th_forum:فورم:
+split_th_split_sel:ټاکلي پيغامونه وېشل
+split_th_split_unsel:ناټاکلي پيغامونه وېشل
 split_th_messages:پيغامونه
 split_th_select:ټاکل
+report_report_post:پيغام راپورول
 quicklogin_login:ننوتل:
 quicklogin_password:پټنوم:
 quicklogin_login_btn:ننوتل
@@ -454,9 +602,27 @@ smladd_close_window:کړکۍ تړل
 poll_edit:سمول
 polllist_vote:رايه ورکول
 polllist_view_results:پايلې کتل
+polllist_name:اندغوښتې نوم
+polllist_date:جوړ شوی په
+polllist_owner:جوړوونکی
 polllist_votes:ټولې رايې
+polllist_action:چاره
+userinfo_polls:اندغوښتې:
+show_pollist:اندغوښتنې
+search_and:او
+search_or:يا
+search_desc_order:ترټولو نوی لومړی
+search_asc_order:ترټولو زوړ لومړی
+search_relevance_order:انډولتيا
+search_logic:پلټلو منطق:
+search_sorting:اوډون ډول:
+search_attach:مښلنونه:
+search_attach_all:سره يا پرته له
+search_attach_with:مښلنونو سره
+post_proceed:پرمخ‌ځه
 unread_message:نالوستی پيغام
 read_message:پيغام لوستل
+back_to_top:بېرته سر ته
 iemail_msg_reply:ځوابول
 threadt_announce:خبرتيا
 mnav_hour:گړۍ
@@ -467,12 +633,15 @@ findu_edit:سمول
 findu_delete:ړنگول
 merge_next:راتلونکې سکالوگانې
 merge_prev:پخوانۍ سکالوگانې
+userinfo_buddy:انډيوال:
 register_email_addr:برېښليک‌پته:
 ip_search:پلټل
 userinfo_real_name:اصلي نوم:
 post_err_mod_forum_edit_ttl:تېروتنه
 delete_msg_pm_body:آرنی پيغام
 delete_msg_pm_subject:سکالو: {VAR: data[15]}
+register_theme:پوښۍ:
+pmsg_trash:تشې خځلې
 uc_new_pm:نوي شخصي پيغامونه
 uc_new_topic:نوې سکالو
 search_options:د پلټلو خوښنې
@@ -488,9 +657,11 @@ modque_forum:فورم
 idx_compact_forum_row:شته فورمونه:
 mmd_del_title:سکالوگانې ړنگول
 mmd_mov_title:سکالوگانې لېږدول
+mmd_move_threads_to:موخې‌وړ ټولنځی:
 mmd_abort_move:ناگارل
 mmd_move:سکالوگانې لېږدول
 pmsg_pdf_btn:د PDF خونديځ جوړول
+search_results_hdr:{VAR: total} لټون پايلې وموندل شوې
 thread_del_all:ټاکل شوی ړنگول
 thread_mov_all:ټاکلي لېږدول
 thread_merge_all:ټاکلي اخږل
