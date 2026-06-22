@@ -815,11 +815,11 @@ pm_no_space_title:좌측 공간 없음!
 pm_no_space_msg:쪽지함의 최대 저장 크기인 <b>{GVAR: MAX_PMSG_FLDR_SIZE} 바이트를</b> 초과하였습니다. 현재 사용 중인 크기는 <b>{VAR: fldr_size} 바이트입니다.</b> worth of messages. <br /><br /><span class="ErrorText">불필요한 파일을 정리하기 바랍니다.</span>
 pm_space_indct_msg:내 개인 메시지는 {VAR: percent_full}% 차있습니다.
 th_expr_never:무제한
-th_expr_one_hr:1 시간
-th_expr_three_hr:3 시간
-th_expr_four_hr:4 시간
-th_expr_eight_hr:8 시간
-th_expr_sixteen_hr:16 시간
+th_expr_one_hr:1시간
+th_expr_three_hr:3시간
+th_expr_four_hr:4시간
+th_expr_eight_hr:8시간
+th_expr_sixteen_hr:16시간
 th_expr_one_day:1 일
 th_expr_two_day:2 일
 th_expr_four_day:4 일
