@@ -814,11 +814,11 @@ pm_no_space_title:Non hai più spazio!
 pm_no_space_msg:Le tue cartelle di messaggi privati hanno superato la quota limite di <b>{GVAR: MAX_PMSG_FLDR_SIZE} byte</b>, poiché contengono <b>{VAR: fldr_size} byte</b> di messaggi.<br /><br /><font class="ErrorText">Cancella qualcuno dei vecchi messaggi per liberare dello spazio</font>.
 pm_space_indct_msg:Le tue cartelle di MP sono piene al {VAR: percent_full}%.
 th_expr_never:Mai
-th_expr_one_hr:1 Ora
-th_expr_three_hr:3 Ore
-th_expr_four_hr:4 Ore
-th_expr_eight_hr:8 Ore
-th_expr_sixteen_hr:16 Ore
+th_expr_one_hr:1 ora
+th_expr_three_hr:3 ore
+th_expr_four_hr:4 ore
+th_expr_eight_hr:8 ore
+th_expr_sixteen_hr:16 ore
 th_expr_one_day:1 Giorno
 th_expr_two_day:2 Giorni
 th_expr_four_day:4 Giorni
