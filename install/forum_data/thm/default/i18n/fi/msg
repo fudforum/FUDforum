@@ -15,6 +15,7 @@
 # Author: SMAUG
 # Author: Samoasambia
 # Author: Silvonen
+# Author: Wikipeedikko
 
 action:Toiminto
 add_to_buddy_list:lisää kaverilistaan
@@ -474,6 +475,8 @@ login_login_btn:Kirjaudu sisään
 login_name_required:Käyttäjätunnus on pakollinen
 login_passwd_required:Salasana on pakollinen
 login_invalid_radius:Käyttäjätunnus/salasana-yhdistelmä oli virheellinen
+login_or:tai...
+login_alternatives:Kirjaudu sisään seuraavalla:
 reset_confirmation:Kiitos rekisteröitymisestä.\n\nAktivoidaksesi käyttäjätunnuksesi siirry alla olevaan osoitteeseen:\n\n{VAR: url}\n\nKun käyttäjätunnuksesi on aktivoitu, sisäänkirjautuminen tapahtuu automaattisesti\nja sinut ohjataan foorumin etusivulle.
 reset_reset:Hei, olet pyytänyt salasanasi vaihtamista. Siirry alla olevaan osoitteeseen jatkaaksesi:\n\n{VAR: url}\n\nHuomaa: Tämä foorumi tallentaa salasanat yhdensuuntaisella salausmekanismilla, eli antamasi salasana salataan menetelmällä, joka estää sen näkemisen selväkielisenä. Tämä toimii yksinkertaisuudessaan siten, että aina kun annat salasanasi – se salataan samalla salausmenetelmällä ja verrataan tietokantaan tallennettuun salattuun salasanaan. (Jos olet kiinnostunut kuinka tämä salausmenetelmä toimii, etsi tietoja MD5 HASH -algoritmista)
 rpasswd_invalid_passwd:Virheellinen salasana
@@ -1126,8 +1129,7 @@ move_msg_th_expl:Ilmoita kohdeaiheen tunnistenumero (voi olla toisella foorumill
 captcha_img_alt:Captcha-varmistus: Sinun täytyy tunnistaa teksti tästä kuvasta.
 captcha_img_help:Kuvassa ei ole nollaa tai ykköstä.
 powered-by:Palvelun mahdollistaa: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001–2023 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Copyright &copy;2001–2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Koodi:
 code_select_all:Valitse kaikki
 code_show_hide:Näytä tai piilota
