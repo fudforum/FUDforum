@@ -433,6 +433,7 @@ post_title:表題:
 post_body:本文:
 post_options:オプション:
 post_preview_btn:メッセージをプレビュー
+post_diff_btn:差分を表示
 post_cancel_btn:キャンセル
 ignore_users:無視している利用者の一覧
 add_ignore:無視する利用者を追加する
@@ -476,6 +477,8 @@ login_login_btn:ログイン
 login_name_required:ログイン名が必要です。
 login_passwd_required:パスワードが必要です。
 login_invalid_radius:ログイン名とパスワードの組み合わせが正しくありません。
+login_or:または...
+login_alternatives:ログイン方法：
 reset_confirmation:登録ありがとうございます。\n\nあなたのアカウントを有効化するには下記の URL にアクセスしてください。\n\n{VAR: url}\n\nアカウントが有効化されると、フォーラムにログインし、\nメインページに転送されます。
 reset_reset:パスワード再発行の依頼を受け付けました。再発行手続きを完了するには\n以下のURLにアクセスしてください。\n\n{VAR: url}\n\n付記: この掲示板では一方向暗号化の仕組みを使用してパスワードを保存しています。このため、いったん\nパスワードを入力されるとすぐに暗号化され、これを再度確認する方法は一切ありません。\nパスワードの確認は、登録パスワードの暗号化された結果と、ログイン画面に入力されるパスワードの\n暗号化の結果との比較によって行われます。\n(この暗号化の仕組みについて関心があれば、MD5 ハッシュアルゴリズムについて読むことをお勧めします。)
 rpasswd_invalid_passwd:無効なパスワードです。
