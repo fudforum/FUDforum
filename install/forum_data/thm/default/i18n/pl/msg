@@ -14,6 +14,7 @@
 # Author: McDutchie
 # Author: Naudefj
 # Author: Openbk
+# Author: PanWor
 # Author: Rainbow P
 # Author: Rezonansowy
 # Author: Rzuwig
@@ -899,7 +900,7 @@ register_err_not_valid_img:Podany adres URL nie zawiera poprawnego obazu
 pmsg_recepient:Odbiorca
 register_err_taken_alias:Alias, którego chcesz użyć, jest już w użyciu przez innego członka forum. Wybierz inny.
 register_alias:Alias
-register_alias_desc:Jeśli chcesz być widoczny pod inną nazwą niż twoja nazwa użytkownika, wpisz ją tutaj.
+register_alias_desc:Jeśli chcesz być widoczny pod inną nazwą niż Twoja nazwa użytkownika, wpisz ją tutaj.
 register_allow_pm_msg:Zezwól na Prywatne Wiadomości
 register_allow_pm_msg_desc:Zezwól innym użytkownikom na wysyłanie do Ciebie prywatnych wiadomości poprzez FUDforum.
 postcheck_pm_disabled:Nie możesz wysyłać prywatnych wiadomości do użytkownika "{VAR-HTML: v}", ponieważ ta osoba nie chce otrzymywać prywatnych wiadomości.
@@ -927,7 +928,7 @@ post_proceed:OK
 post_moderated_forum:Wysłałeś wiadomość na forum moderowane, co oznacza, że nie będzie ona widoczna, dopóki nie zostanie zatwierdzona przez jednego z moderatorów i/lub administratorów forum.
 post_moderated_forum_ttl:Uwaga o moderowanym forum
 buddy_list_bday:Dzisiaj postarzał się {VAR: r[2]} i ma teraz {VAR: age} lat.
-email_warning_msg:Jeśli zmienisz swój obecny adres email, twoje konto zostanie oznaczone jak niepotwierdzone dopóki go nie potwierdzisz przez emaila.
+email_warning_msg:Jeśli zmienisz swój obecny adres e-mail, Twoje konto zostanie oznaczone jak niepotwierdzone, dopóki go nie potwierdzisz za pośrednictwem wiadomości e-mail.
 register_show_im:Pokaż wskaźniki IM
 register_show_im_desc:Czy pokazywać wskaźniki IM autora obok jego wiadomości.
 unread_message:Nieprzeczytana wiadomość
