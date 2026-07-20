@@ -257,7 +257,7 @@ register_conf_pass_desc:مهرباني وکړئ پټنوم مو يوځل بيا 
 register_name:نوم:
 register_name_desc:ستاسې اصلي نوم.
 register_your_pass:ستاسې پټنوم:
-register_update:اوسمهالول
+register_update:هم‌مهالول
 register_avatar_type:ځان‌بڼې ډول:
 register_del_avatar:ځان‌بڼه ړنگول
 register_avatar:ځان‌بڼه:
@@ -440,7 +440,7 @@ poll_name:اندغوښتې نوم:
 poll_timelimit:وخت موده:
 poll_maxiumvotes:ډېرې رايې:
 poll_create:جوړول
-poll_update:اوسمهالول
+poll_update:هم‌مهالول
 poll_create_poll:اندغوښتنه جوړول
 poll_update_poll:اندغوښتنه هم‌مهالول
 poll_delete:ړنگول
