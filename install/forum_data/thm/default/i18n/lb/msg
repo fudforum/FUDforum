@@ -416,6 +416,7 @@ reset_err_rstconf_title:Informatiounen
 reset_newpass_title:Passwuert zerécksetzen
 reset_login_notify:Är Passwuert gouf per E-Mail un Iech geschéckt. Dir misst et bannen den nächste puer Minutte kréien.
 ERR_access_ttl:FEELER: Net genuch Rechter
+ERR_access_msg:Dir hutt net déi néideg Rechter, fir dës Aktioun duerchzeféieren.
 ERR_systemerr_ttl:FEELER: Systemfeeler
 finduser_title:Benotzer fannen
 help_title:Hëllef
