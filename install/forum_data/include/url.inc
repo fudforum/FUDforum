@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2014 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -36,7 +36,6 @@ function get_remote_file($url, $timeout=20, $head_only=false, $max_redirects=3)
 		// Grab the page.
 		$content = curl_exec($ch);
 		$responce_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		curl_close($ch);
 
 		// Process 301/302 redirect.
 		if ($content !== false && ($responce_code == '301' || $responce_code == '302') && $max_redirects > 0) {
