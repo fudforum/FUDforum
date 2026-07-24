@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -71,7 +71,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	if ($order == 'ASC' || $order == 'DESC') {
 		$sort = 'm.post_stamp '. $order;
 	} else {
-		$sort = 'sc.score DESC, m.post_stamp DESC';
+		$sort = 'sc.score DESC, m.post_stamp DESC';	// Relevance
 	}
 
 	if ($GLOBALS['author_id']) {
@@ -80,7 +80,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	if (preg_match('/(\_|\%)/', $qry) || !($wa = text_to_worda($qry))) {
 		// Force a subject search, either because -
-		//   1) we detected wildcard caracters, or
+		//   1) we detected wildcard characters, or
 		//   2) filtering out short and long words left us with an empty search string.
 
 		$total = q_singleval('SELECT count(*)
@@ -92,7 +92,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
-		WHERE m.reply_to = 0 and m.subject like '. _esc($qry) . $qry_lmt .'
+		WHERE m.reply_to = 0 AND m.subject LIKE '. _esc($qry) . $qry_lmt .'
 			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)'));
 
 		return q(q_limit('SELECT u.alias, f.name AS forum_name, f.id AS forum_id,
@@ -106,7 +106,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id
 		LEFT JOIN {SQL_TABLE_PREFIX}mod mm ON mm.forum_id=f.id AND mm.user_id='. _uid .'
 		LEFT JOIN {SQL_TABLE_PREFIX}group_cache g2 ON g2.user_id='. _uid .' AND g2.resource_id=f.id
-		WHERE m.reply_to = 0 and m.subject like '. _esc($qry) . $qry_lmt .'
+		WHERE m.reply_to = 0 AND m.subject LIKE '. _esc($qry) . $qry_lmt .'
 			'. ($GLOBALS['is_a'] ? '' : ' AND (mm.id IS NOT NULL OR '. q_bitand('COALESCE(g2.group_cache_opt, g1.group_cache_opt)',  262146) .' >= 262146)') .'
 		ORDER BY m.subject DESC, m.post_stamp '. ($order=='ASC' ? 'ASC' : 'DESC'),
 		$count, $start));
@@ -195,7 +195,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			$srch = plugin_call_hook('SEARCH_QUERY_MOD', $srch);
 		}
 
-		// Check if we shoud use the internal or an external search engine.
+		// Check if we should use the internal or an external search engine.
 		if (defined('plugins') && isset($plugin_hooks['SEARCH'])) {
 			list($search_data, $page_pager) = plugin_call_hook('SEARCH', $srch);
 		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
@@ -240,7 +240,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			while ($r = db_rowobj($c)) {
 				$search_data .= '{TEMPLATE: search_entry}';
 			}
-			unset($c);
+			$c->free();
 			$search_data = '{TEMPLATE: search_results}';
 			if ($FUD_OPT_2 & 32768) {	// USE_PATH_INFO?
 				$page_pager = tmpl_create_pager($start, $ppg, $total, '{ROOT}/s/'. urlencode($srch) .'/'. $field .'/'. $search_logic .'/'. $sort_order .'/'. ($forum_limiter ? $forum_limiter : 0) .'/', '/'. urlencode($author) .'/'. _rsid);
@@ -252,20 +252,20 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		$search_data = $page_pager = '';
 
                 // Since we have nothing better to do, check for unindexed messages and index a few.
-                $c = uq(q_limit('SELECT id, foff, length, file_id, subject FROM {SQL_TABLE_PREFIX}msg m
+                $c = q(q_limit('SELECT id, foff, length, file_id, subject FROM {SQL_TABLE_PREFIX}msg m
                                 WHERE NOT EXISTS (SELECT 1 FROM {SQL_TABLE_PREFIX}index i WHERE m.id = i.msg_id)', 5));
                 while ($r = db_rowobj($c)) {
                         index_text($r->subject, read_msg_body($r->foff, $r->length, $r->file_id), $r->id);
                 }
-                unset($r);
+                $c->free();
 
-                // Check for messages without frquency and re-index them.
-                $c = uq(q_limit('SELECT id, foff, length, file_id, subject FROM {SQL_TABLE_PREFIX}msg m
+                // Check for messages without frequency and re-index them.
+                $c = q(q_limit('SELECT id, foff, length, file_id, subject FROM {SQL_TABLE_PREFIX}msg m
                                 WHERE EXISTS (SELECT 1 FROM {SQL_TABLE_PREFIX}index i WHERE m.id = i.msg_id AND i.frequency = 0)', 5));
                 while ($r = db_rowobj($c)) {
                         index_text($r->subject, read_msg_body($r->foff, $r->length, $r->file_id), $r->id);
                 }
-                unset($r);
+                $c->free();
 
 	}
 

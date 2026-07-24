@@ -56,8 +56,15 @@ function db_close()
 function db_version()
 {
 	if (!defined('__FUD_SQL_VERSION__')) {
-		$ver = q_singleval('SELECT VERSION()');
-		define('__FUD_SQL_VERSION__', $ver);
+		$db = db::$db;
+		$r = $db->query('SELECT VERSION()');
+
+		if (!$r) {
+			define('__FUD_SQL_VERSION__', 'undefined');
+		} else {
+			$ver = $r->fetch_row();
+			define('__FUD_SQL_VERSION__', $ver[0] ?? 'undefined');
+		}
 	}
 	return __FUD_SQL_VERSION__;
 }
