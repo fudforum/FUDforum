@@ -55,8 +55,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>support@prohost.org</b></font></td>
-    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">support@prohost.org</a></td>
+    <td valign="middle" align="center"><font color="#f00"><b>support@myhomepage.com</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@myhomepage.com" target="_blank">support@myhomepage.com</a></td>
   </tr>
 </table>
 <i>Explanation:</i> FUDforum will automatically convert email links into working hyperlinks.
@@ -68,8 +68,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[email=<font color="#060">support@prohost.org</font>]</b></font><br />Click here to email our tech support<br /><font color="#f00"><b>[/email]</b></font></td>
-    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Click here to email our tech support</a></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[email=<font color="#060">support@myhomepage.com</font>]</b></font><br />Click here to email our tech support<br /><font color="#f00"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:support@myhomepage.com" target="_blank">Click here to email our tech support</a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to make email links with a self-chosen caption.
@@ -183,8 +183,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[font=<font color="#060">courier</font>]</b></font>text<font color="#f00"><b>[/color]</b></font></td>
-    <td valign="middle" align="center"><font face="Courier New, Courier, monospace">text</font></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[font=<font color="#060">courier</font>]</b></font>styled text<font color="#f00"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font face="Courier New, Courier, monospace">styled text</font></td>
   </tr>
 </table>
 <br />
@@ -289,8 +289,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49" /></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">{ROOT}/images/fudlogo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="{ROOT}/images/fudlogo.gif" alt="{ROOT}/images/fudlogo.gif" width="140" height="49" /></td>
   </tr>
 </table>
 <br />
@@ -301,8 +301,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">https://github.com/fudforum</font>]<br />[img]</b></font><br />http://fudforum.org/forum/images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="https://github.com/fudforum"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
+    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">https://github.com/fudforum</font>]<br />[img]</b></font><br />{ROOT}/images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="https://github.com/fudforum"><img src="{ROOT}/images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
@@ -317,8 +317,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[imgr]</b></font><br /><font color="#060">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#f00"><b>[/imgr]</b></font><br />Some text to the left.</td>
-    <td valign="middle" align="center"><img class="r" src="http://fudforum.org/forum/images/fudlogo.gif" alt="Image with text wrapped around it" width="140" height="49" />Some text to the left.</td>
+    <td valign="middle" align="center"><font color="#f00"><b>[imgr]</b></font><br /><font color="#060">{ROOT}/images/fudlogo.gif<br /></font><font color="#f00"><b>[/imgr]</b></font><br />Some text to the left.</td>
+    <td valign="middle" align="center"><img class="r" src="{ROOT}/images/fudlogo.gif" alt="Image with text wrapped around it" width="140" height="49" />Some text to the left.</td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to wrap text smoothly around images by enclosing the image url within [imgl][/imgl] "image left" or [imgr][/imgr] "image right" tags. These may also be used in conjunction with other text alignment and styling tags.

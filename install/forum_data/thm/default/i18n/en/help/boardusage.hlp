@@ -109,10 +109,10 @@ If permitted by the administrator, FUDforum allows you to syndicate a variety of
 <br />
 <p>Fetch the 10 most recent <i>messages</i> from your forum and format it as an <i>RDF</i> feed:
 <br />
-<a href="feed.php?mode=m&l=1&n=10&basic=1" target="_blank">feed.php?mode=m&l=1&n=10</a></p>
+<a href="{ROOT}/feed.php?mode=m&l=1&n=10&basic=1" target="_blank">feed.php?mode=m&l=1&n=10</a></p>
 <p>Fetch the 15 most recent <i>topics</i> from your forum and format it as an <i>ATOM</i> feed:
 <br />
-<a href="feed.php?mode=t&l=1&n=15&format=atom" target="_blank">feed.php?mode=t&l=1&n=15&format=atom</a></p>
+<a href="{ROOT}/feed.php?mode=t&l=1&n=15&format=atom" target="_blank">feed.php?mode=t&l=1&n=15&format=atom</a></p>
 
 TOPIC_TITLE: <a name="accesskeys">Access Keys</a>
 TOPIC_HELP:
@@ -122,27 +122,23 @@ to simplify several tasks primary used for message posting forms.
 <fieldset style="width: 350px;">
 	<legend><b>Browser Support</b></legend>
 	<i>Windows</i><br />
-	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
-
-	<b>Internet Explorer:</b> ALT + [accesskey], ENTER<br />
-	<b>Opera:</b> SHIFT + ESC, [accesskey]<br />
-	<b>Safari:</b> ALT + [accesskey]<br />
 	<b>Chrome:</b> ALT + [accesskey]<br />
+	<b>Edge:</b> ALT + [accesskey]<br />
+	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
+	<b>Opera:</b> ALT + [accesskey]<br />
 	<br />
 	<i>Linux</i><br />
-	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
-	<b>Opera:</b> SHIFT + ESC, [accesskey]<br />
-	<b>Konqueror:</b> CTRL, [accesskey]<br />
-	<b>Chrome:</b> ALT + [accesskey]<br />
+	<b>Chrome/Chromium:</b> ALT + [accesskey]<br />
+	<b>Firefox:</b> ALT + SHIFT [accesskey]<br />
+	<b>Opera:</b> ALT + [accesskey]<br />
 	<br />
-	<i>Mac OS X</i><br />
-	<b>Firefox:</b> ALT + SHIFT + [accesskey]<br />
-	<b>Opera:</b> SHIFT + ESC, [accesskey]<br />
-	<b>Safari 3:</b> CTRL + [accesskey]<br />
-	<b>Safari 4:</b> CTRL + OPTION + [accesskey]<br />
-	<b>Chrome:</b> ALT + [accesskey]<br />
+	<i>macOS</i><br />
+	<b>Chrome:</b> CTRL + OPTION + [access key]<br />
+	<b>Edge:</b> CTRL + OPTION + [access key]<br />
+	<b>Firefox:</b> CTRL + [access key]<br />
+	<b>Safari:</b> CTRL + OPTION + [access key]<br />
+	<b>Opera:</b> CTRL + OPTION + [access key]<br />
 </fieldset><br />
-
 
 <b>Supported Access Keys:</b>
 <blockquote>

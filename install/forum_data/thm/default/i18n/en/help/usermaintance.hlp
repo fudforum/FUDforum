@@ -37,7 +37,7 @@ TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
 TOPIC_HELP:
 If cannot remember your password for FUDforum, you should go to the <a href="{ROOT}?t=reset&%_rsid%">reset password page</a>, on that page enter your email address inside the text box and press the <b>Reset Password</b> button. This will send you an email with a special URL, when you access that URL your password will be reset and you will receive a new email with your password.
 <br /><br />
-<b>Note:</b> Your passwords are stored in a one-way encryption format called MD5 hash. This is military grade 128-bit encryption, there is no way to restore your password. It works by encrypting the data every time you enter it and then comparing against encrypted version. Therefore if you forget your password it can not be restored back, so, upon a restore password request the forum will randomly generate you a new password.
+<b>Note:</b> Your passwords are stored using a one-way encryption method (MD5 hash or similar algorithm). This is military-grade encryption, and there is no way to recover your original password. Each time you enter your password, it is encrypted and compared with the stored encrypted version. If you forget your password, it cannot be restored. Instead, when you request a password reset, the forum will generate a new random password for you.
 
 TOPIC_TITLE: <a name="cstat">Custom Tags, what are they &amp; how can I get one?</a>
 TOPIC_HELP:
