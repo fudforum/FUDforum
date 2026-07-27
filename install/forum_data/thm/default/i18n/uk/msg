@@ -1136,6 +1136,7 @@ move_msg_th_expl:Вкажіть ідентифікатор (ID) теми рец�
 captcha_img_alt:Перевірка на те що ви людина: вам необхідно ввести розпізнаний текст на зображенні.
 captcha_img_help:На зображенні відсутні нулі (0) та одиниці (1).
 powered-by:Розробка: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:&copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:Код:
 code_select_all:Виділити всі

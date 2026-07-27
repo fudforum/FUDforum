@@ -1128,6 +1128,7 @@ move_msg_th_expl:இலக்கு தலைப்பு ID குறிப்�
 captcha_img_alt:Captcha உறுதிப்படுத்துவதற்காக: நீங்கள் படத்தில் உள்ள உரையை அடையாளம் காண வேண்டும்.
 captcha_img_help:அந்த படத்தில் பூஜ்யம் அல்லது ஒன்று எதுவும் இல்லை.
 powered-by:வழங்குவது: FUDforum {GVAR: FORUM_VERSION}.
+# Fuzzy
 copyright:பதிப்புரிமை &copy; 2001-2025 <a href="http://fudforum.org/">FUDforum செய்தி குழுமங்கள் வாரிய மென்பொருள்</a>
 code_title:குறியீடு:
 code_select_all:எல்லாவற்றையும் தேர்வுசெய்யவும்

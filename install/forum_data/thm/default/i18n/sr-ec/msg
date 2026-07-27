@@ -1129,6 +1129,7 @@ move_msg_th_expl:Наведите ИБ одредишне теме (може б�
 captcha_img_alt:Потврдна слика: мораћете да препознате текст на овој слици.
 captcha_img_help:Не постоји нула или јединица на слици.
 powered-by:Покреће FUDforum {GVAR: FORUM_VERSION}. Превод: Rancher
+# Fuzzy
 copyright:Ауторска права &copy;2001–2025 <a href="http://fudforum.org/">FUDforum Bulletin Board</a>
 code_title:Код:
 code_select_all:Изабери све

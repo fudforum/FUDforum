@@ -116,7 +116,7 @@ off:Af
 on:Aan
 page_timings:Totale tyd vir bou van die bladsy: {PLURAL: page_gen_time|$1 sekondes}
 pm:Privaatboodskappe
-poll:Stemming:
+poll:Meningspeiling:
 post_count:Aantal boodskappe {VAR: u_pcount}
 post_count_l:Aantal boodskappe:
 posts:Boodskappe
@@ -875,7 +875,7 @@ post_list_smilies:lys alle gesiggies
 p_VISIBLE:Sigbaar
 reported_in_thread:In:
 help_back_to_top:na bo
-help_return_to_index:Terug na help indeks
+help_return_to_index:Terug na hulpindeks
 imsg_err_message_title:Ongeldige boodskap
 imsg_err_message_msg:Die boodskap waarna u wil kyk bestaan nie.
 poll_edit:Wysig
@@ -1117,7 +1117,8 @@ move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ande
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
 powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.
-copyright:Kopiereg &copy;2001-2025 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+# Fuzzy
+copyright:Kopiereg &copy;2001-2026 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
 code_title:KODE:
 code_select_all:Kies alles
 code_show_hide:Wys/ versteek
