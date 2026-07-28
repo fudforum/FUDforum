@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2021 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -197,25 +197,25 @@ function tmpl_drawmsg($obj, $usr, $perms, $hide_controls, &$m_num, $misc)
 		/* Show im buttons if need be. */
 		if ($b & 16384) {
 			$im = '';
-			if ($obj->icq) {
+			if (!empty($obj->icq)) {
 				$im .= '{TEMPLATE: dmsg_im_icq}';
 			}
-			if ($obj->facebook) {
+			if (!empty($obj->facebook)) {
 				$im .= '{TEMPLATE: dmsg_im_facebook}';
 			}
-			if ($obj->yahoo) {
+			if (!empty($obj->yahoo)) {
 				$im .= '{TEMPLATE: dmsg_im_yahoo}';
 			}
-			if ($obj->jabber) {
+			if (!empty($obj->jabber)) {
 				$im .=  '{TEMPLATE: dmsg_im_jabber}';
 			}
-			if ($obj->google) {
+			if (!empty($obj->google)) {
 				$im .= '{TEMPLATE: dmsg_im_google}';
 			}
-			if ($obj->skype) {
+			if (!empty($obj->skype)) {
 				$im .=  '{TEMPLATE: dmsg_im_skype}';
 			}
-			if ($obj->twitter) {
+			if (!empty($obj->twitter)) {
 				$im .=  '{TEMPLATE: dmsg_im_twitter}';
 			}
 			if ($im) {
