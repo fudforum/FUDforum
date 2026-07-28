@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2019 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -9,7 +9,7 @@
 **/
 
 {MAIN_SECTION: karma_show Show user's karma}
-{IF: $GLOBALS['FUD_OPT_4'] & 4 && $obj->poster_id > 0}<div class="karma_usr_{VAR: obj->poster_id} SmallText">
+{IF: $GLOBALS['FUD_OPT_4'] & 4 && $obj->poster_id > 0 && !empty($obj->karma)}<div class="karma_usr_{VAR: obj->poster_id} SmallText">
 {IF: $MOD}<a href="javascript://" onclick="window_open(\'{ROOT}?t=karma_track&amp;{DEF: _rsid}&amp;msgid={VAR: obj->id}\', \'karma_rating_track\', 300, 400);" class="karma">{ENDIFI}
 	<b>{MSG: karma}:</b> {VAR: obj->karma}
 {IF: $MOD}</a>{ENDIFI}
