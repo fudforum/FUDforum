@@ -18,7 +18,7 @@ birth_date:Geboortedatum:
 by:deur:
 by_mod:deur moderator
 current_time:Tyd nou
-custom_avatar_queue:Waglys van doelgemaakte Avatars
+custom_avatar_queue:Waglys vir pasgemaakte avatars
 date_posted:Datum gepos
 date_registered:Datum geregistreer:
 download_counter:{PLURAL: v[3]|$1 keer|$1 kere} afgelaai
@@ -61,7 +61,7 @@ location:Ligging:
 lock_thread:Sluit
 locked:Gesluit
 locked_with_new_posts:Gesluit (m/ ongeleesde boodskappe)
-logged_in_list:Aangetekende gebruikers
+logged_in_list:Aangemelde gebruikers
 login:Teken aan
 login_header:Lid:
 logout:Teken af
@@ -88,7 +88,7 @@ moderator_of:Moderator van:
 moderator_options:Modereer:
 moderators:{PLURAL: modcount|Moderator|Moderators}
 more_unread_messages:meer ongeleesde boodskappe
-more_unread_messages_desc:Wys meer ongeleesde boodskappe en mark die huidig bekikbare boodskappe as gelees
+more_unread_messages_desc:Wys meer ongeleesde boodskappe en merk die tans sigbare boodskappe as gelees
 move_thread:Skuif
 moved:Na ander forum geskuif
 moved_thread_message:Die onderwerp is na 'n ander forum geskuif
@@ -99,7 +99,7 @@ new_thread:Begin 'n nuwe onderwerp
 newest_user:Die nuutste geregistreerde lid is
 next_page:Volgende bladsy
 next_thread:Volgende onderwerp:
-no_messages:Daar geen nuwe boodskappe in hierdie forum nie.<br />Wees die eerste om 'n onderwerp te plaas.
+no_messages:Daar geen boodskappe in hierdie forum nie.<br />Wees die eerste om 'n onderwerp te plaas.
 no_msg_body:Geen teks in die boodskap nie.
 no_new_posts:Geen nuwe boodskappe
 no_posts:Geen boodskappe
@@ -294,7 +294,7 @@ finduser_action:Aksie
 yes:Ja
 no:Nee
 register_email:E-pos
-edit_time_limit:<b>Tydslimiet</b>: {GVAR: EDIT_TIME_LIMIT} minuute
+edit_time_limit:<b>Tydslimiet</b>: {GVAR: EDIT_TIME_LIMIT} minute
 no_edit_time_limit:<b>Tydslimiet aangepas</b>: Onbeperk
 pmuserloc_login:Gebruiker:
 pmuserloc_submit:Stuur
@@ -308,27 +308,27 @@ register_login_desc:Die naam waarmee u wil aanmeld en op die forum bekend wil we
 register_login_available:Beskikbaar
 register_login_taken:Reeds gevat
 register_password:Wagwoord:
-register_password_desc:Wagwoord vir u gebruiker. Wagwoorde is gevoelig vir hoofletters en moet ten minste 6 karakters lank wees.
+register_password_desc:Wagwoord vir jou gebruiker. Wagwoorde is gevoelig vir hoofletters en moet ten minste 6 karakters lank wees.
 register_conf_pass:Bevestig wagwoord:
 register_conf_pass_desc:Sleutel die wagwoord weer in.
 register_email_desc:U e-posadres. U kan kies om dit privaat te hou in die keuse hieronder.
 register_name:Naam:
 register_name_desc:U regte naam.
-register_your_pass:U wagwoord:
+register_your_pass:Jou wagwoord:
 register_update:Opdateer
 register_avatar_type:Avatar-tipe:
 register_del_avatar:Verwyder Avatar
 register_avatar:Avatar:
 register_sel_avatar:Kies avatar
-register_custom_avatar_rules:Die doelgemaakte avatar sal nie vertoon word alvorens dit nie deur 'n administrateur goedgekeur is nie.<br /><span class="SmallText">Die avatar mag nie groter as <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> wees nie en moet in <b>jpg</b>, <b>gif</b> of <b>png</b> formaat wees.</span>
-register_custom_avatar_url:Doelgemaakte Avatar URL:
+register_custom_avatar_rules:Die doelgemaakte avatar sal nie vertoon word alvorens dit nie deur 'n administrateur goedgekeur is nie.<br /><span class="SmallText">Die avatar mag nie groter as <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pieksels</b> wees nie en moet in <b>jpg</b>-, <b>gif</b>- of <b>png</b>-formaat wees.</span>
+register_custom_avatar_url:Pasgemaakte avatar-URL:
 register_preview:Voorskou
 register_custom_avatar_upload:Doelgemaakte Avatar lêer:
 register_register:Registreer
 register_required:Vereiste inligting
 register_required_desc:Al die velde moet voltooi word.
 register_optional:Opsionele inligting
-register_optional_desc:Dit is nie wys om persoonlike of identifiserende inligting in u profiel plaas nie. Alle gegewens is sigbaar vir ander forumlede.
+register_optional_desc:Dit is nie wys om persoonlike of identifiserende inligting in u profiel te plaas nie. Alle gegewens is sigbaar vir ander forumlede.
 register_location:Ligging:
 register_occupation:Beroep:
 register_interests:Belange:
@@ -344,7 +344,7 @@ register_month:Maand
 register_year:Jaar
 register_gender:Geslag:
 register_bio:Biografie:
-register_bio_desc:Enkele details oor u soos stokperdjies, werk,...
+register_bio_desc:Enkele besonderhede oor jouself, soos stokperdjies, werk,...
 register_prefs:Voorkeure
 register_sig:Handtekening:
 register_sig_desc:Opsionele handtekening om onderaan u boodskappe te vertoon.
@@ -366,7 +366,7 @@ register_notification_desc:As kennisgewing by verstek geaktiveer is, kan dit ste
 register_notify_method:Kies notifikasie metode:
 register_notify_method_desc:Stel wat se kennisgewings u wil ontvang of skakel kennisgewings af (byvoorbeeld as u op vakansie is).
 register_allow_email_msg:Laat boodskappe per E-pos toe:
-register_allow_email_msg_desc:Laat andere lede toe om vir u epos deur die forum te stuur.
+register_allow_email_msg_desc:Laat ander lede toe om vir u e-pos deur die forum te stuur.
 buddy_status:Status
 my_buddies:My vriende
 add_buddy:Voeg vriend by
@@ -377,7 +377,7 @@ buddy_remove:Verwyder
 post_normal:Normaal
 post_sticky:Plakker
 post_annoncement:Aankondiging
-post_size:Groote
+post_size:Grootte
 post_color:Kleur
 post_font:Lettertipe
 create_thread:Begin onderwerp
@@ -403,7 +403,7 @@ post_format_tools:Formateringsgereedskap:
 post_upload_file:Laai lêer
 post_file_del:Skrap
 post_file_name:Naam
-post_file_size:Groote
+post_file_size:Grootte
 file_attachments:Lêeraanhangsels:
 allowed_files:Toegelate lêertipes:
 max_file_size:Maksimum lêergrootte:
@@ -421,11 +421,11 @@ post_options:Opsies:
 post_preview_btn:Boodskap voorskou
 post_diff_btn:Wys veranderinge
 post_cancel_btn:Kanselleer
-ignore_users:Geignoreerde Lede
+ignore_users:Geïgnoreerde lede
 add_ignore:Ignoreer gebruiker
 forum_terms:Forum riglyne
-forum_rules:<p>Registrasie tot dié forum is gratis!  Ons dring egter aan dat u die onderstaande reëls en beleid volg. Indien u akkoord gaan met die riglyne, kliek asb. op die <b>Akkoord</b>-knoppie onderaan die bladsy.</p><p>Alhoewel die administrateurs en moderators van die forum sal probeer om boodskappe op die forum objektief te hou, is dit onmoontlik vir ons om al die boodskappe te hersien. Boodskappe druk die siening van die skrywer uit, en nóg die eienaars van die forum, nóg die ontwikkelaars sal vir die inhoud van ENIGE boodskap verantwoordelik gehou word.</p><p>Deur te kliek op die "akkoord"-knoppie stem u in om nie obsene, vulgêre, seksueel georiënteerde, haatdraende, dreigende boodskappe of boodskappe wat die wet oortree te pos nie.</p><p>Die eienaars van die forum het die reg om enige onderwerp te wysig, skuif, verwyder of te sluit, vir welke rede ook al.<p>
-forum_rules_13:<p>Alle lede jonger as 13 jaar moet toestemming van 'n voog verkry indien hulle lidmaatskap hier wil bekom. Hoewel die registrasie van lede onder 13 verwelkom word, vereis die webwerf dat die voog 'n faks of e-pos stuur met getekende toestemming voordat ons lidmaatskap toeken.</p><p>Indien u die registrasie proses wil begin, kliek op die <b>Akkoord</b> knop onder. Indien u die registrasie teenstaan, kliek op <b>Nie Akkoord</b> om terug te keer na die forum indeks.</p><p>'n Kopie van die toestemmingsvorm sal na registrasie vertoon word. Vir meer inligting oor die registrasieproses, stuur gerus 'n e-pos aan <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules:<p>Registrasie op dié forum is gratis! Ons versoek egter dat u die onderstaande reëls en beleid volg. Indien u met die riglyne akkoord gaan, kliek asseblief op die <b>Akkoord</b>-knoppie onderaan die bladsy.</p><p>Alhoewel die administrateurs en moderators van die forum sal probeer om boodskappe op die forum objektief te hou, is dit onmoontlik vir ons om al die boodskappe te hersien. Boodskappe druk die siening van die skrywer uit, en nóg die eienaars van die forum, nóg die ontwikkelaars sal vir die inhoud van ENIGE boodskap verantwoordelik gehou word.</p><p>Deur op die "akkoord"-knoppie te kliek stem u in om nie obsene, vulgêre, seksueel georiënteerde, haatdraende, dreigende boodskappe of boodskappe wat die wet oortree te pos nie.</p><p>Die eienaars van die forum behou die reg voor om enige onderwerp te wysig, te skuif, te verwyder of te sluit, om welke rede ook al.<p>
+forum_rules_13:<p>Alle lede jonger as 13 jaar moet toestemming van 'n voog verkry indien hulle hier lidmaatskap wil bekom. Hoewel die registrasie van lede onder 13 verwelkom word, vereis die webwerf dat die voog 'n faks of e-pos stuur met getekende toestemming voordat ons lidmaatskap toeken.</p><p>Indien jy die registrasieproses wil begin, kliek op die <b>Akkoord</b>-knoppie onder. Indien jy die registrasie teenstaan, kliek op <b>Nie Akkoord</b> om terug te keer na die forum se indeks.</p><p>'n Kopie van die toestemmingsvorm sal na registrasie vertoon word. Vir meer inligting oor die registrasieproses, stuur gerus 'n e-pos aan <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
 coppa_conf:COPPA-bevestiging
 coppa_before:Voor {TEMPLATE: coppa_date}
 coppa_after:Na {TEMPLATE: coppa_date}
@@ -439,7 +439,7 @@ coppa_fax_instructions:Instruksies vir die voog
 coppa_fax_instructions2:Druk hierdie bladsy en e-pos of faks dit aan ons.
 coppa_fax_reg_form:Registrasie
 coppa_fax_sign:Onderteken het onderstaande vorm en stuur dit aan ons.
-coppa_fax_conf:Ek het die inligting wat my kind opgegee het nagegaan en die privaatheidsbeleid van die webwerf gelees. Ek begryp dat die informasie deur die gebruik van 'n wagwoord verander kan word. Ek verstaan dat ek daarom mag vraag dat die registrasie van die profiel volledig verwyder moet word.
+coppa_fax_conf:Ek het die inligting wat my kind verskaf het, hersien en ek het die privaatheidsbeleid vir die webwerf gelees. Ek verstaan dat die profielinligting met 'n wagwoord verander kan word. Ek verstaan dat ek mag vra dat hierdie registrasieprofiel heeltemal van die forum verwyder word.
 coppa_fax_permission:Teken hier indien u toestemming gee
 coppa_fax_no_permission:Teken hier indien u wil het dat die lidmaatskap verwyder moet word
 coppa_fax_parent_name:volledige naam van voog:
@@ -447,7 +447,7 @@ coppa_fax_relation:verwantskap met kind:
 coppa_fax_telephone:Telefoonnr:
 coppa_fax_email:E-posadres:
 coppa_fax_date:Datum:
-coppa_fax_questions:kontak <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> met al u vragen
+coppa_fax_questions:Kontak asseblief <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> met enige vrae
 coppa_fax_login:Gebruiker
 coppa_fax_passwd:Wagwoord
 coppa_fax_remail:E-pos
@@ -471,7 +471,7 @@ rpasswd_invalid_passwd:ongeldige wagwoord
 rpasswd_passwd_nomatch:Wagwoorde is nie dieselfde nie
 rpasswd_passwd_length:Wagwoord moet ten minste 6 karakters lank wees
 reset_remind_pass:Wagwoord herwinning
-reset_reset_conf:U wagwoord sal herstel word en aan u gestuur word. Indien u nog nie u epos bevestig het nie, sal die bevestiging weer aan u gestuur word.
+reset_reset_conf:Jou wagwoord sal herstel word en aan jou gestuur word. Indien jy nog nie jou e-posadres bevestig het nie, sal die bevestiging weer aan jou gestuur word.
 reset_error:Die e-posadres is nie in die databasis gevind nie
 reset_update:Kry nuwe wagwoord
 rpasswd_change_pass:Verander wagwoord
@@ -508,14 +508,14 @@ remail_email_topic:E-pos die onderwerp aan 'n vriend
 remail_your_name:U naam:
 remail_your_email:U e-posadres:
 remail_friends_name:Vriend se naam:
-remail_friends_email:Vriend se epos:
+remail_friends_email:Vriend se e-pos:
 remail_required:verpligtend
 remail_subject:Onderwerp:
 remail_message:Boodskap:
 remail_send_now:Stuur e-pos
-remail_anon_opt:Kopieer die boodskap na 'n epos-program van u keuse om dit aan u vriende te stuur.
+remail_anon_opt:Kopieer die boodskap na die e-posprogram van u keuse om dit aan u vriende te stuur.
 remail_done:Gedoen
-remail_sent_conf:Die epos aan u vriend {VAR-HTML: _POST['femail']} oor die {VAR: data->subject} onderwerp was suksesvol gestuur.
+remail_sent_conf:Die e-pos aan jou vriend {VAR-HTML: _POST['femail']} oor die onderwerp "{VAR: data->subject}" is suksesvol gestuur.
 remail_error:'n Fout het voorgekom
 mklist_type:Tipe:
 mklist_option:Opsie:
@@ -594,23 +594,23 @@ buddy_list_update:Besigtig jou vriendelys
 core_err_invinp_title:Ongeldige invoer
 core_err_invinp_err:U het 'n ongeldige skakel gevolg. Laat asseblief die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a> weet hoe u hier gekom het.
 core_adm_login_msg:Administrateurs kan <a href="{BASE}adm/admloginuser.php">hier</a> aanmeld.
-email_err_unabletoemail_title:FOUT: nie in staat om epos te stuur nie
-email_err_unabletoemail_msg:Die administrateur het die epos-stelsel gedeaktiveer.
-email_error_unabletolocaddr:Jammer, die stelsel was nie in staat om {VAR-HTML: _POST['tx_name']} te epos nie omdat die e-posadres nie gevind kon word nie
+email_err_unabletoemail_title:FOUT: Die e-pos kon nie gestuur word nie.
+email_err_unabletoemail_msg:Die administrateur het die e-posstelsel gedeaktiveer.
+email_error_unabletolocaddr:Jammer, die stelsel kon nie vir {VAR-HTML: _POST['tx_name']} 'n e-pos stuur nie, omdat die e-posadres nie gevind kon word nie
 email_error_body:Sleutel asseblief 'n boodskap in
 email_error_subject:Verskaf asseblief 'n onderwerp
 email_error_namerequired:Verskaf naam
 email_error_invaliduser:ongeldige lid
 emailconf_err_invkey_title:Fout
-emailconf_err_invkey_msg:Ongeldige bevestigingssleutel. Kontroleer u epos en maak seker dat u dat u na die korrekte URL gegaan het.
+emailconf_err_invkey_msg:Ongeldige bevestigingsleutel. Kontroleer asseblief jou e-pos om seker te maak dat jy die URL korrek ingevoer het. Indien jy twee keer op die skakel geklik het, is jou rekening moontlik reeds bevestig. Meld by die forum aan om 'n nuwe sleutel aan te vra.
 err_inc_criticaltitle:Kritieke fout
 err_inc_criticalmsg:'n Fout het voorgekom. Ongelukkig is daar ook fout met die foutrapport-stelsel.
 finduser_update:Soek na lid
 help_index_update:Die <a href="{TEMPLATE: help_index_update_lnk}">F.A.Q.</a> lees
 iemail_thr_subject:Nuwe antwoord op {VAR: thr_subject} deur {VAR: poster_login}
 iemail_thr_bodyemail:Om ongeleesde antwoorde te lees gaan na {VAR: goto_url['email']}\n\nIndien u nie verdere kennisgewings oor die onderwerp wil ontvang nie, gaan na: {VAR: unsub_url['email']}
-iemail_frm_subject:Nuwe ondwerwerp in forum {VAR: frm_name} genaamd {VAR: thr_subject} deur {VAR: poster_login}
-iemail_frm_bodyemail:om die onderwerp te sien gaan na:\n{VAR: goto_url['email']}\n\nIndien u die verdere kennisgewings oor nuwe onderwerpe op dit forum wenst te schrappen gaan dan na hier: {VAR: unsub_url['email']}
+iemail_frm_subject:Nuwe onderwerp in forum {VAR: frm_name}, genaamd {VAR: thr_subject}, deur {VAR: poster_login}
+iemail_frm_bodyemail:Om die onderwerp te sien, gaan na:\n{VAR: goto_url['email']}\n\n\nOm kennisgewings oor nuwe onderwerpe in hierdie forum te stop, gaan asseblief na: {VAR: unsub_url['email']}
 iemail_participate:Om deel te neem aan die bespreking, gaan na:
 ignore_list_err_info_title:Info
 ignore_list_err_dup_msg:Die lid is reeds in u ignoreerlys
@@ -618,7 +618,7 @@ ignore_list_err_nu_title:lid nie gevind nie
 ignore_list_err_nu_msg:Die lid wat u by u ignoreerlys wil voeg kon nie op die forum gevind word nie.
 ignore_list_cantign_msg:U kan die lid nie ignoreer nie
 ignore_list_update:Blaai deur eie ignoreerlys
-index_update:Blaai deur die <a href="{TEMPLATE: index_update_lnk}">forum lys</a>
+index_update:Blaai deur die <a href="{TEMPLATE: index_update_lnk}">forumlys</a>
 list_referers_update:Blaai deur verwysings
 login_update:Aanmelding
 msg_update:Blaai deur onderwerp <a href="{TEMPLATE: msg_update_lnk}">{VAR: frm->subject}</a>
@@ -635,8 +635,8 @@ post_err_edttimelimit_title:FOUT
 post_err_edttimelimit_msg:U kan nie die boodskap meer wysig nie
 post_err_noannontopics_msg2:<legend>FOUT: Onvoldoende Regte</legend>Anonieme gebruikers word nie toegelaat om nuwe onderwerpe te begin nie.
 post_err_noannonposts_msg2:<legend>FOUT: Onvoldoende Regte</legend>Anonieme gebruikers word nie toegelaat om antwoorde te pos nie.
-post_err_floodtrig_title:FOUT: Post flood ingeschakeld.
-post_err_floodtrig_msg:probeer asseblief weer oor {PLURAL: tm|$1 seconde|$1 secondes}
+post_err_floodtrig_title:FOUT: Te veel boodskappe is te vinnig geplaas.
+post_err_floodtrig_msg:Probeer asseblief weer oor {PLURAL: tm|$1 sekonde|$1 sekondes}
 post_err_attach_size:Die aanhangsel is te groot. Die limiet is {VAR: MAX_F_SIZE} grepe.
 post_err_attach_ext:Die lêer wat u wil byvoeg is van 'n lêerformaat wat nie hier toegelaat word nie.
 post_err_attach_filelimit:U probeer om meer lêers by te voeg as wat toegelaat word.
@@ -649,8 +649,8 @@ postcheck_no_links_allowed:U mag geen skakels pos voordat u nie ten minste {PLUR
 postcheck_subj_needed:U moet 'n onderwerp verskaf
 postcheck_no_such_user:Daar is geen lid genaamd "{FUNC: char_fix(htmlspecialchars($v))}" in die forum
 postcheck_ignored:U kan nie 'n privaatboodskap aan "{FUNC: char_fix(htmlspecialchars($v))}" stuur nie omdat die gebruiker u ignoreer.
-postcheck_no_recepient:U kan geen boodskap versturen, ontvanger ontbreek
-postcheck_invalid_email:Vul 'n geldig e-posadres van u vriend in.
+postcheck_no_recepient:Kan nie 'n boodskap stuur nie, ontvanger ontbreek
+postcheck_invalid_email:Voer asseblief 'n geldige e-posadres vir jou vriend in.
 postcheck_email_subject:U kan nie e-pos sonder 'n onderwerp stuur nie.
 postcheck_email_body:U kan nie e-pos sonder 'n boodskap stuur nie.
 private_msg_notify_subj:Lees kennisgewing vir: {VAR: m->subject}
@@ -659,22 +659,22 @@ referals_update:Blaai deur verwysings
 register_err_short_login:Die gebruikersnaam wat u gekies het is te kort. Dit moet ten minste 2 karakters lank wees.
 register_err_login_notallowed:Hierdie naam word nie toegelaat nie
 register_err_loginunique:Gebruikersnaam moet uniek wees, daar is reeds 'n gebruiker met hierdie naam op die stelsel.
-register_err_emailexists:Hiedie epos bestaan reeds, indien u u wagwoord vergeet het, gebruik asseblief die herstel opsie inplaas daarvan om weer te registreer
+register_err_emailexists:Hierdie e-posadres bestaan reeds. Indien jy jou wagwoord vergeet het, gebruik asseblief die Herstel-opsie in plaas daarvan om weer te registreer.
 register_err_shortpasswd:die wagwoord moet ten minste 6 karakters lank wees
-register_err_passwdnomatch:U wagwoorde stem die ooreen nie
+register_err_passwdnomatch:Jou wagwoorde stem nie ooreen nie, probeer asseblief weer.
 register_err_invalidemail:Die e-posadres wat u gekies het is nie geldig nie.
 register_err_needname:Om hierdie registrasie suksesvol te voltooi moet u u naam verskaf.
 register_err_enterpasswd:U moet u huidige wagwoord opgee om die wysiging te laat deurgaan
-register_err_adminpasswd:U moet u <b>administasie-wagwoord</b> verskaf om die wysiging te laat deurgaan
+register_err_adminpasswd:U moet u <b>administrasie-wagwoord</b> verskaf om die wysiging te laat deurgaan.
 register_err_notyouremail:Iemand is reeds met die e-posadres geregistreer, en die persoon is nie u nie.
-register_err_avatartobig:Die lêer wat u wil oplaai is te groot, groter as die {GVAR: CUSTOM_AVATAR_MAX_SIZE} grepe limiet
-register_err_avatarnotallowed:Die avatar wat u probeer oplaai is nie aanvaar nie. Kontroleer die toelaatbare lêertipes.
+register_err_avatartobig:Die lêer wat jy probeer oplaai is te groot, meer as die {GVAR: CUSTOM_AVATAR_MAX_SIZE} grepe limiet.
+register_err_avatarnotallowed:Die avatar wat jy probeer oplaai is nie aanvaar nie. Kontroleer die toelaatbare lêertipes.
 register_conf_subject:Registrasiebevestiging
 register_conf_msg:Dankie vir u registrasie,\nVolg die onderstaande skakel om u lidmaatskap te aktiveer:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nSodra u gebruiker geaktiveer is sal u op die forum aangeteken word\nen na die forum se tuisblad deurgestuur word.
-register_welcome_subject:Forum registrasie bevestiging
-register_welcome_msg:Dankie vir u registrasie,\n\nhier is u gebruikernaam vir die forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nGebruiker: {VAR: uent->login}\nwagwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nPas op, wagwoorde is gevoelig vir hoofletters!\nOm u voorkeure &amp; profiel aan te pas, gaan na hierdie bladsy:\n{FULL_ROOT}?t=register
+register_welcome_subject:Bevestiging van registrasie
+register_welcome_msg:Dankie vir jou registrasie,\n\nHier is jou gebruikersnaam vir die forum:\n\nForum URL: {TEMPLATE: index_update_lnk}\nGebruiker: {VAR: uent->login}\nWagwoord: {VAR: _POST['reg_plaintext_passwd']}\n\nLet asseblief daarop dat wagwoorde hooflettergevoelig is!\nOm jou voorkeure of profiel aan te pas, gaan na hierdie bladsy:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:FOUT: nie in staat om te registreer nie
-regsiter_err_cantreg_msg:Dit was nie moontlik om u gebruikersrekening te skep nie. Kontak asb die administrateur via <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
+regsiter_err_cantreg_msg:Dit was nie moontlik om jou gebruikersrekening te skep nie. Kontak asseblief die administrateur by <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>
 register_profile_update:Bekyk eie profiel
 register_register_update:Registrasieblad
 report_err_nosuchmsg_title:FOUT
@@ -682,14 +682,14 @@ report_err_nosuchmsg_msg:onbekende boodskap
 reset_err_invalidkey_title:FOUT
 reset_err_invalidkey_msg:ongeldige wagwoord herstel sleutel
 reset_err_rstconf_title:Inligting
-reset_err_rstconf_msg:U sal binne enkele minuute verdere instruksies per epos ontvang
+reset_err_rstconf_msg:U sal binne enkele minute verdere instruksies per e-pos ontvang.
 reset_newpass_title:Herstel wagwoord
 reset_newpass_msg:Hallo,\n\nSoos versoek, hier is u gebruikersinligting:\n\nGebruikersnaam: {VAR: ui[1]}\nWagwoord: {VAR: passwd}\n\nLet op: U wagwoord is herstel na die bovermelde waarde. Indien u u wagwoord wil verander, kan u dit in u profiel doen by:\n{FULL_ROOT}?t=register
 reset_login_notify:U wagwoord is per e-pos aan u gestuur. U sal dit binne enkele minute ontvang.
 search_update:Soek deur boodskappe
 selmsg_update:Blaai deur <a href="{TEMPLATE: selmsg_update_lnk}">vandag se pos</a>
 showposts_update:Bekyk pos van: <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
-subscribed_update:Blaai deur eie inskrwings
+subscribed_update:Blaai deur eie intekeninge
 bookmarked_update:Blaai deur eie boekmerke
 thread_update:Blaai deur forum <a href="{TEMPLATE: thread_update_lnk}">{VAR: frm->name}</a>
 tree_update:Blaai deur onderwerp (boomstruktuur) <a href="{TEMPLATE: tree_update_lnk}">{VAR: frm->subject}</a>
@@ -702,10 +702,10 @@ ERR_access_msg:U het nie die nodige regte om die handeling te verrig nie.
 ERR_registration_disabled_ttl:Registrasie is gedeaktiveer
 ERR_registration_disabled_msg:Die administrateur het registrasie gedeaktiveer. Probeer asseblief later weer.
 ERR_emailconf_ttl:FOUT: U lidmaatskap is nog nie bevestig nie
-ERR_emailconf_msg:U het nog nie u gebruiker via e-pos bevestig nie:<br /><table border="0"><tr><td><ol><li>Indien u nog nie 'n bevestigings-epos ontvang het nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliek hier</a>.</li>\n<li>Indien {VAR: usr_d->email} nie u korrekte e-posadres is nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliek hier</a>.</li></ol></td></tr></table>
+ERR_emailconf_msg:Jy het nog nie jou gebruiker via e-pos bevestig nie:<br /><table border="0"><tr><td><ol><li>Indien jy nog nie 'n e-pos ter bevestiging ontvang het nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk}">kliek hier</a>.</li>\n<li>Indien {VAR: usr_d->email} nie jou korrekte e-posadres is nie, <a href="{TEMPLATE: ERR_emailconf_msg_lnk2}">kliek hier</a>.</li></ol></td></tr></table>
 ERR_user_ttl:FOUT: onbekend lid
 ERR_user_msg:Hierdie gebruiker bestaan nie
-ERR_systemerr_ttl:FOUT: STESLELFOUT
+ERR_systemerr_ttl:FOUT: Stelselfout
 ERR_systemerr_msg:Daar was 'n STELSELFOUT, rapporteer dit asseblief aan die <a href="mailto:{GVAR: ADMIN_EMAIL}">webmeester</a>.
 email_title:Stuur e-pos
 finduser_title:Vind lid
@@ -735,18 +735,18 @@ register_change_login:verander gebruikersnaam
 approved_avatar_title:U avatar is goedgekeur.
 approved_avatar_msg:U avatar is deur 'n administrateur goedgekeur. Dit sal nou langs al u boodskappe verskyn. Indien u dit nie sien nie, of as u nog u ou avatar sien, word dit waarskynlik deur u webleser gekas. Probeer om die bladsy een of twee keer te herlaai. Dit sal die probleem in die meeste gevalle oplos.
 unapproved_avatar_title:U doelgemaakte avatar is afgekeur.
-unapproved_avatar_msg:Die administrateur het nie u avatar goedgekeur nie. Die mees algemeenste rede hiervoor is dat die avatar te groot is (grootte en/of dimensies) of onvanpas is vir die webwerf. U is welcom om die dministrateur te kontak vir die presiese rede.
+unapproved_avatar_msg:Die administrateur het nie jou avatar goedgekeur nie. Die mees algemene rede hiervoor is dat die avatar te groot is (grootte en/of dimensies) of onvanpaste inhoud bevat. Jy is welkom om die administrateur vir die presiese rede te kontak.
 mvthread_request_move:vra om onderwerp te skuif
 move_request_reason:Waarom wil u hê dat die onderwerp geskuif moet word?
 mvthread_submit_req:Stuur versoek
-thread_exchange:Onderwerk skuif
+thread_exchange:Onderwerpverskuiwing
 move_request_by:Onderwerp skuif aangevra deur:
 move_reason:Rede vir skuif van onderwerp:
 thr_exch_accept:aanvaar
 thr_exch_decline:keur af
 thr_exch_orig_forum:Oorspronklike Forum:
 thr_exch_dest_forum:Bestemming:
-thr_exch_no_threads:Geen ondewerpe wat op goedkeuring wag nie.
+thr_exch_no_threads:Geen onderwerpe wag vir goedkeuring nie.
 thr_exch_decl_reason:Rede vir die afkeur van onderwerp <b>{VAR: data->subject}</b> in forum <b>{VAR: data->f2_name}</b>
 thr_exch_submit:Stuur
 exch_decline_ttl:Die skuif van onderwerp {VAR: data->subject} na forum {VAR: data->f2_name} is afgekeur.
@@ -786,7 +786,7 @@ p_SPLIT:Split onderwerpe
 p_LOCK:Sluit onderwerpe
 p_MOVE:Skuif onderwerpe
 p_SML:Gebruik gesiggies
-p_IMG:Gebruik foto etikette
+p_IMG:Gebruik foto-etikette
 p_SEARCH:Kan soek
 group_mgr_search:Vind lid
 group_mgr_indicator:Wysig tans: <b>{VAR: grp->name}</b>
@@ -834,10 +834,10 @@ split_th_subject:onderwerp:
 split_th_new_thread_title:Nuwe onderwerp:
 split_th_forum:Forum:
 split_th_split_sel:Split geselekteerde boodskappe
-split_th_split_unsel:Split nie-geselekteerde boodksppe
+split_th_split_unsel:Split nie-geselekteerde boodskappe
 split_th_messages:Boodskappe
 split_th_select:Kies
-report_report_post:Rapporteer Pos
+report_report_post:Rapporteer boodskap
 quicklogin_login:Gebruiker:
 quicklogin_password:Wagwoord:
 quicklogin_use_cookies:Gebruik koekies?
@@ -886,7 +886,7 @@ register_alias:Alias:
 register_alias_desc:Indien u 'n bynaam eerder as u gebruikersnaam op die forum wil vertoon, vul dit dan hier in.
 register_allow_pm_msg:Laat privaatboodskappe toe
 register_allow_pm_msg_desc:Laat ander gebruikers toe om aan u privaatboodskappe deur die forum te stuur.
-postcheck_pm_disabled:U kan nie 'n privaatboodskap aan "{VAR-HTML: v}" stuur nie omdat die gebruiker nie privaatboodskappe aanvaar nie.
+postcheck_pm_disabled:Jy kan nie 'n privaatboodskap aan "{VAR-HTML: v}" stuur nie, omdat die gebruiker nie privaatboodskappe aanvaar nie.
 polllist_vote:Stem
 polllist_view_results:Wys resultate
 polllist_name:Stemmingsnaam
@@ -917,7 +917,7 @@ register_show_im_desc:Indien u die IM-indikators van outeurs langs hulle boodska
 unread_message:ongeleesde boodskappe
 read_message:lees boodskappe
 threadt_more:&lt;meer&gt;
-threadt_disabled_ttl:Boomstruktuur van die reeks is uitgeschakeld.
+threadt_disabled_ttl:Boomstruktuur vir die vertoon van onderwerpe is afgeskakel.
 threadt_disabled_desc:Die administrateur het die vertoon van onderwerpe in boomstruktuur afgeskakel, gebruik asseblief die plat weergawe.
 threadt_update:Blaai deur forum <a href="{TEMPLATE: threadt_update_lnk}">{VAR: frm->name}</a> (boomstruktuur).
 mmod_delete_cofirm_ttl:Onderwerp/Boodskap verwydering bevestiging
@@ -927,7 +927,7 @@ finduser_help:Die soekenjin voeg outomaties 'n * by u soekvraag. Byvoorbeeld, om
 back_to_top:terug na bo
 pm_err_disabled_title:Privaatboodskappe is gedeaktiveer
 pm_err_disabled_msg:U kan nie privaatboodskappe stuur alvorens u nie die "Laat privaatboodskappe toe" funksie in u profiel aangeskakel het nie.
-err_mod_acc_ttl:ongeijkte rekening
+err_mod_acc_ttl:Ongeverifieerde rekening
 err_mod_acc_msg:Die administrateur het gekies om manueel alle rekeninge te hersien voor aktivering. Totdat u rekening gevalideerd is deur die administrateur sal u nie die volle kapasiteit van u rekening kan gebruik nie.
 accounts_pending_approval:Rekeninge afwagtend vir goedkeuring
 saved:Stoor
@@ -937,7 +937,7 @@ buddy_offline:{VAR: r[2]} is tans af-lyn
 buddy_online:{VAR: r[2]} is tans aan-lyn
 sml_no_smilies:Geen gesiggies beskikbaar.
 login_unapproved_account_ttl:Onbevestigde rekening
-login_unapproved_account_msg:Die administrateur van die forum het besluit om nuwe rekeninge handmatig na te gaan alvorens dit bevestig word. U rekening is nog nie bevestig nie. As a gevolg sal u nie al die funksies van die forum kan gebruik nie.
+login_unapproved_account_msg:Die administrateur van die forum het besluit om nuwe rekeninge handmatig na te gaan alvorens dit bevestig word. Jou rekening is nog nie bevestig nie. Gevolglik sal jy nie al die funksies van die forum kan gebruik nie.
 remove_from_buddy_list:verwyder van vriendelys
 iemail_msg_author:<b>Van:</b> {VAR: obj->alias}
 iemail_msg_subject:<b>Onderwerp:</b> {VAR: obj->subject}
@@ -954,7 +954,7 @@ thread_mark_all_read:merk alle boodskappe as gelees
 thread_mark_all_read_desc:Al die ongeleesde boodskappe in die forum word as gelees gemerk
 private_no_messages:Die vouer is tans leeg
 register_email_change_subject:Bevestiging van veranderde e-posadres
-register_email_change_msg:Bevestig asseblief u nuwe e-psoadres "{VAR: uent->email}" ter vervanging van u ou e-posadres "{VAR: old_email}" deur die volgende verwysing te volg:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAs u u nuwe e-posadres bevestig, word u gebruiker weer geaktiveer.
+register_email_change_msg:Bevestig asseblief jou nuwe e-posadres "{VAR: uent->email}" ter vervanging van jou ou e-posadres "{VAR: old_email}" deur die volgende verwysing te volg:\n{FULL_ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nAs jy jou nuwe e-posadres bevestig, word jou gebruiker weer geaktiveer.
 iemail_thread_unsub:Kanselleer inskrywing op onderwerp
 iemail_forum_unsub:Afmeld van die forum
 primary_group_prefix:Primêre groep vir forum:
@@ -977,7 +977,7 @@ mnav_submit:Begin soek
 mnav_no_range:Vul 'n geldige periode in. Dit mag 'n gebroke getal wees (0.12) maar dit moet groter as nul wees.
 mnav_invalid_unit:Verskaf asseblief 'n geldige tyd.
 mnav_invalid_date:Die periode wat u verskaf het is groter as wat deur die administrateur toegestaan is. Probeer 'n kleiner periode.
-mnav_no_results:Geen resutaat vir soekopdrag.
+mnav_no_results:Daar is geen resultate vir die navraag nie.
 mnav_posted_by:Geplaas deur:
 mnav_more:Meer &raquo;&raquo;
 mnav_minute:Minuut(e)
@@ -1005,8 +1005,8 @@ merge_merge:Versmelt Gekose Onderwerpe
 merge_next:Volgende Onderwerpe
 merge_prev:Vorige Onderwerpe
 merge_another:Gaan na die <a href="{TEMPLATE: merge_another_lnk}">laaste saamgevoegde onderwerp</a> of versmelt nog een:
-split_cp:Beheervenster vir die opsplit van onderwerpe
-groups_perms_header:Regte <span class="small">(beweeg muis oor regte om details te sien)</span>
+split_cp:Beheervenster vir die split van onderwerpe
+groups_perms_header:Regte <span class="small">(beweeg muis oor regte om besonderhede te sien)</span>
 register_err_sig_too_long:U handtekening oorskry die maksimum toelaatbare lengte van {GVAR: FORUM_SIG_ML} karakters.
 register_sig_limit:{GVAR: FORUM_SIG_ML} karakters. <a href="javascript: alert('U handtekening is '+document.forms['fud_register'].reg_sig.value.length+' karakters lank. Die maksimum toelaatbare lengte is {GVAR: FORUM_SIG_ML} karakters.');" class="SmallText">Wys Handtekening Lengte</a>.
 adm_account_accepted:U gebruiker '{VAR: login}' is deur die administrateur goedgekeur en is nou aktief. U mag nou die forum {GVAR: FORUM_TITLE}' gebruik as 'n geregistreerde en bevestigde gebruiker.
@@ -1072,12 +1072,12 @@ thread_mov_all:Skuif seleksie
 thread_merge_all:Versmelt seleksie
 thread_loc_all:Sluit/Ontsluit seleksie
 dmsg_ip:IP:
-err_blockedaccnt_title:FOUT: Your account has been filtered out.
+err_blockedaccnt_title:FOUT: Jou rekening is deur 'n filter geblokkeer.
 err_blockedaccnt_msg:As gevolg van 'n filter is u gebruiker van die forum geblokkeer.
 merge_th_page_list:Onderwerp boodskap seleksie
 most_users_online:Die meeste aanlyn gebruikers was <b>{VAR: st_obj->most_online}</b> op <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Kanselleer inskrywing op alle forums
-sub_unsub_all_topics:Afmeld van alle Ondwerwerpe
+sub_unsub_all_topics:Kanselleer inskrywing op alle onderwerpe
 unbookmark_all_topics:Skrap alle boekmerke
 tabs_own_posts:My boodskappe
 sml_emoticon:Emotikon
@@ -1112,7 +1112,7 @@ post_descr:Beskrywing van die onderwerp:
 pmsg_on:op
 pmsg_download_dump:Laai boodskappe af
 move_messages:Skuif boodskappe
-move_msg_btn:Skuif geselekteede boodskappe
+move_msg_btn:Skuif geselekteerde boodskappe
 move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ander forum wees)
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
