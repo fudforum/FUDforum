@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -24,10 +24,11 @@
 		pf(successify('Downloading '. $tlang .' messages from translatewiki.net...'));
 
 		fud_use('url.inc', true);	// For get_remote_file().
-		$url = 'http://translatewiki.net/w/i.php?title=Special%3AExportTranslations&format=export-to-file&group=out-fudforum&language='. $tlang .'&limit=2500';
+		// $url = 'https://translatewiki.net/wiki/Special:ExportTranslations?group=out-fudforum&language='. $tlang .'&format=export-to-file&x=D';
+		$url = 'https://raw.githubusercontent.com/fudforum/FUDforum/refs/heads/master/install/forum_data/thm/default/i18n/'. $tlang .'/msg';
 		$messages = get_remote_file($url);
 
-		if (!strlen($messages)) {
+		if (!strlen($messages ?? '')) {
 			echo errorify('Download failed. Your connection might be down or a firewall or proxy is blocking access.');
 		} elseif ( substr($messages, 0, 15) != '# Messages for ' ) {
 			echo errorify('Corrupted download. Please try again.');

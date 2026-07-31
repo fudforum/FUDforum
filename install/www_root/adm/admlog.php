@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -85,7 +85,7 @@ function return_group_name($id)
 </td></tr></table>
 </fieldset>
 
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>User</th><th>Action</th><th>Object</th><th>Time (<i>UTC</i>)</th>
 </tr></thead>

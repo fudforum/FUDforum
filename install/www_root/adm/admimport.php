@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -325,7 +325,7 @@ $datadumps = (glob($TMP .'*.fud*'));
 if ($datadumps) {
 ?>
 	<h3>Available datadumps:</h3>
-	<table class="resulttable fulltable">
+	<table data-sortable class="resulttable fulltable">
 	<thead><tr class="resulttopic">
 		<th>File name</th><th>Backup Date</th><th>Action</th>
 	</tr></thead>

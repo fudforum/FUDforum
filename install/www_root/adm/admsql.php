@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -166,8 +166,8 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 			// Database neutral SHOW TABLES.
 			if (preg_match('/^\s*show tables\s*;?$/i', $sql)) {
 				echo '<h2>FUDforum tables</h2>';
-				echo '<table class="resulttable">';
-				echo '<thead><tr class="resulttopic"><th>Table name</th><th>Rows</th><th>Actions</th></tr></thead>';
+				echo '<table data-sortable class="resulttable">';
+				echo '<thead><tr class="resulttopic"><th>Table name</th><th data-sort-type="number">Rows</th><th>Actions</th></tr></thead>';
 				$tables = get_fud_table_list();
 				$i      = 0;
 				foreach($tables as $tbl) {
@@ -190,7 +190,7 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 			// Database neutral DESCRIBE.
 			if (preg_match('/^\s*desc(ribe)?\s+(\w+)\s*;?$/i', $sql, $m)) {
 				echo '<h2>Columns for '. $m[2] .'</h2>';
-				echo '<table class="resulttable">';
+				echo '<table data-sortable class="resulttable">';
 				echo '<thead><tr class="resulttopic"><th>Column Name</th><th>Type</th><th>Null</th><th>Primary</th><th>Default</th><th>Auto incrementing</th></tr></thead>';
 				foreach (get_fud_col_list($m[2]) as $col => $props) {
 					echo '<tr><td>'. $col .'</td><td>'. $props['type'] .'</td><td>'. ($props['not_null'] ? 'NOT NULL' : '') .'</td><td>'. ($props['primary'] ? 'Yes' : 'No') .'</td><td>'. $props['default'] .'</td><td>'. ($props['auto'] ? 'Yes' : 'No') .'</td></tr>';
@@ -198,7 +198,7 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 				echo '</table>';
 
 				echo '<h2>Indexes</h2>';
-				echo '<table class="resulttable">';
+				echo '<table data-sortable class="resulttable">';
 				echo '<thead><tr class="resulttopic"><th>Index Name</th><th>Unique</th><th>Columns</th></tr></thead>';
 				foreach (get_fud_index_list($m[2]) as $idx => $props) {
 					echo '<tr><td>'. $idx .'</td><td>'. ($props['unique'] ? 'Yes' : 'No') .'</td><td>'. $props['cols'] .'</td><td></tr>';
@@ -225,7 +225,7 @@ if (isset($_POST['txtb']) && $_POST['txtb'] != '') {
 				$t = number_format(microtime(true) - $s, 4);
 
 				echo '<h2>SQL Results</h2>';
-				echo '<table class="resulttable">';
+				echo '<table data-sortable class="resulttable">';
 
 				$i = 1;
 				while ($result = db_fetch_array($q)) {

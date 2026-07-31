@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -105,7 +105,7 @@
 </table>
 
 <h3>Defined Group Leaders:</h3>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Group Leader Login</th><th>Action</th>
 </tr></thead>

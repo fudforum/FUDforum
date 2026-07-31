@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -506,9 +506,9 @@ if (!extension_loaded('posix')) {
 </form>
 <br />
 
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
-	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th>Size (kB)</th><th>Date/Time</th><th>Mode</th><th align="center">Action</th>	
+	<th>Name</th><?php if (!preg_match('/WIN/', PHP_OS)) echo '<th>Owner</th><th>Group</th>'; ?><th  data-sort-type="number">Size (kB)</th><th>Date/Time</th><th>Mode</th><th align="center">Action</th>	
 </tr></thead>
 <?php
 	$dir_list = $file_list = array();

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -125,7 +125,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Page:</a>' : 'Add New Page:') .'</h3>
 </form>
 
 <h3>Defined pages:</h3>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Slug</th><th>Title</th><th>Action</th>
 </tr></thead>

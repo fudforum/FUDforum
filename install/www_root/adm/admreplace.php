@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -226,7 +226,7 @@ function clean_rgx()
 <input type="hidden" name="edit" value="<?php echo $edit; ?>" />
 </form>
 <h3>Defined replacements:</h3>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Replace Type</th>
 	<th>Replace</th>

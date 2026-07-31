@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -289,7 +289,7 @@ function undeploy_files($plugin)
 <?php if (($FUD_OPT_3 & 4194304) && $have_enabled_plugins) { /* Show if plugin system enabled and we have enabled plugins. */ ?>
 <h3>Enabled plugins:</h3>
 <p>The below plugins are active and listed in firing order. Drag and drop them to change the order.</p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Plugin name</th><th>Version</th><th>Category</th><th>Description</th><th>Action</th>
 </tr></thead>
@@ -320,7 +320,7 @@ function undeploy_files($plugin)
 <p>Click on any of the below plugin names for more info and configuration options:</p>
 <form method="post" action="admplugins.php" autocomplete="off">
 <?php echo _hs ?>
-<table class="resulttable fulltable" cellpadding="5">
+<table data-sortable class="resulttable fulltable" cellpadding="5">
 <thead><tr class="resulttopic"><th>Enable</th><th>Plugin name</th><th>Version</th><th>Category</th><th>Description</th></tr></thead>
 <?php
 	$i = 0;

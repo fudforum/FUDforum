@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2024 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -18,7 +18,7 @@
 <h2>Forum Sessions</h2>
 
 <p><b>Top Actions:</b></p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th width="70%">Action</th>
 	<th width="30%">Count</th>
@@ -37,7 +37,7 @@
 </table>
 
 <p><b>Top IP Addresses:</b></p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th width="70%">IP Address</th>
 	<th width="30%">Count</th>
@@ -55,7 +55,7 @@
 </table>
 
 <p><b>Top User Agents:</b></p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th width="70%">User Agent</th>
 	<th width="30%">Count</th>
@@ -73,7 +73,7 @@
 </table>
 
 <p><b>Detailed session records:</b></p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>User</th>
 	<th>Action</th>

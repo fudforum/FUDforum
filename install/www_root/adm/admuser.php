@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -420,9 +420,9 @@ administration permissions to the forum. This individual will be able to do anyt
 				break;
 			default:
 				echo '<p>There are '. $cnt .' users that match this '. $field .' mask:</p>';
-				echo '<table class="resulttable fulltable">';
+				echo '<table data-sortable class="resulttable fulltable">';
 				echo '<thead><tr class="resulttopic">';
-				echo '	<th>Login</th><th>E-mail</th><th>Last visit</th><th>Last IP</th><th>Posts</th><th>Action</th>';
+				echo '	<th>Login</th><th>E-mail</th><th>Last visit</th><th>Last IP</th><th data-sort-type="number">Posts</th><th>Action</th>';
 				echo '</tr></thead>';
 				$i = 0;
 				while ($r = db_rowarr($c)) {

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2012 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -80,7 +80,7 @@
 <?php
 	}
 ?>
-<table class="resulttable">
+<table data-sortable class="resulttable">
 <thead><tr class="resulttopic">
 	<th>Icon</th><th>Action</th>
 </tr></thead>

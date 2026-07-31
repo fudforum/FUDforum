@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -23,7 +23,7 @@ function format_err($err)
 
 function print_last($logfile)
 {
-	echo '<table class="resulttable">';
+	echo '<table data-sortable class="resulttable">';
 	echo '<thead><tr class="resulttopic">';
 	echo '	<th>Time</th><th>Error Description</th>';
 	echo '</tr></thead>';
@@ -62,7 +62,7 @@ function print_last($logfile)
 
 function print_log($logfile, $search)
 {
-	echo '<table class="resulttable">';
+	echo '<table data-sortable class="resulttable">';
 	echo '<thead><tr class="resulttopic">';
 	echo '	<th>Time</th><th>Error Description</th>';
 	echo '</tr></thead>';

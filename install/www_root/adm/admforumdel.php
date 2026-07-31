@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -52,7 +52,7 @@
 ?>
 <h2>Orphaned Forums</h2>
 <p>The following forums were deleted and are in the trash bin (not visible to users). You can permanently delete them or reassign them to a category.</p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th width="50%">Forum Name</th>
 	<th width="10%">Action</th>

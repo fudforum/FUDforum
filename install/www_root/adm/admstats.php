@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -152,7 +152,7 @@
 		$_POST['e_year']  = $e_year;
 		$_POST['e_month'] = $e_month;
 		$_POST['e_day']   = $e_day + 1;
-		$_POST['type']    = $_POST['sep'] = '';
+		$_POST['type']    = $_POST['sep'] = 'month';
 
 		$disk_usage_array = array();
 		$total_disk_usage = 0;
@@ -226,7 +226,7 @@ if (isset($total_disk_usage)) {
 	if ($db < 1) $db = 1;
 ?>
 <h4>Disk Usage:</h4>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <tr style="line-height: 1px;">
 	<td></td>
 	<td></td>
@@ -273,9 +273,9 @@ if (isset($total_disk_usage)) {
 	function drawChart() {
 		var data = new google.visualization.arrayToDataTable([
 			['Area', 'Space'],
-			['DB', <?php echo (int)$db ?>],
-			['Web', <?php echo (int)$web ?>],
-			['Data',  <?php if (!$same_dir) echo (int)$data; else echo 0; ?>]
+			['DB',   <?php echo (int)$db ?>],
+			['Web',  <?php echo (int)$web ?>],
+			['Data', <?php if (!$same_dir) echo (int)$data; else echo 0; ?>]
 		]);
 		var options = {legend: 'bottom'};
 		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -285,7 +285,7 @@ if (isset($total_disk_usage)) {
 </script>
 
 <h4>Forum Statistics:</h4>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <tr class="field">
 	<td><b>Messages:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['MESSAGES']; ?></td>

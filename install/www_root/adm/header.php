@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -26,13 +26,13 @@
 <head>
 	<meta charset="<?php echo $charset; ?>">
 	<title><?php echo $FORUM_TITLE; ?>: Admin Control Panel</title>
-	<link rel="styleSheet" href="../js/ui/jquery-ui.css" />
-	<link rel="styleSheet" href="style/adm.css" />
 	<script src="../js/jquery.js"></script>
-	<script src="../js/ui/jquery-ui.js"></script>
+	<link rel="styleSheet" href="../js/ui/jquery-ui.css" />
+	<script src="../js/ui/jquery-ui.js" defer></script>
+	<link rel="styleSheet" href="style/adm.css" />
 	<script src="../js/lib.js"></script>
-	<script src="style/jquery.tablesorter.min.js"></script>
-	<script type="text/javascript" src="style/jquery.keepAlive.js"></script>
+	<link rel="stylesheet" href="style/tableSorter.css">
+	<script src="style/TableSorter.js" defer></script>
 </head>
 <?php
 
@@ -100,7 +100,7 @@ jQuery(document).ready(function() {
 	<li><a title="Setup forum categories" href="admcat.php?<?php echo __adm_rsid; ?>">Category Manager</a></li>
 	<li><a title="Setup forums and subforums" href="admforum.php?<?php echo __adm_rsid; ?>">Forum Manager</a></li>
 	<li><a title="Manage and remove forum topics" href="admtopic.php?<?php echo __adm_rsid; ?>">Topic Manager</a></li>
-	<li><a title="Remove old file attachements" href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a></li>
+	<li><a title="Remove old file attachments" href="admpruneattch.php?<?php echo __adm_rsid; ?>">Attachment Pruning</a></li>
 	<li><a title="Import Mailing Lists messages into your forum" href="admmlist.php?<?php echo __adm_rsid; ?>">Mailing List Manager</a></li>
 	<li><a title="Import Usenet posts into your forum" href="admnntp.php?<?php echo __adm_rsid; ?>">Newsgroup Manager</a></li>
 <?php if ((bool)ini_get('allow_url_fopen') == TRUE) { ?>
@@ -113,17 +113,17 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Manage user accounts" href="admuser.php?<?php echo __adm_rsid; ?>">User Manager</a></li>
 	<li><a title="Manage bots and spiders" href="admspiders.php?<?php echo __adm_rsid; ?>">Spiders / Bots</a></li>
-	<li><a title="Setup groups and group permisions" href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a></li>
+	<li><a title="Setup groups and group permissions" href="admgroups.php?<?php echo __adm_rsid; ?>">Groups Manager</a></li>
 	<li><a title="Manage user ranks" href="admlevel.php?<?php echo __adm_rsid; ?>">Rank Manager</a></li>
 	<li><a title="Define custom profile fields" href="admcustomfields.php?<?php echo __adm_rsid; ?>">Profile fields</a></li>
-	<li><a title="Send E-mail to your forum memebers" href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a></li>
+	<li><a title="Send E-mail to your forum members" href="admmassemail.php?<?php echo __adm_rsid; ?>">Mass E-mail</a></li>
 	<br />
 
 	<span class="linkgroup">Templates & Messages</span>
 	<ul class="menu">
 	<li><a title="Manage themes" href="admthemes.php?<?php echo __adm_rsid; ?>">Theme Manager</a></li>
 	<li><a title="Change your forum's look and feel" href="admtemplates.php?<?php echo __adm_rsid; ?>">Template Editor</a></li>
-	<li><a title="Edit 118n language strings" href="admmessages.php?<?php echo __adm_rsid; ?>">Message Editor</a></li>
+	<li><a title="Edit i18n language strings" href="admmessages.php?<?php echo __adm_rsid; ?>">Message Editor</a></li>
 	<li><a title="Edit help pages" href="admhelp.php?<?php echo __adm_rsid; ?>">Help Editor</a></li>
 	</ul>
 	<br />
@@ -160,7 +160,7 @@ jQuery(document).ready(function() {
 	<li><a title="Block E-mail addresses" href="admemail.php?<?php echo __adm_rsid; ?>">E-mail filter</a></li>
 	<li><a title="Block IP addresses" href="admipfilter.php?<?php echo __adm_rsid; ?>">IP Address filter</a></li>
 	<li><a title="Block logins" href="admlogin.php?<?php echo __adm_rsid; ?>">Login filter</a></li>
-	<li><a title="Define allowed file extentions" href="admext.php?<?php echo __adm_rsid; ?>">File filter</a></li>
+	<li><a title="Define allowed file extensions" href="admext.php?<?php echo __adm_rsid; ?>">File filter</a></li>
 	</ul>
 	<br />
 
@@ -168,8 +168,10 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Perform consistency check" href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a></li>
 	<li><a title="Reindex your forum messages" href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a></li>
+<?php if (defined('fud_debug')) {
 	<li><a title="Rebuild messages" href="compact.php?<?php echo __adm_rsid; ?>">Rebuild Messages</a></li>
-<?php if (strncasecmp('win', PHP_OS, 3)) {	/* Not for Windows. */ ?>
+<?php } ?>
+<?php if (defined('fud_debug') && strncasecmp('win', PHP_OS, 3)) {	/* Not for Windows. */ ?>
 		<li><a title="Secure your forum's files" href="admlock.php?<?php echo __adm_rsid; ?>">Lock/Unlock Forum Files</a></li>
 <?php } ?>
 <?php if (defined('fud_debug') && defined('__dbtype__') && __dbtype__ == 'mysql') { ?>

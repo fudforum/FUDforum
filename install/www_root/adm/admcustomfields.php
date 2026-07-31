@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -154,7 +154,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Field:</a>' : 'Add New Field:') .'</h
 </form>
 
 <h3>Defined fields:</h3>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Name</th><th>Description</th><th>Value(s)</th><th>Action</th>
 </tr></thead>

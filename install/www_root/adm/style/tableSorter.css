@@ -1,0 +1,61 @@
+/**
+ * Basic styling for TableSorter
+ * Add this to your stylesheet and customize as needed
+ */
+
+/* Indicate sortable columns */
+th.sortable {
+    cursor: pointer;
+    /* Optional: add a subtle background on hover */
+    transition: background-color 0.2s;
+}
+
+th.sortable:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Sort indicators - using Unicode arrows for simplicity */
+th.sort-asc::after {
+    content: " ▲";
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+th.sort-desc::after {
+    content: " ▼";
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+/* Subtle hint for sortable but inactive columns */
+th.sortable:not(.sort-asc):not(.sort-desc)::after {
+    content: " ⇅";
+    font-size: 0.8em;
+    opacity: 0.3;
+}
+
+/* Optional: adjust spacing for headers with indicators */
+th {
+    padding-right: 1.2em;
+    /* Make room for arrow */
+    position: relative;
+    /* For more advanced positioning if needed */
+}
+
+/* Alternative: use position absolute for more control over arrow placement */
+th.sort-asc::after,
+th.sort-desc::after,
+th.sortable:not(.sort-asc):not(.sort-desc)::after {
+    position: absolute;
+    right: 0.3em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* For tables with right-to-left text, adjust accordingly */
+[dir="rtl"] th.sort-asc::after,
+[dir="rtl"] th.sort-desc::after,
+[dir="rtl"] th.sortable:not(.sort-asc):not(.sort-desc)::after {
+    right: auto;
+    left: 0.3em;
+}

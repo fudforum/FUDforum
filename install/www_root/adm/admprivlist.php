@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -29,7 +29,7 @@ function print_ul($qry)
 ?>
 <h2>Privileged User List</h2>
 <p>The following users have elevated forum permissions:</p>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <tr class="resulttopic">
 	<th width="33%">Administrators</th>
 	<th width="33%">Moderators</th>

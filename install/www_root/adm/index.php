@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -72,7 +72,7 @@
 
 	/* Check server load. */
 	if (function_exists('sys_getloadavg') && ($load = sys_getloadavg()) && $load[0] > 25) {
-		echo '<div class="alert dismiss">You web server is quite busy (CPU load is '. $load[1] .'). This may impact your forum\'s performance!</div><br />';
+		echo '<div class="alert dismiss">Your web server is quite busy (CPU load is '. $load[1] .'). This may impact your forum\'s performance!</div><br />';
 	}
 
 	/* Check forum version. */
@@ -81,7 +81,7 @@
 		$verinfo = trim(file_get_contents($FORUM_SETTINGS_PATH .'latest_version'));
 		$display_ver = substr($verinfo, 0, strpos($verinfo, '::'));
 		if (version_compare($display_ver, $FORUM_VERSION, '>')) {
-			echo '<div class="alert dismiss">You are running an old forum version. Please upgrade to FUDforum '. $display_ver .'<br /></div>';
+			echo '<div class="alert dismiss">You are running an old forum version. Please upgrade to FUDforum '. htmlspecialchars($display_ver) .'<br /></div>';
 		} elseif ($lastcheck > time() - 86400) {	// recently checked - 1 day.
 			echo successify('You are on the latest version.');
 		}
@@ -89,7 +89,7 @@
 ?>
 
 <div class="tutor">
-Welcome to your forum's Admin Control Panel. From here you can control how your forum looks and behaves. To continue, please click on one of the links in the left sidebar of the window. First time users should start with the <b><a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a></b>.
+Welcome to your forum's Admin Control Panel. From here you can control how your forum looks and behaves. To continue, please click on one of the links in the left sidebar of the window. First-time users should start with the <b><a href="admglobal.php?<?php echo __adm_rsid; ?>">Global Settings Manager</a></b>.
 </div>
 
 <table border="0"><tr><td width="50%" valign="top">
@@ -208,7 +208,7 @@ $registrations_per_day = array_values($registrations_per_day);
 ?>
 
 <h4>Forum statistics:</h4>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <tr class="field">
 	<td><b>Messages:</b></td>
 	<td align="right" valign="top"><?php echo $forum_stats['MESSAGES']; ?></td>

@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -53,12 +53,6 @@ jQuery(function() {
 	});
 	<?php } ?>
 
-	// Make tables sortable.
-	jQuery('.resulttable').tablesorter();
-
-	// Implement jQuery keepAlive plugin from https://github.com/ocombe/jQuery-keepAlive 
-	$.fn.keepAlive({url: "keepAlive.php", timer: 60000});  // 1 min
-
 	// Focus on the first input element.
 	if (window.location.hash.length <= 0) {	// But not if the URL has an anchor.
 		jQuery(':text:visible:enabled:first').focus();
@@ -74,7 +68,7 @@ jQuery(function() {
 	jQuery('.dismiss').prepend('<span style="float:right;">&nbsp;[ <a href="javascript://" onclick="jQuery(this).parents(\'.dismiss\').hide(\'slow\');" title="Dismiss!">X</a> ]</span>');
 
 	// Open external links in new windows.
-	jQuery('a[href^="http://"], a[href^="https://]"').attr({ target: "_blank", title: "Opens in a new window!" });
+	jQuery('a[href^="http://"], a[href^="https://"]').attr({ target: "_blank", rel: "noopener noreferrer", title: "Opens in a new window!" });
 });
 </script>
 </div>

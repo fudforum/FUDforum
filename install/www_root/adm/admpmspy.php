@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -66,7 +66,7 @@ User alias:
 	if (isset($_GET['msg']) && ($r = db_saq('SELECT p.foff, p.length, p.subject, p.to_list, p.post_stamp, u.alias FROM '. $tbl .'pmsg p INNER JOIN '. $tbl .'users u ON p.ouser_id=u.id WHERE p.id='. (int)$_GET['msg']))) {
 		$msg = (int)$_GET['msg'];
 		echo '<h3>Message: '. $r[2] .'</h3>';
-		echo '<table class="resulttable fulltable">';
+		echo '<table data-sortable class="resulttable fulltable">';
 		echo '<tr class="resulttopic"><td><b>From:</b> '. $r[5] .'</td>';
 		echo '                        <td><b>To:</b> '.   $r[3] .'</td>';
 		echo '                        <td><b>Date:</b> '. gmdate('d M Y G:i', $r[4]) .'</td></tr>';
@@ -82,7 +82,7 @@ User alias:
 	}
 ?>
 
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>From</th><th>To</th><th>Folder</th><th>Subject</th><th>Posted</th><th>Actions</th>
 </tr></thead>

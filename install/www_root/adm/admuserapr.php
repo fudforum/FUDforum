@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2022 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -82,7 +82,7 @@ function print_if_avail($descr, $value, $no_html=1)
 ?>
 </p>
 <form method="post" action="admuserapr.php">
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Account Information</th><th align="center" width="20%">Action</th>
 </tr></thead>

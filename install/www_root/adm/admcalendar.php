@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -140,17 +140,17 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 <?php echo _hs; ?>
 <table class="datatable">
 	<tr class="field">
-		<td>Year:<br /><font size="-2">Enter '*' for every year (recurring event).</font></td>
+		<td data-sort-type="number">Year:<br /><font size="-2">Enter '*' for every year (recurring event).</font></td>
 		<td><input type="text" name="cal_event_year" value="<?php echo $cal_event_year; ?>" /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Month:<br /><font size="-2">Enter '*' for every month (recurring event).</font></td>
+		<td data-sort-type="number">Month:<br /><font size="-2">Enter '*' for every month (recurring event).</font></td>
 		<td><input type="text" name="cal_event_month" value="<?php echo $cal_event_month; ?>" /></td>
 	</tr>
 
 	<tr class="field">
-		<td>Day:<br /><font size="-2"></font></td>
+		<td data-sort-type="number">Day:<br /><font size="-2"></font></td>
 		<td><input type="text" name="cal_event_day" value="<?php echo $cal_event_day; ?>" /></td>
 	</tr>
 
@@ -179,7 +179,7 @@ echo '<h3>'. ($edit ? '<a name="edit">Edit Event:</a>' : 'Add New Event:') .'</h
 </form>
 
 <h3>Defined events:</h3>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Year</th><th>Month</th><th>Day</th><th>Description</th><th>Link</th><th>Action</th>
 </tr></thead>

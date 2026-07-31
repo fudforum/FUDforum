@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -70,7 +70,7 @@
 	</tr>
 
 	<tr class="field">
-		<td>Post Count:</td>
+		<td data-sort-type="number">Post Count:</td>
 		<td><input type="number" name="lev_post_count" value="<?php echo $lev_post_count; ?>" size="11" maxlength="10" /></td>
 	</tr>
 
@@ -89,7 +89,7 @@
 </form>
 
 <h3>Available Levels:</h3>
-<table class="resulttable fulltable">
+<table data-sortable class="resulttable fulltable">
 <thead><tr class="resulttopic">
 	<th>Name</th>
 	<th>Post Count</th>
