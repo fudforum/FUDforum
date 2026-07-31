@@ -1,5 +1,5 @@
 /***************************************************************************
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -7,6 +7,17 @@
 * under the terms of the GNU General Public License as published by the 
 * Free Software Foundation; version 2 of the License.
 ***************************************************************************/
+
+'use strict';
+
+/* Forum installation base URL.
+ * Assumes this file is loaded from <forum_root>/js/lib.js.
+ */
+var FUD_BASE_URL = (function () {
+	var scripts = document.getElementsByTagName('script');
+	var src = scripts[scripts.length - 1].src;
+	return new URL('..', src).href;
+})();
 
 /* Edit box stuff */
 function insertTag(obj, startTag, endTag) {
@@ -59,6 +70,7 @@ function check_selection()
 	var rn;
 	var sel;
 	var r;
+	var a;
 
 	if (window.getSelection && window.getSelection()) {
 		return 1;
@@ -88,15 +100,15 @@ function check_selection()
 
 function window_open(url, winName, width, height)
 {
-	xpos = (screen.width-width)/2;
-	ypos = (screen.height-height)/2;
-	options = 'scrollbars=1,width='+width+',height='+height+',left='+xpos+',top='+ypos+'position:absolute';
+	var xpos = (screen.width-width)/2;
+	var ypos = (screen.height-height)/2;
+	var options = 'noopener,noreferrer,scrollbars=1,width='+width+',height='+height+',left='+xpos+',top='+ypos+'position:absolute';
 	window.open(url,winName,options);
 }
 
 function layerVis(layer, on)
 {
-	thisDiv = document.getElementById(layer);
+	var thisDiv = document.getElementById(layer);
 	if (thisDiv) {
 		if (thisDiv.style.display == 'none') {
 			thisDiv.style.display = 'block';
@@ -127,7 +139,7 @@ function fud_tree_msg_focus(mid, s, CHARSET)
 	jQuery('#msgTbl').fadeTo('fast', 0.33);
 
 	jQuery.ajax({
-		url: 'index.php?t=tree_msg&id='+mid+'&S='+s,
+		url: FUD_BASE_URL+'index.php?t=tree_msg&id='+mid+'&S='+s,
 		dataType: 'html',
 		contentType: 'text/html; charset='+CHARSET,
 		beforeSend: function(xhr) {
@@ -135,7 +147,7 @@ function fud_tree_msg_focus(mid, s, CHARSET)
 			    xhr.overrideMimeType('text/html; charset='+CHARSET);
 			}
 		},
-		success: function(data){
+		success: function(data) {
 			// Put new message on page.
 			jQuery('#msgTbl').empty().append('<tbody><tr><td>'+data+'</td></tr></tbody>').fadeTo('fast', 1);
 
@@ -173,13 +185,15 @@ function highlightWord(node, word, Wno)
 		var tempNodeVal = node.nodeValue.toLowerCase();
 		var pn = node.parentNode;
 		var nv = node.nodeValue;
+		var ni;
 
 		if ((ni = tempNodeVal.indexOf(word)) == -1 || pn.className.indexOf('st') != -1) return;
 
 		/* Create replacement nodes - preserving case */
-		realWord = nv.substr(ni, word.length);
-		before = document.createTextNode(nv.substr(0,ni));
-		after = document.createTextNode(nv.substr(ni+word.length));
+		var realWord = nv.substr(ni, word.length);
+		var before = document.createTextNode(nv.substr(0,ni));
+		var after = document.createTextNode(nv.substr(ni+word.length));
+		var hiword;
 		if (document.all && !OPERA) {
 			hiword = document.createElement('<span class="st'+Wno+'"></span>');
 		} else {
@@ -231,7 +245,7 @@ function highlightSearchTerms(searchText, treatAsPhrase)
 	}
 }
 
-/* Increase or decrease textareas size. Function is depricated, may still be used in old user themes. */
+/* Increase or decrease textareas size. Function is deprecated, may still be used in old user themes. */
 function rs_txt_box(col_inc, row_inc)
 {
 	var obj = jQuery('textarea');
@@ -242,8 +256,8 @@ function rs_txt_box(col_inc, row_inc)
 function topicVote(rating, topic_id, ses, sq)
 {
 	jQuery.ajax({
-		url: 'index.php?t=ratethread&sel_vote='+rating+'&rate_thread_id='+topic_id+'&S='+ses+'&SQ='+sq,
-		success: function(data){
+		url: FUD_BASE_URL+'index.php?t=ratethread&sel_vote='+rating+'&rate_thread_id='+topic_id+'&S='+ses+'&SQ='+sq,
+		success: function(data) {
 			jQuery('#threadRating').html(data);
 			jQuery('#RateFrm').empty();
 		},
@@ -256,8 +270,8 @@ function topicVote(rating, topic_id, ses, sq)
 function changeKarma(msg_id, user_id, updown, ses, sq)
 {
 	jQuery.ajax({
-		url: 'index.php?t=karma_change&karma_msg_id='+msg_id+'&sel_number='+updown+'&S='+ses+'&SQ='+sq,
-		success: function(data){
+		url: FUD_BASE_URL+'index.php?t=karma_change&karma_msg_id='+msg_id+'&sel_number='+updown+'&S='+ses+'&SQ='+sq,
+		success: function(data) {
 			jQuery('.karma_usr_'+user_id).html(data);
 			jQuery('#karma_link_'+msg_id).hide();
 		},
@@ -330,7 +344,7 @@ function min_max_cats(theme_image_root, minimize_category, maximize_category, sq
     if (sq != '') {
        jQuery.ajax({
           type: 'POST',
-          url: 'index.php?t=cat_focus',
+          url: FUD_BASE_URL+'index.php?t=cat_focus',
           data: 'SQ='+ sq +'&S='+ s +'&c='+ cat.substr(1) +'&on='+ on
         });
     } 
@@ -439,7 +453,7 @@ function format_code(codeMsg, selMsg, hideMsg)
 /* Allow users to select text and add it as a quote to the message box. */
 function quote_selected_text(quoteButtonText) {
 	// Add "Quote selected text" button.
-	jQuery(".miniMH").parent().parent().append('<div class="ar"><button class="button" id="quote">'+ quoteButtonText +'</button></class>');
+	jQuery(".miniMH").parent().parent().append('<div class="ar"><button class="button" id="quote">'+ quoteButtonText +'</button></div>');
 
 	// Handle button clicks.
 	jQuery("#quote").click(function() {
@@ -476,7 +490,8 @@ function passwords_match(password1, password2) {
 jQuery(function init() {
 	/* Open external links in a new window. */
 	jQuery('a[href^="http://"], a[href^="https://"]').attr({
-		target: "_blank", 
+		target: "_blank",
+		rel: "noopener noreferrer",
 		title: "Opens in a new window"
 	});
 	// .append('<small><sup>&crarr;</sup></small>');
