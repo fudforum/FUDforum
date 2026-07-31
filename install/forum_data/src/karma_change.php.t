@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -65,6 +65,7 @@
 		$obj = new StdClass;
 		$obj->id = $msg;
 		$obj->karma = $new_karma;
+		$obj->poster_id = $poster_id[0];
 		exit('{TEMPLATE: karma_show}');
 	}
 
