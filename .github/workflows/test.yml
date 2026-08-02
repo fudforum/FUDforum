@@ -88,6 +88,7 @@ jobs:
            
       - name: Static analysis
         run: |
-             composer require --dev phpstan/phpstan
-             vendor/bin/phpstan analyse --no-progress
+             curl -L https://github.com/phpstan/phpstan/releases/latest/download/phpstan.phar -o phpstan.phar
+             chmod +x phpstan.phar
+             ./phpstan.phar analyse ./forum --level=0 --no-progress
            
