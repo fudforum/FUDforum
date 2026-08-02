@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -447,7 +447,7 @@ jQuery(document).ready(function() {
 	if (!extension_loaded('enchant')) {
 		echo '<tr class="field small"><td colspan="2">You cannot use the spell checker as PHP\'s enchant module is currently <span style="color:red">disabled</span>. Please ask your administrator to enable "enchant" support.</td></tr>';
 	} else {
-		echo '<tr class="field small"><td colspan="2">For futher details, refer to the <a href="admspell.php?'. __adm_rsid .'#14">Forum Spell Checker Control Panel</a>.</td></tr>';
+		echo '<tr class="field small"><td colspan="2">For further details, refer to the <a href="admspell.php?'. __adm_rsid .'#14">Forum Spell Checker Control Panel</a>.</td></tr>';
 	}
 	print_bit_field('Enable Spell Checker', 'SPELL_CHECK_ENABLED');
 ?>

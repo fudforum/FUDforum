@@ -1,5 +1,5 @@
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -61,11 +61,14 @@
 </tr>
 {IF: isset($OAUTH_ENABLED)}
 <tr>
+	<td colspan="2" class="RowStyleA">&nbsp;</td>
+</tr>
+<tr>
 	<th colspan="2">{MSG: login_or}</th>
 </tr>
 <tr>
-	<td>{MSG: login_alternatives}</td>
-	<td>
+	<td class="RowStyleB GenText">{MSG: login_alternatives}</td>
+	<td class="RowStyleA">
 	{PLUGIN: oauth}
 	</td>
 </tr>
