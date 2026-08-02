@@ -168,7 +168,7 @@ jQuery(document).ready(function() {
 	<ul class="menu">
 	<li><a title="Perform consistency check" href="consist.php?<?php echo __adm_rsid; ?>">Forum Consistency</a></li>
 	<li><a title="Reindex your forum messages" href="indexdb.php?<?php echo __adm_rsid; ?>">Rebuild Search Index</a></li>
-<?php if (defined('fud_debug')) {
+<?php if (defined('fud_debug')) { ?>
 	<li><a title="Rebuild messages" href="compact.php?<?php echo __adm_rsid; ?>">Rebuild Messages</a></li>
 <?php } ?>
 <?php if (defined('fud_debug') && strncasecmp('win', PHP_OS, 3)) {	/* Not for Windows. */ ?>
