@@ -208,24 +208,26 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 				if (enchant_broker_dict_exists($r, $usr->pspell_lang)) {
 					$d = enchant_broker_request_dict($r, $usr->pspell_lang);
 
-					$srch_words = preg_split('~[^\p{L}\p{N}\']+~u', $srch);
+					$srch_words = preg_split('~[^\p{L}\p{N}\']+~u', $srch, -1, PREG_SPLIT_NO_EMPTY);
 					$srch_links = '';
-					if (count($srch_words) == 1) {
+					if (count($srch_words) === 1) {
+						// Single word search, list all suggestions.
 						$sugg = array_values(enchant_dict_suggest($d, $srch));
 						foreach($sugg as $w) {
-							$srch_links .= '<a href="/s/'. $w .'">'. $w .'</a> ';
+							$srch_links .= '<a href="/s/'. rawurlencode($w) .'">'. htmlspecialchars($w) .'</a> ';
 						}
 					} else {
+						// Multi word search, list first suggestions per word.
 						foreach($srch_words as $srch_word) {
 							if (enchant_dict_check($d, $srch_word)) {
 								$srch_links .= $srch_word .' ';
 							} else {
-								$sugg = array_values(enchant_dict_suggest($d, $srch_word));
-								$srch_links .= $sugg[0] .' ';
+								$sugg = enchant_dict_suggest($d, $srch_word);
+								$srch_links .= ($sugg[0] ?? $srch_word) .' ';
 							}
 						}
 						if (!empty($srch_links)) {
-							$srch_links = '<a href="/s/'. $srch_links . '">'. $srch_links .'</a>';
+							$srch_links = '<a href="/s/'. rawurlencode($srch_links) . '">'. htmlspecialchars($srch_links) .'</a>';
 						}
 					}
 					if (!empty($srch_links)) {
