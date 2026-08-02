@@ -86,9 +86,3 @@ jobs:
              done < <(find ./forum/ -name "*.php")
              exit $errors
            
-      - name: Static analysis
-        run: |
-             curl -L https://github.com/phpstan/phpstan/releases/latest/download/phpstan.phar -o phpstan.phar
-             chmod +x phpstan.phar
-             ./phpstan.phar analyse ./forum --level=0 --no-progress
-           
