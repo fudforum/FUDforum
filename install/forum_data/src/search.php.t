@@ -135,11 +135,22 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 	q('DELETE FROM {SQL_TABLE_PREFIX}search_cache WHERE expiry<'. (__request_timestamp__ - $GLOBALS['SEARCH_CACHE_EXPIRY']));
 
 	if (!($total = q_singleval('SELECT count(*) FROM {SQL_TABLE_PREFIX}search_cache WHERE srch_query='. $qry_lck .' AND query_type='. $qt))) {
-		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match, score) '. 
-		  q_limit('SELECT '. $qry_lck .', '. $qt .', '. __request_timestamp__ .', msg_id, count(*) as word_count, sum(frequency) as frequency FROM {SQL_TABLE_PREFIX}search s INNER JOIN {SQL_TABLE_PREFIX}'. $tbl .' i ON i.word_id=s.id WHERE word IN('. $qr .') GROUP BY msg_id ORDER BY frequency DESC', 
-		          5000, 0));
+		/* Populate the search cache. */
+		q('INSERT INTO {SQL_TABLE_PREFIX}search_cache (srch_query, query_type, expiry, msg_id, n_match, score) '.
+		  q_limit('SELECT '. $qry_lck .', '. $qt .', '. __request_timestamp__ .',
+		                   msg_id,
+		                   count(DISTINCT i.word_id) as n_match,
+		                   sum(frequency) as frequency
+		             FROM {SQL_TABLE_PREFIX}search s
+		             INNER JOIN {SQL_TABLE_PREFIX}'. $tbl .' i ON i.word_id=s.id
+		             WHERE word IN('. $qr .')
+		             GROUP BY msg_id
+		             '. ($logic == 'AND' ? ' HAVING count(DISTINCT i.word_id) >= '. $i : '') .'
+		             ORDER BY frequency DESC',
+		          50000, 0));
 	}
 
+	/* Count the number of search hits. */
 	$total = q_singleval('SELECT count(*)
 		FROM {SQL_TABLE_PREFIX}search_cache sc
 		INNER JOIN {SQL_TABLE_PREFIX}msg m ON m.id=sc.msg_id
@@ -254,21 +265,14 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		$search_data = $page_pager = '';
 
                 // Since we have nothing better to do, check for unindexed messages and index a few.
-                $c = q(q_limit('SELECT id, foff, length, file_id, subject FROM {SQL_TABLE_PREFIX}msg m
-                                WHERE NOT EXISTS (SELECT 1 FROM {SQL_TABLE_PREFIX}index i WHERE m.id = i.msg_id)', 5));
+                $c = q(q_limit('SELECT id, foff, length, file_id, subject
+                                  FROM {SQL_TABLE_PREFIX}msg m
+                                 WHERE length >= 500
+                                   AND NOT EXISTS (SELECT 1 FROM {SQL_TABLE_PREFIX}index i WHERE m.id = i.msg_id)', 10));
                 while ($r = db_rowobj($c)) {
                         index_text($r->subject, read_msg_body($r->foff, $r->length, $r->file_id), $r->id);
                 }
                 $c->free();
-
-                // Check for messages without frequency and re-index them.
-                $c = q(q_limit('SELECT id, foff, length, file_id, subject FROM {SQL_TABLE_PREFIX}msg m
-                                WHERE EXISTS (SELECT 1 FROM {SQL_TABLE_PREFIX}index i WHERE m.id = i.msg_id AND i.frequency = 0)', 5));
-                while ($r = db_rowobj($c)) {
-                        index_text($r->subject, read_msg_body($r->foff, $r->length, $r->file_id), $r->id);
-                }
-                $c->free();
-
 	}
 
 /*{POST_PAGE_PHP_CODE}*/
