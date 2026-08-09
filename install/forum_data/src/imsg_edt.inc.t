@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -614,7 +614,11 @@ function write_body($data, &$len, &$offset, $fid)
 	while ($s < $e) {
 		$fp = fopen($GLOBALS['MSG_STORE_DIR'] .'msg_'. $s, 'ab');
 		if (!$fp) {
-			exit('FATAL ERROR: could not open message store for forum id#'. $s ."<br />\n");
+                        exit(
+                            'FATAL ERROR: could not open message store for forum ID# ' . $s .
+                            "<br />\nFile: " . htmlspecialchars($GLOBALS['MSG_STORE_DIR'] . 'msg_' . $s) .
+                            "<br />\nCheck that the web server user has write permission for the forum data directory."
+                        );
 		}
 		fseek($fp, 0, SEEK_END);
 		if (!($off = ftell($fp))) {
@@ -650,6 +654,8 @@ function trim_html($str, $maxlen)
 	$n = strlen($str);
 	$ln = 0;
 	$tree = array();
+	$tagindex = array();
+
 	for ($i = 0; $i < $n; $i++) {
 		if ($str[$i] != '<') {
 			$ln++;

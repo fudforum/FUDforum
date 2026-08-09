@@ -35,6 +35,7 @@
 		$s = 'DESC';
 	}
 
+	// users_opt of 32768 == invisible_mode (ON/OFF)
 	$c = uq('SELECT
 			u.alias AS login, u.users_opt, u.id, u.last_visit, u.custom_color,
 			m.id AS mid, m.subject, m.post_stamp,

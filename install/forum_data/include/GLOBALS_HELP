@@ -272,7 +272,7 @@ The number of days to show a pointer of a moved topic from the original forum to
 The directory where the forum's data files are stored (cache, backups, and other data).}}}
 
 {{{WWW_ROOT_DISK
-The directory where the forum's web browseable files are stored (*.php, images, etc.).}}}
+The directory where the forum's web-browsable files are stored (*.php files, images, etc.).}}
 
 {{{SHOW_N_MODS
 Up to how many moderators per forum to show on the front page.}}}
@@ -516,7 +516,7 @@ Allow users to reset their own passwords.}}}
 Enable karma / user reputation system. If enabled, member can upvote or downvote other members.}}}
 
 {{{PAGES_ENABLED	FUD_OPT_4	8
-Display pages icon on menu. This setting will automatically be enaled if there are pages that should be shown in the List of Pages.}}}
+Display pages icon on menu. This setting will automatically be enabled if there are pages that should be shown in the List of Pages.}}}
 
 {{{BLOG_ENABLED	FUD_OPT_4	16
 Enable the forum's blog/ portal page.}}}

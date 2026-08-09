@@ -89,8 +89,8 @@ function delete_zero($tbl, $q)
 <h2>Forum Consistency</h2>
 
 <div class="alert">
-Consistency check is a complex process which may take several minutes to run.
-While it is running, your forum will be disabled!
+The consistency check is a complex process that may take several minutes to complete.
+While it is running, your forum will be disabled.
 </div><br />
 <form method="post" action="consist.php">
 

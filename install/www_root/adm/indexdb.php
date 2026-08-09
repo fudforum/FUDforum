@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2018 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -100,8 +100,11 @@
 ?>
 <h2>Rebuild Search Index</h2>
 <div class="alert">
-  This script will attempt to rebuild the search indices for the entire forum. This is a VERY CPU-intensive process
-  and can take a VERY LONG time, especially on large forums. You should ONLY run this if you absolutely must.
+  This script will attempt to rebuild the search indices for the entire forum. 
+  This is a CPU-intensive process and can take a VERY LONG time,
+  especially on large forums. You should ONLY run this if it is absolutely necessary.
+  For large forums, it is strongly recommended to run this process from the command line
+  instead of through the web interface.
 </div>
 <form method="post" action="indexdb.php">
 <p>Do you wish to proceed?</p>
