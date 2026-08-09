@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -17,7 +17,7 @@ plugin_add_hook('HTML2BBCODE', 'plugin_wikilinks_html_to_tag');
 function plugin_wikilinks_tag_to_html($array) {
 	list($bbcode) = $array;
 
-	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
@@ -79,7 +79,7 @@ function plugin_wikilinks_tag_to_html($array) {
 function plugin_wikilinks_html_to_tag($array) {
 	list($bbcode) = $array;
 
-	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		die('ERROR: Please configure the wikilinks plugin from the Plugin Manager Control panel.');
 	}
 
@@ -104,7 +104,7 @@ function wikilinks_info() {
 }
 
 function wikilinks_enable() {
-	if ((@include_once $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
+	if ((@include $GLOBALS['PLUGIN_PATH'] .'wikilinks.ini') === false) {
 		return array(null, 'Please configure the wikilinks plugin before enabling it.');	// OK, Err.
 	}
 }
