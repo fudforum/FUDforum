@@ -399,6 +399,7 @@ ignore_list_err_info_title:Informatiounen
 ignore_list_err_nu_title:Benotzer net fonnt
 ignore_list_cantign_msg:Dir däerft dëse Benotzer net ignoréieren
 post_err_lockedthread_title:FEELER:Gespaarte Sujet
+err_coppa_title:FEELER: Äre Kont ass nach net confirméiert
 err_banned_acct_title:FEELER: Dir gouft gespaart.
 post_err_edttimelimit_title:FEELER
 post_err_edttimelimit_msg:Dir kënnt dëse Message net méi änneren
@@ -418,6 +419,7 @@ reset_newpass_title:Passwuert zerécksetzen
 reset_login_notify:Är Passwuert gouf per E-Mail un Iech geschéckt. Dir misst et bannen den nächste puer Minutte kréien.
 ERR_access_ttl:FEELER: Net genuch Rechter
 ERR_access_msg:Dir hutt net déi néideg Rechter, fir dës Aktioun duerchzeféieren.
+ERR_emailconf_ttl:FEELER: Äre Kont ass nach net confirméiert
 ERR_systemerr_ttl:FEELER: Systemfeeler
 finduser_title:Benotzer fannen
 help_title:Hëllef
