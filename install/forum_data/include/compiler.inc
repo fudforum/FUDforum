@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -908,10 +908,8 @@ function copyhelp($tname, $tset, $lang)
 		if (!($fp = fopen($path . $de, 'wb'))) {
 			throw new Exception('Failed to write to: '. $path . $de .' <br />');
 		}
-		fwrite($fp, str_replace(array('{ROOT}', '{FULL_ROOT}'), 
-					array($rp, "'.\$GLOBALS['WWW_ROOT'].'"), 
-					file_get_contents($file))
-		);
+
+		fwrite($fp, resolve_sections($file, 'help', file_get_contents($file)));
 		fclose($fp);
 	}
 }

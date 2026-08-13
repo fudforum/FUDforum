@@ -289,8 +289,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">{ROOT}/images/fudlogo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="{ROOT}/images/fudlogo.gif" alt="{ROOT}/images/fudlogo.gif" width="140" height="49" /></td>
+    <td valign="middle" align="center"><font color="#f00"><b>[img]</b></font><br /><font color="#060">{FULL_ROOT}images/fudlogo.gif<br /></font><font color="#f00"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="{FULL_ROOT}images/fudlogo.gif" alt="{FULL_ROOT}images/fudlogo.gif" width="140" height="49" /></td>
   </tr>
 </table>
 <br />
@@ -301,8 +301,8 @@ Since in most cases the admin does not permit you to use HTML inside your posts,
     <td width="300" align="center" valign="middle"><b>Result</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">https://github.com/fudforum</font>]<br />[img]</b></font><br />{ROOT}/images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="https://github.com/fudforum"><img src="{ROOT}/images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
+    <td valign="middle" align="center"><font color="#060"><font color="#f00"><b>[url=<font color="#060">https://github.com/fudforum</font>]<br />[img]</b></font><br />{FULL_ROOT}images/fudlogo.gif<br /><b><font color="#f00">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="https://github.com/fudforum"><img src="{FULL_ROOT}images/fudlogo.gif" alt="image" width="140" height="49" border="0" /></a></td>
   </tr>
 </table>
 <i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
@@ -442,7 +442,7 @@ and not have them converted to equivalent HTML.
 <font color="#f00"><b>[/spoiler]</b></font><br />
 More visible text.</td>
     <td valign="middle" align="center">Visible part of the message<br />
-<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis('s28415', 1);">Toggle Spoiler</a><div align="left" id="s28415" style="display: none;"> <br />
+<div class="dashed" style="padding: 3px;" align="center"><a href="javascript://" onclick="javascript: layerVis('s28415', 1);">{MSG: post_proc_reveal_spoiler}</a><div align="left" id="s28415" style="display: none;"> <br />
 Hidden part of the message<br />
 </div></div>
 <br />
@@ -495,9 +495,9 @@ TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
 TOPIC_HELP:
 In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in their votes.
 <br />
-When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several potential multiple choice answers. When you are done, simply click on the <b>Update</b> button and you will be taken back to the post page and then poll you've created will be attached to the message.
+When you click on the <b>{MSG: post_create_poll}</b> link, located on the post page a pop-up will appear allowing to create a poll with several potential multiple choice answers. When you are done, simply click on the <b>{MSG: poll_update}</b> button and you will be taken back to the post page and then poll you've created will be attached to the message.
 <br />
-You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
+You can edit an existing poll, by clicking on the <b>{MSG: post_poll_edit}</b> link, or you can remove the poll entirely by click on the <b>{MSG: post_poll_delete}</b>.
 <br /><br />
 You will only have one opportunity to vote in a poll, so make your decision carefully, you will not be able to change it at a later point.
 
@@ -513,7 +513,7 @@ The post form will list three rules which apply to your file attachments:
 <br />
 <b>Maximum Files per Message</b> - the number of files you can attach to your message.
 <br /><br />
-To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the <b>Upload File</b> button to attach the file to your message.
+To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the <b>{MSG: post_upload_file}</b> button to attach the file to your message.
 <br />
 If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
 
