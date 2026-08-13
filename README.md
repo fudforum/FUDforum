@@ -4,8 +4,6 @@
 
 A powerful, scalable and highly customizable open-source discussion forum platform.
 
-   [GitHub](https://github.com/fudforum/FUDforum) · [Documentation](https://github.com/fudforum/FUDforum/wiki) · [Website](https://fudforum.org/)
-
 ## ✨ Overview
 
 **FUDforum** is a high-performance, scalable discussion forum system designed for communities that want complete control over their discussion platform.
