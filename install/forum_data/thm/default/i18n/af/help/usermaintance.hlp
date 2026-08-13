@@ -1,89 +1,111 @@
-TOPIC_TITLE: <a name="register">Why Register?</a>
+TOPIC_TITLE: <a name="register">Hoekom registreer?</a>
 TOPIC_HELP:
-On most forums you will find it impossible to post new topics or reply to existing ones, unless the Admin 
-allows this explicitly. So, in order for you to be able to participate in the discussion, you would likely be 
-required to register. By registering you will also obtain access to many other features of the forum such as:
+Op die meeste forums sal jy dit moeilik vind om nuwe onderwerpe te plaas of om op
+bestaandes te reageer, tensy 'n administrateur jou toelaat. Vir jou om dus deel te kan
+neem aan die besprekings, sal jy moet registreer. Sodoende sal jy ook toegang
+verkry na baie ander funksies op die forum, soos:
 <ul>
-	<li>Email Notification, when someone replies to your messages
-	<li>Customized signature, avatar, personal tag etc...
-	<li>Ability to send private messages to one or more members of the forum
-	<li>You'll be able to choose a time zone so that forum's time is equivalent to that of the region you live in 
+	<li>E-poskennisgewings wanneer iemand jou boodskappe antwoord.
+	<li>Pasgemaakte handtekening, avatar, persoonlike etiket, ens.
+	<li>Die vermoë om privaat boodskappe aan een of meer lede van die forum te
+stuur.
+	<li>Jy sal 'n tydsone kan kies sodat die forum se tyd ooreenstem met dié van die
+streek waarin jy woon.
 </ul>
-Unless otherwise specified, the registration for the forum is completely free and requires only minimal information such as 
-your email address and a nick name of your choice.<br />
-If COPPA is enabled and you are under 13 years of age, you will need to have your legal guardian provide consent before your 
-account can be used to post messages. Upon completion of the registration process on COPPA enabled forums, members younger then 13 years of age 
-will be taken to a form, which their legal guardian will need to fill out and send to the appropriate address shown on that page.
+Tensy dit anders gespesifiseer word, is die registrasie vir die forum heeltemal
+gratis. Slegs 'n minimum inligting word vereis, soos jou e-posadres en 'n
+noemnaam van jou keuse.
+<br /><br />
+Indien COPPA (<i>Children's Online Privacy Protection Act</i>) aangeskakel is en jy
+jonger as 13 jaar oud is, moet jou wettige ouer/voog toestemming gee voordat
+die rekening gebruik kan word om boodskappe te plaas. 'n Vorm sal moet ingevul word
+wat jy na 'n gegewe e-posadres moet stuur.
 
-TOPIC_TITLE: <a name="cookies">How FUDforum uses cookies?</a>
+TOPIC_TITLE: <a name="cookies">Hoe die forum koekies gebruik?</a>
 TOPIC_HELP:
-Normally FUDforum uses cookies to store a small bit of information that allows the forum to see if you are logged in or not. 
-If for some reason your browser does not support cookies, FUDforum will instead use sessions, which do not store any information 
-on your computer. During the login process you can choose to bypass the cookie system and opt for the session system, this is recommended 
-if you are using a public terminal. Doing so will prevent the possible identity theft, which may occur if you do not logout after using the forum. 
-In most cases however, you probably should leave cookies enabled as it is much more convenient in the long run. 
-For example, you will not need to login each time you visit the forum.
+Gewoonlik gebruik die forum koekies om 'n klein bietjie inligting te stoor wat die
+forum toelaat om te kan sien of jy aangeteken het of nie. Indien jou webblaaier om
+een of ander rede nie koekies aanvaar nie, sal die forum sessies gebruik wat geen
+inligting op jou rekenaar stoor nie. Tydens die aantekenproses kan jy kies om die
+koekiestelsel te omseil en die sessiestelsel te gebruik. Dit word aanbeveel wanneer
+jy 'n openbare terminaal gebruik. Indien jy dit doen sal moontlike identiteitdiefstal
+voorkom word, wat kan plaasvind indien jy nie uitteken nadat jy die forum gebruik het
+nie. In die meeste gevalle moet jy egter die koekies toelaat omdat dit meer gerieflik
+is oor die langtermyn. Jy sal dan nie elke keer hoef aan te teken as jy die forum
+besoek nie.
 
-
-TOPIC_TITLE: <a name="clrcookie">How to remove FUDforum cookie?</a>
+TOPIC_TITLE: <a name="clrcookie">Hoe om forumkoekies te verwyder?</a>
 TOPIC_HELP:
-To remove the cookie set by FUDforum, simply click the logout link and it will automatically delete the cookie.
+Om die koekies te verwyder wat deur forum ingestel is, klik net op die
+uittekenskakel en die koekies sal outomaties uitgewis word.
 
-TOPIC_TITLE: <a name="updprofile">What's a profile?</a>
-TOPIC_HELP: As a forum member you have a personal profile inside which you can store various information about yourself, such as IM client ids, signature, 
-biography, etc... Your profile also stores various settings, which deal with the forum. Any time you are logged in you may change your profile settings, 
-you should be aware that most data inside your profile can be viewed by other forum members. So, you should try to not store any sensitive information 
-that you do not wish other people to see.<br />
-Your profile has an option <b>"Show Email Address"</b>, which if set to <b>NO</b> will hide your email address from view. You may want to use this option 
-if you do not want other people to see your email address.
-
-TOPIC_TITLE: <a name="sigs">What's a signature?</a>
+TOPIC_TITLE: <a name="updprofile">Wat is 'n profiel?</a>
 TOPIC_HELP:
-Signature is a string of text that you may automatically append to the end of every message you post. In your profile you have an option, 
-<b>"Use Signature by default"</b> that will enable or disable this feature by default. However, on every post form you can change this option for 
-that particular post.<br />
-In addition to plain text, this string can contain (if allowed by administrator) various tidbits such as links to favorite URLs, 
-personal photos, etc...
+As 'n forumlid het jy 'n persoonlike profiel wat jy kan stoor met verskeie inligting oor
+jouself, soos bv. kliënte ID's, handtekening, biografie, ens. Jou profiel stoor ook
+verskeie instellings rakende die forum. Jy kan ter enige tyd wanneer jy aanteken jou
+profielinstellings verander. Wees bewus daarvan dat die data in jou profiel deur
+ander forumlede besigtig kan word. Jy moet dus nie enige sensitiewe inligting daar
+stoor wat jy nie wil hê ander persone moet sien nie.<br />
+Jou profiel het 'n opsie <b>"Vertoon e-posadres"</b>, wat gestel kan word om nie te
+vertoon nie, wanneer jy <b>NEE</b> kies. Jy wil dalk hierdie opsie gebruik as jy nie wil hê
+ander mense moet jou e-posadres sien nie.
+
+TOPIC_TITLE: <a name="sigs">Wat is 'n handtekening?</a>
+TOPIC_HELP:
+'n Handtekening is 'n teks wat outomaties aan die einde van elke boodskap wat jy
+plaas, verskyn. In jou profiel het jy die opsie <b>"Gebruik handtekening by
+verstek"</b> wat hierdie funksie sal aktiveer of nie. Jy kan ook by elke plasing hierdie
+opsie verander vir daardie spesifieke plasing.
 <br />
-If you do not wish to see the signatures of other people, you can turn them off by setting the <b>"Show Signature"</b> to <b>NO</b> in your profile.
-
-
-TOPIC_TITLE: <a name="rstpasswd">What to do if you lost your password</a>
-TOPIC_HELP:
-If cannot remember your password for FUDforum, you should go to the <a href="{ROOT}?t=reset&amp;%_rsid%">reset password page</a>, 
-on that page enter your email address inside the text box and press the GO button. This will send you an email with a special URL, when you access that URL 
-your password will be reset and you will receive a new email with your password.<br />
+Behalwe gewone teks, kan hierdie string ook goed insluit soos skakels na URL's,
+persoonlike foto’s, ens... (indien toegelaat deur die administrateur).
 <br />
-<b>Note:</b> Your passwords are stored in a one-way encryption format called MD5 HASH.
-This is military grade 128-bit encryption, there is no way to restore your password.
-It works by encrypting the data every time you enter it and then comparing against
-encrypted version.
-Therefor if you forget your password it can not be restored back, so, upon a restore
-password request the forum will randomly generate you a new password.
+Indien jy nie die handtekeninge van ander persone wil sien nie, kan jy dit afskakel
+deur by instellings, <b>"Vertoon handtekening"</b> op die <b>NEE</b> in jou profiel te klik.
 
-TOPIC_TITLE: <a name="cstat">Custom Tags, what are they &amp; how can I get one?</a>
+TOPIC_TITLE: <a name="rstpasswd">Wat kan jy doen as jy jou wagwoord vergeet het?</a>
 TOPIC_HELP:
-Custom Tags can only be assigned by the forum administrator(s), so if you want a custom tag, ask the forum's Admin for it.
+As jy nie jou wagwoord vir die forum kan onthou nie, kan jy na die <a href="{ROOT}?t=reset&amp;%_rsid%">herstel
+wagwoord</a>-blad gaan, jou e-posadres in die teksblokkie intik en die GAAN VOORT
+knoppie klik. 'n E-pos met 'n spesiale URL sal na jou gestuur word. Wanneer jy
+daardie URL oopmaak sal jou wagwoord herstel word. Jy ontvang dan 'n nuwe e-pos
+met jou nuwe wagwoord.<br />
+<br />
+Let wel: Jou wagwoorde word in 'n eenrigting-enkripsieformaat (MD5 HASH
+of soortgelyke algoritme) gestoor. Dit is militêre-graad enkripsie, en daar is geen manier
+om jou oorspronklike wagwoord te herstel nie. Elke keer wanneer jy jou wagwoord invoer, word
+dit geënkripteer en met die gestoorde geënkripteerde weergawe vergelyk. Indien jy jou wagwoord vergeet, kan dit nie herwin word nie. Wanneer jy 'n versoek rig om jou wagwoord terug te stel, 
+sal die forum 'n nuwe wagwoord vir jou genereer.
 
-TOPIC_TITLE: <a name="avatars">What's an avatar?</a>
+TOPIC_TITLE: <a name="cstat">Pasgemaakte etikette. Wat is dit en hoe kan ek dit kry?</a>
 TOPIC_HELP:
-Avatars are images that appear below your user name on the messages that you've posted as well as your user information page. 
-FUDforum supports 3 types of avatars, some of which may or may not be enabled by the forum's administrator. You may choose an avatar for yourself 
-from your profile page.
+Pasgemaakte etikette kan slegs deur die forum se administrateur(s) toegeken word,
+so indien jy een wil hê moet jy die forum se admin daarvoor vra.
+
+TOPIC_TITLE: <a name="avatars">Wat is 'n avatar?</a>
+TOPIC_HELP:
+Avatars is beelde wat onder jou gebruikersnaam verskyn by die boodskappe wat jy
+plaas, asook op jou gebruikersinligtingblad. Die forum ondersteun 3 tipes avatars.
+Die forum se administrateur mag party daarvan aktiveer of nie. Jy kan self 'n avatar
+kies vanaf jou profielblad.
 <ul>
-	<li><b>Built In</b> - These are the avatars the Admin has made available, you can choose one of those avatars and it will become your avatar as soon as 
-	you submit the change to your profile page.
-	<li><b>Upload Avatar</b> - If enabled, you can upload an image that would be your avatar to the server. Once uploaded, it would need to be approved by the administrator before it becomes your avatar.
-	<li><b>Specify URL</b> - If enabled, you can specify a URL to an image, that you wish to be your avatar. If approved by the administrator, this image will become your avatar.
+	<li><b>Ingebou</b> - Dis die avatars wat die admin beskikbaar gestel het en jy kan enige een van hulle kies en dit sal joune word sodra jy die verandering op jou profielbald ingevoer het.
+	<li><b>Laai avatar op</b> - Indien dit geaktiveer word, kan jy 'n beeld oplaai wat jou avatar sal word vir die bediener. Wanneer jy dit oplaai moet dit eers deur die administrateur goedgekeur word voordat dit vertoon.
+	<li><b>Spesifiseer URL</b> - Indien dit geaktiveer is, kan jy 'n spesifieke URL aandui wat jy as jou avatar wil gebruik. Indien dit deur die administrateur goedgekeur word, sal dit jou avatar word.
 </ul>
-<b>note:</b> You may change your avatar at any time, however the Uploaded &amp; URL avatars will always need to be approved prior to going live on the forum.
+<b>Let wel:</b> Jy kan jou avatar ter enige tyd verander, maar die opgelaaide en URL avatars moet altyd eers goedgekeur word voordat dit gebruik kan word.
 
-TOPIC_TITLE: <a name="blist">What's a buddy list?</a>
+TOPIC_TITLE: <a name="blist">Wat is 'n vriendelys?</a>
 TOPIC_HELP:
-A buddy list is your own little list of forum members with whom you wish to converse more frequently. By putting a person on your buddy list, 
-you will be able to see their birthday (if they entered one) as well as easily choose them as recipients of your Private Messages.
+'n Vriendelys is jou eie kortlys van forumlede met wie jy meer gereeld wil gesels.
+Wanneer jy persone op die lys plaas, sal jy hulle verjaarsdae kan sien (indien hulle
+dit verskaf het). Jy kan hulle ook maklik kies as ontvangers van jou
+privaatboodskappe.
 
-TOPIC_TITLE: <a name="ignlist">What does the ignore list do?</a>
+TOPIC_TITLE: <a name="ignlist">Wat doen die ignoreerlys??</a>
 TOPIC_HELP:
-Ignore List is a database of forum members who's messages you do not wish to see as well as not allow these members to send you 
-private messages. On every message there is a quick link that would give you an opportunity to add the author of that message to your ignore list.
+Die ignoreerlys is 'n databasis van forumlede wie se boodskappe jy nie wil sien nie
+en wie nie toegelaat word om vir jou persoonlike boodskappe te stuur nie. By elke
+boodskap is daar 'n skakel wat jou die keuse gee om die skrywer van die boodskap
+by jou ignoreerlys te voeg.

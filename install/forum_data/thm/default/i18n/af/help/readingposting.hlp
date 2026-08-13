@@ -1,94 +1,96 @@
-TOPIC_TITLE: <a name="style">How to format text?</a>
+TOPIC_TITLE: <a name="style">Hoe formateer ek die teks?</a>
 TOPIC_HELP:
-Generally, messages on the forum are mostly plain text, however on occasion you may want to add 
-some formatting to your text, such as making certain words bold,italics,etc...
+Gewoonlik is boodskappe in die forum in gewone skrif, jy mag dalk per geleentheid
+sommige woorde wil formateer, soos vetdruk, skuinsdruk, ens.
 <p>
-Since in most cases the admin does not permit you to use HTML inside your posts, you can use BBcode, which is a special 
-set of tags that allows you to apply certain formatting to your text. BBcode is very easy to use and is a lot more secure then HTML.
+In die meeste gevalle laat die administrateur jou nie toe om HTML in jou plasings te gebruik nie,
+maar jy kan BBkode gebruik. Dit is 'n spesiale stel etikette wat jou toelaat om sekere
+formatering op jou teks toe te pas. BBkode is baie maklik om te gebruik en dit is veiliger
+as HTML.
 <p>
 
-<a name="url"><b>URL Hyperlinking</b></a><br />
+<a name="url"><b>URL Hiperskakel</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#FF0000">http://fudforum.org</font></td>
     <td valign="middle" align="center"><a href="http://fudforum.org" target=_blank>http://fudforum.org</a></td>
   </tr>
 </table>
-<i>Explanation:</i> FUDforum will automatically pick up URLs and convert them to valid URLs.
+<i>Verduideliking:</i> FUD-forum sal URL's outomaties raaksien en omskakel na geldige URL's.
 <br /><br />	
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.myhomepage.com</font>[/URL]</font></b></td>
-    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>http://www.myhomepage.com</a></td>
+    <td valign="middle" align="center"><b><font color="#ff0000">[URL]<font color="#006600">http://www.mytuiste.com</font>[/URL]</font></b></td>
+    <td valign="middle" align="center"><a href="http://www.mytuiste.com" target=_blank>http://www.mytuiste.com</a></td>
   </tr>
 </table>
-<i>Explanation:</i> You also can define URLs with BBcode, this is an simple example of its use. 
+<i>Verduideliking:</i> Jy kan ook URL’s met BBkode definieer, byvoorbeeld:
 <br /><br />
  
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.myhomepage.com</font>]<font color="#006600"><br />My Homepage<br /></font>[/URL]</b></font></td>
-    <td valign="middle" align="center"><a href="http://www.myhomepage.com" target=_blank>My Homepage</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[URL=<font color="#006600">http://www.mytuiste.com</font>]<font color="#006600"><br />My tuisblad<br /></font>[/URL]</b></font></td>
+    <td valign="middle" align="center"><a href="http://www.mytuiste.com" target=_blank>My tuisblad</a></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use BBcode to make URLs with a self-chosen caption.
+<i>Verduideliking:</i> Jy kan BBkode gebruik om 'n URL te maak met 'n opskrif wat jy kies.
 <br /><br /><br />
 
 <p>
-<a name="email"><b>Email Hyperlinking</b></a><br />
+<a name="email"><b>E-pos Hiperskakel</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>support@prohost.org</b></font></td>
-    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">support@prohost.org</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>ondersteuning@mytuiste.com</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:ondersteuning@mytuiste.com" target="_blank">ondersteuning@mytuiste.com</a></td>
   </tr>
 </table>
-<i>Explanation:</i> FUDforum will automatically convert email links into working hyperlinks.
+<i>Verduideliking:</i> FUD-forum sal e-posskakels outomaties na werkende hiperskakels omskakel.
 <br /><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">support@prohost.org</font>]</b></font><br />Click here to email our tech support<br /><font color="#ff0000"><b>[/email]</b></font></td>
-    <td valign="middle" align="center"><a href="mailto:support@prohost.org" target="_blank">Click here to email our tech support</a></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[email=<font color="#006600">ondersteuning@mytuiste.com</font>]</b></font><br />Klik hier om 'n e-pos aan ons ondersteuningspan te stuur<br /><font color="#ff0000"><b>[/email]</b></font></td>
+    <td valign="middle" align="center"><a href="mailto:ondersteuning@mytuiste.com" target="_blank">Klik hier om 'n e-pos aan ons ondersteuningspan te stuur</a></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use BBcode to make email links with a self-chosen caption.
+<i>Verduideliking:</i> Jy kan BBkode gebruik om skakels in e-posse se opskrif self te kies.
 <br /><br />
 
 <br />
-<b>Text Styling</b><br />
+<b>Teksstyl</b><br />
 <a name="b"></a>
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b]</b></font>bold<font color="#ff0000"><b>[/b]</b></font></td>
-    <td valign="middle" align="center"><b>bold</b></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b]</b></font>vetgedruk<font color="#ff0000"><b>[/b]</b></font></td>
+    <td valign="middle" align="center"><b>vetgedruk</b></td>
   </tr>
 </table>
 <br />
@@ -97,12 +99,12 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[u]</b></font>underlined<font color="#ff0000"><b>[/u]</b></font></td>
-    <td valign="middle" align="center"><u>underlined</u></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[u]</b></font>onderstreep<font color="#ff0000"><b>[/u]</b></font></td>
+    <td valign="middle" align="center"><u>onderstreep</u></td>
   </tr>
 </table>
 <br />
@@ -111,12 +113,12 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[i]</b></font>italicized<font color="#ff0000"><b>[/i]</b></font></td>
-    <td valign="middle" align="center"><i>italicized</i></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[i]</b></font>skuinsdruk<font color="#ff0000"><b>[/i]</b></font></td>
+    <td valign="middle" align="center"><i>skuinsdruk</i></td>
   </tr>
 </table>
 <br />
@@ -125,12 +127,12 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>subscript<font color="#ff0000"><b>[/sub]</b></font></td>
-    <td valign="middle" align="center"><sub>subscript</sub></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sub]</b></font>onderskrif<font color="#ff0000"><b>[/sub]</b></font></td>
+    <td valign="middle" align="center"><sub>onderskrif</sub></td>
   </tr>
 </table>
 <br />
@@ -139,12 +141,12 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>superscript<font color="#ff0000"><b>[/sup]</b></font></td>
-    <td valign="middle" align="center"><sup>superscript</sup></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[sup]</b></font>boskrif<font color="#ff0000"><b>[/sup]</b></font></td>
+    <td valign="middle" align="center"><sup>boskrif</sup></td>
   </tr>
 </table>
 <br />
@@ -153,12 +155,12 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[color=red]</b></font>red text<font color="#ff0000"><b>[/color]</b></font></td>
-    <td valign="middle" align="center"><font color="#ff0000">red text</font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[color=red]</b></font>rooi teks<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font color="#ff0000">rooi teks</font></td>
   </tr>
 </table>
 <br />
@@ -167,12 +169,12 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[size=4]</b></font>big text<font color="#ff0000"><b>[/size]</b></font></td>
-    <td valign="middle" align="center"><font size="4">big text</font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[size=4]</b></font>groot skrif<font color="#ff0000"><b>[/size]</b></font></td>
+    <td valign="middle" align="center"><font size="4">groot skrif</font></td>
   </tr>
 </table>
 <br />
@@ -181,354 +183,334 @@ set of tags that allows you to apply certain formatting to your text. BBcode is 
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[font=courier]</b></font>text<font color="#ff0000"><b>[/color]</b></font></td>
-    <td valign="middle" align="center"><font face="Courier New, Courier, monospace">text</font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[font=courier]</b></font>spesiale lettertipe<font color="#ff0000"><b>[/color]</b></font></td>
+    <td valign="middle" align="center"><font face="Courier New, Courier, monospace">spesiale lettertipe</font></td>
   </tr>
 </table>
 <br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=red][size=4][font=courier]</b></font><br />Formatted Text<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
-    <td valign="middle" align="center"><font color="#ff0000" size="4" face="Courier New, Courier, monospace"><u><i><b>Formatted Text</b></i></u></font></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[b][u][i][color=green][size=4][font=courier]</b></font><br />Geformateerde teks<br /><font color="#ff0000"><b>[/font][/size][/color][/i][/u][/b]<br /></b></font></td>
+    <td valign="middle" align="center"><font color="green" size="4" face="Courier New, Courier, monospace"><u><i><b>Geformateerde teks</b></i></u></font></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use as much text styling tags together as you like.
+<i>Verduideliking:</i> Jy kan soveel teksstyle saam gebruik as wat jy wil.
 <br /><br /><br />
         
-<a name="align"><b>Text Alignment</b></a><br />
+<a name="align"><b>Belyning van teks</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=center]</b></font>centered text<font color="#ff0000"><b>[/align]</b></font></td>
-    <td valign="middle" align="center">centered text</td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=center]</b></font>gesentreerde teks<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="center">gesentreerde teks</td>
   </tr>
 </table>
 <br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>right aligned<font color="#ff0000"><b>[/align]</b></font></td>
-    <td valign="middle" align="right">right aligned</td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=right]</b></font>teks aan regterkant<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="right">teks aan regterkant</td>
   </tr>
 </table>
 <br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>left aligned<font color="#ff0000"><b>[/align]</b></font></td>
-    <td valign="middle" align="left">left aligned</td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[align=left]</b></font>teks aan linkerkant<font color="#ff0000"><b>[/align]</b></font></td>
+    <td valign="middle" align="left">teks aan linkerkant</td>
   </tr>
 </table>
 <br /><br />
 
-<a name="list"><b>Various Lists</b></a>
+<a name="list"><b>Verskeie lyste</b></a>
 <br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
-    <td valign="middle" align="center"><ul><li>list item</li><li>list item</li></ul></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list]</b></font><br /><font color="#ff0000"><b>[*]</b></font>lys die item<br /><font color="#ff0000"><b>[*]</b></font>lys die item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><ul><li>lys die item</li><li>lys die item</li></ul></td>
   </tr>
 </table>
 <br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
-    <td valign="middle" align="center"><ol><li>list item</li><li>list item</li></ol></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=1]</b></font><br /><font color="#ff0000"><b>[*]</b></font>lys die item<br /><font color="#ff0000"><b>[*]</b></font>lys die item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><ol><li>lys die item</li><li>lys die item</li></ol></td>
   </tr>
 </table>
 <br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[*]</b></font>list item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
-    <td valign="middle" align="center"><ol type="a"><li>list item</li><li>list item</li></ol></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[list type=A]</b></font><br /><font color="#ff0000"><b>[*]</b></font>lys die item<br /><font color="#ff0000"><b>[*]</b></font>lys die item<br /><font color="#ff0000"><b>[/list]</b></font><br /></td>
+    <td valign="middle" align="center"><ol type="a"><li>lys die item</li><li>lys die item</li></ol></td>
   </tr>
 </table>
 <br /><br />
 
-<a name="img"><b>Adding Images</b></a><br />
+<a name="img"><b>Beelde</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">http://fudforum.org/forum/images/fudlogo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
-    <td valign="middle" align="center"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="http://fudforum.org/forum/images/fudlogo.gif" width="140" height="49"></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[img]</b></font><br /><font color="#006600">{FULL_ROOT}images/fudlogo.gif<br /></font><font color="#ff0000"><b>[/img]</b></font></td>
+    <td valign="middle" align="center"><img src="{FULL_ROOT}images/fudlogo.gif" alt="{FULL_ROOT}images/fudlogo.gif" width="140" height="49"></td>
   </tr>
 </table>
 <br />    
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://fudforum.org</font>]<br />[img]</b></font><br />http://fudforum.org/forum/images/fudlogo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
-    <td valign="middle" align="center"><a href="http://fudforum.org"><img src="http://fudforum.org/forum/images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a></td>
+    <td valign="middle" align="center"><font color="#006600"><font color="#ff0000"><b>[url=<font color="#006600">http://fudforum.org</font>]<br />[img]</b></font><br />{FULL_ROOT}images/fudlogo.gif<br /><b><font color="#ff0000">[/img]<br />[/url]</font></b></font></td>
+    <td valign="middle" align="center"><a href="http://fudforum.org"><img src="{FULL_ROOT}images/fudlogo.gif" alt="image" width="140" height="49" border="0"></a></td>
   </tr>
 </table>
-<i>Explanation:</i> You can use BBcode to create linked images by enclosing the [img][/img] tag with the [url][/url] tag.
+<i>Verduideliking:</i> Jy kan BBkode gebruik om beelde te skakel deur die ingeslote [img][/img]-etiket saam met die [url][/url]-etiket te plaas.
 <br /><br /><br />
 
-<a name="quote"><b>Quoting other messages</b></a><br />
+<a name="quote"><b>Haal ander boodskappe aan</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hello World<font color="#ff0000"><b>[/quote]</b></font></td>
-    <td><cite>Quote:</cite><blockquote>Hello World</blockquote></td>
+    <td valign="middle" align="center"><font color="#ff0000"><b>[quote]</b></font>Hallo almal<font color="#ff0000"><b>[/quote]</b></font></td>
+    <td><cite>Quote:</cite><blockquote>Hallo almal</blockquote></td>
   </tr>
 </table>
 <br /><br />
 
-<a name="pre"><b>Pre-formatted Text</b></a><br />
+<a name="pre"><b>Vooraf geformateerde teks</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
     <td valign="middle"><font color="#ff0000"><b>[pre]</b><br /></font>
-<pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre>
+<pre>$fp = fopen('myfile', 'w');<br />if ( !$fp ) {<br />	exit('Lêer bestaan nie!');<br />} <br />else { <br />	fwrite($fp, 'hallo almal');<br />	fclose($fp);<br />} <br /></pre>
 <font color="#ff0000"><b>[/pre]</b></font></td>
-    <td valign="middle"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></td>
+    <td valign="middle"><pre>$fp = fopen('myfile', 'w');<br />if ( !$fp ) {<br />	exit('Lêer bestaan nie!');<br />} <br />else { <br />	fwrite($fp, 'hallo almal');<br />	fclose($fp);<br />} <br /></pre></td>
   </tr>
 </table>
-<i>Explanation:</i> This tag produces the text exactly as it was typed maintaining the formatting.
+<i>Verduideliking:</i> Hierdie etiket gee die teks presies soos dit getik was en behou die formatering. 
+
 <br /><br /><br />
 
-<a name="php"><b>PHP Code</b></a><br />
+<a name="php"><b>PHP-kode</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
     <td valign="middle"><font color="#ff0000"><b>[php]</b></font>
 <pre>
 function hello()
 {
-	echo "Hello World!";
+	echo "Hallo almal!";
 }
 
 hello();
 </pre>
 <font color="#ff0000"><b>[/php]</b></font></td>
     <td valign="middle"><code><font color="#000000">
-<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hello World!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
+<font color="#0000BB">&lt;?php<br /></font><font color="#007700">function </font><font color="#0000BB">hello</font><font color="#007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo </font><font color="#DD0000">"Hallo almal!"</font><font color="#007700">;<br />}<br /><br /></font><font color="#0000BB">hello</font><font color="#007700">();<br /></font><font color="#0000BB">?&gt;</font>
 </font>
 </code></td>
   </tr>
 </table>
-<i>Explanation:</i> The [php][/php] tag allows to post PHP-code with automatic syntax highlighting by the forum.
+<i>Verduideliking:</i> Die [php][/php]-etikette laat jou toe om PHP-kodes te plaas wat die sintaks outomaties kleurmerk in die forum.
 <br /><br /><br />
 
-<a name="code"><b>Non-PHP Program Code</b></a><br />
+<a name="code"><b>Ander kode</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');<br />}<br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
+    <td valign="middle"><font color="#ff0000"><b>[code]</b></font><pre>$fp = fopen('myfile', 'w');<br />if ( !$fp ) {<br />	exit('Lêer bestaan nie!');<br />}<br />else { <br />	fwrite($fp, 'hallo almal');<br />	fclose($fp);<br />}<br /></pre><font color="#ff0000"><b>[/code]</b></font>
     </td>
-    <td valign="middle"><div class="pre"><pre>$fp = fopen('somefile', 'w');<br />if ( !$fp ) {<br />	exit('no such file!');       <br />} <br />else { <br />	fwrite($fp, 'hello world');<br />	fclose($fp);<br />} <br /></pre></div>
+    <td valign="middle"><div class="pre"><pre>$fp = fopen('myfile', 'w');<br />if ( !$fp ) {<br />	exit('Lêer bestaan nie!');       <br />} <br />else { <br />	fwrite($fp, 'hallo almal');<br />	fclose($fp);<br />} <br /></pre></div>
     </td>
   </tr>
 </table>
-<i>Explanation:</i> The [code][/code] tag works pretty much the same way as the [pre][/pre] tag but it puts a visually identifiable box around the text.
+<i>Verduideliking:</i> Die [code][/code]-etiket werk amper dieselfde as die [pre][/pre]-etiket, maar dit plaas 'n duidelik sigbare lyn rondom die teks.
 <br /><br /><br />
 
-<a name="notag"><b>No Tag</b></a><br />
-<i>Explanation:</i> The <font color="#ff0000"><b>[notag][/notag]</b></font> tag allows you to have the text inside
-the tags not be parsed by the FUDforum's tag parser. This allows you to give examples of BBcode 
-and not have them converted to equivalent HTML.
+<a name="notag"><b>Geen etiket</b></a><br />
+<i>Verduideliking:</i> Die <font color="#ff0000"><b>[notag][/notag]</b></font>-etiket laat jou toe om die teks binne die etiket te plaas, en word nie deur die forum se etiketontleder ontleed nie. Sodoende kan jy voorbeelde van BBkodes gee sonder om hulle te om te skakel na die ekwivalente HTML.
 <br /><br /><br />
 
-<a name="hr"><b>Horizontal Line Tag</b></a><br />
+<a name="hr"><b>Horisontale lyn</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[hr]</b></font></td>
     <td valign="middle" align="center"><hr></td>
   </tr>
 </table>
-<i>Explanation:</i> The [hr] tag produces a horizonatal line, it is an equivalent to the &lt;hr&gt;
- HTML tag.
+<i>Verduideliking:</i> Die [hr]-etiket vorm 'n horisontale lyn en is ekwivalent aan die &lt;hr&gt; HTML etiket.
 <br /><br /><br />
 
-<a name="spoiler"><b>Spoiler</b></a><br />
+<a name="spoiler"><b>Versteek</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
-    <td valign="middle" align="center">Visible part of the message<br />
+    <td valign="middle" align="center">Sigbare deel van die boodskap<br />
 <font color="#ff0000"><b>[spoiler]</b></font>
-<br />Hidden part of the message<br />
+<br />Versteekte deel van die boodskap<br />
 <font color="#ff0000"><b>[/spoiler]</b></font><br />
-More visible text.</td>
-    <td valign="middle" align="center">Visible part of the message<br />
-<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">Reveal Spoiler</a><div align="left" id="1482055279834293165" style="display: none;"><br />
-Hidden part of the message<br /></div></div>
+Nog meer sigbare teks.</td>
+    <td valign="middle" align="center">Sigbare deel van die boodskap<br />
+<div class="dashed" style="padding: 3px;" align="center" width="100%"><a href="javascript://" OnClick="javascript: layerVis('1482055279834293165', 1);">{MSG: post_proc_reveal_spoiler}</a><div align="left" id="1482055279834293165" style="display: none;"><br />
+Versteekte deel van die boodskap<br /></div></div>
 <br />
-More visible text.</td>
+Nog meer sigbare teks.</td>
   </tr>
 </table>
-<i>Explanation:</i> The [spoiler][/spoiler] tag allows you to hide a portion of message from being displayed. To see the hidden portion the users must click a link that will display the hidden portion of the text. Internally this is accomplished by JavaScript so the page is not actually reloaded, instead a hidden layer is made visible.
+<i>Verduideliking:</i> Die [spoiler][/spoiler]-etiket laat toe dat jy 'n gedeelte van die boodskap kan versteek sodat dit nie vertoon nie. Om die versteekte deel te sien moet die gebruikers op 'n skakel klik wat dit sigbaar sal maak. Intern is word dit moontlik gemaak deur JavaScript sodat die hele bladsy nie herlaai hoef te word nie, maar sodat net die versteekte gedeelte sigbaar word.
 <br /><br /><br />
 
-<a name="acronym"><b>Acronym</b></a><br />
+<a name="acronym"><b>Akroniem</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[acronym=Fast Uncompromising Discussion Forum]</b></font><br />FUDforum<br /><font color="#ff0000"><b>[/acronym]</b></font></td>
     <td valign="middle" align="center"><acronym title="Fast Uncompromising Discussion Forum">FUDforum</acronym></td>
   </tr>
 </table>
-<i>Explanation:</i> The [acronym][/acronym] tag allows you to identify the text as an acronym and provide a full name when the user moves their mouse over the tag.
+<i>Verduideliking:</i> Die [acronym][/acronym]-etiket laat jou toe om die teks as 'n akroniem te identifiseer en die volle naam word vertoon as die gebruiker sy muis daaroor vee.
 <br /><br /><br />
 
 <a name="wikipedia"><b>Wikipedia</b></a><br />
 
 <table>
   <tr>
-    <td width="300" align="center" valign="middle"><b>BBcode</b></td>
-    <td width="300" align="center" valign="middle"><b>Result</b></td>
+    <td width="300" align="center" valign="middle"><b>BBkode</b></td>
+    <td width="300" align="center" valign="middle"><b>Resultaat</b></td>
   </tr>
   <tr>
     <td valign="middle" align="center"><font color="#ff0000"><b>[wikipedia=af]</b></font>FUDforum<font color="#ff0000"><b>[/wikipedia]</b></font></td>
     <td valign="middle" align="center"><a href="http://af.wikipedia.com/wiki/FUDforum" target="_blank" name="WikiPediaLink">FUDforum</a></td>
   </tr>
 </table>
-<i>Explanation:</i> The [wikipedia][/wikipedia] tag allows you to create a reference to a wikipedia page based on the subject. To use the tag, surround the term with [wikipedia] tags, if you want to link to a particular wikipedia mirror you can use [wikipedia=ca] format for openning the tag, where ca is the prefix of the mirror.
+<i>Verduideliking:</i> Die [wikipedia][/wikipedia]-etiket laat jou toe om 'n verwysing na die Wikipedia te plaas. Indien jy na 'n spesifieke taal wil skakel kan jy die [wikipedia=af]-formatering gebruik om die etiket oop te maak, waar "af" die taalkode is. 
 <br />
 
-TOPIC_TITLE: <a name="sml">What are Smilies/Emoticons?</a> 
+TOPIC_TITLE: <a name="sml">Wat is gesiggies/emotikons?</a> 
 TOPIC_HELP:
-Smilies are small icons that you can insert into your message to convey various emotions &amp; feelings.
-If smilies are enabled, a list of smilies supported by the forum will be listed above the message box where you type your message.
-Clicking on a smiley, will insert that smiley into your message.<br />
-Common smilies may automatically be replaced with their equivalent images, if you do not wish for that to happen, click on the 
-<b>Disable Smilies</b> checkbox.<p>
+Gesiggies (ook emotikons genoem) is klein ikone wat jy in jou boodskap kan invoeg om verskillende emosies en gevoelens uit te druk.
+Indien gesiggies geaktiveer is, sal 'n lys van die gesiggies wat deur die forum ondersteun word, bo die boodskapkassie waarin jy jou boodskap tik, vertoon word.
+Deur op 'n gesiggies te klik, sal daardie gesiggies in jou boodskap ingevoeg word.<br />
+Algemene gesiggies kan outomaties met hul ooreenstemmende prentjies vervang word. As jy nie wil hê dit moet gebeur nie, merk die <b>Deaktiveer gesiggies</b>-merkblokkie.<p>
 
-TOPIC_TITLE: <a name="polls">How do I use Polls?</a>
+TOPIC_TITLE: <a name="polls">Hoe gebruik ek meningspeilings?</a>
 TOPIC_HELP:
-In certain forums you may have the ability to include polls inside your messages. Polls allow you to ask a question and 
-provide a number of answers other forum members may choose from. For the sake of accuracy only registered users may cast in 
-their votes.<br />
-When you click on the <b>CREATE POLL</b> link, located on the post page a pop-up will appear allowing to create a poll with several 
-potential multiple choice answers. When you are done, simply click on the <b>Edit</b> button and you will be taken back to the post page 
-and then poll you've created will be attached to the message.<br />
-You can edit an existing poll, by clicking on the <b>EDIT</b> link, or you can remove the poll entirely by click on the <b>DELETE</b>.
+In sekere forums kan jy peilings by jou boodskappe insluit. Peilings stel jou in staat om 'n vraag te vra en verskeie antwoordopsies te verskaf waaruit ander forumlede kan kies. Om die akkuraatheid van die uitslag te verseker, mag slegs geregistreerde gebruikers hul stem uitbring.<br />
+Wanneer jy op die <b>{MSG: post_create_poll}</b>-skakel op die plasingblad klik, sal 'n opspringvenster verskyn waarin jy 'n peiling met verskeie moontlike meerkeuse-antwoorde kan skep. Sodra jy klaar is, klik eenvoudig op die <b>{{MSG: poll_update}</b>-knoppie. Jy sal dan teruggeneem word na die plasingblad, waar die peiling wat jy geskep het, aan jou boodskap geheg sal wees.<br />
+Jy kan 'n bestaande peiling wysig deur op die <b>{MSG: post_poll_edit}</b>-skakel te klik, of jy kan die peiling heeltemal verwyder deur op die <b>{MSG: post_poll_delete}</b>-skakel te klik.
 <p>
-You will only have 1 opportunity to vote in a poll, so make your decision careful, you will not be able to change it at a later point.
+Jy sal slegs een geleentheid hê om in 'n peiling te stem. Oorweeg dus jou keuse sorgvuldig, aangesien jy dit nie later sal kan verander nie.
 
-TOPIC_TITLE: <a name="attach">Can I attach files to messages?</a>
+TOPIC_TITLE: <a name="attach">Kan ek lêers aan boodskappe heg?</a>
 TOPIC_HELP:
-If allowed by administrator, you may attach one or more files to your normal as well as private messages. This ability is 
-determined on a forum by forum basis, so while you may be able to attach files in one forum you may not be able to do so in another.
+Indien dit deur die administrateur toegelaat word, kan jy een of meer lêers by jou gewone sowel as privaat boodskappe aanheg. Hierdie funksie word per forum bepaal. Jy mag dus in een forum lêers kan aanheg, maar nie noodwendig in 'n ander forum nie.
 <br />
-The post form will list 3 rules which apply to your file attachments:<p>
-<b>Allowed File Types</b> - a list of file types that you may attach to your message. ex. jpg, gif. png<br />
-<b>Maximum File Size</b> - the maximum size of each file that you may attach to your message<br />
-<b>Maximum Files per Message</b> - the number of files you can attach to your message.
+Die plasingsvorm sal 3 reëls vertoon wat op jou lêeraanhegsels van toepassing is:<p>
+<b>Toegelate lêertipes</b> – 'n lys van die lêertipes wat jy by jou boodskap mag aanheg, bv. jpg, gif, png.<br />
+<b>Maksimum lêergrootte</b> – die grootste grootte wat elke lêer mag wees wat jy by jou boodskap aanheg.<br />
+<b>Maksimum aantal lêers per boodskap</b> – die aantal lêers wat jy by jou boodskap mag aanheg.
 <p>
-To attach a file to a message, click the <b>Browse</b> button at the bottom of the post page. In response your browser will 
-open a dialog window allowing your to select a file you wish to upload from your hard drive. Once you've selected a file, click on the
-<b>Upload File</b> button to attach the file to your message.<br />
-If you wish to remove any attached files, simply click on the <b>Delete</b> located to the right of the file.
+Om 'n lêer by 'n boodskap aan te heg, klik op die <b>Blaai</b>-knoppie onderaan die plasingsblad. Jou blaaier sal dan 'n dialoogvenster oopmaak waarin jy 'n lêer vanaf jou hardeskyf kan kies om op te laai. Nadat jy die lêer gekies het, klik op die <b>{MSG: post_upload_file}</b>-knoppie om die lêer by jou boodskap aan te heg.<br />
+As jy enige aangehegte lêers wil verwyder, klik eenvoudig op die <b>Skrap</b>-skakel regs langs die betrokke lêer.
 
-
-TOPIC_TITLE: <a name="msgico">What's a post icon?</a>
+TOPIC_TITLE: <a name="msgico">Wat is 'n pos-ikoon?</a>
 TOPIC_HELP:
-Post icons are small images that you can choose to show beside your messages. They are most 
-commonly used to indicate the nature of your message or the feeling your are trying to convey.
-If you do not see those icons on the post form, it means the administrator has disabled this feature.
+Pos- of plasingikone is klein prentjies wat jy kan kies om langs jou boodskappe te vertoon. Hulle word meestal gebruik om die aard van jou boodskap of die gevoel wat jy wil oordra, aan te dui. Indien jy nie hierdie ikone op die plasingsvorm sien nie, beteken dit dat die administrateur hierdie funksie gedeaktiveer het.
 
-TOPIC_TITLE: <a name="edit">Can I edit my message?</a>
+TOPIC_TITLE: <a name="edit">Kan ek my boodskap redigeer?</a>
 TOPIC_HELP:
-If you are a registered member, you may be able to edit messages that you have previously posted. This option may be 
-time-limited, so it is possible that you'll be able to edit your recent posts, while unable to edit posts made a while ago.<br />
-If you edit your post, a small note will be prepended to your message, showing that this message was edited by you and indicate the time &amp; date 
-of editing.<br />
-If a moderator or an administrator have edited your message you may or may not, depending on the forum settings see a note identifying the fact 
-that this message was edited.
+As jy 'n geregistreerde lid is, kan jy dalk boodskappe wat jy voorheen geplaas het, wysig. Hierdie opsie kan egter tydsbeperk wees, daarom is dit moontlik dat jy jou onlangse plasings sal kan wysig, maar nie plasings wat langer gelede gemaak is nie.<br />
+As jy jou plasing wysig, sal 'n klein kennisgewing bo-aan jou boodskap verskyn wat aandui dat die boodskap deur jou gewysig is, asook die tyd en datum waarop dit gewysig is.<br />
+As 'n moderator of administrateur jou boodskap gewysig het, mag jy, afhangend van die forum se instellings, 'n kennisgewing sien wat aandui dat die boodskap deur hulle gewysig is.
 
-TOPIC_TITLE: <a name="mod">Who are the moderators &amp; administrators?</a> 
+TOPIC_TITLE: <a name="mod">Wie is die moderators en administrateurs?</a> 
 TOPIC_HELP:
-Moderators are "super users" who generally oversee one or more forums. They have the ability to edit, delete, approve messages as well 
-as make forum announcements. These are the people to contact if you see something inappropriate being done in a forum they are moderating. 
-You may also address moderators if you have any questions in regard on how to use the forum.<p>
-Administrators are the controllers of the forum, they can do ANYTHING, so be polite when talking to them ;-). Administrator in addition to being 
-able to do everything a moderator can do, also can approve Avatars, assign &amp; remove custom tags, block users and respond to various forum questions.
-If you encounter any bugs with the forum, Administrator is the person to contact.
-
-TOPIC_TITLE: <a name="cens">Censorship?</a>
-TOPIC_HELP:
-The administrator may choose to censor certain words, those words would be replaced by the administrator's chosen alternative. Censorship is forum wide, 
-so the same things you cannot see, other people will also not be able to see.
-
-TOPIC_TITLE: <a name="not">Can I be notified of replies to my messages?</a> 
-TOPIC_HELP:
-When you post a new topic or make a reply to an existing topic, you may choose to be notified via Email of the replies. You can also subscribe to a topic without posting a reply, by clicking on the <b>Subscribe</b> link at the top of the page or if you 
-want you can subscribe to a forum, so that whenever a new topic is made in that forum you will receive a notification about it.
+Moderators is "supergebruikers" wat gewoonlik toesig hou oor een of meer forums. Hulle kan boodskappe wysig, uitvee en goedkeur, asook forumaankondigings maak. Kontak hulle as jy iets onvanpas opmerk in 'n forum wat hulle bestuur. Jy kan moderators ook kontak as jy enige vrae het oor hoe om die forum te gebruik.
 <p>
-If you choose to stop receiving notifications from a topic or forum, you can click on the <b>Un-subscribe</b> link, while viewing that topic or forum.
-Or go to the <b>Subscriptions</b> tab in your profile and remove the topic or forum from that list.
+Administrateurs beheer die forum en kan ENIGIETS doen, wees dus hoflik wanneer jy met hulle kommunikeer ;-). Benewens alles wat 'n moderator kan doen, kan 'n administrateur ook avatars goedkeur, pasgemaakte etikette toeken of verwyder, gebruikers blokkeer en op verskeie vrae oor die forum antwoord.
+As jy enige foute of probleme met die forum teëkom, is die administrateur die regte persoon om te kontak.
+
+TOPIC_TITLE: <a name="cens">Word sensuur toegepas?</a>
+TOPIC_HELP:
+Die administrateur kan kies om sekere woorde te sensor. Sulke woorde sal dan vervang word met 'n alternatiewe woord of frase wat deur die administrateur bepaal is. Sensuur geld vir die hele forum, daarom sal ander gebruikers ook nie dieselfde woorde kan sien wat jy nie kan sien nie.
+
+TOPIC_TITLE: <a name="not">Kan ek in kennis gestel word van antwoorde op my boodskappe?</a> 
+TOPIC_HELP:
+Wanneer jy 'n nuwe onderwerp plaas of op 'n bestaande onderwerp reageer, kan jy kies om per e-pos in kennis gestel te word van nuwe antwoorde. Jy kan ook op 'n onderwerp inteken sonder om 'n antwoord te plaas deur op die <b>Skryf in op onderwerp</b>-skakel bo-aan die bladsy te klik. Jy kan ook op 'n forum inteken, sodat jy 'n kennisgewing ontvang wanneer 'n nuwe onderwerp in daardie forum geskep word.
 <p>
-The ability to receive notifications is limited to registered users.
+As jy nie meer kennisgewings van 'n onderwerp of forum wil ontvang nie, kan jy op die <b>Kanselleer inskrywing op onderwerp</b>-skakel klik terwyl jy daardie onderwerp of forum bekyk. Jy kan ook na die <b>Inskrywings</b>-oortjie in jou profiel gaan en die onderwerp of forum van daardie lys verwyder.
+<p>
+Slegs geregistreerde gebruikers kan kennisgewings ontvang.
+
