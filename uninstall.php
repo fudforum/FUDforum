@@ -2,7 +2,7 @@
 exit('<h2>To run the uninstaller, comment out the 2nd line of this script!</h2>');
 
 /***************************************************************************
-* copyright            : (C) 2001-2020 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -39,7 +39,6 @@ function seterr($msg)
 }
 
 /* main */
-	define('SAFE_MODE', fud_ini_get('safe_mode'));
 
 	/* Read command line parameters. */
 	if (php_sapi_name() == 'cli' && (!empty($_SERVER['argv'][1]))) {
@@ -50,19 +49,9 @@ function seterr($msg)
 	}
 
 	if (count($_POST) && $_POST['DATA_DISK']) {
-		$dryrun = isset($_POST['dryrun']);
-		if (SAFE_MODE && basename(__FILE__) != 'uninstall_safe.php') {
-			$c = getcwd();
-			copy($c .'/uninstall.php', $c .'/uninstall_safe.php');
-			header('Location: '. dirname($_SERVER['SCRIPT_NAME']) .'/uninstall_safe.php?DATA_DISK='. urlencode($_POST['DATA_DISK']) .'&WWW_ROOT_DISK='. urlencode($_POST['WWW_ROOT_DISK']). '&dryrun='. $dryrun);
-			exit;
-		}
+		$dryrun = isset($_POST['dryrun']) ?? '1';
 		$DATA_DISK = rtrim($_POST['DATA_DISK'], '\\/ ');
 		$WWW_ROOT_DISK = isset($_POST['WWW_ROOT_DISK']) ? rtrim($_POST['WWW_ROOT_DISK'], '\\/ ') : '';
-	} else if (SAFE_MODE && !empty($_GET['DATA_DISK'])) {
-		$dryrun = $_GET['dryrun'];
-		$DATA_DISK = rtrim($_GET['DATA_DISK'], '\\/ ');
-		$WWW_ROOT_DISK = isset($_POST['WWW_ROOT_DISK']) ? rtrim($_GET['WWW_ROOT_DISK'], '\\/ ') : '';
 	}
 
 	if (php_sapi_name() != 'cli') {
@@ -164,12 +153,12 @@ function seterr($msg)
 
 		pf();
 		pf('FUDforum was successfully uninstalled!');
-		seterr('Sorry to see you go. If there is anything we can do to help, please let us know on the support forum at <a href="http://fudforum.org/">fudforum.org</a>.');
+		seterr('Sorry to see you go. If there is anything we can do to help, please let us know on the <a href="https://github.com/fudforum/FUDforum/discussions">support forum</a>.');
 	}
 
 	if (php_sapi_name() == 'cli') {
 		pf('Usage: uninstall.php DATA_DISK WWW_ROOT_DISK');
-		seterr('Please run a full backup of your system before continuing!');
+		seterr('Please make a full backup of your system, including all files and the database, before continuing!');
 	} else {
 	
 		/* If available, read GLOBALS.php.  */
