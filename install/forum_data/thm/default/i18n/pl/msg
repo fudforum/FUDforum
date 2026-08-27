@@ -679,7 +679,7 @@ register_err_loginunique:Nazwy użytkowników muszą być unikalne, a już jest 
 register_err_emailexists:Ten adres e-mail już istnieje, więc jeśli zapomniałeś hasła, użyj opcji odzyskiwania opcji, zamiast rejestrować się ponownie.
 register_err_shortpasswd:Hasło musi mieć co najmniej 6 znaków.
 register_err_passwdnomatch:Twoje hasła nie pokrywają się.
-register_err_invalidemail:Adres e-mail, który podałeś, nie wydaje się być poprawny.
+register_err_invalidemail:Podany przez Ciebie adres e-mail wydaje się niepoprawny.
 register_err_needname:Aby pomyślnie zakończyć proces rejestracji, musisz podać swoje nazwisko.
 register_err_enterpasswd:Musisz podać swoje aktualne hasło, aby wprowadzić zmiany.
 register_err_adminpasswd:Musisz wprowadzić swoje <b>hasło administratora</b>, aby zapisać zmiany.
@@ -689,7 +689,7 @@ register_err_avatarnotallowed:Avatar, który próbujesz dołączyć, jest niedoz
 register_conf_subject:Potwierdzenie rejestracji
 register_conf_msg:Dziękujemy za zarejestrowanie się na {FULL_ROOT}.\nAby aktywować swoje konto, przejdź pod adres:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nJak tylko konto zostanie aktywowane, zostaniesz zalogowany(a) i\nprzekierowany(a) na główną stronę naszego forum.
 register_welcome_subject:Potwierdzenie rejestracji na forum
-register_welcome_msg:Dziękujemy za zarejestrowanie się.\n\nTutaj znajdują się szczegóły twojego logowania się na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa użytkownika: {VAR: uent->login}\nHasło: {VAR: _POST['reg_plaintext_passwd']}\n\nBądź świadom(a), że wielkość liter w hasłach ma znaczenie!\nAby zmienić swoje ustawienia i profil, przejdź do tej strony:\n{FULL_ROOT}?t=register
+register_welcome_msg:Dziękujemy za zarejestrowanie się.\n\nTutaj znajdują się szczegóły Twojego logowania się na forum:\n\nAdres forum: {TEMPLATE: index_update_lnk}\nNazwa użytkownika: {VAR: uent->login}\nHasło: {VAR: _POST['reg_plaintext_passwd']}\n\nMiej świadomość, że wielkość liter w hasłach ma znaczenie!\nAby zmienić swoje ustawienia i profil, przejdź do tej strony:\n{FULL_ROOT}?t=register
 register_err_cantreg_title:BŁĄD: rejestracja nie jest możliwa
 regsiter_err_cantreg_msg:Brak możliwości stworzenia konta użytkownika, dlatego skontaktuj się z administratorem pod adresem e-mail <a href="mailto:{VAR: ADMIN_EMAIL}">{VAR: ADMIN_EMAIL}</a>.
 register_profile_update:Przegląd własnego profilu
@@ -940,7 +940,7 @@ threadt_update:Przeglądanie forum (w formie drzewa) <a href="{TEMPLATE: threadt
 mmod_delete_cofirm_ttl:Potwierdzenie usunięcia wiadomości/wątku.
 spell_alts:brak alternatyw
 insert_uploaded_image:Wstaw obraz do treści wiadomości
-finduser_help:Silnik wyszukiwania automagicznie wstawi maskę * do twojego żądania. Np. by wyszukać wszystkich użytkowników, których nazwa zaczyna się na 'a', wpisz 'a' w polu wyszukiwania.
+finduser_help:Silnik wyszukiwania automagicznie wstawi maskę * do Twojego żądania. Np. by wyszukać wszystkich użytkowników, których nazwa zaczyna się na „a”, wpisz „a” w polu wyszukiwania.
 back_to_top:powrót na górę
 pm_err_disabled_title:Prywatne wiadomości są wyłączone
 pm_err_disabled_msg:Nie możesz wysyłać prywatnych wiadomości, dopóki nie uaktywnisz opcji 'Zezwól na Prywatne Wiadomości' w swoim profilu.
@@ -1090,7 +1090,7 @@ thread_merge_all:Dołącz zaznaczone
 thread_loc_all:Zablokuj lub odblokuj zaznaczone
 dmsg_ip:IP
 err_blockedaccnt_title:BŁĄD - Twoje konto zostało odfiltrowane.
-err_blockedaccnt_msg:Dostęp do tego forum został zablokowany dla twojego konta użytkownika za pomocą jednego z zainstalowanych filtrów użytkowników.
+err_blockedaccnt_msg:Dostęp do tego forum został zablokowany dla Twojego konta użytkownika za pomocą jednego z zainstalowanych filtrów użytkowników.
 merge_th_page_list:Strona wyboru wątków
 most_users_online:Najwięcej użytkowników online (<b>{VAR: st_obj->most_online}</b>) było dnia <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Wypisz ze wszystkich forów

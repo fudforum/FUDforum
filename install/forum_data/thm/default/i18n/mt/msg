@@ -1,6 +1,7 @@
 # Messages for Maltese (Malti)
 # Exported from translatewiki.net
 # Author: Chrisportelli
+# Author: JiodoJ
 # Author: Macofe
 # Author: McDutchie
 # Author: Naudefj
@@ -11,31 +12,31 @@ add_to_buddy_list:żid mal-lista ta' ħbieb
 admin:Ammin
 admin_control_panel:Amministrazzjoni
 administrator:Amministratur
-attachment:Tehmiża:
+attachment:Hemża:
 avatar:Avatar:
-average_post_count:{PLURAL: u->posted_msg_count|$1 Messaġġ|$1 Messaġġi} (Medja ta' {PLURAL: avg|$1 messaġġ|$1 messaġġi} kuljum)
+average_post_count:{PLURAL: u->posted_msg_count|one=Messaġġ|few=$1 Messaġġi|many=$1-il Messaġġ|other=$1 Messaġġ} (Medja ta' {PLURAL: avg|one=messaġġ|few=$1 messaġġi|many=$1-il messaġġ|other=$1 messaġġ} kuljum)
 biography:Bijografija:
 birth_date:Data tat-twelid:
 by:Minn:
 by_mod:mill-moderatur
-current_time:Ħin kurrenti
-custom_avatar_queue:Kju ta' <i>avatars</i> personalizzati
-date_posted:Data tal-messaġġ
-date_registered:Data ta' reġistrazzjoni:
-download_counter:Imniżżel {PLURAL: v[3]|$1 darba|$1 darbiet}
-pmsg_download_counter:Imniżżel {PLURAL: r->dlcount|$1 darba|$1 darbiet}
-email:Indirizz elettroniku:
+current_time:Ħin Kurrenti
+custom_avatar_queue:Kju tal-Avatarri Personalizzati
+date_posted:Data tal-Bgħit
+date_registered:Data tar-Reġistrazzjoni:
+download_counter:Imniżżel {PLURAL: v[3]|one=darba|few=$1 darbiet|many=$1-il darba|other=$1 darba}
+pmsg_download_counter:Imniżżel {PLURAL: r->dlcount|one=darba|few=$1 darbiet|many=$1-il darba|other=$1 darba}
+email:Ittre:
 email_to_friend:Ibgħat lil ħabib
-email_to_friend_desc:Ibgħat l-indirizz ta' dan il-paġna lill-ħbieb tiegħek permezz ta' ittra-e
-email_user:Ibgħat ittra elettronika lill-utent
+email_to_friend_desc:Ibgħat l-URL ta' dil-paġna lill-ħbiebek bl-ittre
+email_user:Ibgħat ittre lill-utent
 faq:Għajnuna
 first_unread_msg:Mur għall-messaġġi mhux moqrija
-first_unread_msg_desc:Mur għall-ewwel messaġġ mhux moqri f'dan is-suġġett
+first_unread_msg_desc:Mur għall-ewwel messaġġ mhux moqri f'das-suġġett
 flat_view:Mur lura għad-dehra ċatta
 forum:Forum:
 forum_icon:Ikona tal-forum
 forum_new_messages:Messaġġi ġodda
-forum_none_messages:Membri reġistrati biss jistgħu jżommu traċċa tal-messaġġi moqrija u dawk li mhumiex
+forum_none_messages:Membri reġistrati biss jistgħu jaraw liem messaġġi huma moqrija u liem mhumiex
 forum_old_messages:L-ebda messaġġ ġdid
 from:Minn:
 gender:Sess:
@@ -43,48 +44,50 @@ go:Mur
 goto_next_msg:Mur għall-messaġġ li jmiss
 goto_prev_msg:Irritorna għall-messaġġ ta' qabel
 home:Daħla
-homepage:Paġna prinċipali:
-icq_control_panel:Pannell tal-messaġġi <i>online</i> tal-ICQ
-icq_message_form:Formola tal-messaġġi tal-ICQ:
-ignore_user:injora l-messaġġi kollha ta' dan l-utent
-im_yahoo:Yahoo Messenger:
+homepage:Paġna Ewlenija:
+icq_control_panel:Pannell tal-Messaġġi Onlajn ICQ
+icq_message_form:Formola tal-Messaġġi ICQ:
+ignore_user:injora l-messaġġi kollha ta' dal-utent
+im_facebook:Facebook:
+im_yahoo:Messaġġier Yahoo:
 image:Stampa:
 index_forum:Forum
-index_new_posts:Messaġġi ġodda mill-aħħar żjara tiegħek
-index_no_new_posts:L-ebda messaġġ ġdid mill-aħħar żjara tiegħek
+index_new_posts:Messaġġi ġodda mill-aħħar qarja
+index_no_new_posts:L-ebda messaġġ ġdid mill-aħħar qarja
 index_url_redirection:Ridirezzjoni
 interests:Interessi:
 last_post:L-aħħar messaġġ
-last_thread_msg:Mur għall-aħħar messaġġ f'dan is-suġġett
+last_thread_msg:Mur għall-aħħar messaġġ f'das-suġġett
 legend:Leġġenda
-location:Lokalità:
-lock_thread:Agħlaq is-suġġett
-locked:Magħluq
-locked_with_new_posts:Magħluq (b'messaġġi nhux moqrija)
-logged_in_list:Lista ta' utenti illogjati
-login:Idħol
-login_header:Isem tal-utent:
-logout:Oħroġ
+location:Post:
+lock_thread:Sakkar is-Suġġett
+locked:Imsakkar
+locked_with_new_posts:Imsakkar (b'messaġġi mhux moqrija)
+logged_in_list:Lista ta' utenti f'konthom
+login:Idħol f'Kontok
+login_header:Idħol f'Kontok:
+logout:Oħroġ minn Kontok
 mark_all_read:Immarka l-messaġġi kollha bħala moqrija
-mark_all_read_desc:Il-messaġġi kollha li ma kinux moqrija ġew immarkati bħala moqrija
+mark_all_read_desc:Il-messaġġi kollha li ma nqrawx se jitqiesu moqrija
 members:Membri
 calendar:Kalendarju
 cal_goto_date:Mur għal:
 cal_day_heading:Avvenimenti għall-ġurnata
-cal_no_events:L-ebda avveniment għal din il-ġurnata.
+cal_no_events:L-ebda avveniment għal dil-ġurnata.
 cal_update:Esplora l-kalendarju tal-forum
 cal_birthday:Għeluq is-snin: {VAR: user}
-cal_birthday_age:({PLURAL: age|$1 sena|$1 snin}).
+cal_birthdays:{{PLURAL|one=għeluq is-snin|$1 għeluq is-sniniet|many=$1-il għeluq il-snin|other=$1 għeluq is-sniniet}}
+cal_birthday_age:({PLURAL: age|one=sena|few=$1 snin|many=$1-il sena|other=$1 sena}).
 message:Messaġġ
-message_counter:L-utenti tagħna daħħlu total ta' <b>{PLURAL: post_count|$1 messaġġ|$1 messaġġi}</b> f'<b>{PLURAL: thread_count|$1 suġġett|$1 suġġetti}</b>.
+message_counter:L-utenti tagħna daħħlu total ta' <b>{PLURAL: post_count|one=messaġġ|few=$1 messaġġi|many=$1-il messaġġ|other=$1 messaġġ}</b> f'<b>{PLURAL: thread_count|one=suġġett|few=$1 suġġetti|many=$1-il suġġett|other=$1 suġġett}</b>.
 message_index:Indiċi tal-messaġġi
 message_index_desc:Ara l-lista tal-messaġġi
-minimize_category:Naqqas il-kategorija
-minimize_message:Naqqas il-messaġġ
-moderation_queue:Kju ta' moderazzjoni
+minimize_category:Naqqas il-Kategorija
+minimize_message:Naqqas il-Messaġġ
+moderation_queue:Kju ta' Moderazzjoni
 moderator:Moderatur
 moderator_of:Moderatur ta':
-moderator_options:Opzjonijiet tal-moderatur
+moderator_options:Għażliet tal-Moderatur
 moderators:{PLURAL: modcount|Moderatur|Moderaturi}
 more_unread_messages:iktar messaġġi mhux moqrija
 more_unread_messages_desc:Uri iktar messaġġi mhux moqrija u mmarka l-messaġġi li qed jidhru bħalissa bħala moqrija
@@ -203,8 +206,7 @@ vote_button:Ivvota
 vote_for_thread:Ivvota
 was_moved_msg:<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> tmexxa mill-moderatur lejn <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a>.
 welcome_message:Merħba <b>{VAR: usr->alias}</b>, l-aħħar żjara tiegħek kienet nhar {TEMPLATE: welcome_message_date}
-# Fuzzy
-what_ppl_doing:Uri x'qed tagħmel in-nies
+what_ppl_doing:Attività tal-Utenti
 reported_del_report:Ħassar rapport
 reported_reason:Raġuni:
 reported_on:Nhar:
@@ -237,8 +239,7 @@ pmsg_forwarded:mgħoddi
 pmsg_subject:Suġġett
 pmsg_author:Awtur
 pmsg_time:Ħin
-# Fuzzy
-pmsg_selected:Magħżul
+pmsg_selected:Agħżel
 pmsg_delete:Ħassar
 cur_ppage_pm:Messaġġi privati
 writing_pm:Ikteb messaġġ privat
@@ -305,11 +306,16 @@ register_builtin:Mibni ġo fih
 register_specify_url:Ispeċifika l-URL
 register_uploaded:Tella' <i>avatar</i>
 register_login:Isem tal-utent:
+register_login_desc:L-isem li bih tixtieq tidħol f'kontok u tkun magħruf bih f'dan is-sit.
+register_login_available:Disponibbli
+register_login_taken:Diġà meħud
 register_password:Password:
+register_password_desc:Kelmaċċess għall-kont tiegħek. Il-kelmaċċessi jgħarrfu bejn ittri kbar u żgħar u jridu jkunu mill-inqas 6 karattri fit-tul.
 register_conf_pass:Ikkonferma l-password:
-# Fuzzy
-register_email_desc:Jekk jogħġbok daħħal indirizz elettroniku validu. Tista' tagħżel li taħbih fis-sezzjoni tal-preferenzi.
+register_conf_pass_desc:Jekk jogħġbok erġa' daħħal il-kelmaċċess tiegħek mill-ġdid.
+register_email_desc:L-ittre tiegħek. Tista' taħbih hawn taħt, fit-taqsima tal-Preferenzi.
 register_name:Isem:
+register_name_desc:Ismek veru.
 register_your_pass:Password:
 register_update:Aġġorna
 register_avatar_type:<i>Avatar</i>:
@@ -322,8 +328,7 @@ register_preview:Dehra proviżorja
 register_custom_avatar_upload:Fajl tal-<i>avatar</i> personalizzat:
 register_register:Irreġistra
 register_required:Informazzjoni neċessarja
-# Fuzzy
-register_required_desc:L-oqsma kollha huma neċessarji. Kun af li l-passwords huma sensittivi għal kif jinkitbu.
+register_required_desc:L-oqsma kollha huma meħtieġa.
 register_optional:Informazzjoni addizzjonali
 register_optional_desc:Huwa ta' parir li ma turi l-ebda informazzjoni personali jew identifikabbli fil-profil tiegħek. Kull informazzjoni tista' tinqara minn kwalunkwe membru tal-forum.
 register_location:Lokalità:
@@ -331,6 +336,7 @@ register_occupation:Okkupazzjoni:
 register_interests:Interessi:
 register_image:Stampa:
 register_icq:ICQ:
+register_facebook:ID tal-Facebook:
 register_yahoo:Yahoo Messenger:
 register_homepage:Paġna prinċipali:
 register_bday:Data tat-twelid:
@@ -368,8 +374,7 @@ my_buddies:Lista ta' ħbieb
 add_buddy:Żid ħabib
 add:Żid
 buddy_search:Daħħal l-isem tal-utent tal-membru li tixtieq iżżid.
-# Fuzzy
-member_search:Jew uża l-funzjonalità <a href="javascript://" onclick="javascript: window_open('{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1', 'user_list', 400,250);">Sib utent</a> sabiex tfittex persuna.
+member_search:Jew uża l-karatteristika <a href="javascript://" onclick="javascript: window_open('{ROOT}?t=pmuserloc&{DEF: _rsid}&js_redr=buddy_add.add_login&overwrite=1', 'user_list', 400,250);">Sib Utent</a> biex issib persuna.
 buddy_remove:neħħi
 post_normal:Normali
 post_sticky:Imwaħħal
@@ -379,8 +384,7 @@ post_color:Kulur
 post_font:Tipa
 create_thread:Oħloq is-suġġett
 submit_reply:Irrispondi
-# Fuzzy
-edit_message:Applika l-modifiki fil-messaġġ
+edit_message:Applika l-Modifiki
 apply_spell_changes:Applika l-modifiki
 post_preview:Dehra proviżorja tal-messaġġ
 post_logedin_user:Utent illogjat:
@@ -417,13 +421,13 @@ post_title:Titlu:
 post_body:Test:
 post_options:Opzjonijiet:
 post_preview_btn:Dehra proviżorja tal-messaġġ
+post_diff_btn:Uri Bidliet
 post_cancel_btn:Annulla
 ignore_users:Utenti injorati
 add_ignore:Żid utent li tixtieq tinjora
 forum_terms:Regoli tal-forum
 forum_rules:<p>Ir-reġistrazzjoni f'dan il-forum hija b'xejn! Aħna ninsistu li int tirrispetta r-regoli u l-politiki mniżżlin hawn taħt. Jekk taqbel ma' dawn it-termin, agħfas il-buttuna <b>Naċċetta<b> fl-aħħar tal-paġna.</p><p>Għalkemm l-amministraturi u l-moderaturi ta' dan il-forum jippruvaw jagħmlu li jistgħu biex ma jħallux messaġġi mhux pjaċevoli isibu post fuq dan il-forum, huwa impossibbli li kull messaġġ jiġi reviżjonat. Kull messaġġ jesprimi d-dehriet tal-awtur, u la l-proprjetarji tal-forum u lanqas l-iżviluppaturi għandhom jinżammu responsabbli tal-kontentut tal-ebda messaġġ.</p><p>Billi tagħfas il-buttuna "Naċċetta", inti taċċetta li mintix se tikteb messaġġi li huma oxxeni, vulgari, sesswali, ta' mibgħeda, ta' theddida, jew kwalunkwe ħaġa oħra li tivvjola l-liġijiet.</p><p>Il-proprjetarji ta' dan il-forum għandhom id-dritt li jneħħu, jimmodifikaw, imexxu jew jagħlqu kwalunwke suġġett għal kwalunwke raġuni.</p>
-# Fuzzy
-forum_rules_13:<p>Kull utent taħt l-età ta' 13-il sena għandu bżonn il-permess mingħand il-ġenituri jew gwardjan sabiex jirreġistra ma' dan il-forum. Filwaqt li nilqgħu l-parteċipazzjoni minn membri taħt it-13-il sena, aħna għandna bżonn <i>fax</i> jew ittra min-naħa tal-ġenituri jew gwardjan fejn jagħtu il-permess tagħhom bil-firma qabel ma nħallu ssir reġistrazzjoni.</p><p>Jekk tixtieq tibda l-proċess ta' reġistrazzjoni qabel ma aħna nirċievu formola ta' permess, agħfas il-buttona <b>Naċċetta</b> hawn taħt. Jekk tixtieq tħassar ir-reġistrazzjoni, agħfas <b>Ma naċċettax</b> sabiex tirritorna fid-daħla tal-forum.</p><p>Kopja tal-formola tal-permess tista' titniżżel hawnhek. Għal aktar informazzjoni dwar il-proċess ta' reġistrazzjoni, jekk jogħġbok ibgħat ittra elettronika fuq <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a>.</p>
+forum_rules_13:<p>L-utenti kollha taħt it-13-il sena għandhom jitolbu permess mingħand il-ġenitur jew kustodju tagħhom sabiex jissieħbu fil-forumi. Filwaqt li nilqgħu l-parteċipazzjoni minn membri taħt it-13-il sena, neħtieġu li ġenitur jew kustodju jibgħat formula ta' permess iffirmata lura bil-faks jew bil-posta qabel ma tissieħeb.</p><p> Jekk tixtieq tibda l-proċess ta' reġistrazzjoni qabel ma nirċievu formola ta' permess, agħfas il-buttuna <b>Naqbel</b> hawn taħt. Jekk tixtieq tikkanċella r-reġistrazzjoni, agħfas <b>Ma Naqbilx</b> biex terġa' lura għall-indiċi tal-forumi.</p><p> Kopja tal-formola tal-permess se tiġi ppreżentata wara r-reġistrazzjoni. Għal aktar tagħrif dwar il-proċess ta' reġistrazzjoni, jekk jogħġbok ibgħat email lil <a href="mailto:{GVAR: ADMIN_EMAIL}">{GVAR: ADMIN_EMAIL}</a> .</p>
 coppa_conf:Konferma tal-COPPA
 coppa_before:Qabel {TEMPLATE: coppa_date}
 coppa_after:Wara {TEMPLATE: coppa_date}
@@ -434,8 +438,7 @@ prereg_agree:Naċċetta
 prereg_disagree:Ma naċċettax
 prereg_update:Jaqra r-regoli tal-forum
 coppa_fax_instructions:Struzzjonijiet għal ġenitur jew gwardjan
-# Fuzzy
-coppa_fax_instructions2:Jekk jogħġbok ipprintja din il-paġna, iffirmaha, u ibgħatha permezz ta' <i>fax</i> lil:
+coppa_fax_instructions2:Jekk jogħġbok stampa dil-paġna, iffirmaha, u ibgħatha lura lilna bil-posta jew bil-faks.
 coppa_fax_reg_form:Formola ta' reġistrazzjoni
 coppa_fax_sign:Jekk jogħġbok iffirma l-formola t'hawn taħt u ibgħatha lilna
 coppa_fax_conf:Iċċekjajt l-informazzjoni li t-tifel/tifla tiegħi ta u qrajt il-politika ta' privatezza għal dan is-sit. Nifhem li l-informazzjoni tal-profil tista' tindidel permezz ta' password. Nifhem li nista' nistaqsi biex dan il-profil jitneħħa għal kollox minn dan il-forum.
@@ -462,6 +465,8 @@ login_login_btn:Idħol
 login_name_required:L-isem tal-utent huwa neċessarju
 login_passwd_required:Il-password hija neċessarja
 login_invalid_radius:L-isem tal-utent jew il-password mhumiex korretti
+login_or:jew...
+login_alternatives:Idħol f'kontok billi tuża:
 reset_confirmation:Grazzi tar-reġistrazzjoni tiegħek.\n\nSabiex tattiva l-kont tiegħek, jekk jogħġbok żur il-URL t'hawn taħt:\n\n{VAR: url}\n\nĠaladarba l-kont tiegħek huwa attivat, inti tiġi illogjat fil-forum u\ntiġi rindirizzat lejn il-paġna prinċipali tal-forum.
 reset_reset:Merħba,\n\nInti tlabt sabiex tirrisettja l-password. Sabiex tkompli dan il-proċess, żur dan il-URL:\n\n{VAR: url}\n\nNOTA: Dan il-forum isalva l-passwords f'mekkaniżmu ta' kriptaġġ f'sens uniku, li jfisser li ġaladarba inti ddaħħal il-password din tiġi kriptata b'tali mod li ma tistax tinqara jew imreġġa' lura. Din taħdem billi jiġu komparati l-verżjoni kriptata li għanda salvata mal-verżjoni kriptata ta' dak li qed tikteb meta tillogja.\n(Jekk int interessat tkun taf aktar dwar dan il-mekkaniżmu fittex <i>MD5 HASH algorithm</i>)
 rpasswd_invalid_passwd:Password ħażina
@@ -470,6 +475,7 @@ rpasswd_passwd_length:Il-password trid tkun twila minn tal-inqas 6 karattri
 reset_remind_pass:Tfakkira tal-password
 reset_reset_conf:Il-password se terġa' tiġi issettjata u tintbagħat lilek. Jekk għadek ma ikkonfermajtx l-indirizz elettroniku tiegħek, ir-rikjesta ta' konferma terġa' tintbagħtlek.
 reset_error:L-indirizz elettroniku ma nstabx fid-databażi
+reset_update:Reġġa' l-kelmaċċess
 rpasswd_change_pass:Biddel il-password
 rpasswd_login:Isem tal-utent
 rpasswd_cur_pass:Password attwali:
@@ -495,6 +501,7 @@ search_subject_only:Suġġett biss
 search_forum:Forum
 search_posted_on:Data:
 search_no_results:L-ebda riżultat
+search_spell_suggestions:Trid tfisser:
 search_all_forums:Fittex fil-forums kollha
 search_in_forum:Fittex fil-forum:
 search_forum_search:Fittex fil-forum
@@ -519,8 +526,7 @@ mklist_apply:Applika
 mklist_delete:Ħassar
 qbud_nick_name:Laqam
 qbud_add_selected:Żid mal-magħżul/a
-# Fuzzy
-qbud_selected:Magħżul
+qbud_selected:Agħżel
 qbud_no_buddies:L-ebda ħabib
 mklist_numerical:Numerika
 mklist_aplha:Alfabetika
@@ -589,8 +595,7 @@ buddy_list_err_ignore:Ma tistax iżżid utenti li jinjorawk fil-lista ta' ħbieb
 buddy_list_update:Esplora l-lista ta' ħbieb tiegħek
 core_err_invinp_title:Informazzjoni ħażina
 core_err_invinp_err:Għadek kif segwejt ħolqa invalida. Innotifika lill-<a href="mailto:{GVAR: ADMIN_EMAIL}">amminstratur</a> kif wasalt hawnhekk.
-# Fuzzy
-core_adm_login_msg:Amministraturi jistgħu jidħlu <a href="{GVAR: WWW_ROOT}adm/admloginuser.php">hawnhekk</a>.
+core_adm_login_msg:L-amministraturi jistgħu jidħlu <a href="{BASE}adm/admloginuser.php">hawn</a> .
 email_err_unabletoemail_title:ŻBALL: L-ittra-e ma tistax tinbgħat
 email_err_unabletoemail_msg:Is-sistema tal-posta elettronika ġiet diżattivata mill-amministratur.
 email_error_unabletolocaddr:Skużana, is-sistema ma setgħetx tibgħat ittra-e lill-utent {VAR-HTML: _POST['tx_name']} minħabba li ma setgħetx tiddetermina l-indirizz elettroniku
@@ -627,8 +632,7 @@ post_err_lockedthread_msg:Dan is-suġġett huwa magħluq, u għalhekk mhuwiex pe
 err_coppa_title:ŻBALL: Il-kont tiegħek għadu ma ġiex ikkonfermat
 err_coppa_msg:Aħna ma rċevejniex konferma mill-ġenituri u/jew il-gwardjan legali, li jħallik tikteb messaġġi. Jekk tlift il-formola taċ-COPPA (Children's Online Privacy Protection Act), iksibha minn <a href="{TEMPLATE: err_coppa_msg_lnk}">hawnhekk</a>.
 err_banned_acct_title:ŻBALL: Inti ġejt imblukkat.
-# Fuzzy
-err_banned_acct_msg:Il-kont tiegħek ġie {IF: $ban_expiry}temporanjament imblukkat sa {DATE: ban_expiry %a, %d %B %Y %H:%M}{ELSE}definittivament imblukkat{ENDI} milli taċċessa s-sit, minħabba vjolazzjoni tar-regoli tal-forum.
+err_banned_acct_msg:Kontok ġie {IF: $ban_expiry}projbit temporanjament sa {TEMPLATE: ban_expiry_date}{ELSE}projbit b'mod permanenti{ENDI} milli taċċessa s-sit, minħabba ksur tar-regoli tal-forum.
 post_err_edttimelimit_title:ŻBALL
 post_err_edttimelimit_msg:Ma tistax aktar timmodifika dan il-messaġġ
 post_err_noannontopics_msg2:<legend>ŻBALL: Privileġġi insuffiċjenti</legend>Utenti anonimi mhumiex permessi li joħolqu suġġetti.
@@ -654,8 +658,7 @@ postcheck_email_body:Ma tistax tibgħat ittra elettronika mingħajr test.
 private_msg_notify_subj:Aqra n-notifika għal: {VAR: m->subject}
 private_msg_notify_body:Merħba,<br />{VAR: usr->login} qara l-messaġġ privat tiegħek bit-titlu "{VAR: m->subject}".<br />Din hija notifika awtomatizzata ġġenerata nhar {TEMPLATE: private_msg_notify_body_date}<br />
 referals_update:Iqalleb ir-riferimenti
-# Fuzzy
-register_err_short_login:L-isem tal-utent li għażilt huwa wisq qasir. Dan irid ikun twil minn tal-inqas 4 karattri.
+register_err_short_login:Id-dħul fil-kont li għażilt huwa qasir wisq. L-ismijiet tad-dħul fil-kont iridu jkunu mill-inqas żewġ karattri fit-tul.
 register_err_login_notallowed:Dan l-isem tal-utent mhuwiex aċċettat.
 register_err_loginunique:L-ismijiet tal-utent fil-forum iridu jkunu uniċi; diġà hemm utent b'dan l-istess isem.
 register_err_emailexists:Dan l-indirizz elettroniku huwa diġà assoċjat ma' kont. Jekk insejt il-password mur għall-opzjoni ta' risettjar tal-password, minflok ma terġa' tirreġistra mill-ġdid.
@@ -684,8 +687,7 @@ reset_err_rstconf_title:Informazzjoni
 reset_err_rstconf_msg:Għandek tirċievi l-istruzzjonijiet fil-posta elettronika tiegħek fil-minuti li ġejjin.
 reset_newpass_title:Irrisettja l-password
 reset_newpass_msg:Merħba,\n\nKif tlabt, l-informazzjoni dwar kif tista' taċċessa l-kont tiegħek huma mniżżlin hawn taħt:\n\nIsem tal-utent: {VAR: ui[1]}\nPassword: {VAR: passwd}\n\nKun af li l-password tiegħek ġiet risettjata għal kif inhi miktuba hawn fuq. Jekk tixtieq tibdilha tista' tagħmel dan fil-pannell tal-kontroll tal-utent fuq:\n{FULL_ROOT}?t=register
-# Fuzzy
-reset_login_notify:Il-password tiegħek intbagħet fuq l-indirizz elettroniku tiegħek. Għandek tirċivieha fi ftit minuti oħra.<br />
+reset_login_notify:Il-kelmaċċess tiegħek intbagħtitlek bl-ittre. Għandek tirċeviha fi ftit minuti.
 search_update:Ifittex fil-messaġġi
 selmsg_update:Iqalleb il-<a href="{TEMPLATE: selmsg_update_lnk}">messaġġi tal-lum</a>
 showposts_update:Jara l-messaġġi ta': <a href="{TEMPLATE: showposts_update_lnk}">{VAR: u_alias}</a>
@@ -722,8 +724,7 @@ search_title:Fittex għal {VAR-HTML: srch}
 thread_title:{VAR: frm->name}
 tree_title:{VAR: frm->name} &raquo; {VAR: frm->subject}
 remail_emailsent:L-ittra elettronika intbagħtet
-# Fuzzy
-remail_email:Merħba,\n\nFil-forum {GVAR: FORUM_TITLE} hemm suġġett interessanti dwar "{VAR: data->subject}" li jista' jinteressak. Tista' tara s-suġġet fuq l-indrizz {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nĦabibek,\n\n{VAR: usr->alias}
+remail_email:Bonġu,\n\nHemm suġġett interessanti dwar " {VAR: data->subject} " fuq il-forum {GVAR: FORUM_TITLE} li forsi tixtieq taqra. Tista' tara s-suġġett fuq:\n {FULL_ROOT}?t=rview&th= {VAR: data->id} &rid={DEF: _uid}\n\nIl-ħabib tiegħek,\n\n {VAR: usr->alias}
 poll_add_option:Żid opzjoni
 post_opt_html_on:L-<b>HTML</b> hi <b>attiva</b>
 post_opt_fud_on:<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">Il-<b>BBCode</b> hi <b>attiva</b></a>
@@ -900,18 +901,15 @@ polllist_votes:Total ta' voti
 polllist_action:Azzjoni
 polllist_update:<a href="{TEMPLATE: polllist_update_lnk}">Qiegħed nikkontrolla s-sondaġġi disponibbli</a>
 userinfo_polls:Sondaġġi:
-# Fuzzy
-show_pollist:Uri l-lista ta' sondaġġi
+show_pollist:Sondaġġi
 search_and:U
 search_or:JEW
-# Fuzzy
-search_desc_order:Ordni dixxendenti
-# Fuzzy
-search_asc_order:Ordni axxendenti
+search_desc_order:L-iġded l-ewwel
+search_asc_order:L-eqdem l-ewwel
+search_relevance_order:Rilevanza
 search_logic:Kriterju ta' tfittxija:
-# Fuzzy
-search_sorting:Uri r-riżultati skont id-data f':
-search_attach:Mehmużin:
+search_sorting:Ordina skont:
+search_attach:Hemżiet:
 search_attach_all:Bi jew mingħajr
 search_attach_with:Bil-mehmużin
 post_proceed:Ipproċedi
@@ -967,11 +965,9 @@ iemail_forum_unsub:Ħassar l-abbonament minn dan il-forum
 primary_group_prefix:Grupp primarju għall-forum:
 group_resources:Dan il-grupp jikkontrolla l-permessi tal-forums segwenti
 register_admin_newuser_title:Utent ġdid għadu kif irreġistra u l-kont tiegħu qiegħed jistenna li jiġi kkonfermat
-# Fuzzy
-register_admin_newuser_msg:Utent ġdid ({VAR: uent->login}) għadu kif irreġistra u minħabba li l-konferma tal-kont hija attivata, il-kont tagħhom mhux se jkun attiv sakemm jiġi kkonfermat minnek jew minn amministratur ieħor tal-forum. Sabiex teżamina l-kont jekk jogħġbok żur {GVAR: WWW_ROOT}adm/admuserapr.php\n\nDan huwa proċess awtomatizzat. Tirrispondix dan il-messaġġ.\nJekk tixtieq titfi notifiki tal-posta elettronika fil-futur dwar reġistrazzjoni ta' utenti ġodda, tista' tagħmel dan billi tmur fuq il-pannell tal-kontroll tal-amministratur. Biddel l-impostazzjoni "Notifika ta' kont ġdid".
+register_admin_newuser_msg:Utent ġdid ( {VAR: uent->login} ) għadu kif irreġistra, u peress li t-twettiq tal-kont hija mixgħula, kontu mhux se jinxtegħel sakemm ma jiġix imwettaq minnek jew minn amministratur ieħor tal-forum. Biex tirrevedi l-kont jekk jogħġbok mur fuq: {BASE}adm/admuserapr.php\n\nDan huwa proċess awtomatizzat. Twieġebx għal dan il-messaġġ.\nJekk trid titfi n-notifiki futuri tal-ittre dwar reġistrazzjonijiet ta' utenti ġodda, tista' tagħmel dan permezz tal-Panella tal-Kontrol Amminstrali. Ibdel l-għażla "Notifiki tal-Kont Ġdid".
 post_mod_msg_notify_title:Messaġġ ġdid fil-forum "{VAR: frm->name}" qiegħed jistenna l-approvazzjoni.
-# Fuzzy
-post_mod_msg_notify_msg:Messaġġ ġdid bit-titlu "{VAR: msg_post->subject}" għadu kif intbagħat fil-forum li inti qiegħed timmodera. Sabiex teżamina dan il-messaġġ żur {FULL_ROOT}{ROOT}?t=modque#{VAR: msg_post->id}\n\nDan huwa proċess awtomatizzat. Tirrispondix dan il-messaġġ.
+post_mod_msg_notify_msg:Messaġġ ġdid bit-titlu "{VAR: msg_post->subject}" għadu kif ġie ppubblikat f'forum li inti timmodera. Biex tirrevedi dan il-messaġġ mur fuq: {FULL_ROOT}?t=modque# {VAR: msg_post->id} \n\nDan huwa proċess awtomatizzat. Twieġebx dan il-messaġġ.
 thread_printable_pdf:Oħloq PDF għall-ipprintjar
 thread_syndicate:Ippubblika l-forum (XML)
 reg_conf_title:Ikkonferma r-reġistrazzjoni
@@ -997,8 +993,7 @@ mnav_month:Xahar/Xhur
 mnav_title:Navigatur tal-messaġġi
 mnav_update:Navigazzjoni tal-messaġġi permezz tan-<a href="{TEMPLATE: mnav_update_lnk}">navigatur tal-messaġġi</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}] Notifika ta' messaġġ privat ġdid
-# Fuzzy
-pm_notify_body_email:Għandek messaġġ privat ġdid intitolat "{VAR: subject}" minn "{VAR: from}" fil-forum "{GVAR: FORUM_TITLE}".\nBiex tara l-messaġġ, agħfas hawnhekk: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nSabiex tieqaf milli tirċievi notifiki fil-futur, iddiżattva "Notifika ta' messaġġ privat" fil-profil tiegħek.
+pm_notify_body_email:Għandek messaġġ privat ġdid bit-titlu "{VAR: subject}", minn "{VAR: from}" fil-forum "{GVAR: FORUM_TITLE}".\nBiex tara l-messaġġ, agħfas hawnhekk: {FULL_ROOT}{ROOT}?t=pmsg_view&id={VAR: pid}\n\nSabiex twaqqaf notifiki futuri, iddiżattva "Notifiki ta' Messaġġi Privati" fil-profil tiegħek.
 register_pm_notification:Notifika ta' messaġġ privat:
 register_pm_notification_desc:Jekk permessa, inti se tiġi notifikat kull darba li tirċievi messaġġ privat.
 findu_admin_opts_header:Opzjonijiet tal-amministratur
@@ -1063,11 +1058,10 @@ search_options:Preferenzi għat-tfittxija
 search_user_filter:Iffiltra skont l-utent:
 register_none:Tavżanix
 findu_no_conf:utent mhux ikkonfermat
+findu_banned:utent projbit
 register_max_sig_len:Tul massimu:
-# Fuzzy
-register_turing:Jekk jogħġbok daħħal il-kodiċi muri taħt:
-# Fuzzy
-register_err_turing:Kodiċi ta' validazzjoni ħażin.
+register_turing:Verifika:
+register_err_turing:Il-verifika falliet. Jekk jogħġbok erġa' pprova.
 modque_cat:Kategorija
 modque_forum:Forum
 idx_compact_forum_row:Forums disponibbli:
@@ -1086,8 +1080,7 @@ dmsg_ip:IP:
 err_blockedaccnt_title:ŻBALL: Il-kont tiegħek ġie mneħħi minn filtru.
 err_blockedaccnt_msg:Il-kont tiegħek ġie imblukkat milli jaċċessa l-forum minħabba wieħed mill-filtri tal-utenti installati.
 merge_th_page_list:Għażla tal-paġna tas-suġġett
-# Fuzzy
-most_users_online:L-iktar numru ta' utenti illogjati kien ta' <b>{VAR: st_obj->most_online}</b> nhar <b>{DATE: st_obj->most_online_time %a, %d %B %Y %H:%M}</b>
+most_users_online:L-aktar utenti li qatt kienu onlajn kienu <b>{VAR: st_obj->most_online}</b> fuq <b>{TEMPLATE: most_online_time}</b>
 sub_unsub_all_forums:Ħassar l-abbonament mill-forums kollha
 sub_unsub_all_topics:Ħassar l-abbonament mis-suġġetti kollha
 unbookmark_all_topics:Neħħi l-preferiti kollha
@@ -1129,8 +1122,7 @@ move_msg_th_expl:Speċifika l-ID tas-suġġett ta' destinazzjoni (jista' jkun f'
 captcha_img_alt:Verifika tal-captcha: trid tagħraf it-test f'din l-istampa.
 captcha_img_help:M'hemmx żero jew wieħed fl-istampa.
 powered-by:Operata minn: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:Copyright &copy;2001-2021 <a href="http://fudforum.org/">FUDforum Bulletin Board Software</a>
+copyright:Jeddijiet tal-awtur ©2001-2026 <a href="http://fudforum.org/">Softwer tal-Bord tal-Bullettin tal-FUDforum</a>
 code_title:Kodiċi:
 code_select_all:Agħżel kollox
 code_show_hide:uri/aħbi
@@ -1168,3 +1160,10 @@ karma:Karma
 karma_track:Amministra r-reputazzjoni tal-utent:
 karma_delete:Ħassar
 rate_author:Ivvaluta lill-awtur:
+blog_update:Fil-qari tal-blogg tal-forum
+blog:Blogg
+blog_new_members:Membri Ġodda
+blog_new_posts:Post Riċenti
+blog_rated_posts:L-aħjar klassifika
+blog_viewed_posts:L-aktar midhura
+blog_comments:{PLURAL: topic->replies|one=kumment|few=$1 kummenti|many=$1-il kumment|other=$1 kummenti}

@@ -5,6 +5,7 @@
 # Author: Amjad Khan
 # Author: Baloch Khan
 # Author: Ibrahim khashrowdi
+# Author: باران
 # Author: شاه زمان پټان
 
 action:کړنه
@@ -211,17 +212,17 @@ month_10:اکتوبر
 month_11:نومبر
 month_12:ډېسمبر
 sunday:يوه‌نۍ
-sunday_short:ا
+sunday_short:ي
 monday:دوه‌نۍ
 monday_short:د
 tuesday:درې‌نۍ
-tuesday_short:درې‌نۍ
+tuesday_short:در
 wednesday:څلورنۍ
-wednesday_short:م
+wednesday_short:څ
 thursday:پېنځه‌نۍ
-thursday_short:ش
-friday:جمعه
-friday_short:ج
+thursday_short:پې
+friday:ادينه
+friday_short:ا
 saturday:پيلنۍ
 saturday_short:پ
 male:نارينه
@@ -275,7 +276,7 @@ register_interests:لېوالتياوې:
 register_image:انځور:
 register_facebook:فيسبوک پېژند:
 register_yahoo:ياهو مېسېنجر:
-register_homepage:وېبپاڼه:
+register_homepage:کورمخ:
 register_bday:زېږون نېټه:
 register_day:ورځ
 register_month:مياشت
@@ -311,7 +312,7 @@ create_thread:سکالو جوړول
 submit_reply:ځواب سپارل
 edit_message:بدلونونه پلي‌کول
 apply_spell_changes:املايي بدلونونه پلي‌کوف
-post_preview:مخليدنه
+post_preview:د پيغام مخکتنه
 post_logedin_user:ننوتی کارن:
 post_logout:وتل
 post_poll:اندغوښتنه:
@@ -332,10 +333,10 @@ max_file_size:د دوتنې تر ټولو لويه کچه:
 max_files_per_msg:په هر پيغام کې ترټولو لويې دوتنې:
 include_sig:لاسليک رانغاړل
 include_sig_desc:د خپل پېژنيال لاسليک پکې راونغاړئ.
-post_forum:فورم:
+post_forum:ټولنځی:
 post_title:سرليک:
 post_options:خوښنې:
-post_preview_btn:مخليدنه
+post_preview_btn:د پيغام مخکتنه
 post_diff_btn:د توپير بدلونونه
 post_cancel_btn:ناگارل
 ignore_users:له پامه غورځول شوي کارنان
