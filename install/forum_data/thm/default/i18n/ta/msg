@@ -1027,7 +1027,7 @@ adm_account_rejected_s:உங்கள் கணக்கு கோரிக்�
 thread_on:அன்று
 userinfo_buddy:நண்பர்:
 register_email_addr:மின்னஞ்சல் முகவரி:
-reset_suffix:நீங்கள் இந்த தகவலை பிழையாக பெற்றிருந்தால், தயவுகூர்ந்து புறக்கணிக்கவும். நீங்கள் கோராமல் இந்த மின்னஞ்சலின் பல நகல்களை நீங்கள் பெற்றால் தயவுகூர்ந்து கருத்துக்கள நிர்வாகியை தொடர்பு கொள்ளவும் at {GVAR: ADMIN_EMAIL}\n {VAR: _SERVER['REMOTE_ADDR']} .லிருந்து இந்த கோரிக்கை துவங்கப்பட்டது.
+reset_suffix:நீர் இத்தகவலைப் பிழையாகப் பெற்றிருந்தால் இதைப் புறக்கணிக்க. நீர் கோராமலேயே இம்மின்னஞ்சலின் பல நகல்களைப் பெற்றால் {GVAR: ADMIN_EMAIL} இற் கருத்துக் கள நிருவாகியைத் தொடர்பு கொள்க\n {VAR: _SERVER['REMOTE_ADDR']} இலிருந்து இக்கோரிக்கை தொடங்கியது.
 usrinfo_last_visit:கடைசியாக பார்வையிட்டது:
 mnav_newer:மிகப் புதியது
 mnav_older:மிக முந்தையது
@@ -1115,8 +1115,8 @@ post_common_quote:மேற்கோள் சேர்
 post_common_code:குறியீட்டை சேர்
 rating_delete:நீக்கு
 post_always_on_top:தலைப்பு எப்போதும் தலைப்பு பட்டியலில் மேலாக தெரியுமாறு அமைக்கவும்
-topic_rating:{VAR: frm->rating} லிருந்து {PLURAL: frm->n_rating|$1வாக்கு|$1 வாக்குகள்}
-topic_list_rating:{VAR: r[17]}லிருந்து {PLURAL: r[21]|$1 வாக்கு|$1வாக்குகள்}
+topic_rating:{VAR: frm->rating} இலிருந்து {PLURAL: frm->n_rating|$1வாக்கு|$1 வாக்குகள்}
+topic_list_rating:{VAR: r[17]} இலிருந்து {PLURAL: r[21]|$1 வாக்கு|$1வாக்குகள்}
 tabs_notifications:அறிவிப்புகள்
 finduser_flag:கொடி
 post_descr:தலைப்பு விளக்கம்:
