@@ -1,5 +1,6 @@
 # Messages for Romanian (română)
 # Exported from translatewiki.net
+# Author: Blaséd
 # Author: Danutz
 # Author: Firilacroco
 # Author: Macofe
@@ -209,7 +210,7 @@ reported_reported_by:Raportat de:
 reported_reported_msg:Mesaje raportate
 modque_pending_approval:Mesaje care asteapta aprobare
 modque_approve:Aproba
-modque_delete:Sterge
+modque_delete:Șterge
 modque_deleteall:Ștergeți tot de la utilizator
 modque_no_message:Nu este nici un mesaj care asteapta aprobare
 pmsg_new_messages:Mesaj personal necitit
@@ -395,7 +396,7 @@ post_no_icon:Nici o iconita
 post_smiley:Scurtaturi Smiley:
 post_format_tools:Unelte de formatare:
 post_upload_file:Incarca fisier
-post_file_del:Sterge
+post_file_del:Șterge
 post_file_name:Nume
 post_file_size:Marime
 file_attachments:Atasament fisier:
@@ -513,7 +514,7 @@ mklist_type:Tipul:
 mklist_option:Optiuni:
 mklist_additem:Adauga
 mklist_apply:Aplica
-mklist_delete:Sterge
+mklist_delete:Șterge
 qbud_nick_name:Porecla
 qbud_add_selected:Adauga selecat
 qbud_selected:Selectare
