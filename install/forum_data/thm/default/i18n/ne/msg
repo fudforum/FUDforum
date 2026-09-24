@@ -125,7 +125,7 @@ registered:पंजिकृत:
 registered_on:{TEMPLATE: registered_on_date}मा पंजिकृत गरिएको
 replies:उत्तरहरू
 reveal_post:सन्देश निकाल्ने
-search:खोज
+search:खोज्नुहोस्
 sel_todays_posts:आजका सन्देशहरू
 sel_unanswered_posts:अनुत्तरित सन्देशहरू
 sel_unread_messages:अपठित सन्देशहरू
@@ -164,7 +164,7 @@ vote:{PLURAL: frm->n_rating|$1 भोट|$1 भोटहरू}
 vote_button:मतदान गर्नुहोस्
 vote_for_thread:मत
 reported_reason:कारण:
-modque_delete:हटाउने
+modque_delete:मेटाउनुहोस्
 pmsg_new_messages:निजी सन्देशहरू नपढ्ने
 move_to:तिर सार्ने:
 list_referes_member:सदस्य
@@ -180,7 +180,7 @@ pmsg_author:लेखक
 pmsg_time:समय
 # Fuzzy
 pmsg_selected:चुनिएको
-pmsg_delete:मेट्ने
+pmsg_delete:मेटाउनुहोस्
 cur_ppage_pm:व्यक्तिगत सन्देश प्रणाली
 writing_pm:व्यक्तिगत सन्देश लेखिंदै
 inbox:पत्र मञ्जुषा
@@ -283,7 +283,7 @@ post_poll:जनमत:
 post_poll_delete:मेटाउने
 post_poll_edit:सम्पादन
 post_upload_file:चित्र उर्ध्वभरण गर्नुहाेस्
-post_file_del:हटाउने
+post_file_del:मेटाउनुहोस्
 post_file_name:नाम
 post_file_size:आकार
 post_forum:फोरम:
@@ -316,18 +316,18 @@ remail_required:आवश्यक
 remail_subject:विषय:
 remail_message:सन्देश:
 remail_done:सम्पन्न
-mklist_delete:मेट्ने
+mklist_delete:मेटाउनुहोस्
 email_to:लाई:
 email_pg_title:इमेल
 email_subject:विषय:
 email_body:मूख्य भाग:
 email_submit:इमेल
 ppost_to:लाई:
-poll_delete:मेट्ने
+poll_delete:मेटाउनुहोस्
 poll_hours:घन्टा
 register_change_passwd:प्रवेश शब्द परिवर्तन गर्नुहाेस्
-groupmgr_delete:मेट्ने
-p_DEL:मेट्ने
+groupmgr_delete:मेटाउनुहोस्
+p_DEL:मेटाउनुहोस्
 th_expr_one_hr:१ घन्टा
 th_expr_three_hr:३ घन्टा
 th_expr_eight_hr:८ घन्टा
@@ -341,7 +341,7 @@ th_expr_one_month:१ महिना
 th_expr_two_month:२ महिना
 th_expr_four_month:४ महिना
 th_expr_one_year:१ वर्ष
-thread_mod_delete:मेट्ने
+thread_mod_delete:मेटाउनुहोस्
 action_ip:आई पी
 action_latest_post:पछिल्लो सन्देश
 online_today_last_visit:अन्तिम परिभ्रमण गरिएको
@@ -359,10 +359,10 @@ search_asc_order:पुराना पहिला
 search_relevance_order:प्रासङ्गिकता
 search_logic:तर्क खाेज्नुहाेस्
 search_sorting:अनुसार क्रमबद्ध...
-findu_delete:मेट्ने
-ip_search:खोज
+findu_delete:मेटाउनुहोस्
+ip_search:खोज्नुहोस्
 mmd_abort_move:रद्द
-rating_delete:मेट्ने
+rating_delete:मेटाउनुहोस्
 tabs_notifications:सूचनाहरू
 btn_delete:मेट्ने
-karma_delete:मेट्ने
+karma_delete:मेटाउनुहोस्

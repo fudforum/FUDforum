@@ -571,7 +571,7 @@ ip_search_syntax:התחביר הנתמך: 1.2.3.4, 1.2.3, 1.2, 1
 ip_search:חיפוש
 ip_analyze_usage:ניתוח השימוש ב־IP
 ip_title:סייר IP
-userinfo_real_name:שם אמתי:
+userinfo_real_name:שם אמיתי:
 delete_msg_pm_body:ההודעה המקורית
 search_options:אפשרויות חיפוש
 search_user_filter:סינון לפי משתמש:
