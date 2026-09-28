@@ -20,14 +20,14 @@ admin:Beheer
 admin_control_panel:Beheer
 administrator:Beheerder
 attachment:Bijlage:
-avatar:Avatar:
+avatar:Profielafbeelding:
 average_post_count:{PLURAL: u->posted_msg_count|$1 bericht|$1 berichten} ({PLURAL: avg|$1 bericht|$1 berichten} gemiddeld per dag)
 biography:Biografie:
 birth_date:Geboortedatum:
 by:Door:
 by_mod:door moderator
 current_time:Huidige tijd
-custom_avatar_queue:Wachtrij voor aangepaste avatars
+custom_avatar_queue:Wachtrij voor aangepaste profielafbeeldingen
 date_posted:Berichtdatum
 date_registered:Registratiedatum:
 download_counter:{PLURAL: v[3]|$1 keer|$1 keer} keer gedownload
@@ -256,7 +256,7 @@ draft:Concepten
 sent:Verzonden
 trash:Prullenbak
 msg_author:Auteur
-avatar_sel_form:Avatar-selectieformulier
+avatar_sel_form:Profielafbeeldingsselectieformulier
 no_avatars:Er zijn geen avatars beschikbaar
 month_1:januari
 month_2:februari
@@ -311,7 +311,7 @@ pmuserloc_user:Gebruiker
 pmuserloc_no_result:Geen resultaten
 register_builtin:Ingebouwd
 register_specify_url:Geef een url op
-register_uploaded:Avatar uploaden
+register_uploaded:Profielafbeelding uploaden
 register_login:Gebruikersnaam:
 register_login_desc:De naam waarmee u wilt aanmelden en bekend staan op deze site.
 register_login_available:Beschikbaar
@@ -325,14 +325,14 @@ register_name:Naam:
 register_name_desc:Uw echte naam.
 register_your_pass:Uw wachtwoord:
 register_update:Bijwerken
-register_avatar_type:Avatartype:
-register_del_avatar:Avatar verwijderen
-register_avatar:Avatar:
-register_sel_avatar:Avatar selecteren
-register_custom_avatar_rules:Uw aangepaste avatar verschijnt niet totdat deze door een beheerder is goedgekeurd.<br /><font class="SmallText">De avatar mag niet groter zijn dan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet van het type <b>jpg</b>, <b>gif</b> of <b>png</b> zijn.</font>
-register_custom_avatar_url:Avatar-url:
+register_avatar_type:Profielafbeeldingstype:
+register_del_avatar:Profielafbeelding verwijderen
+register_avatar:Profielafbeelding:
+register_sel_avatar:Profielafbeelding selecteren
+register_custom_avatar_rules:Uw aangepaste profielafbeelding verschijnt niet totdat deze door een beheerder is goedgekeurd.<br /><font class="SmallText">De profielafbeelding mag niet groter zijn dan <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> en moet van het type <b>jpg</b>, <b>gif</b> of <b>png</b> zijn.</font>
+register_custom_avatar_url:Profielafbeelding-url:
 register_preview:Voorvertoning
-register_custom_avatar_upload:Eigen avatarbestand:
+register_custom_avatar_upload:Eigen profielafbeeldingsbestand:
 register_register:Registreren
 register_required:Vereiste informatie
 register_required_desc:Alle velden zijn verplicht.
@@ -677,7 +677,7 @@ register_err_enterpasswd:U moet uw huidige wachtwoord opgeven om de wijzigingen 
 register_err_adminpasswd:U moet uw <b>beheerderswachtwoord</b> opgeven om de wijzigingen door te voeren.
 register_err_notyouremail:Er is al iemand geregistreerd die dit e-mailadres gebruikt.
 register_err_avatartobig:Het bestand dat u probeert te uploaden is te groot. De limiet is {GVAR: CUSTOM_AVATAR_MAX_SIZE} bytes
-register_err_avatarnotallowed:De avatar die u probeert te uploaden is niet toegestaan. Controleer of het bestand van een toegelaten bestandstype is.
+register_err_avatarnotallowed:De profielafbeelding die u probeert te uploaden is niet toegestaan. Controleer of het bestand van een toegelaten bestandstype is.
 register_conf_subject:Registratiebevestiging
 register_conf_msg:Dank u voor uw registratie.\nVolg de volgende koppeling om uw gebruiker te activeren:\n\n{FULL_ROOT}?t=emailconf&conf_key={VAR: uent->conf_key}\n\nAls uw gebruiker is geactiveerd, wordt u aangemeld bij het forum en automatisch doorverwezen naar de hoofdpagina.
 register_welcome_subject:Bevestiging van forumregistratie
@@ -741,10 +741,10 @@ post_opt_smilies_off:<b>Smiley's</b> staan <b>uit</b>
 post_opt:Foruminstellingen:
 register_change_passwd:wachtwoord wijzigen
 register_change_login:Gebruikersnaam wijzigen
-approved_avatar_title:Uw aangepaste avatar is goedgekeurd.
-approved_avatar_msg:Uw avatar is goedgekeurd door een beheerder. Uw nieuwe avatar verschijnt nu bij al uw berichten. Als u uw nieuwe avatar niet ziet, of uw oude avatar wordt nog steeds weergegeven, dan komt daar zeer waarschijnlijk door de cache van uw browser. Vernieuw uw browsercache. In de meeste browsers is het probleem dan opgelost.
-unapproved_avatar_title:Uw aangepaste avatar is afgekeurd.
-unapproved_avatar_msg:De beheerder heeft uw avatar niet goedgekeurd. Vaak komt dit doordat uw avatar te groot is (bestandsgrootte of afmetingen) of doordat de afbeelding ongewenste inhoud heeft. Neem contact op met de beheerder voor meer informatie.
+approved_avatar_title:Uw aangepaste profielafbeelding is goedgekeurd.
+approved_avatar_msg:Uw profielafbeelding is goedgekeurd door een beheerder. Uw nieuwe profielafbeelding verschijnt nu bij al uw berichten. Als u uw nieuwe profielafbeelding niet ziet, of uw oude profielafbeelding wordt nog steeds weergegeven, dan komt daar zeer waarschijnlijk door de cache van uw browser. Vernieuw uw browsercache. In de meeste browsers is het probleem dan opgelost.
+unapproved_avatar_title:Uw aangepaste profielafbeelding is afgekeurd.
+unapproved_avatar_msg:De beheerder heeft uw profielafbeelding niet goedgekeurd. Vaak komt dit doordat uw profielafbeelding te groot is (bestandsgrootte of afmetingen) of doordat de afbeelding ongewenste inhoud heeft. Neem contact op met de beheerder voor meer informatie.
 mvthread_request_move:verplaatsing aanvragen
 move_request_reason:Waarom wilt u dit onderwerp laten verplaatsen?
 mvthread_submit_req:Aanvraag verzenden
@@ -941,7 +941,7 @@ err_mod_acc_msg:De beheerder heeft ervoor gekozen om handmatig alle gebruikers t
 accounts_pending_approval:Goed te keuren gebruikers
 saved:Opslaan
 register_err_time_limit:De registratielimiet van één registratie per {GVAR: REG_TIME_LIMIT} seconden is bereikt. Wacht nog {PLURAL: reg_limit_reached|$1 seconde|$1 seconden} en probeer dan opnieuw uw gebruiker te registreren.
-register_err_avatardimtobig:De afmetingen van de avatar (<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>) overschrijden de toegelaten maximale afmeting van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
+register_err_avatardimtobig:De afmetingen van de profielafbeelding (<b>({VAR: img_info[0]}x{VAR: img_info[1]})</b>) overschrijden de toegelaten maximale afmeting van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
 buddy_offline:{VAR: r[2]} is op dit moment afwezig
 buddy_online:{VAR: r[2]} is op dit moment aanwezig
 sml_no_smilies:Geen smiley's beschikbaar.
