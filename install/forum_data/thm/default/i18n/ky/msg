@@ -55,7 +55,7 @@ interests:Кызыгуулар:
 last_post:Акыркы билдирүү
 last_thread_msg:Бул темадагы акыркы билдирүүгө өтүү
 legend:Тарыхы
-location:Орун:
+location:Геолокация:
 lock_thread:Теманы жабуу
 locked:Бөгөттөлгөн
 locked_with_new_posts:Тема жабылган (окула элек билдирүүлөр бар)
@@ -314,7 +314,7 @@ register_required:Сөзсүз жазылуучу маалымат
 register_required_desc:Бардык талаалар сөзсүз толтурулушу абзел. Сураныч, эсиңизде болсун сырсөздөр катталуу символдоруна сезгич келет.
 register_optional:Кошумча маалымат
 register_optional_desc:Төмөндө көрсөтулгөн маалымат форумдун бардык колдонуучуларына ачык, андыктан өзгөчө жеке маалыматта жазбаңыз.
-register_location:Географиялык орду:
+register_location:Геолокация:
 register_occupation:Ишмердүүлүгү:
 register_interests:Кызыгуулар:
 register_image:Сүрөт:
