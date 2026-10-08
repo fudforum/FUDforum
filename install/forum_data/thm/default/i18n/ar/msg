@@ -187,7 +187,7 @@ thread_announcement:إعلان:
 thread_first_unread_msg:اذهب إلى أول رسائل غير مقروءة في هذا الموضوع
 thread_thread:موضوع
 threads:مواضيع
-time:وقت
+time:الوقت
 todays_posts:رسائل اليوم
 todays_posts_desc:أظهر كل الرسائل المُرسلة اليوم
 un_ignore_user:أوقف تجاهل رسائل هذا المستخدم
@@ -535,7 +535,7 @@ remail_error:وُجِد خطأ
 mklist_type:النوع:
 mklist_option:الخيار:
 mklist_additem:أضف عنصرًا
-mklist_apply:طبِّق
+mklist_apply:تطبيق
 mklist_delete:حذف
 qbud_nick_name:الاسم المستعار
 qbud_add_selected:أضف المختار
@@ -1135,8 +1135,7 @@ move_msg_th_expl:حدد هوية الموضوع الهدف (يمكن أن يكو
 captcha_img_alt:تحقق كابتشا: سوف تحتاج إلى التعرف على نص هذه الصورة.
 captcha_img_help:لا يوجد صفر ولا واحد في الصورة.
 powered-by:يشغله: FUDforum {GVAR: FORUM_VERSION}.
-# Fuzzy
-copyright:حقوق الطبع والنشر ©2001-2025 <a href="http://fudforum.org/">برنامج لوحة إعلانات FUDforum</a>
+copyright:جميع الحقوق محفوظة © 2001-2026 <a href="http://fudforum.org/">لبرنامج لوحة إعلانات FUDforum</a>
 code_title:الكود
 code_select_all:اختر الكل
 code_show_hide:أظهر/أخفِ
