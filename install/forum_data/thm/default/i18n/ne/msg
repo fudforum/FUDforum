@@ -297,12 +297,12 @@ coppa_fax_relation:बच्चासँगको सम्बन्ध:
 coppa_fax_telephone:टेलिफोन:
 coppa_fax_email:इमेल ठेगाना:
 coppa_fax_date:मिति:
-coppa_fax_login:प्रवेश
+coppa_fax_login:प्रवेश गर्नुहोस्
 coppa_fax_passwd:प्रवेश शब्द
 coppa_fax_remail:इमेल
 coppa_fax_name:नाम
 login_login:प्रवेश:
-login_login_btn:प्रवेश
+login_login_btn:प्रवेश गर्नुहोस्
 rpasswd_change_pass:प्रवेश शब्द परिवर्तन गर्नुहाेस्
 rpasswd_new_pass:नयाँ पासवर्ड:
 rpasswd_conf_pass:पासवर्ड निश्चित गर्नुहोस्:

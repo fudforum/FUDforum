@@ -529,7 +529,7 @@ remail_subject:الموضوع:
 remail_message:الرسالة:
 remail_send_now:أرسل البريد الإلكتروني الآن
 remail_anon_opt:انسخ هذه الرسالة إلى عميل بريدك لترسلها إلى صديقك (أو أصدقائك).
-remail_done:أنهِ
+remail_done:تم
 remail_sent_conf:أُرسِل البريد إلى صديقك {VAR-HTML: _POST['femail']} عن موضوع {VAR: data->subject} بنجاح.
 remail_error:وُجِد خطأ
 mklist_type:النوع:
