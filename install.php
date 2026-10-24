@@ -500,8 +500,8 @@ $module_status = modules_enabled();
 /* Perform various sanity checks, which check for required components. */
 if (!count($_POST)) {
 	/* PHP version check. */
-	if (!version_compare(PHP_VERSION, '7.4.0', '>=')) {
-		seterr('PHPVER', 'FUDforum requires PHP 7.4.0 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
+	if (!version_compare(PHP_VERSION, '8.2.0', '>=')) {
+		seterr('PHPVER', 'FUDforum requires PHP 8.2.0 or later while you have version <?php echo PHP_VERSION; ?> Installed. Please rectify this and try again.');
 	}
 
 	/* Database check. */

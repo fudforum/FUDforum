@@ -543,8 +543,8 @@ function syncronize_theme($theme)
 	}
 
 	// PHP version check.
-	if (!version_compare(PHP_VERSION, '7.4.0', '>=')) {
-		seterr('The upgrade script requires that you have PHP version 7.4.0 or higher.');
+	if (!version_compare(PHP_VERSION, '8.2.0', '>=')) {
+		seterr('The upgrade script requires that you have PHP version 8.2.0 or higher.');
 	}
 
 	/* Mbstring hackery, necessary if function overload is enabled. */
