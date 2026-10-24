@@ -14,21 +14,28 @@ FUDforum supports unlimited users, forums, posts, topics, polls and attachments.
 
 ## 🚀 Features
 
-* ⚡ **High performance** — built with scalability and speed in mind
-* 📈 **Scalable architecture** — designed to handle growing communities
-* 🎨 **Highly customizable** — adapt the forum to your community and workflow
-* 🔎 Effective search engine — quickly find relevant posts and discussions across your forum
-* 👥 **Unlimited users** — no artificial limits on community size
-* 💬 **Unlimited forums, topics and posts**
-* 📎 **File attachments**
-* 📊 **Polls**
-* 📰 **XML feed importing**
-* 🌐 **Usenet integration**
-* ✉️ **Mailing-list integration**
-* 🔄 **Bidirectional synchronization** with supported external discussion systems
-* 🛠️ **Web-based installation and upgrade tools**
-* 🖥️ **Command-line installation and upgrade support**
-* 🔧 **Administration and consistency-checking tools**
+* ⚡ **High performance** — fast and efficient, even as your community grows
+* 📈 **Built to scale** — designed to support communities of all sizes
+* 🎨 **Highly customizable** — tailor your forum to your community and workflow
+* 🔎 **Powerful search** — quickly find what you’re looking for with advanced filters and highlighted matches
+* 📱 **Responsive design** — a great experience on desktop, tablet, and mobile
+* 🔔 **Notifications & subscriptions** — keep members informed about replies and forum activity
+* 👤 **User profiles** — give members a place to share information and manage their preferences
+* 🛡️ **Powerful moderation** — comprehensive tools for managing users, posts, reports, bans, and spam
+* 🔐 **Flexible permissions** — control access to forums and administrative capabilities
+* 📈 **SEO-friendly** — help your public discussions get discovered by search engines
+* 🌍 **Internationalization** — support communities across languages and regions
+* 🌙 **Themes & customization** — give your forum its own look and identity
+* 💌 **Private messaging** — let members communicate directly with one another
+* 📊 **Statistics & analytics** — understand community activity and growth
+* 🔌 **Extensible with plugins** — add functionality without modifying the core software
+* 🔗 **API & integrations** — connect FUDforum with other applications and services
+* 👥 **Unlimited users** — no artificial limits on the size of your community
+* 💬 **Unlimited forums, topics and posts** — with support for attachments and polls
+* ✍️ **WYSIWYG editing** — create rich, beautifully formatted posts with an intuitive visual editor
+* 🔐 **OAuth authentication** — simplify registration and sign-in with external identity providers
+* 🛠️ **Easy installation and upgrades** — convenient web-based and command-line tools
+* 🔧 **Powerful administration** — comprehensive tools for managing and maintaining your forum
 
 ## 📦 Installation
 
@@ -132,13 +139,13 @@ Useful resources:
 * **Documentation:** https://github.com/fudforum/FUDforum/wiki
 * **Installation:** https://github.com/fudforum/FUDforum/wiki/Installation
 * **Upgrading:** https://github.com/fudforum/FUDforum/wiki/Upgrading
-* **Project website:** https://fudforum.org/
+* **Project website:** https://fudforum.org/ (redirects to GITHub)
 
 ## 📜 License
 
 FUDforum is distributed under the **GNU General Public License, version 2 (GPL-2.0)**.
 
-See [`COPYING`](./COPYING) for the complete license text.
+See [`COPYING.md`](./COPYING.md) for the complete license text.
 
 ## ❤️ About FUDforum
 
