@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2013 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2016 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -13,8 +13,8 @@ $GLOBALS['recv_user_id'] = array();
 
 class fud_pmsg
 {
-	var	$id, $to_list, $ouser_id, $duser_id, $pdest, $ip_addr, $host_name, $post_stamp, $icon, $fldr,
-		$subject, $attach_cnt, $pmsg_opt, $length, $foff, $login, $ref_msg_id, $body;
+	var	$id, $to_list, $ouser_id, $duser_id, $pdest, $ip_addr, $host_name, $read_stamp, $post_stamp,
+		$icon, $fldr, $subject, $attach_cnt, $pmsg_opt, $length, $foff, $login, $ref_msg_id, $body;
 
 	function add($track='')
 	{
@@ -123,7 +123,7 @@ class fud_pmsg
 			$GLOBALS['send_to_array'][] = array($v, $id);
 			$um[$v] = $id;
 		}
-		$c =  uq('SELECT id, email FROM {SQL_TABLE_PREFIX}users WHERE id IN('. implode(',', $GLOBALS['recv_user_id']) .') AND users_opt>=64 AND '. q_bitand('users_opt', 64) .' > 0');
+		$c =  q('SELECT id, email FROM {SQL_TABLE_PREFIX}users WHERE id IN('. implode(',', $GLOBALS['recv_user_id']) .') AND users_opt>=64 AND '. q_bitand('users_opt', 64) .' > 0');
 
 		$from = reverse_fmt($GLOBALS['usr']->alias);
 		$subject = reverse_fmt($this->subject);
