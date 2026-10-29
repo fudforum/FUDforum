@@ -861,7 +861,7 @@ report_already_reported_msg:Xa se informou sobre esta mensaxe e nestes intres es
 register_err_toomanyimages:Estás intentando empregar máis das {GVAR: FORUM_IMG_CNT_SIG} imaxes permitidas nunha sinatura.
 pmsg_next_msg:Mensaxe seguinte
 pmsg_prev_msg:Mensaxe anterior
-post_proc_reveal_spoiler:Revelar o spoiler
+post_proc_reveal_spoiler:Revelar o espóiler
 register_jabber:Identificador Jabber:
 register_skype:Identificador Skype:
 register_twitter:Identificador Twitter:
