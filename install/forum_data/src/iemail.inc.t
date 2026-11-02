@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2025 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -84,6 +84,9 @@ function send_email($from, $to, $subj, $body, $header='', $munge_newlines=1)
 		$smtp->send_smtp_email();
 		return 1;
 	}
+
+	// PHP mail() expects CRLF line endings in email
+	$header = str_replace(array("\r\n", "\r", "\n"), "\r\n", $header);
 
 	foreach ((array)$to as $email) {
 		if (!@mail($email, $subj, $body, $header)) {
