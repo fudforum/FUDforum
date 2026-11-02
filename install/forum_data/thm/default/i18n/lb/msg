@@ -420,6 +420,7 @@ reset_login_notify:Är Passwuert gouf per E-Mail un Iech geschéckt. Dir misst e
 ERR_access_ttl:FEELER: Net genuch Rechter
 ERR_access_msg:Dir hutt net déi néideg Rechter, fir dës Aktioun duerchzeféieren.
 ERR_emailconf_ttl:FEELER: Äre Kont ass nach net confirméiert
+ERR_user_msg:Dëse Benotzer gëtt et net
 ERR_systemerr_ttl:FEELER: Systemfeeler
 finduser_title:Benotzer fannen
 help_title:Hëllef
@@ -482,6 +483,7 @@ action_ip:IP
 action_latest_post:Leschte Message
 online_today_last_visit:Leschte Besuch
 logedin_latest_post:Leschte Message am Forum:
+register_show_avatar:Avatare weisen:
 split_th_post_by:Message vum:
 split_th_subject:Sujet:
 split_th_forum:Forum:
@@ -523,7 +525,7 @@ iemail_msg_author:<b>Auteur:</b> {VAR: obj->alias}
 iemail_msg_reply:Äntwerten
 iemail_msg_quote:Zitat
 threadt_announce:Ukënnegung
-mnav_submit:Ufänke mat sichen
+mnav_submit:Ufänke mat Sichen
 mnav_more:Méi &raquo;&raquo;
 mnav_minute:Minutt(en)
 mnav_hour:Stonn(en)
