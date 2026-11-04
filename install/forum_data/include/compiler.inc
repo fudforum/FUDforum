@@ -609,7 +609,7 @@ function parse_msgs($file)
 
 		// Encode message text (without sections) to ensure they don't break our templates.
 		// NOTE: DON'T ENCODE DOUBLE QUOTES (") USED IN HTML (for example <a href="">).
-		$msg = str_replace('\'', '&#39;', $msg);
+		$msg = str_replace("'", "\\'", $msg);
 
 		// Re-insert {sections}.
 		if( is_array($sections)) {
