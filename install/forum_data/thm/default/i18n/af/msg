@@ -194,8 +194,8 @@ user:Lid
 user_counter:Ons het <b>{VAR: st_obj->user_count}</b> geregistreerde {PLURAL: st_obj->user_count|lid|lede}.
 user_info:Ledeinformasie
 user_info_l:Ledeinformasie {VAR: u->alias}
-user_offline:{VAR: obj->login}  is tans af-lyn
-user_online:{VAR: obj->login} is tans aan-lyn
+user_offline:{VAR: obj->login}  is tans vanlyn
+user_online:{VAR: obj->login} is tans aanlyn
 usrinfo_last_post:Laaste boodskap:
 view_results:Wys resultate
 views:Kere gewys
@@ -868,8 +868,8 @@ im_twitter:Twitter:
 forum_contact:Kontak
 forum_home:Tuis
 post_cur_attached:tans aangeheg: {VAR: i} {PLURAL: i|lêer|lêers}
-ignored_anon_post:{GVAR: ANON_NICK} word geignoreer
-ignored_user_post:Pos deur <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> word geignoreer
+ignored_anon_post:{GVAR: ANON_NICK} word geïgnoreer
+ignored_user_post:Pos deur <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> word geïgnoreer
 smladd_close_window:Sluit venster
 post_list_smilies:lys alle gesiggies
 p_VISIBLE:Sigbaar
@@ -933,8 +933,8 @@ accounts_pending_approval:Rekeninge afwagtend vir goedkeuring
 saved:Stoor
 register_err_time_limit:Die registrasie limiet van 1 registrasie per {GVAR: REG_TIME_LIMIT} sekondes is oorskry. Wag asseblief {PLURAL: reg_limit_reached|$1 sekonde|$1 sekondes} en probeer dan weer om te registreer.
 register_err_avatardimtobig:Avatar dimensies van <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> oorskry die toelaatbare dimensies van <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b>.
-buddy_offline:{VAR: r[2]} is tans af-lyn
-buddy_online:{VAR: r[2]} is tans aan-lyn
+buddy_offline:{VAR: r[2]} is tans vanlyn
+buddy_online:{VAR: r[2]} is tans aanlyn
 sml_no_smilies:Geen gesiggies beskikbaar.
 login_unapproved_account_ttl:Onbevestigde rekening
 login_unapproved_account_msg:Die administrateur van die forum het besluit om nuwe rekeninge handmatig na te gaan alvorens dit bevestig word. Jou rekening is nog nie bevestig nie. Gevolglik sal jy nie al die funksies van die forum kan gebruik nie.
@@ -1062,7 +1062,7 @@ modque_forum:Forum
 idx_compact_forum_row:Beskikbare forums:
 mmd_del_title:Verwyder onderwerpe
 mmd_mov_title:Skuif onderwerpe
-mmd_move_threads_to:Destinasie Forum:
+mmd_move_threads_to:Bestemmingsforum:
 mmd_abort_move:Kanselleer
 mmd_move:Skuif onderwerpe
 pmsg_pdf_btn:Maak PDF-argief
@@ -1113,7 +1113,7 @@ pmsg_on:op
 pmsg_download_dump:Laai boodskappe af
 move_messages:Skuif boodskappe
 move_msg_btn:Skuif geselekteerde boodskappe
-move_msg_th_expl:Spesifiseer die ID van die destinasie onderwerp (kan in 'n ander forum wees)
+move_msg_th_expl:Spesifiseer die ID van die bestemmingsonderwerp (kan in ander forums wees)
 captcha_img_alt:Captcha-verifikasie: u moet die teks in die beeld herken.
 captcha_img_help:Daar is nie 'n nul of 'n een in die beeld nie.
 powered-by:Aangedryf deur: FUDforum {GVAR: FORUM_VERSION}.
