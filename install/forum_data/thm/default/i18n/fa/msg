@@ -333,7 +333,7 @@ register_email_desc:ایمیل شما. شما بعداً می‌توانید ا�
 register_name:نام:
 register_name_desc:نام واقعی شما.
 register_your_pass:رمز عبور شما:
-register_update:بروزرسانی
+register_update:روزآمدسازی
 register_avatar_type:نوع آواتار:
 register_del_avatar:حذف آواتار
 register_avatar:آواتار:
@@ -570,10 +570,10 @@ poll_name:نام نظرسنجی:
 poll_timelimit:محدودیت زمانی:
 poll_maxiumvotes:حداکثر تعداد آرا:
 poll_create:ایجاد
-poll_update:بروزرسانی
+poll_update:به‌روزرسانی
 poll_disablesmilies:غیرفعال کردن شکلک‌ها
 poll_create_poll:ایجاد نظرسنجی
-poll_update_poll:بروزرسانی
+poll_update_poll:به‌روزرسانی نظرسنجی
 poll_delete:حذف
 poll_updateoption:بروزرسانی گزینه
 poll_addoption:افزودن گزینه
@@ -778,7 +778,7 @@ groupmgr_action:اقدامات
 groupmgr_member:کاربر
 groupmgr_cancel:لغو
 groupmgr_add_member:افزودن کاربر
-groupmgr_update_member:بروزرسانی کاربر
+groupmgr_update_member:به‌روزرسانی کاربر
 groupmgr_edit:ویرایش
 groupmgr_delete:حذف
 group_mgr_anon:مهمان
