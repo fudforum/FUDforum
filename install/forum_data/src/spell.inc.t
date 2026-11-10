@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2023 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -37,23 +37,45 @@ function tokenize_string($data)
 	$wa = array();
 
 	$i = $p = 0;
-	$seps = array(','=>1,' '=>1,'/'=>1,'\\'=>1,'.'=>1,','=>1,'!'=>1,'>'=>1,'?'=>1,"\n"=>1,"\r"=>1,"\t"=>1,')'=>1,'('=>1,'}'=>1,'{'=>1,'['=>1,']'=>1,'*'=>1,';'=>1,'='=>1,':'=>1,'1'=>1,'2'=>1,'3'=>1,'4'=>1,'5'=>1,'6'=>1,'7'=>1,'8'=>1,'9'=>1,'0'=>1);
+
+	$seps = array(
+		','=>1, ' '=>1, '/'=>1, '\\'=>1, '.'=>1, '!'=>1, '>'=>1, '?'=>1,
+		"\n"=>1, "\r"=>1, "\t"=>1,
+		')'=>1, '('=>1, '}'=>1, '{'=>1, '['=>1, ']'=>1, '*'=>1,
+		';'=>1, '='=>1, ':'=>1, '"'=>1,
+		'“'=>1, '”'=>1, '‘'=>1, '’'=>1,
+		'1'=>1, '2'=>1, '3'=>1, '4'=>1, '5'=>1,
+		'6'=>1, '7'=>1, '8'=>1, '9'=>1, '0'=>1
+	);
 
 	while ($i < $len) {
-		if (isset($seps[$data[$i]])) {
+
+		// Read one complete UTF-8 character.
+		if (preg_match('/\G./us', $data, $m, 0, $i)) {
+			$char = $m[0];
+			$char_len = strlen($char);
+		} else {
+			// Fallback for invalid UTF-8.
+			$char = $data[$i];
+			$char_len = 1;
+		}
+
+		if (isset($seps[$char])) {
 			if (isset($str)) {
 				$wa[] = array('token'=>$str, 'check'=>1);
 				unset($str);
 			}
-			$wa[] = array('token'=>$data[$i], 'check'=>0);
-		} else if ($data[$i] == '<') {
+			$wa[] = array('token'=>$char, 'check'=>0);
+
+		} else if ($char == '<') {
+
 			if (($p = strpos($data, '>', $i)) !== false) {
 				if (isset($str)) {
 					$wa[] = array('token'=>$str, 'check'=>1);
 					unset($str);
 				}
 
-				$wrd = substr($data,$i,($p-$i)+1);
+				$wrd = substr($data, $i, ($p-$i)+1);
 				$p3 = $l = null;
 
 				/* remove code blocks */
@@ -76,7 +98,7 @@ function tokenize_string($data)
 
 						$p3 = strpos($data, '>', $p3);
 					}
-					
+
 				/* Remove new style quotes. */
 				} else if ($wrd == '<blockquote>') {
 					$l = 1;
@@ -100,33 +122,39 @@ function tokenize_string($data)
 					$wrd = substr($data, $i, ($p-$i)+1);
 				} else if ($l && ($p2 = strpos($data, '</'.$l.'>', $p))) {
 					$p = $p2+1+strlen($l)+1;
-					$wrd = substr($data,$i,($p-$i)+1);
+					$wrd = substr($data, $i, ($p-$i)+1);
 				}
 
 				$wa[] = array('token'=>$wrd, 'check'=>0);
 				$i = $p;
+
 			} else {
-				$str .= $data[$i];
+				$str .= $char;
 			}
-		} else if ($data[$i] == '&') {
+
+		} else if ($char == '&') {
+
 			if (isset($str)) {
 				$wa[] = array('token'=>$str, 'check'=>1);
 				unset($str);
 			}
 
 			$regs = array();
-			if (preg_match('!(\&[A-Za-z0-9]{2,5}\;)!', substr($data,$i,6), $regs)) {
+			if (preg_match('!(\&[A-Za-z0-9]{2,5}\;)!', substr($data, $i, 6), $regs)) {
 				$wa[] = array('token'=>$regs[1], 'check'=>0);
 				$i += strlen($regs[1])-1;
 			} else {
-				$wa[] = array('token'=>$data[$i], 'check'=>0);
+				$wa[] = array('token'=>$char, 'check'=>0);
 			}
+
 		} else if (isset($str)) {
-			$str .= $data[$i];
+			$str .= $char;
+
 		} else {
-			$str = $data[$i];
+			$str = $char;
 		}
-		$i++;
+
+		$i += $char_len;
 	}
 
 	if (isset($str)) {
