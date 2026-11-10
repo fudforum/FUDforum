@@ -1,6 +1,6 @@
 <?php
 /**
-* copyright            : (C) 2001-2011 Advanced Internet Designs Inc.
+* copyright            : (C) 2001-2026 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
 * $Id$
 *
@@ -124,7 +124,7 @@
 	$anon_alias = htmlspecialchars($ANON_NICK);
 	$msg_entry = '';
 
-	$c = uq('SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='. $th .' AND m.apr=1 ORDER BY m.post_stamp ASC');
+	$c = q('SELECT m.id, m.foff, m.length, m.file_id, m.subject, m.post_stamp, u.alias FROM {SQL_TABLE_PREFIX}msg m LEFT JOIN {SQL_TABLE_PREFIX}users u ON m.poster_id=u.id WHERE m.thread_id='. $th .' AND m.apr=1 ORDER BY m.post_stamp ASC');
 	while ($r = db_rowobj($c)) {
 		$msg_entry .= '{TEMPLATE: move_msg_entry}';
 	}
