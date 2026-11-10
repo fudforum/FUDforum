@@ -66,7 +66,7 @@ function index_text($subj, $body, $msg_id)
                 $body = preg_replace('/<font color="[^"]*">&gt;[^<]*<\/font><br \/>/s', '', $body);
         }
 
-	// Give more weight to short descriptive subjects and penalize long descriptions.
+	// Give more weight to short descriptive subjects and penalise long descriptions.
 	if (substr($subj, 0, 3) === 'Re:') {
 		$weight = 0;
 	} else {

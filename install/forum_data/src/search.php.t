@@ -80,7 +80,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 
 	if (preg_match('/(\_|\%)/', $qry) || !($wa = text_to_worda($qry))) {
 		// Force a subject search, either because -
-		//   1) we detected wildcard characters, or
+		//   1) we detected wild-card characters, or
 		//   2) filtering out short and long words left us with an empty search string.
 
 		$total = q_singleval('SELECT count(*)
@@ -210,6 +210,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 		if (defined('plugins') && isset($plugin_hooks['SEARCH'])) {
 			list($search_data, $page_pager) = plugin_call_hook('SEARCH', $srch);
 		} else if (!($c = fetch_search_cache($srch, $start, $ppg, $search_logic, $field, $sort_order, $forum_limiter, $total))) {
+			// No search results
 			$search_data = '{TEMPLATE: no_search_results}';
 			$page_pager = '';
 
@@ -248,6 +249,7 @@ function fetch_search_cache($qry, $start, $count, $logic, $srch_type, $order, $f
 			}
 
 		} else {
+			// Show search results
 			$i = 0;
 			$search_data = '';
 			while ($r = db_rowobj($c)) {
