@@ -94,7 +94,7 @@ moved:Na ander forum geskuif
 moved_thread_message:Die onderwerp is na 'n ander forum geskuif
 na:Geen
 new_posts:Nuwe boodskappe
-new_private_messages:U het <span class="GenTextRed">({VAR: c})</span> ongeleesde {PLURAL: c|privaatboodskap|privaatboodskappe}
+new_private_messages:Jy het <span class="GenTextRed">({VAR: c})</span> ongeleesde {PLURAL: c|privaat boodskap|privaat boodskappe}
 new_thread:Begin 'n nuwe onderwerp
 newest_user:Die nuutste geregistreerde lid is
 next_page:Volgende bladsy
@@ -115,7 +115,7 @@ occupation:Beroep:
 off:Af
 on:Aan
 page_timings:Totale tyd vir bou van die bladsy: {PLURAL: page_gen_time|$1 sekondes}
-pm:Privaatboodskappe
+pm:Privaat boodskappe
 poll:Meningspeiling:
 post_count:Aantal boodskappe {VAR: u_pcount}
 post_count_l:Aantal boodskappe:
@@ -239,7 +239,7 @@ pmsg_author:Outeur
 pmsg_time:Tyd
 pmsg_selected:Kies
 pmsg_delete:Skrap
-cur_ppage_pm:Privaatboodskappe
+cur_ppage_pm:Privaat boodskappe
 writing_pm:Skryf nuwe privaatboodskap
 browsing_folder:Wys vouer <b>{VAR: folders[$folder_id]}</b>
 inbox:Inboks
@@ -573,7 +573,7 @@ tabs_bookmarkes:Boekmerke
 tabs_referrals:Verwysings
 tabs_buddy_list:Vriendelys
 tabs_ignore_list:Ignoreerlys
-tabs_private_messaging:Privaatboodskappe
+tabs_private_messaging:Privaat boodskappe
 single_msg_delete:U is op die punt om boodskap <b>{VAR: data[3]}</b> te <span class="ErrorText">verwyder</span>
 thread_delete:U is op die punt om <span class="ErrorText">die hele onderwerp</span> <b>{VAR: data[3]}</b> te <span class="ErrorText">verwyder</span>
 delete_proceed:<font size="3"><b>Wil u hiermee voortgaan?</b></font>
@@ -799,7 +799,7 @@ userinfo_referals:Verwysde lede:
 userinfo_referals_count:{VAR: referals} lede
 pm_no_space_title:Geen spasie oor nie!
 pm_no_space_msg:U privaatboodskap oorskry die <b>{GVAR: MAX_PMSG_FLDR_SIZE} grepe</b> wat aan u toegeken is. U boodskappe neem op die oomblik <b>{VAR: fldr_size} grepe</b> op.<br /><br /><font class="ErrorText">Verwyder asseblief van die ouer boodskappe om spasie beskikbaar te maak.</font>.
-pm_space_indct_msg:U gebruik tans {VAR: percent_full}% van die spasie wat vir u privaatboodskappe toegeken is.
+pm_space_indct_msg:Jy gebruik tans {VAR: percent_full}% van die spasie wat vir jou privaat boodskappe toegeken is.
 th_expr_never:Nooit
 th_expr_one_hr:1 uur
 th_expr_three_hr:3 ure
@@ -884,9 +884,9 @@ pmsg_recepient:Ontvanger
 register_err_taken_alias:Die alias wat u gekies het word reeds deur 'n ander forumlid gebruik, kies asseblief 'n ander alias.
 register_alias:Alias:
 register_alias_desc:Indien u 'n bynaam eerder as u gebruikersnaam op die forum wil vertoon, vul dit dan hier in.
-register_allow_pm_msg:Laat privaatboodskappe toe
-register_allow_pm_msg_desc:Laat ander gebruikers toe om aan u privaatboodskappe deur die forum te stuur.
-postcheck_pm_disabled:Jy kan nie 'n privaatboodskap aan "{VAR-HTML: v}" stuur nie, omdat die gebruiker nie privaatboodskappe aanvaar nie.
+register_allow_pm_msg:Laat privaat boodskappe toe:
+register_allow_pm_msg_desc:Laat ander gebruikers toe om vir jou privaat boodskappe deur die forum te stuur.
+postcheck_pm_disabled:Jy kan nie 'n privaat boodskap aan "{VAR-HTML: v}" stuur nie, omdat die gebruiker nie privaat boodskappe aanvaar nie.
 polllist_vote:Stem
 polllist_view_results:Wys resultate
 polllist_name:Stemmingsnaam
@@ -925,8 +925,8 @@ spell_alts:geen alternatiewe
 insert_uploaded_image:Voeg beeld in die boodskap
 finduser_help:Die soekenjin voeg outomaties 'n * by u soekvraag. Byvoorbeeld, om na lede te soek wat se gebruikersnaam met 'n &quot;a&quot; begin, tik slegs &quot;a&quot; in die soekveld in.
 back_to_top:terug na bo
-pm_err_disabled_title:Privaatboodskappe is gedeaktiveer
-pm_err_disabled_msg:U kan nie privaatboodskappe stuur alvorens u nie die "Laat privaatboodskappe toe" funksie in u profiel aangeskakel het nie.
+pm_err_disabled_title:Privaat boodskappe is gedeaktiveer
+pm_err_disabled_msg:Jy kan nie privaat boodskappe stuur voordat jy die "Laat privaat boodskappe toe"-opsie in jou profiel geaktiveer het nie.
 err_mod_acc_ttl:Ongeverifieerde rekening
 err_mod_acc_msg:Die administrateur het gekies om manueel alle rekeninge te hersien voor aktivering. Totdat u rekening gevalideerd is deur die administrateur sal u nie die volle kapasiteit van u rekening kan gebruik nie.
 accounts_pending_approval:Rekeninge afwagtend vir goedkeuring
@@ -988,9 +988,9 @@ mnav_month:Maand(e)
 mnav_title:Navigasie
 mnav_update:Blaai deur boodskappe met <a href="{TEMPLATE: mnav_update_lnk}">Boodskapnavigator</a>
 pm_notify_subject:[{GVAR: FORUM_TITLE}]: Kennisgewing van nuwe privaatboodskap
-pm_notify_body_email:U het 'n nuwe privaatboodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nKliek hier om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien u nie meer kennisgewings soos hierdie wil ontvang nie, kan u "Kennisgewings vir privaatboodskappe" in u profiel afskakel.
-register_pm_notification:Kennisgewings vir privaatboodskappe:
-register_pm_notification_desc:Indien aangeskakel sal u van nuwe privaatboodskappe in kennis gestel word.
+pm_notify_body_email:Jy het 'n nuwe privaat boodskap met onderwerp "{VAR: subject}" van "{VAR: from}" in forum "{GVAR: FORUM_TITLE}".\nKliek hier om die boodskap te lees: {FULL_ROOT}?t=pmsg_view&id={VAR: pid}\n\nIndien jy nie meer kennisgewings soos hierdie wil ontvang nie, kan jy "Kennisgewings vir privaat boodskappe" in jou profiel afskakel.
+register_pm_notification:Kennisgewings vir privaat boodskappe:
+register_pm_notification_desc:Indien geaktiveer, sal jy van nuwe privaat boodskappe in kennis gestel word.
 findu_admin_opts_header:Administrasie:
 findu_unban:Ontban
 findu_ban:Verban
@@ -1043,7 +1043,7 @@ ip_no_whois:WHOIS-inligting vir die IP-adres <b>{VAR: ip}</b> is nie beskikbaar 
 ip_whois_title:ISP Inligting
 register_theme:Tema:
 pmsg_trash:Maak asblik leeg
-uc_new_pm:Nuwe privaatboodskappe
+uc_new_pm:Nuwe privaat boodskappe
 uc_new_topic:Nuwe onderwerp
 uc_new_cat_forum:Ingetekende forums met nuwe boodskappe
 uc_cat_forum:Kategorie &raquo; Forum
@@ -1150,7 +1150,7 @@ pages:Bladsye
 page_list_heading:Beskikbare bladsye
 page_list_total:{PLURAL: i|$1 bladsy|$1 bladsye} gelys.
 page_update:Lees 'n bladsy
-pm_export_header:Privaatboodskappe vir {VAR: usr->alias}
+pm_export_header:Privaat boodskappe vir {VAR: usr->alias}
 pm_export_footer:Uitgevoer:
 karma:Karma
 karma_track:Bestuur reputasie van gebruikers
